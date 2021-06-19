@@ -1,0 +1,22 @@
+
+<% @rates.each do |rate| %>
+<%= rate.answer.id %>
+<div>
+  <span>言葉遣い評価：</span>
+  <span id="star1-rate-<%= rate.id %>"></span>
+  <script>
+    $('#star1-rate-<%= rate.id %>').raty({
+      size: 36,
+      starOff: "<%= asset_path('star-off.png') %>",
+      starOn: "<%= asset_path('star-on.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      half: true,
+      readOnly: true,
+      score: <%= rate.communication %>,
+    });
+  </script>
+  <%= rate.communication  %>
+</div>
+<% end %>
+件数 :<%= @count %>
+平均評価 :<%= (@sum / @count).to_f.round(1)  %> /5点満点

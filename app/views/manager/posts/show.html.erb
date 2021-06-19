@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <h2>質問詳細</h2>
+    </div>
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+         <td><%= @post.posttitle %></td>
+         <td><%= @post.postbody %></td>
+         <td><%= @post.postsyutten %></td>
+         <td><%= @post.postimage_id %></td>
+         <td><%= @post.member.name %></td>
+         <td><%= link_to @post.member.name, manager_member_path(@post.member) %></td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @post.answers.each do |answer| %>
+        <tr>
+         <td><%= answer.answerbody %></td>
+         <td><%= answer.answersyutten %></td>
+         <td><%= answer.answerimage_id %></td>
+         <td><%= link_to answer.member.name, manager_member_path(answer.member) %></td>
+         <td><%= answer.updated_at.to_s(:datetime_jp) %></td>
+         <td><%= link_to '削除する', manager_answer_path(answer), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%></td>
+         </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <div class="col-lg-7">
+    <%= paginate @answers %>
+    </div>
+
+ </div>
+</div>

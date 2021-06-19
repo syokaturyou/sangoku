@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <h2>質問詳細</h2>
+    </div>
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+         <td><%= @post.posttitle %></td>
+         <td><%= @post.postbody %></td>
+         <td><%= @post.postsyutten %></td>
+         <td><%= @post.postimage_id %></td>
+         <td><%= link_to @post.member.name, public_member_path(@post.member) %></td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @post.answers.each do |answer| %>
+        <tr>
+         <td><%= answer.answerbody %></td>
+         <td><%= answer.answersyutten %></td>
+         <td><%= answer.answerimage_id %></td>
+         <td><%= link_to answer.member.name, public_member_path(answer.member) %></td>
+         <td><%= answer.updated_at.to_s(:datetime_jp) %></td>
+         <td><%= link_to '評価する', new_public_answer_rate_path(answer.id), class: 'btn btn-success', data: {"turbolinks"=>false} %></td>
+         <td><%= link_to '評価一覧', public_answer_rate_path(answer.id), class: 'btn btn-success', data: {"turbolinks"=>false} %></td>
+         <% if answer.member.id == current_member.id %>
+         <td><%= link_to '編集する', edit_public_answer_path(answer), class: 'btn btn-success', data: {"turbolinks"=>false} %></td>
+         <td><%= link_to '削除する', public_answer_path(answer), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%></td>
+         <% end %>
+
+        <td><%= answer.id %>
+        <%= answer.member.id %>
+        </td>
+
+        <td>
+        <% @rates.each do |rate| %>
+        <%= rate.answer.id %>
+         <% end %>
+        </td>
+        <td>
+        <%= render 'public/rates/review' %>
+        </td>
+
+
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  <div class="row">
+    <div class="col-lg-7">
+    <%= paginate @answers %>
+    </div>
+
+    <% if member_signed_in? %>
+    <%= link_to ' 新規回答投稿する', new_public_post_answer_path(@post), class: 'btn btn-success', data: {"turbolinks"=>false} %>
+    <% end %>
+
+  </div>
+</div>

@@ -1,0 +1,2 @@
+module Public::RatesHelper
+end

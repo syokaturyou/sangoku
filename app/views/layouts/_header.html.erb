@@ -1,0 +1,21 @@
+<header>
+ <!--<ログイン状態で項目変更>-->
+  <% if member_signed_in? %>
+   <%= link_to 'トップページ',root_path %>
+   <%= link_to 'マイページ',public_member_path(current_member.id),class: 'fas fa-user nav-link text-light' %>
+   <%= link_to '質問投稿一覧',public_posts_path,class: 'fab fa-shopify nav-link text-light' %>
+   <%= link_to 'お問い合わせ',new_contract_path,class: 'fab fa-shopify nav-link text-light' %>
+   <%= link_to 'ログアウト', destroy_member_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-light' %>
+  <% elsif admin_signed_in? %>
+   <%= link_to 'トップページ',root_path %>
+   <%= link_to '会員一覧',manager_members_path,class: 'fas fa-user nav-link text-light' %>
+   <%= link_to '質問投稿一覧',manager_posts_path,class: 'fab fa-shopify nav-link text-light' %>
+   <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-light' %>
+  <% else %>
+   <%= link_to 'トップページ',root_path %>
+   <%= link_to '質問投稿一覧',public_posts_path,class: 'fab fa-shopify nav-link text-light' %>
+   <%= link_to '新規登録', new_member_registration_path,class: 'fas fa-user-plus nav-link text-light' %>
+   <%= link_to 'ログイン', new_member_session_path ,class: 'fas fa-sign-in-alt nav-link text-light'%>
+  <% end %>
+
+</header>

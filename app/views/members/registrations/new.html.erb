@@ -1,0 +1,45 @@
+<h4>新規会員登録</h4>
+  <div class ="center">
+    <div class ="bottom">
+    <%= form_for(resource, as: resource_name, url: member_registration_path) do |f| %>
+    <%= render "members/shared/error_messages", resource: resource %>
+
+    <table>
+    <tr>
+    <div class="field">
+     <th><%= f.label :登録名 %></th>
+     <th><%= f.text_field :name, autofocus: true, required: true, class: 'form-control', size: "35" %></th>
+    </div>
+    </tr>
+    <tr>
+    <div class="field">
+     <th><%= f.label :メールアドレス %></th>
+     <th><%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %></th>
+    </div>
+    </tr>
+    <tr>
+    <div class="field">
+     <th><%= f.label :パスワード（６文字以上） %></th>
+         <% if @minimum_password_length %>
+         <% end %>
+     <th><%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %></th>
+    </div>
+    </tr>
+    <tr>
+    <div class="field">
+     <th><%= f.label :パスワード（確認用） %></th>
+     <th><%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %></th>
+    </div>
+    </tr>
+    </table>
+    <br></br>
+    <div class="actions">
+    <%= f.submit "新規登録する", class: 'btn btn-success' %>
+    </div>
+    <% end %>
+
+  <h2>既に登録済みの方</h2>
+  <%= render "members/shared/links" %>
+
+   </div>
+  </div>

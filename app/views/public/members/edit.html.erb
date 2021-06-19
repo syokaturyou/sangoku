@@ -1,0 +1,26 @@
+<h2>マイページ編集</h2>
+
+<%= form_with model:@member, url: public_member_path(@member), local: true do |f| %>
+  <div class="field">
+    <%= f.label :登録名 %><br />
+    <%= f.text_field :name, autofocus: true, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :登録メールアドレス %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :プロフィール %><br />
+    <%= f.text_area :profile, autofocus: true %>
+  </div>
+
+    <div class="field">
+     <th><%= f.label :プロフィール画像 %></th>
+     <th><%= f.file_field :profileimage, autofocus: true %></th>
+    </div>
+
+  <br></br>
+  <p><%= f.submit "編集内容を保存", class: 'btn btn-success' %></p>
+  <% end %>

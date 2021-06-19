@@ -1,0 +1,43 @@
+<h4>新規質問投稿</h4>
+  <div class ="center">
+    <div class ="bottom">
+      <%= form_with model: @newpost, url: public_posts_path, local: true do |f| %>
+    <table>
+    <tr>
+    <div class="field">
+     <th><%= f.label :質問タイトル入力 %></th>
+     <th><%= f.text_field :posttitle, autofocus: true, required: true %></th>
+    </div>
+    </tr>
+
+    <tr>
+    <div class="field">
+     <th><%= f.label :説明文入力 %></th>
+     <th><%= f.text_area :postbody, autofocus: true, required: true %></th>
+    </div>
+    </tr>
+
+    <tr>
+    <div class="field">
+     <th><%= f.label :出典・参考url入力 %></th>
+     <th><%= f.text_field :postsyutten, autofocus: true %></th>
+    </div>
+    </tr>
+
+    <tr>
+    <div class="field">
+     <th><%= f.label :参考画像 %></th>
+     <th><%= f.file_field :postimage, autofocus: true %></th>
+    </div>
+    </tr>
+
+    </table>
+
+    <br></br>
+    <div class="actions">
+    <%= f.submit "質問を投稿する", class: 'btn btn-success' %>
+    </div>
+    <% end %>
+
+   </div>
+  </div>

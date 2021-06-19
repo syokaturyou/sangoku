@@ -1,0 +1,33 @@
+<h2><%= @member.name %>さんの会員情報</h2>
+<div class='container'>
+  <div class='row'>
+    <div class='col-lg-7'>
+       <table class="table table-borderless">
+        <thead>
+        </thead>
+        <tbody>
+          <tr>
+            <td>登録名</td>
+            <td><%= @member.name %></td>
+          </tr>
+          <tr>
+            <td>会員id</td>
+            <td><%= @member.id %></td>
+          </tr>
+          <tr>
+            <td>プロフィール</td>
+            <td><%= @member.profile %></td>
+          </tr>
+          <tr>
+            <td>プロフィール画像</td>
+            <td><%= @member.profileimage_id %></td>
+          </tr>
+        </tbody>
+      </table>
+      <% if @member.id == current_member.id %>
+      <h6><%= link_to '登録情報を編集する',edit_public_member_path(current_member), class: 'btn btn-success' %></h6>
+      <h6><%= link_to '退会する',public_unsubscribe_path, class: 'btn btn-danger' %></h6>
+      <% end %>
+    </div>
+  </div>
+</div>

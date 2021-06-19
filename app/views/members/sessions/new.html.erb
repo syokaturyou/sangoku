@@ -1,0 +1,35 @@
+<div class ="center">
+  <h2>会員ログイン</h2>
+  <div class ="bottom">
+    <%= form_for(resource, as: resource_name, url: member_session_path) do |f| %>
+    <table>
+    <!--<tr>-->
+    <!--<div class="field">-->
+    <!--<th><%= f.label :登録名 %></th>-->
+    <!--<th><%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control', size: "45" %></th>-->
+    <!--</div>-->
+    <!--</tr>-->
+    <tr>
+    <div class="field">
+    <th><%= f.label :メールアドレス %></th>
+    <th><%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', size: "45" %></th>
+    </div>
+    </tr>
+    <tr>
+    <div class="field">
+    <th><%= f.label :パスワード %></th>
+    <th><%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %></th>
+    </div>
+    <tr>
+    </table>
+
+  <br></br>
+  <div class="actions">
+  <%= f.submit "ログイン", class: 'btn btn-primary' %>
+   <% end %>
+  </div>
+   <br></br>
+<h3>会員登録がお済みでない方</h3>
+ <%= render "members/shared/links" %>
+</div>
+</div>

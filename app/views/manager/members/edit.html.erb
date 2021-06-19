@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-7">
+     <h2><%= @member.name %>さんの会員編集</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-7">
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= form_with model:@member, url: manager_member_path(@member), local:true do |f| %>
+          <tr>
+            <td>氏名</td>
+            <td><%= f.text_field :name %></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= f.text_field :email %></td>
+          </tr>
+          <tr>
+            <td>プロフィール</td>
+            <td><%= f.text_area :profile %></td>
+          </tr>
+          <tr>
+           <td>プロフィール画像</td>
+           <td><%= f.file_field :profileimage, autofocus: true %></td>
+          </tr>
+          <tr>
+            <td>会員ステータス</td>
+            <td>
+              <label><%= f.radio_button :is_deleted, false %>有効</label>
+              <label><%= f.radio_button :is_deleted, true %>退会</label>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <div style = "display:flex">
+              <%= f.submit '変更を保存', class: 'btn btn-success' %></br>
+              <% end %>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

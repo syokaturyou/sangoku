@@ -1,0 +1,2 @@
+module Manager::MembersHelper
+end

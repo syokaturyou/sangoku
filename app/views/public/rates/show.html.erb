@@ -1,0 +1,71 @@
+<h4>評価一覧</h4>
+
+<% @rates.each do |rate| %>
+<div>
+  <span>言葉遣い評価：</span>
+  <span id="star1-rate-<%= rate.id %>"></span>
+  <script>
+    $('#star1-rate-<%= rate.id %>').raty({
+      size: 36,
+      starOff: "<%= asset_path('star-off.png') %>",
+      starOn: "<%= asset_path('star-on.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      half: true,
+      readOnly: true,
+      score: <%= rate.communication %>,
+    });
+  </script>
+  <%= rate.communication %>
+</div>
+
+<div>
+  <span>出典評価：</span>
+  <span id="star2-rate-<%= rate.id %>"></span>
+  <script>
+    $('#star2-rate-<%= rate.id %>').raty({
+      size: 36,
+      starOff: "<%= asset_path('star-off.png') %>",
+      starOn: "<%= asset_path('star-on.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      half: true,
+      readOnly: true,
+      score: <%= rate.source %>,
+    });
+  </script>
+  <%= rate.source %>
+</div>
+
+<div>
+  <span>合理性評価：</span>
+  <span id="star3-rate-<%= rate.id %>"></span>
+  <script>
+    $('#star3-rate-<%= rate.id %>').raty({
+      size: 36,
+      starOff: "<%= asset_path('star-off.png') %>",
+      starOn: "<%= asset_path('star-on.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      half: true,
+      readOnly: true,
+      score: <%= rate.rationality %>,
+    });
+  </script>
+  <%= rate.rationality %>
+</div>
+
+<div>
+  <span>考察力評価：</span>
+  <span id="star4-rate-<%= rate.id %>"></span>
+  <script>
+    $('#star4-rate-<%= rate.id %>').raty({
+      size: 36,
+      starOff: "<%= asset_path('star-off.png') %>",
+      starOn: "<%= asset_path('star-on.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      half: true,
+      readOnly: true,
+      score: <%= rate.intellect %>,
+    });
+  </script>
+  <%= rate.intellect %>
+</div>
+<% end %>

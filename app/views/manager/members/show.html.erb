@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-7">
+      <h2><%= @member.name %>さんの会員詳細</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-7">
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>会員id</td>
+            <td><%= @member.id %></td>
+          </tr>
+          <tr>
+            <td>氏名</td>
+            <td><%= @member.name %></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= @member.email %></td>
+          </tr>
+          <tr>
+            <td>プロフィール</td>
+            <td><%= @member.profile %></td>
+          </tr>
+          <tr>
+            <td>プロフィール画像</td>
+            <td><%= @member.profileimage_id %></td>
+          </tr>
+          <tr>
+            <td>会員ステータス</td>
+            <td><% if @member.is_deleted == true %><font color="gray">退会</font>
+                <% elsif @member.is_deleted == false %><font color="green">有効</font>
+                <% end %></p>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= link_to ' 編集する', edit_manager_member_path(@member.id) , class: 'btn btn-success', data: {"turbolinks"=>false} %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
