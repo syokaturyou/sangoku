@@ -1,26 +1,15 @@
 class Public::PostsController < ApplicationController
 
-
   def index
     # 更新日時を降順に + 質問数が10より多かったら次ページに
     @posts = Post.all.order(updated_at: "DESC").page(params[:page]).per(10)
+    # @answer =Answer.all
   end
 
   def show
     @post = Post.find(params[:id])
     # 回答更新日時を降順に + 回答数が3より多かったら次ページに
     @answers = Answer.all.order(updated_at: "DESC").page(params[:page]).per(3)
-    #レビュー一覧
-    # @answer = Answer.find(params[:id])
-    @rates = Rate.all
-
-    @sum = 0
-    @count = 0
-    @rates.each do |rate|
-    @sum += rate.communication
-    @count += 1
-    end
-
   end
 
   def edit

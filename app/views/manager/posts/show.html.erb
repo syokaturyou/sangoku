@@ -10,7 +10,6 @@
          <td><%= @post.postbody %></td>
          <td><%= @post.postsyutten %></td>
          <td><%= @post.postimage_id %></td>
-         <td><%= @post.member.name %></td>
          <td><%= link_to @post.member.name, manager_member_path(@post.member) %></td>
         </tr>
       </thead>
@@ -23,6 +22,7 @@
          <td><%= link_to answer.member.name, manager_member_path(answer.member) %></td>
          <td><%= answer.updated_at.to_s(:datetime_jp) %></td>
          <td><%= link_to '削除する', manager_answer_path(answer), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%></td>
+         <td><%= render 'public/rates/review', answer: answer %></td>
          </tr>
         <% end %>
       </tbody>

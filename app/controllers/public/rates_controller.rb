@@ -2,12 +2,7 @@ class Public::RatesController < ApplicationController
   def new
     @newrate = Rate.new
   end
-  def show
-    @answer = Answer.find(params[:id])
-    @rates = Rate.all
-    # @rate = Rate.find(params[:id])
-    # @rate = Rate.find(3)
-  end
+
   def create
     @newrate = Rate.new(rate_params)
     @newrate.member = current_member
@@ -15,11 +10,16 @@ class Public::RatesController < ApplicationController
     @newrate.source = @newrate.source || 0
     @newrate.rationality = @newrate.rationality || 0
     @newrate.intellect = @newrate.intellect || 0
-    if @newrate.save
-      redirect_to root_path
-    else
-      redirect_to public_posts_path
-    end
+
+    rate_count = Rate.where(answer_id: params[:answer_id]).where(member_id: current_member.id).count
+      # 会員は1回答に1回だけレビュー可能であるため条件分岐
+      if rate_count < 1
+         @newrate.save
+         redirect_to public_post_path(@newrate.answer.post_id)
+      else
+         redirect_to public_posts_path
+      end
+
   end
 
   private

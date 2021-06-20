@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     end
     #answerの内、createとnewはpostに紐づける必要あり
     resources :answers, only: [:destroy, :update, :edit] do
-     resources :rates, only: [:new, :create, :show]
+     resources :rates, only: [:new, :create]
     end
   end
 

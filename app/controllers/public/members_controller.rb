@@ -21,7 +21,7 @@ class Public::MembersController < ApplicationController
 
    def withdrawal
      member = current_member
-     #is_deletedという　退会フラグを更新
+     #is_deletedという退会フラグを更新
      member.update(is_deleted: true)
      reset_session
      flash[:notice] = "退会致しました。"
