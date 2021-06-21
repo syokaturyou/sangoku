@@ -15,6 +15,7 @@ class Public::AnswersController < ApplicationController
     @newanswer = Answer.new(answer_params)
     @newanswer.member = current_member
      if @newanswer.save
+       #回答が作成されれば質問の更新日時を更新
         @newanswer.post.update({updated_at: @newanswer.updated_at})
         redirect_to public_post_path(@newanswer.post_id)
      else
@@ -29,6 +30,7 @@ class Public::AnswersController < ApplicationController
   def update
      @answer = Answer.find(params[:id])
     if @answer.update(answer_params)
+      #回答が更新されれば質問の更新日時を更新
        @answer.post.update({updated_at: @answer.updated_at})
        redirect_to  public_post_path(@answer.post_id)
     else

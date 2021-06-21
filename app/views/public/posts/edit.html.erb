@@ -1,43 +1,32 @@
-<h4>質問編集</h4>
-  <div class ="center">
-    <div class ="bottom">
-      <%= form_with model: @post, url: public_post_path(@post), local: true do |f| %>
-    <table>
-    <tr>
-    <div class="field">
-     <th><%= f.label :質問タイトル変更 %></th>
-     <th><%= f.text_field :posttitle, autofocus: true, required: true %></th>
-    </div>
-    </tr>
-
-    <tr>
-    <div class="field">
-     <th><%= f.label :説明文変更 %></th>
-     <th><%= f.text_area :postbody, autofocus: true, required: true %></th>
-    </div>
-    </tr>
-
-    <tr>
-    <div class="field">
-     <th><%= f.label :出典・参考url変更 %></th>
-     <th><%= f.text_field :postsyutten, autofocus: true %></th>
-    </div>
-    </tr>
-
-    <tr>
-    <div class="field">
-     <th><%= f.label :参考画像 %></th>
-     <th><%= f.file_field :postimage, autofocus: true %></th>
-    </div>
-    </tr>
-
-    </table>
-
-    <br></br>
-    <div class="actions">
-    <%= f.submit "変更を保存する", class: 'btn btn-success' %>
-    </div>
-    <% end %>
-
+<div class='container'>
+  <div class="row">
+    <table class="table table-borderless">
+     <div class="col-lg-6">
+      <h2>質問編集</h2>
+     </div>
+      <tbody>
+       <%= form_with model: @post, url: public_post_path(@post), local: true do |f| %>
+        <tr>
+         <td><%= f.label :質問タイトル変更 %></td>
+         <td><%= f.text_field :posttitle, autofocus: true, required: true %></td>
+        </tr>
+        <tr>
+         <td><%= f.label :説明文変更 %></td>
+         <td><%= f.text_area :postbody, autofocus: true, required: true %></td>
+        </tr>
+        <tr>
+         <td><%= f.label :出典・参考url変更 %></td>
+         <td><%= f.text_field :postsyutten, autofocus: true %></td>
+        </tr>
+        <tr>
+         <td><%= f.label :参考画像 %></td>
+         <td><%= f.file_field :postimage, autofocus: true %></td>
+        </tr>
+        <tr>
+        <td><%= f.submit "変更を保存する", class: 'btn btn-success' %></td>
+        <% end %>
+        </tr>
+       </tbody>
+     </table>
    </div>
   </div>

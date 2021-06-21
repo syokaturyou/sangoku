@@ -14,18 +14,11 @@ class Member < ApplicationRecord
 
    # 検索方法分岐
    def self.looks(search, word)
-    if search == "perfect_match"
-      @member = Member.where("name LIKE?","#{word}")
-    elsif search == "forward_match"
-      @Member = Member.where("name LIKE?","#{word}%")
-    elsif search == "backward_match"
-      @member = Member.where("name LIKE?","%#{word}")
-    elsif search == "partial_match"
-      @member = Member.where("name LIKE?","%#{word}%")
-    else
-      @member = Member.all
-    end
+   @member = if search == "partial_match"
+              Member.where("name LIKE?","%#{word}%")
+             else
+              Member.all
+             end
    end
-
 
 end

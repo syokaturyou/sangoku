@@ -5,11 +5,11 @@ class SearchsController < ApplicationController
     @range = params[:range]
 
     if @range == "会員"
-      @members = Member.looks(params[:search], params[:word])
+      @members = Member.looks(params[:search], params[:word]).page(params[:page]).per(10)
       @oomember = params[:word]
       render 'result'
     else
-      @posts = Post.looks(params[:search], params[:word])
+      @posts = Post.looks(params[:search], params[:word]).page(params[:page]).per(10)
       @oopost = params[:word]
       render 'result'
     end

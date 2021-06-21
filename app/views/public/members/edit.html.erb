@@ -1,26 +1,34 @@
-<h2>マイページ編集</h2>
-
-<%= form_with model:@member, url: public_member_path(@member), local: true do |f| %>
-  <div class="field">
-    <%= f.label :登録名 %><br />
-    <%= f.text_field :name, autofocus: true, required: true %>
+<div class='container'>
+  <div class="row">
+   <div class="col-lg-6">
+      <h2>マイページ編集</h2>
+   </div>
+    <table class="table table-borderless">
+      <tbody>
+       <%= form_with model:@member, url: public_member_path(@member), local: true do |f| %>
+        <tr>
+         <td><%= f.label :登録名 %></td>
+         <td><%= f.text_field :name, autofocus: true, required: true %></td>
+        </tr>
+        <tr>
+         <td><%= f.label :登録メールアドレス %></td>
+         <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+        </tr>
+        <tr>
+         <td><%= f.label :プロフィール %></td>
+         <td><%= f.text_area :profile, autofocus: true %></td>
+        </tr>
+        <tr>
+         <td><%= f.label :プロフィール画像 %></td>
+         <td><%#= f.attachment_field :profileimage %></td>
+         <td><%= f.file_field :profileimage_id, autofocus: true %></td>
+        </tr>
+        <tr>
+         <td></td>
+         <td><%= f.submit "編集内容を保存", class: 'btn btn-success' %></td>
+         <% end %>
+        </tr>
+      <tbody>
+    </table>
   </div>
-
-  <div class="field">
-    <%= f.label :登録メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :プロフィール %><br />
-    <%= f.text_area :profile, autofocus: true %>
-  </div>
-
-    <div class="field">
-     <th><%= f.label :プロフィール画像 %></th>
-     <th><%= f.file_field :profileimage, autofocus: true %></th>
-    </div>
-
-  <br></br>
-  <p><%= f.submit "編集内容を保存", class: 'btn btn-success' %></p>
-  <% end %>
+</div>

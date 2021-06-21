@@ -4,7 +4,7 @@
    <%= link_to 'トップページ',root_path %>
    <%= link_to 'マイページ',public_member_path(current_member.id),class: 'fas fa-user nav-link text-light' %>
    <%= link_to '質問投稿一覧',public_posts_path,class: 'fab fa-shopify nav-link text-light' %>
-   <%= link_to 'お問い合わせ',new_contract_path,class: 'fab fa-shopify nav-link text-light' %>
+   <%= link_to 'お問い合わせ',new_contract_path,class: 'fab fa-shopify nav-link text-light', data: {"turbolinks"=>false} %>
    <%= link_to 'ログアウト', destroy_member_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-light' %>
   <% elsif admin_signed_in? %>
    <%= link_to 'トップページ',root_path %>

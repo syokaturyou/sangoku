@@ -1,7 +1,6 @@
 <h2><%= @member.name %>さんの会員情報</h2>
 <div class='container'>
   <div class='row'>
-    <div class='col-lg-7'>
        <table class="table table-borderless">
         <thead>
         </thead>
@@ -26,10 +25,9 @@
       </table>
       <% if member_signed_in? %>
       <% if @member.id == current_member.id %>
-      <h6><%= link_to '登録情報を編集する',edit_public_member_path(current_member), class: 'btn btn-success' %></h6>
+      <h6><%= link_to '登録情報を編集する',edit_public_member_path(current_member), class: 'btn btn-success', data: {"turbolinks"=>false} %></h6>
       <h6><%= link_to '退会する',public_unsubscribe_path, class: 'btn btn-danger' %></h6>
       <% end %>
       <% end %>
-    </div>
   </div>
 </div>

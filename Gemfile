@@ -78,6 +78,8 @@ gem 'rubocop', require:false
 gem 'rubocop-rails', require:false
 gem 'jquery-rails'
 gem 'dotenv-rails'
+gem 'redcarpet', '~> 2.3.0'  # マークダウン形式での表示
+gem 'coderay'                # シンタックスハイライト対応
 group :production do
   gem 'mysql2'
 end
