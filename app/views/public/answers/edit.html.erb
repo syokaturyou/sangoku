@@ -8,11 +8,11 @@
        <%= form_with model: @answer, url: public_answer_path, local: true do |f| %>
        <tr>
         <td><%= f.label :回答本文更新 %></td>
-        <td><%= f.text_area :answerbody, autofocus: true, required: true %></td>
+        <td><%= f.text_area :answerbody, autofocus: true, required: true, size: '80x10' %></td>
        </tr>
        <tr>
         <td><%= f.label :出典・参考url更新 %></td>
-        <td><%= f.text_field :answersyutten, autofocus: true, required: true %></td>
+        <td><%= f.text_field :answersyutten, autofocus: true, required: true, size: "50" %></td>
        </tr>
        <tr>
         <td><%= f.label :参考画像 %></td>

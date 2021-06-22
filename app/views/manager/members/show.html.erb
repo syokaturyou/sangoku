@@ -24,11 +24,11 @@
           </tr>
           <tr>
             <td>プロフィール</td>
-            <td><%= @member.profile %></td>
+            <td width="300" height="150"><%= @member.profile %></td>
           </tr>
           <tr>
             <td>プロフィール画像</td>
-            <td><%= attachment_image_tag @member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg"s %></td>
+            <td><%= attachment_image_tag @member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %></td>
           </tr>
           <tr>
             <td>会員ステータス</td>

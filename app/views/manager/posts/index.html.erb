@@ -4,41 +4,39 @@
       <h2>質問一覧</h2>
     </div>
 
-    <div>
     <%= form_with url: search_path, local: true, method: :get do |f| %>
       <%= f.text_field :word %>
-      <%= f.select :range, options_for_select([['会員'], ['質問タイトル']]) %>
-      <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backword_match"], ["部分一致","partial_match"]]) %>
+      <%= f.select :range, options_for_select([['質問タイトル'],['会員']]) %>
+      <%= f.hidden_field :search, :value => "partial_match" %>
       <%= f.submit "検索", class: "btn btn-primary" %>
     <% end %>
-    </div>
 
     <table class="table table-hover table-inverse">
       <thead>
-        <tr>
-          <th>投稿No </th>
-          <th>質問タイトル </th>
-          <th>質問者 </th>
-          <th></th>
-          <th>更新日時</th>
-          <th></th>
-          <th></th>
-        </tr>
+       <tr>
+        <th>投稿No </th>
+        <th>質問タイトル </th>
+        <th>質問者 </th>
+        <th>更新日時</th>
+        <th>回答数</th>
+        <th></th>
+       </tr>
       <thead>
       <tbody>
         <% @posts.each do |post| %>
         <tr>
           <td><%= post.id %></td>
           <td><%= link_to post.posttitle, manager_post_path(post) %></td>
-          <td><%= link_to post.member.name, manager_member_path(post.member) %></td>
-          <td><%= attachment_image_tag post.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %></td>
+          <td>
+            <%= link_to post.member.name, manager_member_path(post.member) %>
+            <%= attachment_image_tag post.member, :profileimage, :fill, 40, 40, fallback: "no_image.jpg" %>
+          </td>
           <td><%= post.updated_at.to_s(:datetime_jp) %></td>
-          <td>回答数 :<%= post.answers.count %></td>
+          <td><%= post.answers.count %></td>
           <td><%= link_to '削除する', manager_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%></td>
           <td></td>
         </tr>
         <% end %>
-        </td></td>
       </tbody>
     </table>
 

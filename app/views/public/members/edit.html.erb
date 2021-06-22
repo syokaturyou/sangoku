@@ -8,15 +8,15 @@
        <%= form_with model:@member, url: public_member_path(@member), local: true do |f| %>
         <tr>
          <td><%= f.label :登録名 %></td>
-         <td><%= f.text_field :name, autofocus: true, required: true %></td>
+         <td><%= f.text_field :name, autofocus: true, required: true, size: "30" %></td>
         </tr>
         <tr>
          <td><%= f.label :登録メールアドレス %></td>
-         <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+         <td><%= f.email_field :email, autofocus: true, autocomplete: "email", size: "30" %></td>
         </tr>
         <tr>
          <td><%= f.label :プロフィール %></td>
-         <td><%= f.text_area :profile, autofocus: true %></td>
+         <td><%= f.text_area :profile, autofocus: true, size: '50x5' %></td>
         </tr>
         <tr>
          <td><%= f.label :プロフィール画像 %></td>

@@ -8,15 +8,15 @@
        <%= form_with model: @post, url: public_post_path(@post), local: true do |f| %>
         <tr>
          <td><%= f.label :質問タイトル変更 %></td>
-         <td><%= f.text_field :posttitle, autofocus: true, required: true %></td>
+         <td><%= f.text_field :posttitle, autofocus: true, required: true, size: "50" %></td>
         </tr>
         <tr>
          <td><%= f.label :説明文変更 %></td>
-         <td><%= f.text_area :postbody, autofocus: true, required: true %></td>
+         <td><%= f.text_area :postbody, autofocus: true, required: true, size: '80x10' %></td>
         </tr>
         <tr>
          <td><%= f.label :出典・参考url変更 %></td>
-         <td><%= f.text_field :postsyutten, autofocus: true %></td>
+         <td><%= f.text_field :postsyutten, autofocus: true, size: "50" %></td>
         </tr>
         <tr>
          <td><%= f.label :参考画像 %></td>

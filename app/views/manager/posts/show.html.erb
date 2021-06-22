@@ -1,37 +1,70 @@
-<div class="container">
+<div class="oocontainer">
   <div class="row">
-    <div class="col-lg-3">
-      <h2>質問詳細</h2>
-    </div>
+    <h3>質問タイトル</h3>
+     <div style="padding: 30px;  solid #333333; border-radius: 1px;">
+      <h3><%= @post.posttitle %></h3>
+     </div>
+
     <table class="table table-hover table-inverse">
       <thead>
         <tr>
-         <td><%= @post.posttitle %></td>
-         <td><%= @post.postbody %></td>
-         <td><%= @post.postsyutten %></td>
-         <td><%= attachment_image_tag @post, :postimage, :fill, 60, 60, fallback: "no_image.jpg" %></td>
-         <td><%= link_to @post.member.name, manager_member_path(@post.member) %></td>
+         <td>質問者
+          <div style="padding: 10px; border: 1px solid #333333; border-radius: 1px;">
+           <%= link_to @post.member.name, manager_member_path(@post.member) %>
+          <br></br>
+           <%= attachment_image_tag @post.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %>
+          </div>
+         </td>
+         <td width="500" height="500">質問本文
+          <div style="border: 1px solid #333333; border-radius: 1px; text-align:center;">
+           <%= @post.postbody %>
+          </div>
+         </td>
+         <td>出典・参考URL
+          <div style="border: 1px solid #333333; border-radius: 1px;">
+           <%= @post.postsyutten %>
+          </div>
+          参考画像
+          <div style="padding: 30px; border: 1px solid #333333; border-radius: 1px;">
+            <%= attachment_image_tag @post, :postimage, :fill, 60, 60, fallback: "no_image.jpg" %>
+          </div>
+         </td>
         </tr>
       </thead>
       <tbody>
         <% @post.answers.each do |answer| %>
         <tr>
-         <td><%= answer.answerbody %></td>
-         <td><%= answer.answersyutten %></td>
-         <td><%= attachment_image_tag answer, :answerimage, :fill, 60, 60, fallback: "no_image.jpg" %></td>
-         <td><%= link_to answer.member.name, manager_member_path(answer.member) %></td>
-         <td><%= attachment_image_tag answer.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %></td>
-         <td><%= answer.updated_at.to_s(:datetime_jp) %></td>
-         <td><%= link_to '削除する', manager_answer_path(answer), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%></td>
-         <td><%= render 'public/rates/review', answer: answer %></td>
-         </tr>
+          <td>回答者
+           <div style="padding: 10px; border: 1px solid #333333; border-radius: 1px;">
+            <%= link_to answer.member.name, manager_member_path(answer.member) %>
+            <br></br>
+            <%= attachment_image_tag answer.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %>
+           </div>
+           <br>回答更新日時</br>
+            <br><%= answer.updated_at.to_s(:datetime_jp) %></br>
+           <%= link_to '削除する', manager_answer_path(answer), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%>
+          </td>
+          <td width="500" height="500">回答本文
+         <div style="border: 1px solid #333333; border-radius: 1px; text-align:center;">
+           <%= answer.answerbody %>
+         </div>
+         </td>
+         <td>出典・参考URL
+          <div style="border: 1px solid #333333; border-radius: 1px;">
+           <%= answer.answersyutten %>
+          </div>
+          参考画像
+          <div style="padding: 10px; border: 1px solid #333333; border-radius: 1px;">
+           <%= attachment_image_tag answer, :answerimage, :fill, 60, 60, fallback: "no_image.jpg" %>
+          </div>
+         </td>
+         <td width="250" height="200"><%= render 'public/rates/review', answer: answer %></td>
+        </tr>
         <% end %>
       </tbody>
     </table>
 
-    <div class="col-lg-7">
     <%= paginate @answers %>
-    </div>
 
  </div>
 </div>

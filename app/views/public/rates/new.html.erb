@@ -3,7 +3,7 @@
 <%= form_with model: @newrate, url: public_answer_rates_path, local: true do |f| %>
 
 <div id="star1">
-  <%= f.label :communication, "言葉遣い評価：" %>
+  <%= f.label :communication, "丁重性評価：" %>
   <%= f.hidden_field :answer_id, :value => params[:answer_id] %>
   <%= f.hidden_field :communication, :value => 0,  id: :rate_star %>
   <script>
