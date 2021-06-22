@@ -19,7 +19,7 @@
           </tr>
           <tr>
             <td>プロフィール画像</td>
-            <td><%= @member.profileimage_id %></td>
+            <td><%= attachment_image_tag @member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %></td>
           </tr>
         </tbody>
       </table>

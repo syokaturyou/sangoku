@@ -16,6 +16,7 @@
         <tr>
           <td><%= member.id %></td>
           <td><%= link_to member.name, manager_member_path(member) %></td>
+          <td><%= attachment_image_tag member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %></td>
           <td>
             <% if member.is_deleted == true %><font color="gray">退会</font>
             <% elsif member.is_deleted == false %><font color="green">有効</font>

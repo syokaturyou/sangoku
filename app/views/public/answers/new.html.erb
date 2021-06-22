@@ -8,7 +8,7 @@
       <%= form_with model: @newanswer, url: public_post_answers_path, local: true do |f| %>
        <tr>
         <td><%= f.label :回答本文入力 %></td>
-        <td><%= f.text_field :answerbody, autofocus: true, required: true %></td>
+        <td><%= f.text_area :answerbody, autofocus: true, required: true %></td>
        </tr>
        <tr>
         <td><%= f.label :出典・参考url入力 %></td>
@@ -17,7 +17,7 @@
         <%= f.hidden_field :post_id, :value => params[:post_id] %>
        <tr>
         <td><%= f.label :参考画像 %></td>
-        <td><%= f.file_field :answerimage, autofocus: true %></td>
+        <td><%= f.attachment_field :answerimage %></td>
        </tr>
        <tr>
         <td><%= f.submit "回答を投稿する", class: 'btn btn-success' %></td>

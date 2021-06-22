@@ -32,7 +32,7 @@
           <td><%= post.id %></td>
           <td><%= link_to post.posttitle, public_post_path(post) %></td>
           <td><%= link_to post.member.name, public_member_path(post.member) %></td>
-          <td><%#= attachment_image_tag post.member, :profileimage_id %></td>
+          <td><%= attachment_image_tag post.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %></td>
           <td><%= post.updated_at.to_s(:datetime_jp) %></td>
           <td>回答数 :<%= post.answers.count %></td>
           <% if member_signed_in? %>

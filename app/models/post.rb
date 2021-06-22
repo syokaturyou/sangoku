@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   belongs_to :member
   has_many :answers, dependent: :destroy
 
+  attachment :postimage
 
   # 検索方法分岐
   def self.looks(search, word)

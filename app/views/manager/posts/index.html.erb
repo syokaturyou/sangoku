@@ -19,6 +19,7 @@
           <th>投稿No </th>
           <th>質問タイトル </th>
           <th>質問者 </th>
+          <th></th>
           <th>更新日時</th>
           <th></th>
           <th></th>
@@ -30,6 +31,7 @@
           <td><%= post.id %></td>
           <td><%= link_to post.posttitle, manager_post_path(post) %></td>
           <td><%= link_to post.member.name, manager_member_path(post.member) %></td>
+          <td><%= attachment_image_tag post.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %></td>
           <td><%= post.updated_at.to_s(:datetime_jp) %></td>
           <td>回答数 :<%= post.answers.count %></td>
           <td><%= link_to '削除する', manager_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%></td>

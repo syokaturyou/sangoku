@@ -20,11 +20,13 @@
       </tr>
       <th>会員id</th>
       <th>登録会員名</th>
-      <th colspan="2"></th>
+      <th></th>
+      <th colspan="3"></th>
       <% @members.each do |member| %>
         <tr>
           <td><%= member.id %></td>
           <td><%= link_to member.name, public_member_path(member) %></td>
+          <td><%= attachment_image_tag member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %></td>
         </tr>
       <% end %>
       <%= paginate @members %>
@@ -37,12 +39,13 @@
       <th>質問タイトル</th>
       <th>質問者</th>
       <th>更新日時</th>
-      <th colspan="2"></th>
+      <th colspan="3"></th>
       <% @posts.each do |post| %>
         <tr>
           <td><%= post.id %></td>
           <td><%= link_to post.posttitle, public_post_path(post) %></td>
           <td><%= link_to post.member.name, public_member_path(post.member) %></td>
+          <td><%= attachment_image_tag post.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %></td>
           <td><%= post.updated_at.to_s(:datetime_jp) %></td>
           <% if member_signed_in? %>
           <% if post.member.id == current_member.id %>

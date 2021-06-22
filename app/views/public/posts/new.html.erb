@@ -20,7 +20,7 @@
         </tr>
         <tr>
          <td><%= f.label :参考画像 %></td>
-         <td><%= f.file_field :postimage, autofocus: true %></td>
+         <td><%= f.attachment_field :postimage %></td>
         </tr>
         <tr>
          <td><%= f.submit "質問を投稿する", class: 'btn btn-success' %></td>

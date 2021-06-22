@@ -8,6 +8,8 @@ class Member < ApplicationRecord
          has_many :posts, dependent: :destroy
          has_many :rates, dependent: :destroy
 
+         attachment :profileimage
+
      def active_for_authentication?
         super && (self.is_deleted == false)
      end

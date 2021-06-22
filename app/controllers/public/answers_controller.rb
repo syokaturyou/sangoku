@@ -40,7 +40,7 @@ class Public::AnswersController < ApplicationController
 
   private
   def answer_params
-    params.require(:answer).permit(:answerbody, :answersyutten, :answerimage_id, :post_id, :updated_at)
+    params.require(:answer).permit(:answerbody, :answersyutten, :answerimage, :post_id, :updated_at)
   end
 
 end

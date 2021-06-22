@@ -9,7 +9,7 @@
          <td><%= @post.posttitle %></td>
          <td><%= @post.postbody %></td>
          <td><%= @post.postsyutten %></td>
-         <td><%= @post.postimage_id %></td>
+         <td><%= attachment_image_tag @post, :postimage, :fill, 60, 60, fallback: "no_image.jpg" %></td>
          <td><%= link_to @post.member.name, public_member_path(@post.member) %></td>
         </tr>
       </thead>
@@ -18,8 +18,9 @@
         <tr>
          <td><%= answer.answerbody %></td>
          <td><%= answer.answersyutten %></td>
-         <td><%= answer.answerimage_id %></td>
+         <td><%= attachment_image_tag answer, :answerimage, :fill, 60, 60, fallback: "no_image.jpg" %></td>
          <td><%= link_to answer.member.name, public_member_path(answer.member) %></td>
+         <td><%= attachment_image_tag answer.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %></td>
          <td><%= answer.updated_at.to_s(:datetime_jp) %></td>
          <% if member_signed_in? %>
           <% if answer.member.id != current_member.id %>

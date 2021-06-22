@@ -29,6 +29,6 @@ class Public::MembersController < ApplicationController
    end
 
   def member_params
-    params.require(:member).permit(:name, :email, :profile, :profileimage_id)
+    params.require(:member).permit(:name, :email, :profile, :profileimage)
   end
 end
