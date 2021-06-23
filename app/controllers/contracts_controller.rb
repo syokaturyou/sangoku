@@ -1,7 +1,5 @@
 class ContractsController < ApplicationController
-
   #お問い合わせ機能のため設定
-
   def new
     @contract = Contract.new
   end

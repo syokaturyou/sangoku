@@ -33,3 +33,11 @@ ClassAndModuleChildren:
 # 文字リテラルのイミュータブル宣言を無視（freezeになるのはRuby3以降）
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Metrics/AbcSize:
+  Max: 50
+
+#メソッドの長さ指定
+MethodLength:
+  CountComments: false  # count full line comments?
+  Max: 50

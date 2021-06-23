@@ -1,14 +1,12 @@
 class SearchsController < ApplicationController
-  before_action :authenticate_member!
-
- def search
+  def search
     @range = params[:range]
-
-    if @range == "会員"
+    case @range
+    when :"会員"
       @members = Member.looks(params[:search], params[:word]).page(params[:page]).per(10)
       @oomember = params[:word]
       render 'result'
-    elsif @range == "ジャンル"
+    when :"ジャンル"
       @genres = Genre.looks(params[:search], params[:word]).page(params[:page]).per(10)
       @oogenre = params[:word]
       render 'result'
@@ -17,5 +15,5 @@ class SearchsController < ApplicationController
       @oopost = params[:word]
       render 'result'
     end
- end
+  end
 end
