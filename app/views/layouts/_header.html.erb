@@ -28,6 +28,9 @@
     <%= link_to '質問投稿一覧',manager_posts_path, class: "fas fa-user-edit nav-link text-light" %>
    </div>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
+    <%= link_to 'ジャンル一覧',manager_genres_path, class: "fas fa-file-alt nav-link text-light" %>
+   </div>
+   <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
     <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-light' %>
    </div>
   <% else %>

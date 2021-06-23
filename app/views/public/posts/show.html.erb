@@ -74,10 +74,9 @@
          <td width="250" height="200"><%= render 'public/rates/review', answer: answer %></td>
         </tr>
         <% end %>
+        <%= paginate @answers %>
       </tbody>
     </table>
-
-    <%= paginate @answers %>
 
   </div>
 </div>

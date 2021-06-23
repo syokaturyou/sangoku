@@ -8,6 +8,10 @@ class SearchsController < ApplicationController
       @members = Member.looks(params[:search], params[:word]).page(params[:page]).per(10)
       @oomember = params[:word]
       render 'result'
+    elsif @range == "ジャンル"
+      @genres = Genre.looks(params[:search], params[:word]).page(params[:page]).per(10)
+      @oogenre = params[:word]
+      render 'result'
     else
       @posts = Post.looks(params[:search], params[:word]).order(updated_at: "DESC").page(params[:page]).per(10)
       @oopost = params[:word]

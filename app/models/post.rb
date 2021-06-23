@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
 
   belongs_to :member
+  belongs_to :genre
   has_many :answers, dependent: :destroy
 
   attachment :postimage

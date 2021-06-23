@@ -19,6 +19,10 @@
          <td><%= f.text_field :postsyutten, autofocus: true, size: "50" %></td>
         </tr>
         <tr>
+         <td><%= f.label :ジャンル名入力 %></td>
+         <td><%= f.collection_select :genre_id, Genre.all, :id, :name, required: true %></td>
+        </tr>
+        <tr>
          <td><%= f.label :参考画像 %></td>
          <td><%= f.attachment_field :postimage %></td>
         </tr>

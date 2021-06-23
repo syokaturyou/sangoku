@@ -7,7 +7,7 @@
     <% if member_signed_in? %>
     <%= form_with url: search_path, local: true, method: :get do |f| %>
       <%= f.text_field :word %>
-      <%= f.select :range, options_for_select([['質問タイトル'],['会員']]) %>
+      <%= f.select :range, options_for_select([['質問タイトル'],['会員'],['ジャンル']]) %>
       <%= f.hidden_field :search, :value => "partial_match" %>
       <%= f.submit "検索", class: "btn btn-primary" %>
     <% end %>
@@ -21,7 +21,7 @@
           <th>質問者 </th>
           <th>更新日時</th>
           <th>回答数</th>
-          <th></th>
+          <th>ジャンル名</th>
         </tr>
       <thead>
       <tbody>
@@ -35,6 +35,7 @@
           </td>
           <td><%= post.updated_at.to_s(:datetime_jp) %></td>
           <td><%= post.answers.count %></td>
+          <td><%= post.genre.name %></td>
           <% if member_signed_in? %>
           <% if post.member.id == current_member.id %>
            <td><%= link_to '編集する', edit_public_post_path(post), class: 'btn btn-success', data: {"turbolinks"=>false} %></td>
