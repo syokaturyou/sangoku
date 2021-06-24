@@ -31,6 +31,9 @@
     <%= link_to 'ジャンル一覧',manager_genres_path, class: "fas fa-file-alt nav-link text-light" %>
    </div>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
+    <%= link_to 'お知らせ一覧',articles_path, class: "fas fa-newspaper nav-link text-light" %>
+   </div>
+   <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
     <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-light' %>
    </div>
   <% else %>

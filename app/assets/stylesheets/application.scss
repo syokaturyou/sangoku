@@ -29,11 +29,12 @@
   width: 1000px;
   height: 400px;
   margin: 0 auto;
+  // トップページに使用する画像は→より引用 (https://www.irasutoya.com/2017/01/blog-post_6.html)
   // background-image: image-url("nigaoe_ryuubigentoku.png");
   background-image: url(nigaoe_ryuubigentoku.png);
   background-repeat:  no-repeat;
   background-size: contain;
-  opacity:  0.7;
+  opacity:  0.5;
   background-position: center;
  }
 

@@ -1,4 +1,5 @@
 module ApplicationHelper
+  # マークダウン形式のため準備
   require 'redcarpet'
   require 'coderay'
 

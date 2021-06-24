@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
       if resource.is_a?(Admin)
          manager_posts_path(resource)
       else resource.is_a?(Member)
-           root_path(resource)
+         public_posts_path(resource)
       end
     end
 

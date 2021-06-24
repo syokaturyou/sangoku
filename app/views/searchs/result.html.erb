@@ -2,14 +2,12 @@
  <div class="row">
   <table class="table table-hover table-inverse">
    <thead>
-     <% if member_signed_in? %>
       <%= form_with url: search_path, local: true, method: :get do |f| %>
        <%= f.text_field :word %>
        <%= f.select :range, options_for_select([['質問タイトル'],['会員'],['ジャンル']]) %>
        <%= f.hidden_field :search, :value => "partial_match" %>
        <%= f.submit "検索", class: "btn btn-primary" %>
       <% end %>
-    <% end %>
     </thead>
   <!--検索対象モデルが会員の時 -->
     <% if @range == "会員" %>
@@ -57,12 +55,14 @@
           </td>
           <td><%= post.updated_at.to_s(:datetime_jp) %></td>
           <td><%= post.answers.count %></td>
-          <% if post.member.id == current_member.id %>
-           <td><%= link_to '編集する', edit_public_post_path(post), class: 'btn btn-success', data: {"turbolinks"=>false} %>
-               <%= link_to '削除する', public_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%>
-           </td>
-          <% else %>
-           <td></td>
+          <% if member_signed_in? %>
+           <% if post.member.id == current_member.id %>
+            <td><%= link_to '編集する', edit_public_post_path(post), class: 'btn btn-success', data: {"turbolinks"=>false} %>
+                <%= link_to '削除する', public_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%>
+            </td>
+           <% else %>
+            <td></td>
+           <% end %>
           <% end %>
          </tr>
         <% end %>

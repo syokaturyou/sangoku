@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :articles
+  resources :articles, only: [:index, :new, :create, :show, :edit, :update, :destroy]
    devise_for :members,controllers: {
    sessions: 'members/sessions',
    passwords: 'members/passwords',

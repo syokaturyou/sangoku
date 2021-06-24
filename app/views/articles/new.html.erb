@@ -1,5 +1,6 @@
-<h1>New Article</h1>
-
+<h1>新規お知らせ作成</h1>
+<% if admin_signed_in? %>
 <%= render 'form', article: @article %>
 
-<%= link_to 'Back', articles_path %>
+<%= link_to '戻る', articles_path %>
+<% end %>

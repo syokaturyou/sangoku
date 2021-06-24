@@ -1,12 +1,14 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Articles</h1>
+<% if admin_signed_in? %>
+<h1>お知らせ一覧</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Body</th>
+      <th>No.</th>
+      <th>タイトル</th>
+      <th>本文</th>
+      <th>更新日時</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,11 +16,13 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
+        <td><%= article.id %></td>
         <td><%= article.title %></td>
         <td><%= article.body %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= article.updated_at.to_s(:datetime_jp) %></td>
+        <td><%= link_to '詳細', article %></td>
+        <td><%= link_to '編集', edit_article_path(article) %></td>
+        <td><%= link_to '削除', article, method: :delete, data: { confirm: '削除しますか?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +30,5 @@
 
 <br>
 
-<%= link_to 'New Article', new_article_path %>
+<%= link_to '新規作成', new_article_path, class: 'btn btn-success', data: {"turbolinks"=>false} %>
+<% end %>
