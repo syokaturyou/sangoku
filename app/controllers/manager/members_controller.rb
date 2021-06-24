@@ -1,5 +1,6 @@
 class Manager::MembersController < ApplicationController
   before_action:authenticate_admin!
+  # 管理者側では全ての会員情報を管理可能
   def index
     @members = Member.page(params[:page])
   end

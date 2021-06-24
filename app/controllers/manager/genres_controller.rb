@@ -1,4 +1,5 @@
 class Manager::GenresController < ApplicationController
+  # ジャンル名新規登録・更新は管理者側で可能
   def index
     @genres = Genre.all
     @genre = Genre.new

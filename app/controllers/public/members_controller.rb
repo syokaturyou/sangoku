@@ -4,7 +4,7 @@ class Public::MembersController < ApplicationController
     @member = Member.find(params[:id])
   end
 
-  #ログインしたユーザーだけ見えるようにcurrent_memberとする
+  # ログインしたユーザーだけ見えるようにcurrent_memberとする
 
   def edit
     @member = current_member
@@ -21,7 +21,7 @@ class Public::MembersController < ApplicationController
 
    def withdrawal
      member = current_member
-     #is_deletedという退会フラグを更新
+     # is_deletedという退会フラグを更新
      member.update(is_deleted: true)
      reset_session
      flash[:notice] = "退会致しました。"

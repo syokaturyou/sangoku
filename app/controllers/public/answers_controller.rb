@@ -1,5 +1,5 @@
 class Public::AnswersController < ApplicationController
-
+  #会員側で新規回答投稿、回答削除、回答編集が可能
   def new
     @newanswer = Answer.new
   end
@@ -39,6 +39,7 @@ class Public::AnswersController < ApplicationController
   end
 
   private
+
   def answer_params
     params.require(:answer).permit(:answerbody, :answersyutten, :answerimage, :post_id, :updated_at)
   end
