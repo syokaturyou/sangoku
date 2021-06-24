@@ -59,7 +59,9 @@
          </td>
          <td width="500" height="500">回答本文
          <div style="border: 1px solid #333333; border-radius: 1px; text-align:center;">
-           <%= answer.answerbody %>
+           <%#= safe_join(answer.answerbody("\n"),tag(:br)) %>
+           <%#= answer.answerbody %>
+           <%=simple_format(answer.answerbody)%>
          </div>
          </td>
          <td>出典・参考URL
