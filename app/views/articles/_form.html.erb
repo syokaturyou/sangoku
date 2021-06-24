@@ -1,8 +1,6 @@
-<%= form_with(model: article, local: true) do |form| %>
   <% if article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
-
       <ul>
       <% article.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,17 +9,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+  <table class="table table-borderless">
+   <tbody>
+    <%= form_with(model: article, local: true) do |form| %>
+     <tr>
+      <td><%= form.label :タイトル %></td>
+      <td><%= form.text_field :title, autofocus: true, required: true, size: "50" %></td>
+     </tr>
+     <tr>
+      <td><%= form.label :本文 %></td>
+      <td><%= form.text_area :body, autofocus: true, required: true, size: '80x10' %></td>
+     </tr>
+     <tr>
+      <td><%= form.submit "Create action", class: 'btn btn-success' %></td>
+     </tr>
+    <% end %>
+   </tbody>
+  </table>
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

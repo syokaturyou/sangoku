@@ -15,11 +15,11 @@
           </tr>
           <tr>
             <td>プロフィール</td>
-            <td width="300" height="150"><%= @member.profile %></td>
+            <td width="300" height="150"><%= simple_format(@member.profile) %></td>
           </tr>
           <tr>
             <td>プロフィール画像</td>
-            <td><%= attachment_image_tag @member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %></td>
+            <td><%= attachment_image_tag @member, :profileimage, :fill, 90, 90, fallback: "no_image.jpg" %></td>
           </tr>
         </tbody>
       </table>
