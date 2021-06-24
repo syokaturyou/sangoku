@@ -1,3 +1,41 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.home-top {
+  width: 1000px;
+  height: 400px;
+  margin: 0 auto;
+  // トップページに使用する画像は→より引用 (https://www.irasutoya.com/2017/01/blog-post_6.html)
+  background-image: image-url("nigaoe_ryuubigentoku.png");
+  // background-image: url(nigaoe_ryuubigentoku.png);
+  background-repeat:  no-repeat;
+  background-size: contain;
+  opacity:  0.8;
+  background-position: right 15px center;
+
+  %__home-title {
+    font-size: 20px;
+    margin: 10px;
+    width: 650px;
+    font-family: 'Dancing Script', cursive;
+  }
+
+  &__home-title {
+    @extend %__home-title;
+
+     &--red {
+      @extend %__home-title;
+      color: red;
+    }
+
+     &--green {
+      @extend %__home-title;
+      color: green;
+    }
+  }
+
+  &__home-subtitle {
+    font-size: 32px;
+  }
+}

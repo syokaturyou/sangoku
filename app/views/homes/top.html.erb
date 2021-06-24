@@ -1,32 +1,39 @@
-<div class ="top-visual">
+<div class ="home-top">
 
   <h1>ようこそ! 「我らの三国志」サイトへ！</h1>
   <table>
    <thead>
-     <h3>サイト趣旨</h3>
-   当サイトは三国志考察投稿を行えるサイトでございます!!<br>
-   「出典」を義務付けた投稿サイトとすることで熱意を持った方々にお越しいただくことを願っております！<br>
-   当サイトにお越しいただくことで中長期的な三国志業界の発展に寄与する場となれば幸いでございます。<br>
+     <div class="home-top__home-title">
+       <div class="home-top__home-title--red">
+       <span class="home-top__home-subtitle">サイト趣旨</span>
+       </div>
+   当サイトは三国志に関する考察投稿サイトでございます!!<br>
+   出典明記を義務付けた投稿サイトとすることで歴史書の記述を重視したい方々が気軽にお越しいただける場となることを願っております！<br>
+   当サイトが盛り上がることで中長期的な三国志業界の発展に寄与できれば幸いでございます。<br>
    <br>
    会員登録いただければ質問の投稿・回答・回答に対するレビューできますが非会員でも閲覧は可能でございます。<br>
    「三国志」と銘打っておりますが三国時代以外の投稿も可能です。<br>
+     </div>
    </thead>
-　 <br></br>
    <tbody>
-     <h3>お知らせ</h3>
-      <tr>
-       <th>No.</th>
-       <th>タイトル</th>
-       <th>更新日時</th>
-       <th colspan="3"></th>
-     </tr>
-     <% @articles.first(5).each do |article| %>
+     <div class="home-top__home-title">
+       <div class="home-top__home-title--green">
+       <span class="home-top__home-subtitle">お知らせ</span>
+       </div>
        <tr>
-         <td><%= article.id %></td>
-         <td><%= link_to article.title, article_path(article.id) %></td>
-         <td><%= article.updated_at.to_s(:datetime_jp) %></td>
+        <th>No.</th>
+        <th>タイトル</th>
+        <th>更新日時</th>
+        <th colspan="3"></th>
        </tr>
-     <% end %>
+       <% @articles.first(5).each do |article| %>
+        <tr>
+          <td><%= article.id %></td>
+          <td><%= link_to article.title, article_path(article.id) %></td>
+          <td><%= article.updated_at.to_s(:datetime_jp) %></td>
+        </tr>
+      <% end %>
+     </div>
    </tbody>
   </table>
 </div>

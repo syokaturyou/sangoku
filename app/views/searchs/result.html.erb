@@ -45,7 +45,7 @@
        <% @posts.each do |post| %>
         <!--postの内genreの検索対象のみに絞る判定処理 -->
         <% if post.genre_id == genre.id %>
-       　<tr>
+         <tr>
           <td><%= post.genre.name %></td>
           <td><%= link_to post.posttitle, public_post_path(post) %></td>
           <td><%= post.id %></td>
