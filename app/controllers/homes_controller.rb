@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
   # お知らせを表示
   def top
-    @articles = Article.all.order(updated_at: "DESC").page(params[:page]).per(5)
+    @articles = Article.all.order(updated_at: 'DESC').page(params[:page]).per(5)
   end
 end

@@ -19,7 +19,7 @@
         <td><%= article.title %></td>
         <td><%= article.updated_at.to_s(:datetime_jp) %></td>
         <td><%= link_to '詳細', article %></td>
-        <td><%= link_to '編集', edit_article_path(article) %></td>
+        <td><%= link_to '編集', edit_article_path(article), data: {"turbolinks"=>false} %></td>
         <td><%= link_to '削除', article, method: :delete, data: { confirm: '削除しますか?' } %></td>
       </tr>
     <% end %>
