@@ -1,55 +1,55 @@
 <header>
  <!--<ログイン状態で項目変更>-->
- <div class="container">
+ <div class="oocontainer">
   <% if member_signed_in? %>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
-    <%= link_to 'トップページ',root_path, class: "fas fa-home nav-link text-light" %>
+    <%= link_to 'トップページ',root_path, class: "fas fa-home nav-link" %>
    </div>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
-    <%= link_to 'マイページ',public_member_path(current_member.id), class: "fas fa-user nav-link text-light" %>
+    <%= link_to 'マイページ',public_member_path(current_member.id), class: "fas fa-user nav-link" %>
    </div>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
-    <%= link_to '質問投稿一覧',public_posts_path, class: "fas fa-user-edit nav-link text-light" %>
+    <%= link_to '質問投稿一覧',public_posts_path, class: "fas fa-user-edit nav-link" %>
    </div>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
-    <%= link_to 'お問い合わせ',new_contract_path, class: "far fa-paper-plane nav-link text-light", data: {"turbolinks"=>false} %>
+    <%= link_to 'お問い合わせ',new_contract_path, class: "far fa-paper-plane nav-link", data: {"turbolinks"=>false} %>
    </div>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
-    <%= link_to 'ログアウト', destroy_member_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-light' %>
+    <%= link_to 'ログアウト', destroy_member_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link' %>
    </div>
   <% elsif admin_signed_in? %>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
-    <%= link_to 'トップページ',root_path, class: "fas fa-home nav-link text-light" %>
+    <%= link_to 'トップページ',root_path, class: "fas fa-home nav-link" %>
    </div>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
-    <%= link_to '会員一覧',manager_members_path, class: "fas fa-user nav-link text-light" %>
+    <%= link_to '会員一覧',manager_members_path, class: "fas fa-user nav-link" %>
    </div>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
-    <%= link_to '質問投稿一覧',manager_posts_path, class: "fas fa-user-edit nav-link text-light" %>
+    <%= link_to '質問投稿一覧',manager_posts_path, class: "fas fa-user-edit nav-link" %>
    </div>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
-    <%= link_to 'ジャンル一覧',manager_genres_path, class: "fas fa-file-alt nav-link text-light" %>
+    <%= link_to 'ジャンル一覧',manager_genres_path, class: "fas fa-file-alt nav-link" %>
    </div>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
-    <%= link_to 'お知らせ一覧',articles_path, class: "fas fa-newspaper nav-link text-light" %>
+    <%= link_to 'お知らせ一覧',articles_path, class: "fas fa-newspaper nav-link" %>
    </div>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
-    <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-light' %>
+    <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link' %>
    </div>
   <% else %>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
-    <%= link_to 'トップページ',root_path, class: "fas fa-home nav-link text-light" %>
+    <%= link_to 'トップページ',root_path, class: "fas fa-home nav-link" %>
    </div>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
-    <%= link_to '質問投稿一覧',public_posts_path, class: "fas fa-user-edit nav-link text-light" %>
+    <%= link_to '質問投稿一覧',public_posts_path, class: "fas fa-user-edit nav-link" %>
    </div>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
-    <%= link_to '新規登録', new_member_registration_path,class: 'fas fa-user-plus nav-link text-light' %>
+    <%= link_to '新規登録', new_member_registration_path,class: 'fas fa-user-plus nav-link' %>
    </div>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
-    <%= link_to 'ログイン', new_member_session_path ,class: 'fas fa-sign-in-alt nav-link text-light'%>
+    <%= link_to 'ログイン', new_member_session_path ,class: 'fas fa-sign-in-alt nav-link'%>
    </div>
   <% end %>
-  </div>
+ </div>
 
 </header>
