@@ -32,6 +32,7 @@
 .oocontainer {
   display: inline-flex;
   margin: 15px;
+  padding: 15px;
   width: 100%;
   height: 100%;
 }
@@ -48,19 +49,19 @@
 
  .center {
   text-align: center;
-  width: 100%;
-  height: 100%;
-  padding: 30px 10px 10px 10px;
-  position: absolute;
-  left: 50%;
+  // height: 100%;
+  // width: 100%;
+  margin: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
+  // position: absolute;
  }
 
- // .bottom {
- //   position: absolute;
- //   top: 50%;
- //   left: 50%;
- //   transform: translate(-50%, -50%);
- // }
+ .bottom {
+   position: absolute;
+   top: 55%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+ }
 
 
 @media only screen and (max-width: 500px) {
@@ -69,6 +70,13 @@
     flex-direction: column;
     text-align: center;
   }
+
+  .bottom {
+   position: absolute;
+   top: 80%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+ }
 
 }
 
