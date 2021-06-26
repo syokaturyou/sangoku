@@ -6,10 +6,11 @@ Rails.application.routes.draw do
    passwords: 'members/passwords',
    registrations: 'members/registrations'
  }
-   devise_for :admins, controllers: {
+
+   devise_for :admins, skip: [:registrations], controllers: {
    sessions: 'admins/sessions',
    passwords: 'admins/passwords',
-   registrations: 'admins/registrations'
+   #registrations: 'admins/registrations'
 }
 
   root to: 'homes#top'
