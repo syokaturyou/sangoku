@@ -68,6 +68,7 @@
       padding: 0 12px;
     }
   }
+}
 
 @media screen and (min-height: 700px) {
   .home-top {
@@ -80,21 +81,20 @@
    left: 50%;
    transform: translate(-50%, -50%);
 
-  & h1 {
+   & h1 {
       font-size: 1.8rem;
-    }
+   }
 
-    &__home-subtitle {
-      font-size: 1.2rem;
-    }
+   &__home-subtitle {
+    font-size: 1.2rem;
+   }
 
-    %__home-title {
-      width: 100%;
-      font-size: 1rem;
-      line-height: 1.8;
-    　margin: 0;
-      padding: 0 12px;
-    }
+   %__home-title {
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0 12px;
+   }
   }
-
 }
