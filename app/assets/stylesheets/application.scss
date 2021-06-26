@@ -32,6 +32,8 @@
 .oocontainer {
   display: inline-flex;
   margin: 15px;
+  width: 100%;
+  height: 100%;
 }
 
 .header-nav {
@@ -46,14 +48,19 @@
 
  .center {
   text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 30px 10px 10px 10px;
+  position: absolute;
+  left: 50%;
  }
 
- .bottom {
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
- }
+ // .bottom {
+ //   position: absolute;
+ //   top: 50%;
+ //   left: 50%;
+ //   transform: translate(-50%, -50%);
+ // }
 
 
 @media only screen and (max-width: 500px) {
@@ -64,5 +71,15 @@
   }
 
 }
+
+
+@media (min-height: 800px) {
+  .oocontainer {
+    width: 100%;
+    height: 100%;
+    padding: 10px 10px 10px 10px;
+  }
+}
+
 
 @import './homes'
