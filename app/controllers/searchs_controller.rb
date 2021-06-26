@@ -8,9 +8,9 @@ class SearchsController < ApplicationController
       @oomember = params[:word]
       render 'result'
     when "ジャンル"
-      @genres = Genre.looks(params[:search], params[:word]).page(params[:page]).per(10)
-      # ジャンル検索時にpostの情報も使用するため以下行使用
-      @posts = Post.all.page(params[:page]).per(10).order(updated_at: "DESC").page(params[:page]).per(10)
+      genre_ids = Genre.looks(params[:search], params[:word]).ids
+      # genreの検索内容を含むpostを表示させる処理
+      @posts = Post.where(genre_id: genre_ids).order(updated_at: "DESC").page(params[:page]).per(10)
       @oogenre = params[:word]
       render 'result'
     else

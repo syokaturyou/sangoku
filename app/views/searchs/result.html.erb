@@ -1,14 +1,12 @@
 <div class="oocontainer">
  <div class="row">
+   <%= form_with url: search_path, local: true, method: :get do |f| %>
+    <%= f.text_field :word %>
+    <%= f.select :range, options_for_select([['質問タイトル'],['会員'],['ジャンル']]) %>
+    <%= f.hidden_field :search, :value => "partial_match" %>
+    <%= f.submit "検索", class: "btn btn-primary", data: {"turbolinks"=>false} %>
+   <% end %>
   <table class="table table-hover table-inverse">
-   <thead>
-      <%= form_with url: search_path, local: true, method: :get do |f| %>
-       <%= f.text_field :word %>
-       <%= f.select :range, options_for_select([['質問タイトル'],['会員'],['ジャンル']]) %>
-       <%= f.hidden_field :search, :value => "partial_match" %>
-       <%= f.submit "検索", class: "btn btn-primary" %>
-      <% end %>
-    </thead>
   <!--検索対象モデルが会員の時 -->
     <% if @range == "会員" %>
      <tbody>
@@ -45,10 +43,7 @@
        <th>回答数</th>
        <th colspan="6"></th>
       </tr>
-      <% @genres.each do |genre| %>
        <% @posts.each do |post| %>
-        <!--postの内genreの検索対象のみに絞る判定処理 -->
-        <% if post.genre_id == genre.id %>
          <tr>
           <td><%= post.genre.name %></td>
           <td><%= link_to post.posttitle, public_post_path(post) %></td>
@@ -70,10 +65,7 @@
           <% end %>
          </tr>
         <% end %>
-       <% end %>
-      <% end %>
       <%= paginate @posts %>
-      <%= paginate @genres %>
      </tbody>
   <% else %>
     <!--検索対象モデルが質問タイトルの時 -->
