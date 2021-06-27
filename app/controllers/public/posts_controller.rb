@@ -40,6 +40,7 @@ class Public::PostsController < ApplicationController
 
   def destroy
     post = Post.find(params[:id])
+    # ログイン者自身の投稿のみ削除可能
     post.member_id = current_member.id
     post.destroy
     redirect_to action: :index
