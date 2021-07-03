@@ -53,6 +53,12 @@
   display: none;
 }
 
+// .image {
+//   border-radius: 30px;
+//   width: 30px;
+//   height: 30px;
+// }
+
  .center {
   text-align: center;
   margin: 10px 10px 10px 10px;
@@ -66,6 +72,21 @@
    left: 50%;
    transform: translate(-50%, -50%);
  }
+
+ .label {
+  background-color: #337ab7;
+  font-weight: 500;
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 65%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
 
 
 @media only screen and (max-width: 500px) {

@@ -48,14 +48,20 @@
          <div style="border: 1px solid #333333; border-radius: 1px;">
            <%= simple_format(answer.answerbody) %>
          </div>
+         <p class="sentiment-score">感情分析スコア <%= answer.score %> / 1.0</p>
          </td>
          <td>出典・参考URL
           <div style="border: 1px solid #333333; border-radius: 1px;">
-           <%= answer.answersyutten %>
+           <%= simple_format(answer.answersyutten) %>
           </div>
           参考画像
-          <div style="padding: 10px; border: 1px solid #333333; border-radius: 1px;">
-           <%= attachment_image_tag answer, :answerimage, :fill, 90, 90, fallback: "no_image.jpg" %>
+          <div style="padding: 3px; border: 1px solid #333333; border-radius: 1px;">
+           <%= attachment_image_tag answer, :answerimage, :fill, 250, 140, fallback: "no_image.jpg" %>
+           <br></br>
+           画像分類
+           <% answer.tags.each do |tag| %>
+            <span class="label"><%= tag.name %></span>
+           <% end %>
           </div>
          </td>
          <td width="250" height="200"><%= render 'public/rates/review', answer: answer %></td>

@@ -14,9 +14,16 @@ class Public::AnswersController < ApplicationController
   def create
     @newanswer = Answer.new(answer_params)
     @newanswer.member = current_member
+    @newanswer.score = Language.get_data(answer_params[:answerbody])  #この行を追加
      if @newanswer.save
        #回答が作成されれば質問の更新日時を更新
         @newanswer.post.update({updated_at: @newanswer.updated_at})
+       #回答が作成されればタグ付け
+        tags = Vision.get_image_data(@newanswer.answerimage)
+        tags.each do |tag|
+         @newanswer.tags.create(name: tag)
+        end
+
         redirect_to public_post_path(@newanswer.post_id)
      else
         redirect_to root_path
@@ -30,6 +37,8 @@ class Public::AnswersController < ApplicationController
   def update
      @answer = Answer.find(params[:id])
     if @answer.update(answer_params)
+      #回答更新されれば感情スコアも更新されるよう実施
+      #@answer.score = Language.get_data(answer_params[:answerbody])
       #回答が更新されれば質問の更新日時を更新
        @answer.post.update({updated_at: @answer.updated_at})
        redirect_to  public_post_path(@answer.post_id)

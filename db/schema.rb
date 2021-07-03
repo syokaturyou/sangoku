@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_24_062616) do
+ActiveRecord::Schema.define(version: 2021_07_03_094823) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2021_06_24_062616) do
     t.string "answersyutten"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "score", precision: 5, scale: 3
   end
 
   create_table "articles", force: :cascade do |t|
@@ -94,6 +95,14 @@ ActiveRecord::Schema.define(version: 2021_06_24_062616) do
     t.datetime "updated_at", null: false
     t.integer "answer_id"
     t.float "review", default: 0.0, null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.integer "list_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "answer_id"
   end
 
 end
