@@ -14,16 +14,15 @@ class Public::AnswersController < ApplicationController
   def create
     @newanswer = Answer.new(answer_params)
     @newanswer.member = current_member
-    @newanswer.score = Language.get_data(answer_params[:answerbody])  #この行を追加
+    @newanswer.score = Language.get_data(answer_params[:answerbody])  #感情スコア取得
      if @newanswer.save
-       #回答が作成されれば質問の更新日時を更新
-        @newanswer.post.update({updated_at: @newanswer.updated_at})
-       #回答が作成されればタグ付け
-        tags = Vision.get_image_data(@newanswer.answerimage)
+        @newanswer.post.update({updated_at: @newanswer.updated_at}) #回答が作成されれば質問の更新日時を更新
+       if @newanswer.answerimage.present? #画像投稿しないときにget_image_dataに行かないようにさせる
+        tags = Vision.get_image_data(@newanswer.answerimage) #回答が作成されればタグ付けさせる
         tags.each do |tag|
          @newanswer.tags.create(name: tag)
         end
-
+       end
         redirect_to public_post_path(@newanswer.post_id)
      else
         redirect_to root_path
@@ -37,10 +36,20 @@ class Public::AnswersController < ApplicationController
   def update
      @answer = Answer.find(params[:id])
     if @answer.update(answer_params)
-      #回答更新されれば感情スコアも更新されるよう実施
-      #@answer.score = Language.get_data(answer_params[:answerbody])
-      #回答が更新されれば質問の更新日時を更新
-       @answer.post.update({updated_at: @answer.updated_at})
+      if params[:image_delete].present? # 画像消去時の条件
+        @answer.update(answerimage: nil)
+        @answer.tags.delete_all # 画像なしの場合にタグ消去
+      end
+      @answer.score = Language.get_data(answer_params[:answerbody]) #回答更新されれば感情スコアも更新されるよう実施
+      @answer.save
+       @answer.post.update({updated_at: @answer.updated_at}) #回答が更新されれば質問の更新日時を更新
+       if @answer.answerimage.present? #画像投稿しない場合にvision_getが走らないようにするための条件
+        tags = Vision.get_image_data(@answer.answerimage)
+        @answer.tags.delete_all # 画像なしの場合にタグ消去
+        tags.each do |tag|
+         @answer.tags.create(name: tag)
+        end
+       end
        redirect_to  public_post_path(@answer.post_id)
     else
        redirect_to root_path

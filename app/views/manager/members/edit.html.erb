@@ -17,8 +17,10 @@
           <td><%= f.text_area :profile, size: '50x5' %></td>
         </tr>
         <tr>
-          <td>プロフィール画像</td>
-          <td><%= f.attachment_field :profileimage %></td>
+          <td><%= f.label :プロフィール画像 %></td>
+          <td><%= attachment_image_tag @member, :profileimage, :fill, 90, 90, fallback: "no_image.jpg" %>
+          <label><%= check_box_tag :image_delete %>画像なし</label>
+          <label><%= f.attachment_field :profileimage %></label>
         </tr>
         <tr>
           <td>会員ステータス</td>

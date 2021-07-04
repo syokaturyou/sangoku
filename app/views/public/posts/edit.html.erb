@@ -24,7 +24,10 @@
         </tr>
         <tr>
          <td><%= f.label :参考画像 %></td>
-         <td><%= f.attachment_field :postimage %></td>
+         <td><%= attachment_image_tag @post, :postimage, :fill, 90, 90, fallback: "no_image.jpg" %>
+          <label><%= check_box_tag :image_delete %>画像なし</label>
+          <label><%= f.attachment_field :postimage %></label>
+         </td>
         </tr>
         <tr>
         <td><%= f.submit "変更を保存する", class: 'btn btn-success' %></td>

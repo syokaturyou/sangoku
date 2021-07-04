@@ -2,8 +2,7 @@ class Public::PostsController < ApplicationController
   def index
     # 更新日時を降順に + 質問数が10より多かったら次ページに
     @posts = Post.all.order(updated_at: "DESC").page(params[:page]).per(10)
-    # 回答数カウントに使用
-    @answer = Answer.all
+    @answer = Answer.all # 回答数カウントに使用
   end
 
   def show
@@ -32,6 +31,9 @@ class Public::PostsController < ApplicationController
    def update
       @post = Post.find(params[:id])
     if @post.update(post_params)
+      if params[:image_delete].present? # 画像なしの場合に既存画像削除
+        @post.update(postimage: nil)
+      end
      redirect_to  public_posts_path
     else
      redirect_to root_path
@@ -40,8 +42,7 @@ class Public::PostsController < ApplicationController
 
   def destroy
     post = Post.find(params[:id])
-    # ログイン者自身の投稿のみ削除可能
-    post.member_id = current_member.id
+    post.member_id = current_member.id # ログイン者自身の投稿のみ削除可能
     post.destroy
     redirect_to action: :index
   end
