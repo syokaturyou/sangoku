@@ -1,8 +1,8 @@
 <div class="oocontainer">
   <div class="row">
     <h3>質問タイトル</h3>
-     <div style="padding: 30px;  solid #333333; border-radius: 1px;">
-      <h3><%= @post.posttitle %></h3>
+     <div style="padding: 30px;  solid #333333; border-radius: 1px; word-break: break-all;">
+      <h3><%= simple_format(@post.posttitle) %></h3>
       <% if member_signed_in? %>
        <% if @post.member.id != current_member.id %>
         <%= link_to ' 新規回答投稿する', new_public_post_answer_path(@post), class: 'btn btn-success', data: {"turbolinks"=>false} %>
@@ -21,13 +21,13 @@
           </div>
          </td>
          <td width="500" height="500">質問本文
-          <div style="border: 1px solid #333333; border-radius: 1px;">
+          <div style="border: 1px solid #333333; border-radius: 1px; word-break: break-all;">
            <%= simple_format(@post.postbody) %>
           </div>
          </td>
          <td>出典・参考URL
-          <div style="border: 1px solid #333333; border-radius: 1px;">
-           <%= @post.postsyutten %>
+          <div style="border: 1px solid #333333; border-radius: 1px word-break: break-all;;">
+           <%= simple_format(@post.postsyutten) %>
           </div>
           参考画像
           <div style="padding: 30px; border: 1px solid #333333; border-radius: 1px;">
@@ -43,9 +43,7 @@
           <div style="padding: 10px; border: 1px solid #333333; border-radius: 1px;">
            <%= link_to answer.member.name, public_member_path(answer.member) %>
            <br></br>
-            <!--<div class='image'>-->
              <%= attachment_image_tag answer.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %>
-            <!--</div>-->
           </div>
           <br>回答更新日時</br>
            <br><%= answer.updated_at.to_s(:datetime_jp) %></br>
@@ -60,13 +58,13 @@
          <% end %>
          </td>
          <td width="500" height="500">回答本文
-         <div style="border: 1px solid #333333; border-radius: 1px;">
+         <div style="border: 1px solid #333333; border-radius: 1px; word-break: break-all;">
            <%= simple_format(answer.answerbody)%>
          </div>
          <p class="sentiment-score">感情分析スコア <%= answer.score %> / 1.0</p>
          </td>
          <td width="300">出典・参考URL
-          <div style="border: 1px solid #333333; border-radius: 1px;">
+          <div style="border: 1px solid #333333; border-radius: 1px word-break: break-all;;">
            <%= simple_format(answer.answersyutten) %>
           </div>
           参考画像

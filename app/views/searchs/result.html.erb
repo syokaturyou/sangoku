@@ -1,5 +1,6 @@
 <div class="oocontainer">
  <div class="row">
+  <div style="word-break: break-all;">
    <%= form_with url: search_path, local: true, method: :get do |f| %>
     <%= f.text_field :word %>
     <%= f.select :range, options_for_select([['質問タイトル'],['会員'],['ジャンル']]) %>
@@ -108,5 +109,6 @@
     <%= paginate @posts %>
   <% end %>
   </table>
+  </div>
  </div>
 </div>
