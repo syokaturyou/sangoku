@@ -49,7 +49,7 @@
            <br><%= answer.updated_at.to_s(:datetime_jp) %></br>
          <% if member_signed_in? %>
           <% if answer.member.id != current_member.id %>
-           <%= link_to '評価する', new_public_answer_rate_path(answer.id), class: 'btn btn-success', data: {"turbolinks"=>false} %>
+           <%= link_to '評価する', new_public_answer_rate_path(answer.id), class: 'btn btn-warning', data: {"turbolinks"=>false} %>
           <% end %>
           <% if answer.member.id == current_member.id %>
            <%= link_to '編集する', edit_public_answer_path(answer), class: 'btn btn-success', data: {"turbolinks"=>false} %>
