@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :members, only: [:index, :show, :edit, :update]
     resources :posts, only: [:index, :show, :destroy]
     resources :answers, only: [:destroy]
-    resources :genres, only: [:index, :create, :edit, :update]
+    resources :genres, only: [:index, :create, :edit, :update, :destroy]
   end
 
   namespace :public do

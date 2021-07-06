@@ -28,6 +28,12 @@ class Manager::GenresController < ApplicationController
     end
   end
 
+  def destroy
+    genre = Genre.find(params[:id])
+    genre.destroy
+    redirect_back(fallback_location: root_path)
+  end
+
   private
 
   def genre_params
