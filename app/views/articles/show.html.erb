@@ -1,18 +1,16 @@
-<p id="notice"><%= notice %></p>
+<table class="table table-borderless">
+  <tbody>
+    <tr>
+      <td>タイトル</td>
+      <td><%= @article.title %></td>
+    </tr>
+    <tr>
+      <td>本文</td>
+      <td><%= markdown(@article.body).html_safe %></td>
+    </tr>
+  </tbody>
+</table>
 
-  <table class="table table-borderless">
-    <tbody>
-      <tr>
-        <td>タイトル</td>
-        <td><%= @article.title %></td>
-      </tr>
-      <tr>
-        <td>本文</td>
-        <td><%= markdown(@article.body).html_safe %></td>
-      </tr>
-    </tbody>
-  </table>
-　
 <% if admin_signed_in? %>
 <%= link_to '編集', edit_article_path(@article), data: {"turbolinks"=>false} %> |
 <%= link_to '戻る', articles_path %>
