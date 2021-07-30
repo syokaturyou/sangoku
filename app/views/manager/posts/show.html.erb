@@ -27,7 +27,7 @@
           </div>
           参考画像
           <div style="padding: 30px; border: 1px solid #333333; border-radius: 1px;">
-            <%= attachment_image_tag @post, :postimage, :fill, 70, 70, fallback: "no_image.jpg" %>
+            <%= attachment_image_tag @post, :postimage, :fill, 140, 80, fallback: "no_image.jpg" %>
           </div>
          </td>
         </tr>
@@ -57,7 +57,7 @@
           </div>
           参考画像
           <div style="padding: 3px; border: 1px solid #333333; border-radius: 1px;">
-           <%= attachment_image_tag answer, :answerimage, :fill, 150, 120, fallback: "no_image.jpg" %>
+           <%= attachment_image_tag answer, :answerimage, :fill, 140, 80, fallback: "no_image.jpg" %>
            <br />
            画像分類
            <% answer.tags.each do |tag| %>
