@@ -12,7 +12,7 @@
        </tr>
        <tr>
         <td><%= f.label :出典・参考url入力 %></td>
-        <td><%= f.text_field :answersyutten, autofocus: true, required: true, size: "50" %></td>
+        <td><%= f.text_area :answersyutten, autofocus: true, required: true, size: "50x3" %></td>
        </tr>
         <%= f.hidden_field :post_id, :value => params[:post_id] %>
        <tr>

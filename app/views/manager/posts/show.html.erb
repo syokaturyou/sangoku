@@ -16,8 +16,8 @@
            <%= attachment_image_tag @post.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %>
           </div>
          </td>
-         <td>質問本文
-          <div style="padding: 3px; border: 1px solid #333333; border-radius: 1px; word-break: break-all;">
+         <td width='500px'>質問本文
+          <div style="padding: 3px; border: 1px solid #333333; border-radius: 1px; word-break: break-word;">
            <%= simple_format(@post.postbody) %>
           </div>
          </td>
@@ -45,8 +45,8 @@
             <br /><%= answer.updated_at.to_s(:datetime_jp) %>
            <%= link_to '削除する', manager_answer_path(answer), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%>
           </td>
-          <td>回答本文
-         <div style="padding: 3px; border: 1px solid #333333; border-radius: 1px; word-break: break-all;">
+          <td width='500px'>回答本文
+         <div style="padding: 3px; border: 1px solid #333333; border-radius: 1px; word-break: break-word;">
            <%= simple_format(answer.answerbody) %>
          </div>
          <p class="sentiment-score">感情分析スコア <%= answer.score %> / 1.0</p>
