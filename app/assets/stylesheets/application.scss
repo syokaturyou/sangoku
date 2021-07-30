@@ -88,12 +88,17 @@
   border-radius: .25em;
 }
 
-
 @media only screen and (max-width: 500px) {
   .header-nav {
     display: flex;
     flex-direction: column;
     text-align: center;
+  }
+
+  .dip {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   }
 
   .bottom {
@@ -111,6 +116,12 @@
    margin: 0;
    height: 700px;
    padding: 10px;
+  }
+
+  .dip {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   }
 
 }

@@ -16,7 +16,7 @@
          <td>質問者
           <div style="padding: 10px; border: 1px solid #333333; border-radius: 1px;">
            <%= link_to @post.member.name, public_member_path(@post.member) %>
-          <br></br>
+          <br />
            <%= attachment_image_tag @post.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %>
           </div>
          </td>
@@ -42,11 +42,11 @@
          <td>回答者
           <div style="padding: 10px; border: 1px solid #333333; border-radius: 1px;">
            <%= link_to answer.member.name, public_member_path(answer.member) %>
-           <br></br>
+           <br />
              <%= attachment_image_tag answer.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %>
           </div>
-          <br>回答更新日時</br>
-           <br><%= answer.updated_at.to_s(:datetime_jp) %></br>
+          <br />回答更新日時
+           <br /><%= answer.updated_at.to_s(:datetime_jp) %>
          <% if member_signed_in? %>
           <% if answer.member.id != current_member.id %>
            <%= link_to '評価する', new_public_answer_rate_path(answer.id), class: 'btn btn-warning', data: {"turbolinks"=>false} %>
@@ -70,7 +70,7 @@
           参考画像
           <div style="padding: 3px; border: 1px solid #333333; border-radius: 1px;">
            <%= attachment_image_tag answer, :answerimage, :fill, 250, 140, fallback: "no_image.jpg" %>
-           <br></br>
+           <br />
            画像分類
            <% answer.tags.each do |tag| %>
             <span class="label"><%= tag.name %></span>

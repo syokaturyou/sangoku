@@ -12,7 +12,7 @@
       score: <%= answer.rates.average(:communication).to_f.round(1) %>,
     });
   </script>
-<br></br>
+<br />
 出典  評価:
 <span id="star2-rate-<%= answer.id %>"></span>
   <script>
@@ -26,7 +26,7 @@
       score: <%= answer.rates.average(:source).to_f.round(1) %>,
     });
   </script>
-  <br></br>
+  <br />
   合理性評価:
   <span id="star3-rate-<%= answer.id %>"></span>
   <script>
@@ -40,7 +40,7 @@
       score: <%= answer.rates.average(:rationality).to_f.round(1) %>,
     });
   </script>
-  <br></br>
+  <br />
   考察力評価:
   <span id="star4-rate-<%= answer.id %>"></span>
   <script>
@@ -54,6 +54,6 @@
       score: <%= answer.rates.average(:intellect).to_f.round(1) %>,
     });
   </script>
-  <br></br>
+  <br />
   評価数 :<%= answer.rates.count %>
 

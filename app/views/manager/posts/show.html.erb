@@ -5,18 +5,19 @@
       <h3><%= simple_format(@post.posttitle) %></h3>
      </div>
 
+    <div class="dip">
     <table class="table table-hover table-inverse">
       <thead>
         <tr>
          <td>質問者
           <div style="padding: 10px; border: 1px solid #333333; border-radius: 1px;">
            <%= link_to @post.member.name, manager_member_path(@post.member) %>
-          <br></br>
+          <br />
            <%= attachment_image_tag @post.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %>
           </div>
          </td>
-         <td width="500" height="500">質問本文
-          <div style="border: 1px solid #333333; border-radius: 1px; word-break: break-all;">
+         <td>質問本文
+          <div style="padding: 3px; border: 1px solid #333333; border-radius: 1px; word-break: break-all;">
            <%= simple_format(@post.postbody) %>
           </div>
          </td>
@@ -26,7 +27,7 @@
           </div>
           参考画像
           <div style="padding: 30px; border: 1px solid #333333; border-radius: 1px;">
-            <%= attachment_image_tag @post, :postimage, :fill, 90, 90, fallback: "no_image.jpg" %>
+            <%= attachment_image_tag @post, :postimage, :fill, 70, 70, fallback: "no_image.jpg" %>
           </div>
          </td>
         </tr>
@@ -37,15 +38,15 @@
           <td>回答者
            <div style="padding: 10px; border: 1px solid #333333; border-radius: 1px;">
             <%= link_to answer.member.name, manager_member_path(answer.member) %>
-            <br></br>
+            <br />
             <%= attachment_image_tag answer.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %>
            </div>
-           <br>回答更新日時</br>
-            <br><%= answer.updated_at.to_s(:datetime_jp) %></br>
+           <br />回答更新日時
+            <br /><%= answer.updated_at.to_s(:datetime_jp) %>
            <%= link_to '削除する', manager_answer_path(answer), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%>
           </td>
-          <td width="500" height="500">回答本文
-         <div style="border: 1px solid #333333; border-radius: 1px; word-break: break-all;">
+          <td>回答本文
+         <div style="padding: 3px; border: 1px solid #333333; border-radius: 1px; word-break: break-all;">
            <%= simple_format(answer.answerbody) %>
          </div>
          <p class="sentiment-score">感情分析スコア <%= answer.score %> / 1.0</p>
@@ -56,8 +57,8 @@
           </div>
           参考画像
           <div style="padding: 3px; border: 1px solid #333333; border-radius: 1px;">
-           <%= attachment_image_tag answer, :answerimage, :fill, 250, 140, fallback: "no_image.jpg" %>
-           <br></br>
+           <%= attachment_image_tag answer, :answerimage, :fill, 150, 120, fallback: "no_image.jpg" %>
+           <br />
            画像分類
            <% answer.tags.each do |tag| %>
             <span class="label"><%= tag.name %></span>
@@ -70,6 +71,7 @@
         <%= paginate @answers %>
       </tbody>
     </table>
+    </div>
 
  </div>
 </div>

@@ -14,7 +14,7 @@
     <tr>
     <div class="field">
      <th>ログイン用<%= f.label :仮メールアドレス %></th>
-     <th><%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %></th>
+     <th><%= f.email_field :email, autofocus: true, required: true, autocomplete: "email", class: 'form-control' %></th>
     </div>
     </tr>
     <tr>
@@ -22,13 +22,13 @@
      <th><%= f.label :パスワード（６文字以上） %></th>
          <% if @minimum_password_length %>
          <% end %>
-     <th><%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %></th>
+     <th><%= f.password_field :password, required: true, autocomplete: "new-password", class: 'form-control' %></th>
     </div>
     </tr>
     <tr>
     <div class="field">
      <th><%= f.label :パスワード（確認用） %></th>
-     <th><%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %></th>
+     <th><%= f.password_field :password_confirmation, required: true, autocomplete: "new-password", class: 'form-control' %></th>
     </div>
     </tr>
     </table>
