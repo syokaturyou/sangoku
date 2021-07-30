@@ -47,13 +47,15 @@
              <%= attachment_image_tag answer.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %>
           </div>
           <br />回答更新日時
-           <br /><%= answer.updated_at.to_s(:datetime_jp) %>
+           <%= answer.updated_at.to_s(:datetime_jp) %>
+          <br />
          <% if member_signed_in? %>
           <% if answer.member.id != current_member.id %>
            <%= link_to '評価する', new_public_answer_rate_path(answer.id), class: 'btn btn-warning', data: {"turbolinks"=>false} %>
           <% end %>
           <% if answer.member.id == current_member.id %>
            <%= link_to '編集する', edit_public_answer_path(answer), class: 'btn btn-success', data: {"turbolinks"=>false} %>
+           <br />
            <%= link_to '削除する', public_answer_path(answer), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%>
           <% end %>
          <% end %>
