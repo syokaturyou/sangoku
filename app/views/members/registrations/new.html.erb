@@ -8,13 +8,13 @@
     <tr>
     <div class="field">
      <th><%= f.label :登録名 %></th>
-     <th><%= f.text_field :name, autofocus: true, required: true, class: 'form-control', size: "35" %></th>
+     <th><%= f.text_field :name, autofocus: true, required: true, maxlength: "40", class: 'form-control', size: "35" %></th>
     </div>
     </tr>
     <tr>
     <div class="field">
      <th>ログイン用<%= f.label :仮メールアドレス %></th>
-     <th><%= f.email_field :email, autofocus: true, required: true, autocomplete: "email", class: 'form-control' %></th>
+     <th><%= f.email_field :email, autofocus: true, required: true, autocomplete: "email", maxlength: "80", class: 'form-control' %></th>
     </div>
     </tr>
     <tr>

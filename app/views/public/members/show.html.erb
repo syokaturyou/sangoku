@@ -30,7 +30,7 @@
         <h6><%= link_to '登録情報を編集する',edit_public_member_path(current_member), class: 'btn btn-success', data: {"turbolinks"=>false} %></h6>
         <h6><%= link_to '退会する',public_unsubscribe_path, class: 'btn btn-danger' %></h6>
        <% else %>
-        <%= link_to @member.name + 'さんとのチャット', public_chat_path(@member.id), class: 'btn btn-primary', data: {"turbolinks"=>false} %>
+        <h6><%= link_to '「' + @member.name + '」さんとのチャット', public_chat_path(@member.id), class: 'btn btn-primary', data: {"turbolinks"=>false} %></h6>
        <% end %>
       <% end %>
     </div>
