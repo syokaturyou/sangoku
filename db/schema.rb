@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_03_094823) do
+ActiveRecord::Schema.define(version: 2021_08_24_124401) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(version: 2021_07_03_094823) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "chats", force: :cascade do |t|
+    t.integer "member_id"
+    t.integer "room_id"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "contracts", force: :cascade do |t|
     t.string "name"
     t.string "email", default: "", null: false
@@ -53,6 +61,13 @@ ActiveRecord::Schema.define(version: 2021_07_03_094823) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "member_rooms", force: :cascade do |t|
+    t.integer "member_id"
+    t.integer "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -95,6 +110,11 @@ ActiveRecord::Schema.define(version: 2021_07_03_094823) do
     t.datetime "updated_at", null: false
     t.integer "answer_id"
     t.float "review", default: 0.0, null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tags", force: :cascade do |t|

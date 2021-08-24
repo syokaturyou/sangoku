@@ -1,0 +1,31 @@
+<h2>自分と「<%= @member.name %>」さんとのチャット
+<%= attachment_image_tag @member, :profileimage, :fill, 90, 90, fallback: "no_image.jpg" %>
+    <%= link_to '「' + @member.name + '」さんの会員画面へ戻る',public_member_path(@member.id), class: 'btn btn-danger', data: {"turbolinks"=>false} %>
+</h2>
+ <div class="chats">
+   <table>
+    <tbody>
+        <% @chats.each do |chat| %>
+          <%if chat.member_id==current_member.id%>
+           <div class="mycomment">
+            <%= simple_format(chat.message) %>
+           </div>
+          <%else%>
+           <div class="fukidasi">
+            <div class="chatting">
+              <div class="says">
+               <%= simple_format(chat.message) %>
+             </div>
+            </div>
+          </div>
+          <%end%>
+        <% end %>
+    </tbody>
+   </table>
+  </div>
+
+<%= form_with model: @chat, url: public_chats_path, local: true do |f| %>
+    <%= f.text_area :message, autofocus: true, required: true, maxlength: "70", size: '35x2' %>
+    <%= f.hidden_field :room_id %>
+    <%= f.submit "送信", class: 'btn btn-success' %>
+<% end %>

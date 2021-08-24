@@ -7,6 +7,8 @@ class Member < ApplicationRecord
          has_many :answers, dependent: :destroy
          has_many :posts, dependent: :destroy
          has_many :rates, dependent: :destroy
+         has_many :member_rooms, dependent: :destroy
+         has_many :chats, dependent: :destroy
 
          attachment :profileimage
 

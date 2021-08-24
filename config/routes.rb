@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
+    get 'chat/:id' => 'chats#show', as: 'chat'
+    resources :chats, only: [:create]
     get 'members/unsubscribe' => 'members#unsubscribe', as: 'unsubscribe'
     patch 'members/unsubscribe' => 'members#withdrawal', as: 'withdrawal'
     resources :members, only: [:show, :update, :edit]
