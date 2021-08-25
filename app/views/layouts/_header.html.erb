@@ -9,6 +9,9 @@
     <%= link_to 'マイページ',public_member_path(current_member.id), class: "fas fa-user nav-link" %>
    </div>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
+    <%= link_to '会員一覧',public_members_path, class: "fas fa-user nav-link" %>
+   </div>
+   <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
     <%= link_to '質問投稿一覧',public_posts_path, class: "fas fa-user-edit nav-link" %>
    </div>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">

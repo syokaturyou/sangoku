@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     resources :chats, only: [:create]
     get 'members/unsubscribe' => 'members#unsubscribe', as: 'unsubscribe'
     patch 'members/unsubscribe' => 'members#withdrawal', as: 'withdrawal'
-    resources :members, only: [:show, :update, :edit]
+    resources :members, only: [:index, :show, :update, :edit]
     resources :posts, only: [:index, :show, :destroy, :create, :update, :edit, :new] do
       resources :answers, only: [:create, :new]
     end
