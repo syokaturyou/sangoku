@@ -1,0 +1,2 @@
+class Zatudan < ApplicationRecord
+end
