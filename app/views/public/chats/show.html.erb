@@ -23,7 +23,7 @@
     </div>
 
   <div class="center">
-   <%= form_with model: @chat, url: public_chats_path, local: true do |f| %>
+   <%= form_with model: @chat, url: public_chats_path, remote: true do |f| %>
     <%= f.text_area :message, autofocus: true, required: true, maxlength: "70", size: '50x2' %>
     <%= f.hidden_field :room_id %>
     <%= f.submit "チャット送信", class: 'btn btn-success' %>

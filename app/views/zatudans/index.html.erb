@@ -17,7 +17,7 @@
 <br>
 
 <div class="center">
- <%= form_with model: @newzatudan, url: zatudans_path, local: true do |f| %>
+ <%= form_with model: @newzatudan, url: zatudans_path, remote: true do |f| %>
      <%= f.text_field :message, autofocus: true, required: true, maxlength: "75", size: "75" %>
      <%= f.submit "メッセージ送信", class: 'btn btn-success' %>
  <% end %>
