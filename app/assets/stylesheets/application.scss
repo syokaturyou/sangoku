@@ -25,10 +25,7 @@
  }
 
  footer {
-  margin-top: 1px;
-  padding-top: 1px;
   text-align: center;
-  border-top: 1px solid #eaeaea;
   color: #777;
 }
 
@@ -176,6 +173,14 @@
 }
 
 @media only screen and (max-width: 500px) {
+  .footer {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  text-align: center;
+  color: #777;
+  }
+
   .header-nav {
     display: flex;
     flex-direction: column;
@@ -197,6 +202,14 @@
 }
 
 @media screen and (min-height: 700px) {
+  .footer {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  text-align: center;
+  color: #777;
+  }
+
   .main {
    width: 100%;
    margin: 0;
