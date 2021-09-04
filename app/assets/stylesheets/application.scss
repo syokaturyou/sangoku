@@ -18,6 +18,13 @@
 @import 'font-awesome';
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Kosugi+Maru&display=swap');
 
+html {
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 100px;
+  box-sizing: border-box;
+}
+
  header {
  width: 100%;
  height: 100%;
@@ -25,6 +32,11 @@
  }
 
  footer {
+  position: absolute; /*←絶対位置*/
+  left: 0;
+  bottom: 0; /*下に固定*/
+  width: 100%;
+  height: 20px;
   text-align: center;
   color: #777;
 }
@@ -71,7 +83,6 @@
    position: relative;
    margin: 0 0 0 50px;
    padding: 10px;
-   //   max-width: 250px;
    border-radius: 12px;
    background: #edf1ee;
  }
@@ -98,7 +109,6 @@
    position: relative;
    margin: 0 10px 0 0;
    padding: 8px;
-   //   max-width: 250px;
    border-radius: 12px;
    background: #30e852;
    font-size: 15px;
@@ -147,7 +157,6 @@
   text-align: center;
   margin: 10px 10px 10px 10px;
   padding: 10px 10px 10px 10px;
-  // position: absolute;
  }
 
  .bottom {
@@ -173,14 +182,6 @@
 }
 
 @media only screen and (max-width: 500px) {
-  .footer {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  text-align: center;
-  color: #777;
-  }
-
   .header-nav {
     display: flex;
     flex-direction: column;
@@ -202,14 +203,6 @@
 }
 
 @media screen and (min-height: 700px) {
-  .footer {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  text-align: center;
-  color: #777;
-  }
-
   .main {
    width: 100%;
    margin: 0;
