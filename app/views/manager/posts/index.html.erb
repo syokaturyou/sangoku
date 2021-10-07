@@ -12,7 +12,7 @@
     <% end %>
 
     <div style="word-break: break-all;">
-     <table class="table table-hover table-inverse">
+     <table class="table table-hover table-inverse" frame="border">
       <thead>
        <tr bgcolor=#66FFCC>
         <th>投稿No </th>
@@ -26,7 +26,7 @@
       <thead>
       <tbody>
         <% @posts.each do |post| %>
-        <tr>
+        <tr bgcolor=#EEEEEE>
           <td><%= post.id %></td>
           <td><%= link_to post.posttitle, manager_post_path(post) %></td>
           <td>

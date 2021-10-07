@@ -18,41 +18,42 @@
     </div>
 
     <div style="word-break: break-all;">
-     <table class="table table-hover table-inverse">
+     <table class="table table-hover table-inverse" frame="border">
       <thead>
-        <tr bgcolor=#66FFCC>
-          <th>投稿No </th>
-          <th>質問タイトル </th>
-          <th>質問者 </th>
-          <th>更新日時</th>
-          <th>回答数</th>
-          <th>ジャンル名</th>
-          <th></th>
-        </tr>
+       <tr bgcolor=#66FFCC>
+        <th>投稿No </th>
+        <th>質問タイトル </th>
+        <th>質問者 </th>
+        <th>更新日時</th>
+        <th>回答数</th>
+        <th>ジャンル名</th>
+        <th></th>
+       </tr>
       <thead>
       <tbody>
-        <% @posts.each do |post| %>
-        <tr>
-          <td><%= post.id %></td>
-          <td><%= link_to post.posttitle, public_post_path(post) %></td>
-          <td>
-            <%= link_to post.member.name, public_member_path(post.member) %>
-            <%= attachment_image_tag post.member, :profileimage, :fill, 40, 40, fallback: "no_image.jpg" %>
-          </td>
-          <td><%= post.updated_at.to_s(:datetime_jp) %></td>
-          <td><%= post.answers.count %></td>
-          <td><%= post.genre.name %></td>
+       <% @posts.each do |post| %>
+        <tr bgcolor=#EEEEEE>
+         <td><%= post.id %></td>
+         <td><%= link_to post.posttitle, public_post_path(post) %></td>
+         <td>
+          <%= link_to post.member.name, public_member_path(post.member) %>
+          <%= attachment_image_tag post.member, :profileimage, :fill, 40, 40, fallback: "no_image.jpg" %>
+         </td>
+         <td><%= post.updated_at.to_s(:datetime_jp) %></td>
+         <td><%= post.answers.count %></td>
+         <td><%= post.genre.name %></td>
           <% if member_signed_in? %>
           <% if post.member.id == current_member.id %>
-           <td><%= link_to '編集する', edit_public_post_path(post), class: 'btn btn-success', data: {"turbolinks"=>false} %>
-               <%= link_to '削除する', public_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%>
-           </td>
-           <% else %>
-           <td></td>
-           <% end %>
-           </tr>
+         <td>
+          <%= link_to '編集する', edit_public_post_path(post), class: 'btn btn-success', data: {"turbolinks"=>false} %>
+          <%= link_to '削除する', public_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%>
+         </td>
+          <% else %>
+         <td></td>
           <% end %>
+        </tr>
         <% end %>
+       <% end %>
       </tbody>
      </table>
     </div>
