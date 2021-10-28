@@ -2,12 +2,12 @@
  <div class="row">
   <div style="word-break: break-all;">
    <%= form_with url: search_path, local: true, method: :get do |f| %>
-    <%= f.text_field :word, size: "20", class: 'form-control' %>
+    <%= f.text_field :word, size: "50", class: 'form-control-sm' %>
     <%= f.select :range, options_for_select([['質問タイトル'],['会員'],['ジャンル']]) %>
     <%= f.hidden_field :search, :value => "partial_match" %>
     <%= f.submit "検索", class: "btn btn-primary", data: {"turbolinks"=>false} %>
    <% end %>
-  <table class="table table-hover table-inverse">
+  <table class="table table-hover table-inverse" frame="border" >
   <!--検索対象モデルが会員の時 -->
     <% if @range == "会員" %>
      <tbody>

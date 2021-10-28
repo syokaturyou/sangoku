@@ -1,22 +1,25 @@
-<div class="oocontainer">
-  <div class="row">
-    <div class="col-lg-3">
-      <h2>質問一覧</h2>
-    </div>
-
-    <%= form_with url: search_path, local: true, method: :get do |f| %>
-      <%= f.text_field :word %>
+<h1>投稿質問一覧</h1>
+ <div class="oocontainer">
+   <div class="row">
+    <div class="col-lg-7">
+     <%= form_with url: search_path, local: true, method: :get do |f| %>
+      <%= f.text_field :word, size: "50", class: 'form-control-sm' %>
       <%= f.select :range, options_for_select([['質問タイトル'],['会員'],['ジャンル']]) %>
       <%= f.hidden_field :search, :value => "partial_match" %>
       <%= f.submit "検索", class: "btn btn-primary" %>
-    <% end %>
+     <% end %>
+    </div>
+
+    <div class="col-lg-7">
+     <%= paginate @posts %>
+    </div>
 
     <div style="word-break: break-all;">
      <table class="table table-hover table-inverse" frame="border">
       <thead>
        <tr bgcolor=#66FFCC>
         <th>投稿No </th>
-        <th>質問タイトル </th>
+        <th>質問タイトル</th>
         <th>質問者 </th>
         <th>更新日時</th>
         <th>回答数</th>
@@ -37,17 +40,10 @@
           <td><%= post.answers.count %></td>
           <td><%= post.genre.name %></td>
           <td><%= link_to '削除する', manager_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%></td>
-          <td></td>
         </tr>
         <% end %>
       </tbody>
      </table>
     </div>
 
-  <div class="row">
-    <div class="col-lg-5"></div>
-    <div class="col-lg-7">
-    <%= paginate @posts %>
-    </div>
-  </div>
 </div>

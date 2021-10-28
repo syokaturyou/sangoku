@@ -1,10 +1,9 @@
-<h4>評価投稿</h4>
+<h1>評価投稿</h1>
+ <div class="center">
+  <div class="bottom">
+   <h5><b>格回答に対して5段階評価をしましょう！ 一度のみ評価可能です</b></h5><br>
 
-<div class="center">
- <div class="bottom">
-  <h6>回答に対して5段階評価をしましょう！。各回答に対して一度のみ評価可能です</h6><br>
-
-  <%= form_with model: @newrate, url: public_answer_rates_path, local: true do |f| %>
+    <%= form_with model: @newrate, url: public_answer_rates_path, local: true do |f| %>
 
   <div id="star1">
    <%= f.label :communication, "丁重性評価：" %>
@@ -23,7 +22,7 @@
   </div>
 
   <div id="star2">
-    <%= f.label :source, " 出典  評価   ： " %>
+    <%= f.label :source, "出典性評価： " %>
     <%= f.hidden_field :source, :value => 0, id: :rate_star %>
     <script>
       $('#star2').raty({
