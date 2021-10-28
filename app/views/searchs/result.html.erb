@@ -2,7 +2,7 @@
  <div class="row">
   <div style="word-break: break-all;">
    <%= form_with url: search_path, local: true, method: :get do |f| %>
-    <%= f.text_field :word %>
+    <%= f.text_field :word, size: "20", class: 'form-control' %>
     <%= f.select :range, options_for_select([['質問タイトル'],['会員'],['ジャンル']]) %>
     <%= f.hidden_field :search, :value => "partial_match" %>
     <%= f.submit "検索", class: "btn btn-primary", data: {"turbolinks"=>false} %>
@@ -12,7 +12,7 @@
     <% if @range == "会員" %>
      <tbody>
       <tr>
-       <th>"<%= @oomember %>"の会員検索結果を表示</th>
+       <b>"<%= @oomember %>"の会員検索結果表示</b>
       </tr>
       <tr bgcolor=#66FFCC>
        <th>会員id</th>
@@ -33,7 +33,7 @@
    <% elsif @range == "ジャンル" %>
      <tbody>
       <tr>
-       <th>"<%= @oogenre %>"のジャンル検索結果を表示</th>
+       <b>"<%= @oogenre %>"のジャンル検索結果表示</b>
       </tr>
       <tr bgcolor=#66FFCC>
        <th>ジャンル名</th>
@@ -72,7 +72,7 @@
     <!--検索対象モデルが質問タイトルの時 -->
      <tbody>
       <tr>
-       <th>"<%= @oopost %>"の質問タイトル検索結果を表示</th>
+       <b>"<%= @oopost %>"の質問タイトル検索結果を表示</b>
       </tr>
       <tr bgcolor=#66FFCC>
        <th>投稿No</th>
