@@ -1,45 +1,45 @@
-<h4>新規会員登録</h4>
+<h3>新規会員登録</h3>
   <div class ="center">
-    <div class ="bottom">
+   <div class ="bottom">
     <%= form_for(resource, as: resource_name, url: member_registration_path) do |f| %>
     <%= render "members/shared/error_messages", resource: resource %>
-
     <table>
-    <tr>
-    <div class="field">
-     <th><%= f.label :登録名 %></th>
-     <th><%= f.text_field :name, autofocus: true, required: true, maxlength: "40", class: 'form-control', size: "35" %></th>
-    </div>
-    </tr>
-    <tr>
-    <div class="field">
-     <th>ログイン用<%= f.label :仮メールアドレス %></th>
-     <th><%= f.email_field :email, autofocus: true, required: true, autocomplete: "email", maxlength: "80", class: 'form-control' %></th>
-    </div>
-    </tr>
-    <tr>
-    <div class="field">
-     <th><%= f.label :パスワード（６文字以上） %></th>
-         <% if @minimum_password_length %>
-         <% end %>
-     <th><%= f.password_field :password, required: true, autocomplete: "new-password", class: 'form-control' %></th>
-    </div>
-    </tr>
-    <tr>
-    <div class="field">
-     <th><%= f.label :パスワード（確認用） %></th>
-     <th><%= f.password_field :password_confirmation, required: true, autocomplete: "new-password", class: 'form-control' %></th>
-    </div>
-    </tr>
+     <tr>
+      <div class="field">
+       <th><%= f.label :登録名 %></th>
+       <th><%= f.text_field :name, autofocus: true, required: true, maxlength: "40", class: 'form-control', size: "35" %></th>
+      </div>
+     </tr>
+     <tr>
+      <div class="field">
+       <th>ログイン用<%= f.label :仮メールアドレス %></th>
+       <th><%= f.email_field :email, autofocus: true, required: true, autocomplete: "email", maxlength: "80", class: 'form-control' %></th>
+      </div>
+     </tr>
+     <tr>
+      <div class="field">
+       <th><%= f.label :パスワード（６文字以上） %></th>
+        <% if @minimum_password_length %>
+        <% end %>
+       <th><%= f.password_field :password, required: true, autocomplete: "new-password", class: 'form-control' %></th>
+      </div>
+     </tr>
+     <tr>
+      <div class="field">
+       <th><%= f.label :パスワード（確認用） %></th>
+       <th><%= f.password_field :password_confirmation, required: true, autocomplete: "new-password", class: 'form-control' %></th>
+      </div>
+     </tr>
     </table>
     <br></br>
     <div class="actions">
-    <%= f.submit "新規登録する", class: 'btn btn-success' %>
+    <%= f.submit "新規登録する", class: 'btn btn-success btn-lg' %>
     </div>
     <% end %>
+    <br></br>
 
-  <h2>既に登録済みの方</h2>
-  <%= link_to "ログイン画面へ", new_session_path(resource_name), class: 'btn btn-primary' %>
+  <h3>既に登録済みの方</h3>
+  <%= link_to "ログイン画面へ", new_session_path(resource_name), class: 'btn btn-primary btn-lg' %>
 
    </div>
   </div>

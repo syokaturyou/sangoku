@@ -3,7 +3,6 @@
 <% if admin_signed_in? %>
 
 <%= render 'form', article: @article %>
-
-<%= link_to '詳細', @article %> |
-<%= link_to '戻る', articles_path %>
+ <%= link_to '詳細', @article, class: 'btn btn-primary' %>
+ <%= link_to '戻る', articles_path, class: 'btn btn-danger' %>
 <% end %>

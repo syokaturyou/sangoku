@@ -2,5 +2,5 @@
 <% if admin_signed_in? %>
 <%= render 'form', article: @article %>
 
-<%= link_to '戻る', articles_path %>
+<%= link_to '戻る', articles_path, class: 'btn btn-danger' %>
 <% end %>

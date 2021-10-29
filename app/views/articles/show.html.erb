@@ -1,4 +1,6 @@
-<table class="table table-borderless">
+<h2>お知らせ内容</h2>
+
+<table class="table table-hover table-inverse" frame="border">
   <tbody>
     <tr>
       <td>タイトル</td>
@@ -12,6 +14,6 @@
 </table>
 
 <% if admin_signed_in? %>
-<%= link_to '編集', edit_article_path(@article), data: {"turbolinks"=>false} %> |
-<%= link_to '戻る', articles_path %>
+<%= link_to '編集', edit_article_path(@article), data: {"turbolinks"=>false}, class: 'btn btn-success' %>
+<%= link_to '戻る', articles_path, class: 'btn btn-danger' %>
 <% end %>

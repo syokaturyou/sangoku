@@ -6,13 +6,13 @@
       <%= f.text_field :word, size: "50", class: 'form-control-sm' %>
       <%= f.select :range, options_for_select([['質問タイトル'],['会員'],['ジャンル']]) %>
       <%= f.hidden_field :search, :value => "partial_match" %>
-      <%= f.submit "検索", class: "btn btn-primary", data: {"turbolinks"=>false} %>
+      <%= f.submit "検索", class: "btn btn-primary btn-lg", data: {"turbolinks"=>false} %>
      <% end %>
     </div>
 
     <div class="col-lg-5">
      <% if member_signed_in? %>
-     <%= link_to ' 新規質問投稿する', new_public_post_path, class: 'btn btn-success', data: {"turbolinks"=>false} %>
+     <%= link_to ' 新規質問投稿する', new_public_post_path, class: 'btn btn-success btn-lg', data: {"turbolinks"=>false} %>
      <% end %>
     </div>
 
