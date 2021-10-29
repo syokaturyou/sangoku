@@ -14,7 +14,7 @@
      <thead>
      <tbody>
       <% @members.each do |member| %>
-       <tr>
+       <tr bgcolor=#EEEEEE>
         <td><%= member.id %></td>
         <td><%= link_to member.name, public_member_path(member) %></td>
         <td><%= attachment_image_tag member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %></td>

@@ -1,7 +1,7 @@
 <h1>評価投稿</h1>
  <div class="center">
   <div class="bottom">
-   <h5><b>格回答に対して5段階評価をしましょう！ 一度のみ評価可能です</b></h5><br>
+   <h5><b>各回答に対して5段階評価をしましょう！ 一度のみ評価可能です</b></h5><br>
 
     <%= form_with model: @newrate, url: public_answer_rates_path, local: true do |f| %>
 
@@ -65,7 +65,7 @@
       });
     </script>
   </div>
-  <%= f.submit "評価する", class: 'btn btn-success' %>
+  <%= f.submit "評価する", class: 'btn btn-success btn-lg' %>
   <% end %>
  </div>
 </div>

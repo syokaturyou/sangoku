@@ -1,7 +1,9 @@
 <% if admin_signed_in? %>
-<h1>お知らせ一覧</h1>
+ <h1>お知らせ一覧</h1>
+ <%= link_to 'お知らせを新規作成', new_article_path, class: 'btn btn-success btn-lg', data: {"turbolinks"=>false} %>
+ <br>
 
-<table class="table table-hover table-inverse" frame="border">
+ <table class="table table-hover table-inverse" frame="border">
   <thead>
     <tr bgcolor=#66FFCC>
       <th>No.</th>
@@ -13,7 +15,7 @@
 
   <tbody>
     <% @articles.each do |article| %>
-      <tr bgcolor=#BBBBBB>
+      <tr bgcolor=#EEEEEE>
         <td><%= article.id %></td>
         <td><%= article.title %></td>
         <td><%= article.updated_at.to_s(:datetime_jp) %></td>
@@ -23,9 +25,5 @@
       </tr>
     <% end %>
   </tbody>
-</table>
-
-<br>
-
-<%= link_to '新規作成', new_article_path, class: 'btn btn-success', data: {"turbolinks"=>false} %>
+ </table>
 <% end %>
