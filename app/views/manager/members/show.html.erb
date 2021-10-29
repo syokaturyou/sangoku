@@ -3,47 +3,38 @@
   <div class="row">
     <div style="word-break: break-all;">
       <table class="table table-hover table-inverse" frame="border">
-        <thead>
-          <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>会員id</td>
-            <td><%= @member.id %></td>
-          </tr>
-          <tr>
-            <td>氏名</td>
-            <td><%= @member.name %></td>
-          </tr>
-          <tr>
-            <td>メールアドレス</td>
-            <td><%= @member.email %></td>
-          </tr>
-          <tr>
-            <td>プロフィール</td>
-            <td width="300" height="150"><%= simple_format(@member.profile) %></td>
-          </tr>
-          <tr>
-            <td>プロフィール画像</td>
-            <td><%= attachment_image_tag @member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %></td>
-          </tr>
-          <tr>
-            <td>会員ステータス</td>
-            <td><% if @member.is_deleted == true %><font color="gray">退会</font>
-                <% elsif @member.is_deleted == false %><font color="green">有効</font>
-                <% end %></p>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td><%= link_to ' 編集する', edit_manager_member_path(@member.id) , class: 'btn btn-success btn-lg', data: {"turbolinks"=>false} %></td>
-          </tr>
-        </tbody>
+       <thead></thead>
+       <tbody>
+        <tr>
+         <td>会員id</td>
+         <td><%= @member.id %></td>
+        </tr>
+        <tr>
+         <td>氏名</td>
+         <td><%= @member.name %></td>
+        </tr>
+        <tr>
+         <td>メールアドレス</td>
+         <td><%= @member.email %></td>
+        </tr>
+        <tr>
+         <td>プロフィール</td>
+         <td width="300" height="150"><%= simple_format(@member.profile) %></td>
+        </tr>
+        <tr>
+         <td>プロフィール画像</td>
+         <td><%= attachment_image_tag @member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %></td>
+        </tr>
+        <tr>
+         <td>会員ステータス</td>
+         <td><% if @member.is_deleted == true %><font color="gray">退会</font>
+             <% elsif @member.is_deleted == false %><font color="green">有効</font>
+             <% end %></p>
+         </td>
+        </tr>
+       </tbody>
       </table>
+      <%= link_to ' 編集する', edit_manager_member_path(@member.id) , class: 'btn btn-success btn-lg', data: {"turbolinks"=>false} %>
     </div>
   </div>
 </div>
