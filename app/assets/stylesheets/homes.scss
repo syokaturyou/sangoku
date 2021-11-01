@@ -52,7 +52,7 @@
      width: 80%;
      padding: 0 18px;
      // background: #ccc;
-     background-image: image-url("sousou.png");
+     background-image: image-url("nigaoe_oda_nobunaga.png");
      background-repeat:  no-repeat;
      opacity:  0.7;
      background-position: right 10px center;
@@ -60,42 +60,96 @@
   }
 
 
- /*=== 画像の表示エリア ================================= */
+ /* --- 全体のBOX定義 ---------------------------------------- */
 .slide {
   position   : relative;
+  max-width  : 90%;
+  height     : 450px;
+  margin     : auto;
   overflow   : hidden;
-                    /* 画像のサイズに合わせて変更ください */
-  width      : 200px;
-  height     : 200px;
-  margin     : auto;      /* サンプルは中央寄せの背景：白 */
-  background : #fff;
 }
 
- /*=== 画像の設定 ======================================= */
-.slide img {
-  display    : block;
+/* --- 背景の指定 ------------------------------------------- */
+.slide .slideImg {
   position   : absolute;
-                      /* 画像のサイズを表示エリアに合せる */
-  width      : inherit;
-  height     : inherit;
+  top        : 0;
+  left       : 0;
+  bottom     : 0;
+  right      : 0;
   opacity    : 0;
-  animation  : slideAnime 15s ease infinite;
+  animation  : bgAnime 30s infinite;   /* 6画像 × 各5s = 30s */
 }
 
- /*=== スライドのアニメーションを段差で開始する ========= */
-.slide img:nth-of-type(1) { animation-delay: 0s }
-.slide img:nth-of-type(2) { animation-delay: 3s }
-.slide img:nth-of-type(3) { animation-delay: 6s }
-.slide img:nth-of-type(4) { animation-delay: 9s }
-.slide img:nth-of-type(5) { animation-delay: 12s }
+/* --- 段差で背景画像のアニメーションを実行 ----------------- */
+.slide .src1 {
+  background-image: image-url("nigaoe_kanu.png");   /* 背景の画像を指定 */
+  background-repeat:  no-repeat;
+  background-position: right 10px center;
+}
+.slide .src2 {
+  background-image: image-url("nigaoe_chouhi.png");    /* 背景の画像を指定 */
+  background-repeat:  no-repeat;
+  animation-delay  : 5s;
+}
+.slide .src3 {
+  background-image: image-url("sousou.png");   /* 背景の画像を指定 */
+  background-repeat:  no-repeat;
+  animation-delay  : 10s;
+  background-position: right 10px center;
+  background-size:contain;
+}
+.slide .src4 {
+  background-image: image-url("nigaoe_sonken.png");    /* 背景の画像を指定 */
+  background-repeat:  no-repeat;
+  animation-delay  : 15s;
+}
 
- /*=== スライドのアニメーション ========================= */
-@keyframes slideAnime{
-   0% { opacity: 0; transform: scale(.1, .1)}
-   2% { opacity: 1; transform: scale(1, 1)  }
-  18% { opacity: 1; transform: scale(1, 1)  }
-  20% { opacity: 0; transform: scale(2, 2)  }
- 100% { opacity: 0; transform: scale(2, 2)  }
+.slide .src5 {
+  background-image: image-url("nigaoe_syokatsu_koumei.png");    /* 背景の画像を指定 */
+  background-repeat:  no-repeat;
+  background-position: right 10px center;
+  animation-delay  : 20s;
+}
+
+.slide .src6 {
+  background-image: image-url("himiko.png");    /* 背景の画像を指定 */
+  background-repeat:  no-repeat;
+  background-position: center;
+  animation-delay  : 25s;
+}
+
+// .slide .src6 {
+//   background-image: image-url("nigaoe_kanu.png"),
+//                     image-url("nigaoe_ryuubigentoku.png"),
+//                     image-url("nigaoe_chouhi.png");
+//   background-repeat:  no-repeat,
+//                       no-repeat,
+//                       no-repeat;
+//   background-position: right 150px center,center,left 150px center;
+//   animation-delay  : 25s;
+// }
+
+@keyframes bgAnime {
+   0% { opacity: 0; }
+   5% { opacity: 1; }
+  25% { opacity: 0; }
+  45% { opacity: 0; }
+  65% { opacity: 0; }
+  80% { opacity: 0; }
+ 100% { opacity: 0; }
+}
+
+/* --- 前面の文字定義（サンプルのため変更してください） ----- */
+.slide .slideString{
+  position   : absolute;
+  display    : inline-block;
+  padding    : 20px;
+  background : rgba(0, 127, 255, 0.7);          /* 半透明の青 */
+  color      : #fff;
+  top        : 50%;                               /* 中央寄せ */
+  left       : 50%;
+  transform  : translate(-50%,-50%);
+  z-index    : 11;
 }
 
 @media only screen and (max-width: 500px) {
