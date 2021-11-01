@@ -141,50 +141,50 @@
   z-index    : 11;
 }
 
-@media only screen and (max-width: 500px) {
-  .home-top {
-    width: 100%;
-    height: 100%;
-    margin: 0;
+// @media only screen and (max-width: 500px) {
+//   .home-top {
+//     width: 100%;
+//     height: 100%;
+//     margin: 0;
 
-    & h1 {
-      font-size: 1.8rem;
-    }
+//     & h1 {
+//       font-size: 1.8rem;
+//     }
 
-    &__home-subtitle {
-      font-size: 1.2rem;
-    }
+//     &__home-subtitle {
+//       font-size: 1.2rem;
+//     }
 
-    %__home-title {
-      width: 100%;
-      font-size: 1rem;
-      line-height: 1.8;
-    　margin: 0;
-      padding: 0 12px;
-    }
-  }
-}
+//     %__home-title {
+//       width: 100%;
+//       font-size: 1rem;
+//       line-height: 1.8;
+//     　margin: 0;
+//       padding: 0 12px;
+//     }
+//   }
+// }
 
-@media screen and (min-height: 700px) {
-  .home-top {
-   width: 100%;
-   height: 100%;
-   margin: 0;
+// @media screen and (min-height: 700px) {
+//   .home-top {
+//   width: 100%;
+//   height: 100%;
+//   margin: 0;
 
-   & h1 {
-      font-size: 1.8rem;
-   }
+//   & h1 {
+//       font-size: 1.8rem;
+//   }
 
-   &__home-subtitle {
-    font-size: 1.2rem;
-   }
+//   &__home-subtitle {
+//     font-size: 1.2rem;
+//   }
 
-   %__home-title {
-    width: 100%;
-    font-size: 1rem;
-    line-height: 1.8;
-    margin: 0;
-    padding: 0 12px;
-   }
-  }
-}
+//   %__home-title {
+//     width: 100%;
+//     font-size: 1rem;
+//     line-height: 1.8;
+//     margin: 0;
+//     padding: 0 12px;
+//   }
+//   }
+// }
