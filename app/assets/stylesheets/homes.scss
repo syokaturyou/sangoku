@@ -39,6 +39,65 @@
   }
 }
 
+   .home-article {
+    font-size: 1rem;
+    margin: 10px;
+    width: 80%;
+    padding: 0 18px;
+  }
+
+   .home-article:hover{
+     font-size: 1rem;
+     margin: 10px;
+     width: 80%;
+     padding: 0 18px;
+     // background: #ccc;
+     background-image: image-url("sousou.png");
+     background-repeat:  no-repeat;
+     opacity:  0.7;
+     background-position: right 10px center;
+     background-size:contain;                /* 画像のサイズを指定    */
+  }
+
+
+ /*=== 画像の表示エリア ================================= */
+.slide {
+  position   : relative;
+  overflow   : hidden;
+                    /* 画像のサイズに合わせて変更ください */
+  width      : 200px;
+  height     : 200px;
+  margin     : auto;      /* サンプルは中央寄せの背景：白 */
+  background : #fff;
+}
+
+ /*=== 画像の設定 ======================================= */
+.slide img {
+  display    : block;
+  position   : absolute;
+                      /* 画像のサイズを表示エリアに合せる */
+  width      : inherit;
+  height     : inherit;
+  opacity    : 0;
+  animation  : slideAnime 15s ease infinite;
+}
+
+ /*=== スライドのアニメーションを段差で開始する ========= */
+.slide img:nth-of-type(1) { animation-delay: 0s }
+.slide img:nth-of-type(2) { animation-delay: 3s }
+.slide img:nth-of-type(3) { animation-delay: 6s }
+.slide img:nth-of-type(4) { animation-delay: 9s }
+.slide img:nth-of-type(5) { animation-delay: 12s }
+
+ /*=== スライドのアニメーション ========================= */
+@keyframes slideAnime{
+   0% { opacity: 0; transform: scale(.1, .1)}
+   2% { opacity: 1; transform: scale(1, 1)  }
+  18% { opacity: 1; transform: scale(1, 1)  }
+  20% { opacity: 0; transform: scale(2, 2)  }
+ 100% { opacity: 0; transform: scale(2, 2)  }
+}
+
 @media only screen and (max-width: 500px) {
   .home-top {
     width: 100%;

@@ -3,49 +3,53 @@
  <div style="border: #808000 double 6px; border-radius:10px; width: 60%; font-size: 70%; padding: 10px;">
   <h1>ようこそ! 「我らの三国志」サイトへ！</h1>
  </div>
-  <table border="1">
-   <thead>
-     <div class="home-top__home-title">
-      <div class="home-top__home-title--red">
-       <span class="home-top__home-subtitle">サイト趣旨</span>
-      </div>
+
+ <div class="home-top__home-title">
+  <div class="home-top__home-title--red">
+   <span class="home-top__home-subtitle">サイト趣旨</span>
+  </div>
    当サイトは三国志に関する考察投稿サイトでございます!!<br>
    出典明記を義務付けた投稿サイトとすることで歴史書の記述を重視したい方々が気軽にお越しいただける場となることを願っております！<br>
    当サイトが盛り上がることで中長期的な三国志業界の発展に寄与できれば幸いでございます。<br>
    <br>
    会員登録いただければ質問の投稿・回答・回答に対するレビューできますが非会員でも閲覧は可能でございます。<br>
    「三国志」と銘打っておりますが三国時代以外の投稿も可能です。<br>
-     </div>
-   </thead>
-   <tbody>
-     <div class="home-top__home-title">
-      <div class="home-top__home-title--green">
-       <span class="home-top__home-subtitle">お知らせ</span>
-      </div>
-       <tr bgcolor=#66FFCC>
-        <th>タイトル</th>
-        <th>更新日時</th>
-       </tr>
-      <% @articles.first(10).each do |article| %>
-       <tr>
-        <td><%= link_to article.title, article_path(article.id) %></td>
-        <td><%= article.updated_at.to_s(:datetime_jp) %></td>
-       </tr>
-      <% end %>
-     </div>
-   </tbody>
-  </table>
 
-  <br>
+   <div class="slide" id="makeImg">
+    <img src="/image/nigaoe_kanu.png"   alt="関羽">
+    <img src="app/assets/images/nigaoe_syokatu_koumei.png"    alt="諸葛亮">
+    <img src="/app/assets/images/sousou.png"    alt="曹操">
+   </div>
 
-  <table border="1">
-   <tr bgcolor=#33FF66>
-    <th>サイト</th>
-    <th>リンク</th>
-   </tr>
-   <tr>
-    <th>「我らの三国志サイト」ツイッター</th>
-    <th><a href="https://twitter.com/warerano3594">https://twitter.com/warerano3594</a></th>
-   </tr>
-  </table>
+  <div class="home-top__home-title--green">
+   <span class="home-top__home-subtitle">お知らせ</span>
+  </div>
+ </div>
+
+ <div class="home-article">
+   <table border="1">
+     <tr bgcolor=#66FFCC>
+      <th>タイトル</th>
+      <th>更新日時</th>
+     </tr>
+    <% @articles.first(10).each do |article| %>
+     <tr>
+      <td><%= link_to article.title, article_path(article.id) %></td>
+      <td><%= article.updated_at.to_s(:datetime_jp) %></td>
+     </tr>
+    <% end %>
+   </table>
+   <br>
+   <table border="1">
+    <tr bgcolor=#33FF66>
+     <th>サイト</th>
+     <th>リンク</th>
+    </tr>
+    <tr>
+     <th>「我らの三国志サイト」ツイッター</th>
+     <th><a href="https://twitter.com/warerano3594">https://twitter.com/warerano3594</a></th>
+    </tr>
+   </table>
+ </div>
+
 </div>
