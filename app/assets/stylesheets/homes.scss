@@ -50,7 +50,7 @@
      padding: 0 18px;
      background-image: image-url("nigaoe_oda_nobunaga.png");
      background-repeat:  no-repeat;
-     background-position: right 25px center;
+     background-position: right;
      background-size:contain;                /* 画像のサイズを指定    */
   }
 
@@ -64,7 +64,7 @@
   overflow   : hidden;
   background-image: image-url("nigaoe_ryuubigentoku.png");
   background-repeat:  no-repeat;
-  background-position: right 25px center;
+  background-position: right;
   background-size:contain;
 }
 
@@ -140,51 +140,3 @@
   transform  : translate(-50%,-50%);
   z-index    : 11;
 }
-
-// @media only screen and (max-width: 500px) {
-//   .home-top {
-//     width: 100%;
-//     height: 100%;
-//     margin: 0;
-
-//     & h1 {
-//       font-size: 1.8rem;
-//     }
-
-//     &__home-subtitle {
-//       font-size: 1.2rem;
-//     }
-
-//     %__home-title {
-//       width: 100%;
-//       font-size: 1rem;
-//       line-height: 1.8;
-//     　margin: 0;
-//       padding: 0 12px;
-//     }
-//   }
-// }
-
-// @media screen and (min-height: 700px) {
-//   .home-top {
-//   width: 100%;
-//   height: 100%;
-//   margin: 0;
-
-//   & h1 {
-//       font-size: 1.8rem;
-//   }
-
-//   &__home-subtitle {
-//     font-size: 1.2rem;
-//   }
-
-//   %__home-title {
-//     width: 100%;
-//     font-size: 1rem;
-//     line-height: 1.8;
-//     margin: 0;
-//     padding: 0 12px;
-//   }
-//   }
-// }
