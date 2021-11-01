@@ -8,10 +8,7 @@
   height: 100%;
   padding: 10px;
   margin: 10px;
-  background-image: image-url("nigaoe_ryuubigentoku.png");
-  background-repeat:  no-repeat;
-  opacity:  0.7;
-  background-position: right 15px center;
+  opacity:  0.8;
 
   %__home-title {
     font-size: 1rem;
@@ -51,11 +48,9 @@
      margin: 10px;
      width: 80%;
      padding: 0 18px;
-     // background: #ccc;
      background-image: image-url("nigaoe_oda_nobunaga.png");
      background-repeat:  no-repeat;
-     opacity:  0.7;
-     background-position: right 10px center;
+     background-position: right 25px center;
      background-size:contain;                /* 画像のサイズを指定    */
   }
 
@@ -63,10 +58,14 @@
  /* --- 全体のBOX定義 ---------------------------------------- */
 .slide {
   position   : relative;
-  max-width  : 90%;
+  max-width  : 100%;
   height     : 450px;
   margin     : auto;
   overflow   : hidden;
+  background-image: image-url("nigaoe_ryuubigentoku.png");
+  background-repeat:  no-repeat;
+  background-position: right 25px center;
+  background-size:contain;
 }
 
 /* --- 背景の指定 ------------------------------------------- */
@@ -84,55 +83,45 @@
 .slide .src1 {
   background-image: image-url("nigaoe_kanu.png");   /* 背景の画像を指定 */
   background-repeat:  no-repeat;
-  background-position: right 10px center;
+  background-size:contain;
 }
 .slide .src2 {
   background-image: image-url("nigaoe_chouhi.png");    /* 背景の画像を指定 */
   background-repeat:  no-repeat;
+  background-size:contain;
   animation-delay  : 5s;
 }
 .slide .src3 {
   background-image: image-url("sousou.png");   /* 背景の画像を指定 */
   background-repeat:  no-repeat;
-  animation-delay  : 10s;
-  background-position: right 10px center;
   background-size:contain;
+  animation-delay  : 10s;
 }
 .slide .src4 {
   background-image: image-url("nigaoe_sonken.png");    /* 背景の画像を指定 */
   background-repeat:  no-repeat;
+  background-size:contain;
   animation-delay  : 15s;
 }
 
 .slide .src5 {
   background-image: image-url("nigaoe_syokatsu_koumei.png");    /* 背景の画像を指定 */
   background-repeat:  no-repeat;
-  background-position: right 10px center;
+  background-size:contain;
   animation-delay  : 20s;
 }
 
 .slide .src6 {
   background-image: image-url("himiko.png");    /* 背景の画像を指定 */
   background-repeat:  no-repeat;
-  background-position: center;
+  background-size:contain;
   animation-delay  : 25s;
 }
 
-// .slide .src6 {
-//   background-image: image-url("nigaoe_kanu.png"),
-//                     image-url("nigaoe_ryuubigentoku.png"),
-//                     image-url("nigaoe_chouhi.png");
-//   background-repeat:  no-repeat,
-//                       no-repeat,
-//                       no-repeat;
-//   background-position: right 150px center,center,left 150px center;
-//   animation-delay  : 25s;
-// }
-
 @keyframes bgAnime {
    0% { opacity: 0; }
-   5% { opacity: 1; }
-  25% { opacity: 0; }
+   5% { opacity: 0; }
+  15% { opacity: 1; }
   45% { opacity: 0; }
   65% { opacity: 0; }
   80% { opacity: 0; }
