@@ -1,7 +1,7 @@
 <div class='container'>
   <div class="row">
    <div class="col-lg-6">
-      <h2>新規回答投稿</h2>
+      <h2>回答内容編集</h2>
    </div>
     <table class="table table-borderless">
       <tbody>
@@ -22,7 +22,8 @@
         </td>
        </tr>
        <tr>
-        <td><%= f.submit "回答を更新する", class: 'btn btn-success' %></td>
+        <td><%= link_to '質問に戻る', :back, class: 'btn btn-danger btn-lg' %></td>
+        <td><%= f.submit "回答を更新する", class: 'btn btn-success btn-lg' %></td>
          <% end %>
        </tr>
      </tbody>

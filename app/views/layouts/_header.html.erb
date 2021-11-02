@@ -3,7 +3,8 @@
  <div class="header-nav">
   <% if member_signed_in? %>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
-    <%= link_to 'トップページ',root_path, class: "fas fa-home nav-link" %>
+    <!--ロード画面を永続させないため data: {"turbolinks" => false}を追加-->
+    <%= link_to 'トップページ',root_path, class: "fas fa-home nav-link", data: {"turbolinks" => false} %>
    </div>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
     <%= link_to 'マイページ',public_member_path(current_member.id), class: "fas fa-user nav-link" %>
@@ -25,7 +26,7 @@
    </div>
   <% elsif admin_signed_in? %>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
-    <%= link_to 'トップページ',root_path, class: "fas fa-home nav-link" %>
+    <%= link_to 'トップページ',root_path, class: "fas fa-home nav-link", data: {"turbolinks" => false} %>
    </div>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
     <%= link_to '会員一覧',manager_members_path, class: "fas fa-user nav-link" %>
@@ -47,7 +48,7 @@
    </div>
   <% else %>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
-    <%= link_to 'トップページ',root_path, class: "fas fa-home nav-link" %>
+    <%= link_to 'トップページ',root_path, class: "fas fa-home nav-link", data: {"turbolinks" => false} %>
    </div>
    <div style="padding: 10px; border: 1px solid #333333; border-radius: 10px;">
     <%= link_to '質問投稿一覧',public_posts_path, class: "fas fa-user-edit nav-link" %>

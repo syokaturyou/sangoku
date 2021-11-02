@@ -2,7 +2,7 @@
   <div class="row">
     <table class="table table-borderless">
      <div class="col-lg-6">
-      <h2>質問編集</h2>
+      <h2>質問内容編集</h2>
      </div>
       <tbody>
        <%= form_with model: @post, url: public_post_path(@post), local: true do |f| %>
@@ -30,7 +30,8 @@
          </td>
         </tr>
         <tr>
-        <td><%= f.submit "変更を保存する", class: 'btn btn-success' %></td>
+        <td><%= link_to '質問に戻る', :back, class: 'btn btn-danger btn-lg' %></td>
+        <td><%= f.submit "質問内容を更新する", class: 'btn btn-success btn-lg' %></td>
         <% end %>
         </tr>
        </tbody>

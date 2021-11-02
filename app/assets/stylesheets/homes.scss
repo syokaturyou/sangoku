@@ -6,8 +6,8 @@
   display: inline-block;
   width: 100%;
   height: 100%;
-  padding: 10px;
-  margin: 10px;
+  padding: 5px;
+  margin: 5px;
   opacity:  0.8;
 
   %__home-title {
@@ -51,13 +51,16 @@
      background-image: image-url("nigaoe_oda_nobunaga.png");
      background-repeat:  no-repeat;
      background-position: right;
-     background-size:contain;                /* 画像のサイズを指定    */
+     background-size:contain;
   }
 
-
+// cssアニメーション
  /* --- 全体のBOX定義 ---------------------------------------- */
 .slide {
   position   : relative;
+  background-color: #FFBEDA;
+  border-radius: 80px;
+  border: #FF9999 double 6px;
   max-width  : 100%;
   height     : 450px;
   margin     : auto;
@@ -139,4 +142,78 @@
   left       : 50%;
   transform  : translate(-50%,-50%);
   z-index    : 11;
+}
+
+
+// トップページloading追加
+// デザイン
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+  background: #BBBBBB;
+}
+#loading_box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+}
+.loading-one {
+  display: inline-block;
+  border-top: 1px solid 	#000055;
+  border-bottom: 1px solid 	#000055;
+}
+.loading-one p.loading-txt {
+  color: #000055;
+  font-size: 20px;
+  letter-spacing: 0.25em;
+  line-height: 2.0;
+  padding: 2em 0;
+}
+// アニメーション
+.animation_loading {
+  animation: equalizer_loading 7000ms infinite;
+  animation-iteration-count: 10;
+}
+@keyframes equalizer_loading {
+  0% {
+    width: 70%;
+  }
+  10% {
+    width: 50%;
+  }
+  20% {
+    width: 100%;
+  }
+  30% {
+    width: 10%;
+  }
+  40% {
+    width: 50%;
+  }
+  50% {
+    width: 70%;
+  }
+  60% {
+    width: 50%;
+  }
+  70% {
+    width: 10%;
+  }
+  80% {
+    width: 100%;
+  }
+  90% {
+    width: 10%;
+  }
+  100% {
+    width: 70%;
+  }
 }
