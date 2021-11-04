@@ -64,7 +64,13 @@
          </td>
          <td width='500px'>回答本文
          <div style="border: 1px solid #333333; border-radius: 1px; word-break: break-word;">
+          <% if answer.score >= -0.2 %>
            <%= simple_format(answer.answerbody)%>
+          <% else %>
+          <div style="color:brown">
+           感情スコアが-0.3以下であるため回答を表示できません。回答を修正してください。
+          </div>
+          <% end %>
          </div>
          <p class="sentiment-score">感情分析スコア <%= answer.score %> / 1.0</p>
          </td>
