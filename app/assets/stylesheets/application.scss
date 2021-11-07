@@ -192,6 +192,31 @@ html {
     transform: translateY(-7px);
 }
 
+/* ページネーション */
+.pagination {
+  display: flex;
+  justify-content: center;
+  border: 3px;
+  border-radius: 10px;
+}
+.pagination > li > a {
+  border: none;
+  color: #999;
+}
+.pagination > li > a:hover {
+  color: turquoise;
+  background-color: white;
+}
+.pagination > .active > a {
+  color: turquoise;
+  background-color: white;
+}
+.pagination > .active > a:hover {
+  background-color: white;
+  color: turquoise;
+}
+/* --ページネーション */
+
 @media only screen and (max-width: 500px) {
   .header-nav {
     display: flex;
