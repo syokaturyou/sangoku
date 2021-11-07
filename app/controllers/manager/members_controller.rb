@@ -16,11 +16,7 @@ class Manager::MembersController < ApplicationController
   def update
     @member = Member.find(params[:id])
     @member.update(member_params)
-    if params[:image_delete].present? # 画像なしの場合に既存画像削除
-      @member.update(profileimage: nil)
-    else
-      @member.update(member_params)
-    end
+    @member.update(profileimage: nil) if params[:image_delete].present? # 画像なしの場合に既存画像削除
     redirect_to manager_member_path(@member.id)
   end
 

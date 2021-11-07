@@ -6,4 +6,5 @@ class Answer < ApplicationRecord
   has_many :tags, dependent: :destroy
 
   attachment :answerimage
+
 end

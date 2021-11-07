@@ -6,8 +6,8 @@
     退会する場合は、「退会する」をクリックしてください。
   </p>
   <p>
-    <%= link_to "退会しない", public_member_path(current_member), class: 'btn btn-primary' %>
-    <%= link_to "退会する", public_withdrawal_path, method: :patch, class: 'btn btn-danger', data: { confirm: "本当に退会しますか？" } %>
+    <%= link_to "退会しない", public_member_path(current_member), class: 'btn btn-primary btn-lg' %>
+    <%= link_to "退会する", public_withdrawal_path, method: :patch, class: 'btn btn-danger btn-lg', data: { confirm: "本当に退会しますか？" } %>
   </p>
  </div>
 </div>
