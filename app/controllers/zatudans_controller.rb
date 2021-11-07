@@ -1,5 +1,5 @@
 class ZatudansController < ApplicationController
-  #雑談部屋。非ログイン状態で可能
+  # 雑談部屋。非ログイン状態で可能
 
   def index
     @newzatudan = Zatudan.new
@@ -8,13 +8,13 @@ class ZatudansController < ApplicationController
 
   def create
     @zatudan = Zatudan.new(zatudan_params)
-      if @zatudan.save
-        redirect_to zatudans_path
-      end
+    @zatudan.save
+    redirect_to zatudans_path
   end
 
   private
-    def zatudan_params
-      params.require(:zatudan).permit(:message)
-    end
+
+  def zatudan_params
+    params.require(:zatudan).permit(:message)
+  end
 end

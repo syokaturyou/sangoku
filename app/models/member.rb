@@ -16,11 +16,6 @@ class Member < ApplicationRecord
         super && (self.is_deleted == false)
      end
 
-  # validates :email, exclusion: { in: %w(') }
-  # validates :name, exclusion: { in: %w(' 6 5 4) }
-  # validates :encrypted_password, exclusion: { in: %w(' ; :) }
-  # validates :profile, exclusion: { in: %w(A) }
-
    # 検索方法分岐
    def self.looks(search, word)
    @member = if search == "partial_match"

@@ -30,14 +30,12 @@ class Public::PostsController < ApplicationController
 
    def update
       @post = Post.find(params[:id])
-    if @post.update(post_params)
+      @post.update(post_params)
       if params[:image_delete].present? # 画像なしの場合に既存画像削除
         @post.update(postimage: nil)
+      else
+       redirect_to  public_posts_path
       end
-     redirect_to  public_posts_path
-    else
-     redirect_to root_path
-    end
    end
 
   def destroy

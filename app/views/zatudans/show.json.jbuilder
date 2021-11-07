@@ -1,1 +1,1 @@
-json.partial! "zatudans/zatudan", zatudan: @zatudan
+json.partial! 'zatudans/zatudan', zatudan: @zatudan
