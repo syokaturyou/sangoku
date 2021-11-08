@@ -1,7 +1,7 @@
 class Public::PostsController < ApplicationController
   def index
     # 更新日時を降順に + 質問数が10より多かったら次ページに
-    @posts = Post.all.order(updated_at: "DESC").page(params[:page]).per(10)
+    @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
     @answer = Answer.all # 回答数カウントに使用
   end
 

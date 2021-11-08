@@ -39,13 +39,13 @@
  </div>
 
  <div class="home-article">
-   <table border="1">
-     <tr bgcolor=#66FFCC>
+   <table class="homearticle">
+     <tr>
       <th>タイトル</th>
       <th>更新日時</th>
      </tr>
     <% @articles.first(10).each do |article| %>
-     <tr>
+     <tr bgcolor=#CCCCCC>
       <td><%= link_to article.title, article_path(article.id) %></td>
       <td><%= article.updated_at.to_s(:datetime_jp) %></td>
      </tr>
@@ -57,7 +57,7 @@
      <th>サイト</th>
      <th>リンク</th>
     </tr>
-    <tr>
+    <tr bgcolor=#CCCCCC>
      <th>「我らの三国志」サイトツイッター</th>
      <th><a href="https://twitter.com/warerano3594">https://twitter.com/warerano3594</a></th>
     </tr>

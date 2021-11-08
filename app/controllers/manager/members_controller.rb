@@ -2,7 +2,7 @@ class Manager::MembersController < ApplicationController
   before_action:authenticate_admin!
   # 管理者側では全ての会員情報を管理可能
   def index
-    @members = Member.all.order(created_at: "ASC").page(params[:page]).per(10)
+    @members = Member.all.order(created_at: 'ASC').page(params[:page]).per(10)
   end
 
   def show
