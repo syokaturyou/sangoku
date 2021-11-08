@@ -1,12 +1,12 @@
 <h1>投稿質問一覧</h1>
  <div class="oocontainer">
    <div class="row">
-    <div class="col-lg-7">
+    <div class="word-break: break-all;">
      <%= form_with url: search_path, local: true, method: :get do |f| %>
       <%= f.text_field :word, size: "50", class: 'form-control-sm' %>
       <%= f.select :range, options_for_select([['質問タイトル'],['会員'],['ジャンル']]) %>
       <%= f.hidden_field :search, :value => "partial_match" %>
-      <%= f.submit "検索", class: "btn btn-primary btn-lg", data: {"turbolinks"=>false} %>
+      <%= f.submit "検索", class: "btn btn-primary", data: {"turbolinks"=>false} %>
      <% end %>
     </div>
 

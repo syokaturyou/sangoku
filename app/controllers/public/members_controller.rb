@@ -1,7 +1,7 @@
 class Public::MembersController < ApplicationController
 
   def index
-    @members = Member.page(params[:page])
+    @members = Member.all.order(created_at: "ASC").page(params[:page]).per(10)
   end
 
   def show
