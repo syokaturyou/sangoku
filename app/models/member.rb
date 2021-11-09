@@ -33,16 +33,15 @@ class Member < ApplicationRecord
        member ||= Member.create(
         uid:      auth.uid,
         provider: auth.provider,
-        email:    User.dummy_email(auth),
+        email:    Member.dummy_email(auth),
         encrypted_password: Devise.friendly_token[0, 20],
         name: auth.info.name,
       )
+
+    member
    end
 
-  #   member
-  # end
-
-  private
+  # private
 
   def self.dummy_email(auth)
     "#{auth.uid}-#{auth.provider}@example.com"
