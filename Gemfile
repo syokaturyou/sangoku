@@ -66,6 +66,9 @@ gem 'bootstrap', '~> 4.5'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
+gem 'omniauth'
+gem 'omniauth-twitter'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-byebug'
