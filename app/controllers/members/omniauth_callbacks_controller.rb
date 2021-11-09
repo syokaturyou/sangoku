@@ -45,7 +45,7 @@ class Members::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect @member, event: :authentication
     else
       session["devise.#{provider}_data"] = request.env['omniauth.auth']
-      redirect_to root_path
+      redirect_to new_member_registration_url
     end
   end
 end
