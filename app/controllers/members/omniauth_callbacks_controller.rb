@@ -27,27 +27,55 @@ class Members::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # def after_omniauth_failure_path_for(scope)
   #   super(scope)
   # end
-  def twitter
-  callback_from :twitter
-  end
 
-  def failure
-    redirect_to new_member_registration_url
-  end
+  # def facebook
 
-  private
-  # コールバック時に行う処理
-  def callback_from(provider)
-    provider = provider.to_s
-    @member = Member.find_or_create_from_auth(request.env['omniauth.auth'].except('extra'))
+  #   # Facebook上でメール使用を許可しているかの分岐
+  #   if request.env['omniauth.auth'].info.email.blank?
+  #     redirect_to '/members/auth/facebook?auth_type=rerequest&scope=email'
+  #   end
 
-    if @member.persisted? # DBに保存済みかどうかを判定
-      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
-      sign_in_and_redirect @member, event: :authentication
+  # # member.from_omniauthはModel側で実装
+  #   member = Member.from_omniauth(request.env['omniauth.auth'])
+
+  #   # すでにmemberが登録済みかの判定
+  #   if member
+  #     # 登録済みならログイン
+  #     sign_in_and_redirect member, event: :authentication
+  #     set_flash_message(:notice, :success, kind: "Facebook") if is_navigational_format?
+  #   else
+  #     # 新規登録用にセッションに必要情報を格納
+  #     if (data = request.env['omniauth.auth'])
+  #       session['devise.omniauth_data'] = {
+  #           email: data['info']['email'],
+  #           provider: data['provider'],
+  #           uid: data['uid']
+  #       }
+  #     end
+  #       redirect_to new_member_registration_url
+  #   end
+  # end
+
+
+    # def failure
+    # redirect_to root_path
+    # end
+
+    def twitter
+     member = Member.from_omniauth(request.env['omniauth.auth'])
+    if member
+      sign_in_and_redirect member, event: :authentication
+      set_flash_message(:notice, :success, kind: "Twitter") if is_navigational_format?
     else
-      session["devise.#{provider}_data"] = request.env['omniauth.auth'].except('extra')
-      redirect_to new_member_session_url
+      if (data = request.env['omniauth.auth'])
+        session['devise.omniauth_data'] = {
+            email: data['info']['email'],
+            provider: data['provider'],
+            uid: data['uid']
+        }
+      end
+      redirect_to new_member_registration_url
     end
-  end
+    end
 
 end

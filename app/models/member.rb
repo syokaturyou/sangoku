@@ -6,6 +6,21 @@ class Member < ApplicationRecord
          # 外部API認証用に追加 現在はツイッターのみ
          :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2]
 
+  def self.from_omniauth(auth)
+    where(uid: auth.uid).first
+  end
+
+  def self.new_with_session(_, session)
+    super.tap do |member|
+      if (data = session['devise.omniauth_data'])
+        member.email = data['email'] if member.email.blank?
+        member.provider = data['provider'] if data['provider'] && member.provider.blank?
+        member.uid = data['uid'] if data['uid'] && member.uid.blank?
+        member.skip_confirmation!
+      end
+    end
+  end
+
          has_many :answers, dependent: :destroy
          has_many :posts, dependent: :destroy
          has_many :rates, dependent: :destroy
@@ -27,25 +42,6 @@ class Member < ApplicationRecord
              end
    end
 
-   def self.find_for_oauth(auth)
-       member = Member.find_by(uid: auth.uid, provider: auth.provider)
-
-       member ||= Member.create!(
-        uid:      auth.uid,
-        provider: auth.provider,
-        email:    Member.dummy_email(auth),
-        encrypted_password: Devise.friendly_token[0, 20],
-        name: auth[:info][:name],
-      )
-
-    member
-   end
-
-  # private
-
-  def self.dummy_email(auth)
-    "#{Time.now.strftime('%Y%m%d%H%M%S').to_i}-#{auth.uid}-#{auth.provider}@example.com"
-  end
 
 end
 
