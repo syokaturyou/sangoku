@@ -61,21 +61,28 @@ class Members::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # redirect_to root_path
     # end
 
+    # コメントアウト外して、処理追加(8行目あたり)
     def twitter
-     member = Member.from_omniauth(request.env['omniauth.auth'])
-    if member
-      sign_in_and_redirect member, event: :authentication
-      set_flash_message(:notice, :success, kind: "Twitter") if is_navigational_format?
+    callback_from :twitter
+    end
+
+  # 最後のendの直前に記載
+    private
+
+  # コールバック時に行う処理
+   def callback_from(provider)
+     provider = provider.to_s
+     @member = Member.find_for_oauth(request.env['omniauth.auth'])
+
+    # persisted?でDBに保存済みかどうか判断
+    if @member.persisted?
+      # サインアップ時に行いたい処理があればここに書きます。
+      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
+      sign_in_and_redirect @member, event: :authentication
     else
-      if (data = request.env['omniauth.auth'])
-        session['devise.omniauth_data'] = {
-            email: data['info']['email'],
-            provider: data['provider'],
-            uid: data['uid']
-        }
-      end
+      session["devise.#{provider}_data"] = request.env['omniauth.auth']
       redirect_to new_member_registration_url
     end
-    end
+   end
 
 end
