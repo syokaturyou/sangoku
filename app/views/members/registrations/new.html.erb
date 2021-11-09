@@ -41,12 +41,5 @@
   <h3>既に登録済みの方</h3>
   <%= link_to "ログイン画面へ", new_session_path(resource_name), class: 'btn btn-primary btn-lg' %>
 
-  <%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <!--以下１行を編集-->
-    <%= link_to "#{OmniAuth::Utils.camelize(provider)}アカウントでログイン", omniauth_authorize_path(resource_name, provider), class:'fab fa-twitter', method: :post %>
-  <% end %>
-<% end %>
-
    </div>
   </div>
