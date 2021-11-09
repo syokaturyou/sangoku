@@ -28,14 +28,14 @@ class Member < ApplicationRecord
    end
 
    def self.find_for_oauth(auth)
-       member = Member.find_by(uid: auth.uid, provider: auth.provider).first
+       member = Member.find_by(uid: auth.uid, provider: auth.provider)
 
-       member ||= Member.create(
+       member ||= Member.create!(
         uid:      auth.uid,
         provider: auth.provider,
         email:    Member.dummy_email(auth),
         encrypted_password: Devise.friendly_token[0, 20],
-        name: auth.info.name,
+        name: auth[:info][:name],
       )
 
     member
@@ -44,7 +44,7 @@ class Member < ApplicationRecord
   # private
 
   def self.dummy_email(auth)
-    "#{auth.uid}-#{auth.provider}@example.com"
+    "#{Time.now.strftime('%Y%m%d%H%M%S').to_i}-#{auth.uid}-#{auth.provider}@example.com"
   end
 
 end
