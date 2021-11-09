@@ -66,9 +66,8 @@ gem 'bootstrap', '~> 4.5'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
-gem 'omniauth' #SNS認証のため追加
+gem 'omniauth'#SNS認証のため追加
 gem 'omniauth-twitter'
-gem 'omniauth-facebook'
 
 gem 'config'
 

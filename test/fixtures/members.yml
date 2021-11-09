@@ -9,3 +9,10 @@ one: {}
 #
 two: {}
 # column: value
+
+john:
+  email: "john@example.com"
+  encrypted_password: <%= Devise::Encryptor.digest(Member, 'password') %>
+  confirmed_at: <%= Time.now - 100 %>
+  provider: 'twitter'
+  uid: '123456'

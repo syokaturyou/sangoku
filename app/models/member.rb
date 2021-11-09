@@ -6,19 +6,16 @@ class Member < ApplicationRecord
          # 外部API認証用に追加 現在はツイッターのみ
          :omniauthable, omniauth_providers: [:twitter]
 
-  def self.find_for_oauth(auth)
-    member = Member.find_by(uid: auth.uid, provider: auth.provider)
-
-    member ||= Member.create!(
-      uid: auth.uid,
-      provider: auth.provider,
-      name: auth[:info][:name],
-      email: User.dummy_email(auth),
-      encrypted_password: Devise.friendly_token[0, 20]
-    )
-
-    member
-  end
+ def self.from_omniauth(auth)
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |member|
+      member.uid = auth.uid,
+      member.provider = auth.provider,
+      member.name = auth.info.name,
+    #   member.email = User.dummy_email(auth),
+      member.encrypted_password = Devise.friendly_token[0, 20]
+      member.save
+    end
+ end
 
   # ダミーのメールアドレスを作成
   def self.dummy_email(auth)
