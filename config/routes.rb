@@ -7,7 +7,7 @@ Rails.application.routes.draw do
    passwords: 'members/passwords',
    registrations: 'members/registrations',
    # このpathを通して外部API認証が行われる。
-   :omniauth_callbacks => 'members/omniauth_callbacks'
+   omniauth_callbacks: 'members/omniauth_callbacks'
  }
 
    devise_for :admins, skip: [:registrations], controllers: {
