@@ -153,6 +153,23 @@ html {
 .header-nav {
   display: inline-flex;
   margin: 15px;
+
+  &__header-box {
+    padding: 10px;
+    border: 1px solid #333333;
+    border-radius: 10px;
+  }
+
+
+  &__header-box:hover {
+    padding: 10px;
+    border: 1px solid #333333;
+    border-radius: 10px;
+    color: #FF0099;
+    background-color: #FF0099;
+    transform: translateY(-3px);
+  }
+
 }
 
 .image-box.hide {
