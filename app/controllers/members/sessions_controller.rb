@@ -3,11 +3,6 @@
 class Members::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
-  def new
-    session.delete('devise.omniauth_data')
-    super
-  end
-
   # GET /resource/sign_in
   # def new
   #   super

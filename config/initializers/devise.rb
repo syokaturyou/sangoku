@@ -283,7 +283,7 @@ Devise.setup do |config|
   #                 Settings.twitter[:twitter_api_key],
   #                 Settings.twitter[:twitter_api_secret]
 
-  config.omniauth :twitter, ENV['TWITTER_API_KEY'], ENV['TWITTER_API_SECRET'], scope: 'email', oauth_callback: "#{ENV['DOMAIN_NAME']}/members/auth/twitter/callback"
+  # config.omniauth :twitter, ENV['TWITTER_API_KEY'], ENV['TWITTER_API_SECRET'], scope: 'email', oauth_callback: "#{ENV['DOMAIN_NAME']}/members/auth/twitter/callback"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
