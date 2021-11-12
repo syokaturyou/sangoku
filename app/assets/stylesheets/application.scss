@@ -25,11 +25,32 @@ html {
   box-sizing: border-box;
 }
 
- header {
+ .header {
  width: 100%;
  height: 100%;
  background-color: #99FF99;
- }
+
+
+  &__header-nav {
+  display: inline-flex;
+  margin: 15px;
+
+  &__header-box {
+    padding: 10px;
+    border: 1px solid #333333;
+    border-radius: 10px;
+  }
+
+  &__header-box:hover {
+    padding: 10px;
+    border: 1px solid #333333;
+    border-radius: 10px;
+    color: #FF0099;
+    background-color: #FF0099;
+    transform: translateY(-3px);
+  }
+}
+}
 
  footer {
   position: absolute; /*←絶対位置*/
@@ -150,28 +171,6 @@ html {
   position:relative;
 }
 
-.header-nav {
-  display: inline-flex;
-  margin: 15px;
-
-  &__header-box {
-    padding: 10px;
-    border: 1px solid #333333;
-    border-radius: 10px;
-  }
-
-
-  &__header-box:hover {
-    padding: 10px;
-    border: 1px solid #333333;
-    border-radius: 10px;
-    color: #FF0099;
-    background-color: #FF0099;
-    transform: translateY(-3px);
-  }
-
-}
-
 .image-box.hide {
   display: none;
 }
@@ -234,10 +233,7 @@ html {
 }
 /* --ページネーション */
 
-// /ツイッターログイン 現在凍結/
-// .fa-twitter-square {
-//   color: #1da1f2;
-// }
+
 
 @media only screen and (max-width: 500px) {
   .header-nav {
