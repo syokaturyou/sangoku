@@ -266,14 +266,12 @@ html {
 }
 .pagination > li > a:hover {
   color: turquoise;
-  background-color: white;
+  background-color: green;
 }
 .pagination > .active > a {
   color: turquoise;
-  background-color: white;
 }
 .pagination > .active > a:hover {
-  background-color: white;
   color: turquoise;
 }
 /* --ページネーション */
