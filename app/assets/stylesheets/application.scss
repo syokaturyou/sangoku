@@ -25,9 +25,6 @@ html {
   box-sizing: border-box;
 }
 
-
-// /ヘッダー/
-
  .header {
  width: 100%;
  height: 100%;
@@ -38,7 +35,7 @@ html {
 
   &__header-nav {
   display: inline-flex;
-  margin: 15px;
+  margin: 5px;
 
   &__header-box {
     padding: 10px;
@@ -59,9 +56,8 @@ html {
 
 
 // /ヘッダーメニュー開閉/
-
 .hidden_box {
-  background-color: #99CCCC;
+  background-color: #99FF99;
   text-align: center;
 }
 
