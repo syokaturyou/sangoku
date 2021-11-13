@@ -35,6 +35,7 @@ html {
 
   &__header-nav {
   display: inline-flex;
+//   text-align: center;
   margin: 5px;
 
   &__header-box {
@@ -58,16 +59,22 @@ html {
 // /ヘッダーメニュー開閉/
 .hidden_box {
   background-color: #99FF99;
-  text-align: center;
+  margin-left: auto;
+  display: flex;
 }
 
 /*ボタン装飾*/
 .hidden_box label {
     font-weight: bold;
-    border: solid 1px blue;
+    position: fixed;
+    top: 1%;
+    right: 7%;
+    height: 50px;
+    width: 60px;
+    text-align: center;
+    border: solid 2px blue;
     border-radius: 10px;
     background-color:	#CC9966;
-    cursor :pointer;
 }
 
 /*ボタンホバー時*/
@@ -96,6 +103,8 @@ html {
 
 // /ヘッダー開閉/
 
+
+ /* 雑談、チャット */
 
  footer {
   position: absolute; /*←絶対位置*/
@@ -196,6 +205,8 @@ html {
    transform: rotate(-35deg);
  }
 
+ /* 雑談、チャット */
+
  .main {
  width: 100%;
  margin: 0;
@@ -250,7 +261,7 @@ html {
 
 .btn:hover {
    box-shadow: 0px 12px 24px rgba(30, 146, 175, 0.38);
-    transform: translateY(-7px);
+    transform: translateY(-4px);
 }
 
 /* ページネーション */
