@@ -35,7 +35,6 @@ html {
 
   &__header-nav {
   display: inline-flex;
-//   text-align: center;
   margin: 5px;
 
   &__header-box {
@@ -103,9 +102,6 @@ html {
 
 // /ヘッダー開閉/
 
-
- /* 雑談、チャット */
-
  footer {
   position: absolute; /*←絶対位置*/
   left: 0;
@@ -115,6 +111,8 @@ html {
   text-align: center;
   color: #777;
 }
+
+ /* 雑談、チャット */
 
  .zatudans{
    padding: 20px 10px;
@@ -204,7 +202,6 @@ html {
    -webkit-transform: rotate(-35deg);
    transform: rotate(-35deg);
  }
-
  /* 雑談、チャット */
 
  .main {
