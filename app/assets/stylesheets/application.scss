@@ -62,7 +62,7 @@ html {
   display: flex;
 }
 
-/*ボタン装飾*/
+/*ヘッダー開閉ボタン*/
 .hidden_box label {
     font-weight: bold;
     position: fixed;
@@ -73,7 +73,7 @@ html {
     text-align: center;
     border: solid 2px blue;
     border-radius: 10px;
-    background-color:	#CC9966;
+    background-color: #888888;
 }
 
 /*ボタンホバー時*/
