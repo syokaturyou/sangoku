@@ -17,9 +17,9 @@ Rails.application.routes.draw do
 }
 
   root to: 'homes#top'
+  get 'design', to: 'homes#design'
   resources :contracts, only: [:new, :create]
   get 'done', to: 'contracts#done', as: 'done'
-
   get '/search', to: 'searchs#search'
   get 'search/result' => 'searchs#result'
 
