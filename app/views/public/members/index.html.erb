@@ -1,8 +1,6 @@
+<h1>会員一覧</h1>
 <div class="oocontainer">
   <div class="row">
-    <div class="col-lg-3">
-      <h2>会員一覧</h2>
-    </div>
 
     <div class="col-lg-7">
      <%= paginate @members %>
@@ -16,7 +14,7 @@
         <th>ステータス</th>
         <th></th>
       </tr>
-     <thead>
+     </thead>
      <tbody>
       <% @members.each do |member| %>
        <tr bgcolor=#EEEEEE>
