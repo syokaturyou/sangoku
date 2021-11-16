@@ -15,7 +15,6 @@
 
    %__home-title {
     font-size: 1rem;
-    // font-style：Futura;
     margin: 10px;
     width: 80%;
     padding: 0 5px;
@@ -45,18 +44,20 @@
     margin: 10px;
     width: 80%;
     padding: 0 18px;
+    border-radius: 20px;
+    border-color: #CCCCCC;
   }
 
-   .home-article:hover{
-     font-size: 1rem;
-     margin: 10px;
-     width: 80%;
-     padding: 0 18px;
-     background-image: image-url("nigaoe_oda_nobunaga.png");
-     background-repeat:  no-repeat;
-     background-position: right;
-     background-size:contain;
-  }
+  // .home-article:hover{
+  //   font-size: 1rem;
+  //   margin: 10px;
+  //   width: 80%;
+  //   padding: 0 18px;
+  //   background-image: image-url("nigaoe_oda_nobunaga.png");
+  //   background-repeat:  no-repeat;
+  //   background-position: right;
+  //   background-size:contain;
+  // }
 
   .homearticle {
     border: 1px solid #000;
