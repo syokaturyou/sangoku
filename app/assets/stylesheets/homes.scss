@@ -48,27 +48,6 @@
     border-color: #CCCCCC;
   }
 
-  // .home-article:hover{
-  //   font-size: 1rem;
-  //   margin: 10px;
-  //   width: 80%;
-  //   padding: 0 18px;
-  //   background-image: image-url("nigaoe_oda_nobunaga.png");
-  //   background-repeat:  no-repeat;
-  //   background-position: right;
-  //   background-size:contain;
-  // }
-
-  .homearticle {
-    border: 1px solid #000;
-	  border-spacing: 0;
-	  background-color: #66FFCC;
-	  border-color: #CCCCCC;
-	  border-collapse: separate;
-  	border-radius: 20px;
-  }
-
-
   .design {
    background-image: image-url("nigaoe_oda_nobunaga.png");
    background-repeat:  no-repeat;
@@ -81,7 +60,6 @@
    margin: 5px;
    font-family: 'Sawarabi Mincho', sans-serif;
   }
-
 
 // cssアニメーション
  /* --- 全体のBOX定義 ---------------------------------------- */
