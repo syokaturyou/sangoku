@@ -162,6 +162,10 @@
   width: 100%;
   height: 100%;
   background: #BBBBBB;
+  background-image: image-url("sakura.png");
+  background-position: center;
+  background-size: 100%;
+  background-repeat:  no-repeat;
 }
 #loading_box {
   position: absolute;
@@ -173,12 +177,12 @@
 }
 .loading-one {
   display: inline-block;
-  border: 3px solid 	#000055;
+  border: 3px solid 	#0066FF;
   border-radius: 100px;
 }
 .loading-one p.loading-txt {
-  color: #008080;
-  font-size: 20px;
+  color: #000000;
+  font-size: 40px;
   letter-spacing: 0.25em;
   line-height: 2.0;
   padding: 2em 0;
