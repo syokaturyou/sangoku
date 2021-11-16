@@ -17,6 +17,7 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Kosugi+Maru&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Sawarabi+Mincho');
 
 html {
   position: relative;
@@ -125,6 +126,11 @@ h1:before {
   bottom: -3px;
   width: 35%;
 }
+
+/* 専用フォント */
+.design {
+   font-family: 'Sawarabi Mincho', sans-serif;
+  }
 
  /* 雑談、チャット */
 
