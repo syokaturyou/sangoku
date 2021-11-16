@@ -28,6 +28,11 @@
       color: red;
     }
 
+    &--blue {
+      @extend %__home-title;
+      color: blue;
+    }
+
      &--green {
       @extend %__home-title;
       color: green;
