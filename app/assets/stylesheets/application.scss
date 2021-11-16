@@ -119,13 +119,12 @@ h1 {
   position: relative;
 }
 
-h1:after {
+h1:before {
   position: absolute;
   content: " ";
-  display: block;
   border-bottom: solid 3px #ffc778;
   bottom: -3px;
-  width: 30%;
+  width: 35%;
 }
 
  /* 雑談、チャット */
@@ -136,7 +135,6 @@ h1:after {
    margin: 15px auto;
    border-radius: 70px;
    border: #FF9999 double 6px;
-   text-align: right;
    font-size: 14px;
    background: #FF99CC;
    border: 1px solid;

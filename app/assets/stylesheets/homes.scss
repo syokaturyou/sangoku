@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+@import url('https://fonts.googleapis.com/css?family=Sawarabi+Mincho');
+
 .home-top {
   display: inline-block;
   width: 100%;
@@ -12,6 +15,7 @@
 
    %__home-title {
     font-size: 1rem;
+    // font-style：Futura;
     margin: 10px;
     width: 80%;
     padding: 0 5px;
@@ -62,6 +66,21 @@
 	  border-collapse: separate;
   	border-radius: 20px;
   }
+
+
+  .design {
+   background-image: image-url("nigaoe_oda_nobunaga.png");
+   background-repeat:  no-repeat;
+  // background-color: brown;
+   // width: 100%;
+   height: 100%;
+   height: 1000px;
+  // height=auto;
+   padding: 5px;
+   margin: 5px;
+   font-family: 'Sawarabi Mincho', sans-serif;
+  }
+
 
 // cssアニメーション
  /* --- 全体のBOX定義 ---------------------------------------- */
@@ -155,7 +174,6 @@
 
 
 // トップページloading追加
-// デザイン
 #loading {
   position: fixed;
   top: 0;
