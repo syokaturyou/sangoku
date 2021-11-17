@@ -30,7 +30,7 @@
 ・質問文・回答文は編集・削除可能
 
 ## 動画
-<https://user-images.githubusercontent.com/78064150/142147517-e9f45741-8c82-447c-a014-d8e5ee6aec25.mp4>
+
 
 ## 設計書
 <https://app.diagrams.net/#G1LahYWsL-gyXUqNxGy_AztbNSppLeBiYQ>
