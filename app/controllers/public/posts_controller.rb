@@ -19,6 +19,7 @@ class Public::PostsController < ApplicationController
 
   def create
     @newpost = current_member.posts.build(post_params)
+    @newpost.score = Language.get_data(post_params[:postbody])  #感情スコア取得
      if @newpost.save
      redirect_to  public_posts_path
      else
@@ -29,6 +30,8 @@ class Public::PostsController < ApplicationController
    def update
       @post = Post.find(params[:id])
       @post.update(post_params)
+      @post.score = Language.get_data(post_params[:postbody]) #更新されれば感情スコアも更新されるよう実施
+      @post.save
       if params[:image_delete].present? # 画像なしの場合に既存画像削除
         @post.update(postimage: nil)
       else
