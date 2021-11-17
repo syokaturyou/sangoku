@@ -29,8 +29,8 @@
 ・会員は質問・回答・レビューが可能。(閲覧は未会員でも可能)
 ・質問文・回答文は編集・削除可能
 
-## 動画
-
+## 動画(基本機能確認)
+<https://user-images.githubusercontent.com/78064150/142149930-d7bfedbe-1e82-4c4d-ad43-4302551b8ef5.mp4>
 
 ## 設計書
 <https://app.diagrams.net/#G1LahYWsL-gyXUqNxGy_AztbNSppLeBiYQ>
