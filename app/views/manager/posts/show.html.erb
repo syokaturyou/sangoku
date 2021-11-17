@@ -21,6 +21,7 @@
           <div style="padding: 3px; border: 1px solid #333333; border-radius: 1px; word-break: break-word;">
            <%= simple_format(@post.postbody) %>
           </div>
+          <p class="sentiment-score">感情分析スコア <%= @post.score %> / 1.0</p>
          </td>
          <td>出典・参考URL
           <div style="border: 1px solid #333333; border-radius: 1px; word-break: break-all;">

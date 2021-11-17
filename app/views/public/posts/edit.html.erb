@@ -12,7 +12,10 @@
         </tr>
         <tr>
          <td><%= f.label :説明文変更 %></td>
-         <td><%= f.text_area :postbody, autofocus: true, required: true, size: '60x10' %></td>
+         <td>
+          <%= f.text_area :postbody, autofocus: true, required: true, size: '60x10' %>
+          <p class="sentiment-score">感情分析スコア <%= @post.score %> / 1.0</p>
+         </td>
         </tr>
         <tr>
          <td><%= f.label :出典・参考url変更 %></td>
