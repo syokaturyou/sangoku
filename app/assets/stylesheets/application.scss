@@ -38,17 +38,18 @@ html {
   &__header-nav {
   display: inline-flex;
   margin: 5px;
+  border-radius: 10px;
 
   &__header-box {
     padding: 10px;
-    border: 1px solid #333333;
-    border-radius: 10px;
+    border: 2px solid #333333;
+    border-radius: 20px;
   }
 
   &__header-box:hover {
     padding: 10px;
-    border: 1px solid #333333;
-    border-radius: 10px;
+    border: 2px solid #333333;
+    border-radius: 20px;
     color: #FF0099;
     background-color: #FF0099;
     transform: translateY(-3px);
