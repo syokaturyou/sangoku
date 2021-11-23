@@ -93,7 +93,7 @@ html {
     opacity: 1;
 }
 
-/*クリックで中身をheader-navを非表示に*/
+/*クリックで中身をheader-navを非表示にする*/
 .hidden_box input:checked ~ .hidden_show {
     padding: 0;
     overflow: hidden;
