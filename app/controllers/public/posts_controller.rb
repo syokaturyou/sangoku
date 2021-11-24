@@ -7,7 +7,10 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    # 現ログインユーザーが一回既に回答してたらそれ以上回答できなくする
+    @answer = Answer.find_by(post_id: params[:id], member_id: current_member.id)
   end
+
 
   def edit
     @post = Post.find(params[:id])
