@@ -8,8 +8,8 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     # 現ログインユーザーが一回既に回答してたらそれ以上回答できなくする
-    if member_signed_in?
-    @answer = Answer.find_by(post_id: params[:id], member_id: current_member.id)
+    if member_signed_in? #if文を使わないと非ログイン時にエラーとなるため
+     @answer = Answer.find_by(post_id: params[:id], member_id: current_member.id)
     end
   end
 
