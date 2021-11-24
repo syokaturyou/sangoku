@@ -8,11 +8,8 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     # 現ログインユーザーが一回既に回答してたらそれ以上回答できなくする
-    if member_signed_in? #if文を使わないと非ログイン時にエラーとなるため
-     @answer = Answer.find_by(post_id: params[:id], member_id: current_member.id)
-    end
+    @answer = Answer.find_by(post_id: params[:id], member_id: current_member.id) if member_signed_in? # 非ログイン時にエラーとなるため
   end
-
 
   def edit
     @post = Post.find(params[:id])
@@ -24,7 +21,7 @@ class Public::PostsController < ApplicationController
 
   def create
     @newpost = current_member.posts.build(post_params)
-    @newpost.score = Language.get_data(post_params[:postbody])  #感情スコア取得
+    @newpost.score = Language.get_data(post_params[:postbody])  # 感情スコア取得
      if @newpost.save
      redirect_to  public_posts_path
      else
@@ -35,7 +32,7 @@ class Public::PostsController < ApplicationController
    def update
       @post = Post.find(params[:id])
       @post.update(post_params)
-      @post.score = Language.get_data(post_params[:postbody]) #更新されれば感情スコアも更新されるよう実施
+      @post.score = Language.get_data(post_params[:postbody]) # 更新されれば感情スコアも更新されるよう実施
       @post.save
       if params[:image_delete].present? # 画像なしの場合に既存画像削除
         @post.update(postimage: nil)
