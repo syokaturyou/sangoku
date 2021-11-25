@@ -20,6 +20,6 @@ class Manager::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:posttile, :postbody, :postsyutten, :postimage)
+    params.require(:post).permit(:posttitle, :postbody, :postsyutten, :postimage)
   end
 end
