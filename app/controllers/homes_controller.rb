@@ -6,5 +6,4 @@ class HomesController < ApplicationController
 
   def design
   end
-
 end

@@ -13,7 +13,7 @@
       <%= link_to '質問一覧へ戻る', public_posts_path, class: 'btn btn-danger' %>
      </div>
 
-    <div class="dip">
+   <div class="dip">
      <table class="table table-hover table-inverse">
       <thead>
         <tr bgcolor=#DDDDDD>
@@ -43,8 +43,8 @@
         </tr>
       </thead>
       <tbody>
-        <% @post.answers.each do |answer| %>
-        <tr bgcolor=#EEEEEE>
+       <% @answers.each do |answer| %>
+       <tr bgcolor=#EEEEEE>
          <td>回答者
           <div style="padding: 10px; border: 1px solid #333333; border-radius: 1px;">
            <%= link_to answer.member.name, public_member_path(answer.member) %>
@@ -93,10 +93,10 @@
          </td>
          <td width="300" height="200"><%= render 'public/rates/review', answer: answer %></td>
         </tr>
-        <% end %>
-
+       <% end %>
       </tbody>
-    </table>
+     </table>
+     <%= paginate @answers %>
    </div>
 
   </div>
