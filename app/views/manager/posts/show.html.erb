@@ -36,7 +36,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @post.answers.each do |answer| %>
+        <% @answers.each do |answer| %>
         <tr bgcolor=#EEEEEE>
           <td>回答者
            <div style="padding: 10px; border: 1px solid #333333; border-radius: 1px;">
@@ -77,9 +77,9 @@
          <td width="300" height="200"><%= render 'public/rates/review', answer: answer %></td>
         </tr>
         <% end %>
-
-      </tbody>
-    </table>
+       </tbody>
+      </table>
+     <%= paginate @answers %>
     </div>
 
  </div>

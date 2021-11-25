@@ -8,6 +8,7 @@ class Manager::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @answers = @post.answers.order(updated_at: 'DESC').page(params[:page]).per(2) # 回答一覧表示+ページネーション用
   end
 
   def destroy
