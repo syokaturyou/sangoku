@@ -1,4 +1,4 @@
-# gem "gretel" がおかしいためコメントアウト
+# gem "gretel" がおかしいためコメントアウト実行
 
 # crumb :root do #ページの名前
 #   link "トップページ", root_path #リンク名、リンク先ページ
