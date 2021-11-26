@@ -64,7 +64,7 @@ html {
   display: flex;
 }
 
-/*ヘッダー開閉ボタン/
+/*ヘッダー開閉ボタン2*/
 .hidden_box label {
     font-weight: bold;
     position: absolute;
@@ -93,7 +93,7 @@ html {
     opacity: 1;
 }
 
-/*クリックで中身をheader-navを非表示にする*/
+/*クリックで中身をheader-navを非表示に*/
 .hidden_box input:checked ~ .hidden_show {
     padding: 0;
     overflow: hidden;
