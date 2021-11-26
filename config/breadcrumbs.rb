@@ -1,40 +1,42 @@
-crumb :root do #ページの名前
-  link "トップページ", root_path #リンク名、リンク先ページ
-end
+# gem "gretel" がおかしいためコメントアウト
 
-crumb :postindex do #ページの名前
-  link "投稿質問一覧", manager_posts_path #リンク名、リンク先ページ
-end
+# crumb :root do #ページの名前
+#   link "トップページ", root_path #リンク名、リンク先ページ
+# end
 
-crumb :postshow do
-  link "投稿質問詳細", manager_post_path
-  parent :postindex
-end
+# crumb :postindex do #ページの名前
+#   link "投稿質問一覧", manager_posts_path #リンク名、リンク先ページ
+# end
 
-crumb :memberindex do
-  link "会員一覧", manager_members_path
-  parent :root
-end
+# crumb :postshow do
+#   link "投稿質問詳細", manager_post_path
+#   parent :postindex
+# end
 
-crumb :membershow do
-  link "会員詳細", manager_member_path
-  parent :memberindex
-end
+# crumb :memberindex do
+#   link "会員一覧", manager_members_path
+#   parent :root
+# end
 
-crumb :articleindex do
-  link "お知らせ一覧", articles_path
-  parent :root
-end
+# crumb :membershow do
+#   link "会員詳細", manager_member_path
+#   parent :memberindex
+# end
 
-crumb :articleedit do
-  link "お知らせ編集", edit_article_path
-  parent :articleindex
-end
+# crumb :articleindex do
+#   link "お知らせ一覧", articles_path
+#   parent :root
+# end
 
-crumb :articlenew do
-  link "お知らせ新規作成", new_article_path
-  parent :articleindex
-end
+# crumb :articleedit do
+#   link "お知らせ編集", edit_article_path
+#   parent :articleindex
+# end
+
+# crumb :articlenew do
+#   link "お知らせ新規作成", new_article_path
+#   parent :articleindex
+# end
 
 
 # crumb :postnew do
