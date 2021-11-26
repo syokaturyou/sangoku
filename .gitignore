@@ -31,4 +31,3 @@
 /config/master.key
 
 /.env
-/Gemfile.lock
