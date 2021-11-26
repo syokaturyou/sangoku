@@ -1,5 +1,5 @@
 class ContractsController < ApplicationController
-  #お問い合わせ機能のため設定
+  # お問い合わせ機能のため設定
   def new
     @contract = Contract.new
   end
@@ -14,7 +14,7 @@ class ContractsController < ApplicationController
     end
   end
 
-  #メール完了画面
+  # メール完了画面
    def done
    end
 
