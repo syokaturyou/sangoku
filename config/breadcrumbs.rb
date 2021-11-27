@@ -1,9 +1,13 @@
+# crumb :root do
+#   link "トップページ", root_path
+# end
+
 crumb :root do
   link "会員一覧", manager_members_path
 end
 
 crumb :managermenbershow do
-  link "会員詳細", manager_member_path 
+  link "会員詳細", manager_member_path
   parent :root
 end
 
