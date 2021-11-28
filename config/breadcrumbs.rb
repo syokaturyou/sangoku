@@ -1,7 +1,3 @@
-# crumb :root do
-#   link "トップページ", root_path
-# end
-
 crumb :root do
   link "会員一覧", manager_members_path
 end
