@@ -2,6 +2,31 @@ crumb :root do
   link "トップページ", root_path
 end
 
+crumb :publicmemberindex do
+  link "会員一覧", public_members_path
+  parent :root
+end
+
+crumb :publicmembershow do
+  link "会員詳細", public_member_path
+  parent :publicmemberindex
+end
+
+crumb :publicmemberedit do
+  link "会員情報編集", edit_public_member_path
+  parent :publicmembershow
+end
+
+crumb :publicmemberunsubscribe do
+  link "会員退会", public_unsubscribe_path
+  parent :publicmemberindex
+end
+
+crumb :publicchat do
+  link "会員チャット", public_chat_path
+  parent :publicmembershow
+end
+
 crumb :managermemberindex do
   link "会員一覧", manager_members_path
   parent :root
@@ -17,6 +42,46 @@ crumb :managermemberedit do
   parent :managermembershow
 end
 
+crumb :publicpostindex do
+  link "質問投稿一覧", public_posts_path
+  parent :root
+end
+
+crumb :publicpostshow do
+  link "投稿質問詳細", public_post_path
+  parent :publicpostindex
+end
+
+crumb :publicpostnew do
+  link "投稿質問新規作成", new_public_post_path
+  parent :publicpostindex
+end
+
+crumb :publicanswernew do
+  link "新規回答作成", new_public_post_answer_path
+  parent :publicpostindex
+end
+
+crumb :publicansweredit do
+  link "回答内容編集", edit_public_answer_path
+  parent :publicpostshow
+end
+
+crumb :publicpostedit do
+  link "投稿質問編集", edit_public_post_path
+  parent :publicpostshow
+end
+
+crumb :managerpostindex do
+  link "質問投稿一覧", manager_posts_path
+  parent :root
+end
+
+crumb :managerpostshow do
+  link "投稿質問詳細", manager_post_path
+  parent :managerpostindex
+end
+
 crumb :articleindex do
   link "お知らせ一覧", articles_path
   parent :root
@@ -30,14 +95,4 @@ end
 crumb :articlenew do
   link "お知らせ新規作成", new_article_path
   parent :articleindex
-end
-
-crumb :managerpostindex do
-  link "質問投稿一覧", manager_posts_path
-  parent :root
-end
-
-crumb :managerpostshow do
-  link "投稿質問詳細", manager_post_path
-  parent :managerpostindex
 end

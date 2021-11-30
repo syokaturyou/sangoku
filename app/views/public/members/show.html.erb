@@ -1,3 +1,6 @@
+<% breadcrumb :publicmembershow  %>
+<%= breadcrumbs separator: " > " , class: :logo %>
+
 <h2>「<%= @member.name %>」さんの会員情報</h2>
 <div class='container'>
   <div class='row'>
@@ -24,6 +27,7 @@
           </tr>
         </tbody>
       </table>
+      <% if @member.is_deleted.blank? %>
       <% if member_signed_in? %>
        <% if @member.id == current_member.id %>
         <h6><%= link_to '登録情報を編集する',edit_public_member_path(current_member), class: 'btn btn-success btn-lg', data: {"turbolinks"=>false} %></h6>
@@ -31,6 +35,7 @@
        <% else %>
         <h6><%= link_to '「' + @member.name + '」さんとのチャット', public_chat_path(@member.id), class: 'btn btn-primary btn-lg', data: {"turbolinks"=>false} %></h6>
        <% end %>
+      <% end %>
       <% end %>
     </div>
   </div>
