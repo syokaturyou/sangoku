@@ -1,6 +1,9 @@
 <% breadcrumb :publicpostshow  %>
 <%= breadcrumbs separator: " > " , class: :logo %>
 
+質問閲覧回数:
+<%= @post.impressionist_count %>
+
 <div class="oocontainer">
   <div class="row">
     <h3>質問タイトル</h3>

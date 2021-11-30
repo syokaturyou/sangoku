@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
 
+  is_impressionable # 閲覧数確認のため追加
+
   belongs_to :member
   belongs_to :genre
   has_many :answers, dependent: :destroy

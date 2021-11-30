@@ -74,6 +74,7 @@ group :development, :test do
 end
 
 gem "gretel"
+gem 'impressionist', '~>1.6.1'
 gem 'font-awesome-sass', '~>5.13'
 gem 'rails-i18n'
 gem 'rubocop', require:false
