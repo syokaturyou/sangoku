@@ -1,5 +1,8 @@
 <h1>お知らせ編集</h1>
 
+<% breadcrumb :articleedit  %>
+<%= breadcrumbs separator: " > " , class: :logo %>
+
 <% if admin_signed_in? %>
 
 <%= render 'form', article: @article %>

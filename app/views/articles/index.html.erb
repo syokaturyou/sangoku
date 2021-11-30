@@ -1,5 +1,8 @@
 <% if admin_signed_in? %>
 
+<% breadcrumb :articleindex  %>
+<%= breadcrumbs separator: " > " , class: :logo %>
+
  <h1>お知らせ一覧</h1>
  <%= link_to 'お知らせを新規作成', new_article_path, class: 'btn btn-success btn-lg', data: {"turbolinks"=>false} %>
  <br>
