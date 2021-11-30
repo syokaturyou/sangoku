@@ -31,3 +31,13 @@ crumb :articlenew do
   link "お知らせ新規作成", new_article_path
   parent :articleindex
 end
+
+crumb :managerpostindex do
+  link "質問投稿一覧", manager_posts_path
+  parent :root
+end
+
+crumb :managerpostshow do
+  link "投稿質問詳細", manager_post_path
+  parent :managerpostindex
+end

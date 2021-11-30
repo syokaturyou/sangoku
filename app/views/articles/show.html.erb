@@ -14,6 +14,6 @@
 </table>
 
 <% if admin_signed_in? %>
-<%= link_to '編集', edit_article_path(@article), data: {"turbolinks"=>false}, class: 'btn btn-success' %>
-<%= link_to '戻る', articles_path, class: 'btn btn-danger' %>
+<%= link_to '編集', edit_article_path(@article), data: {"turbolinks"=>false}, class: 'btn btn-success btn-lg' %>
+<%= link_to '戻る', articles_path, class: 'btn btn-danger btn-lg' %>
 <% end %>

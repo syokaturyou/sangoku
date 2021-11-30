@@ -276,6 +276,10 @@ h1:before {
   border-radius: .25em;
 }
 
+.btn {
+   border-radius: 15px;
+}
+
 .btn:hover {
    box-shadow: 0px 12px 24px rgba(30, 146, 175, 0.38);
     transform: translateY(-4px);
