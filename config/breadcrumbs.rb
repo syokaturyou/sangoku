@@ -96,3 +96,8 @@ crumb :articlenew do
   link "お知らせ新規作成", new_article_path
   parent :articleindex
 end
+
+crumb :result do
+  link "検索結果", search_result_path
+  parent :publicpostindex
+end
