@@ -42,8 +42,8 @@
          <td><%= post.id %></td>
          <td><%= link_to post.posttitle, public_post_path(post) %></td>
          <td>
+          <%= attachment_image_tag post.member, :profileimage, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %>
           <%= link_to post.member.name, public_member_path(post.member) %>
-          <%= attachment_image_tag post.member, :profileimage, :fill, 40, 40, fallback: "no_image.jpg" %>
          </td>
          <td><%= post.updated_at.to_s(:datetime_jp) %></td>
          <td><%= post.answers.count %></td>

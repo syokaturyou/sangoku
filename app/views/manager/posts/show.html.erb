@@ -18,7 +18,7 @@
           <div style="padding: 10px; border: 1px solid #333333; border-radius: 1px;">
            <%= link_to @post.member.name, manager_member_path(@post.member) %>
           <br />
-           <%= attachment_image_tag @post.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %>
+           <%= attachment_image_tag @post.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg", size:'60x60' %>
           </div>
          </td>
          <td width='500px'>質問本文
@@ -32,8 +32,8 @@
            <%= simple_format(@post.postsyutten) %>
           </div>
           参考画像
-          <div style="padding: 30px; border: 1px solid #333333; border-radius: 1px;">
-            <%= attachment_image_tag @post, :postimage, :fill, 140, 80, fallback: "no_image.jpg" %>
+          <div style="padding: 5px; border: 1px solid #333333; border-radius: 1px;">
+            <%= attachment_image_tag @post, :postimage, :fill, 150, 90, fallback: "no_image.jpg", size:'150x90' %>
           </div>
          </td>
          <td></td>
@@ -46,7 +46,7 @@
            <div style="padding: 10px; border: 1px solid #333333; border-radius: 1px;">
             <%= link_to answer.member.name, manager_member_path(answer.member) %>
             <br />
-            <%= attachment_image_tag answer.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg" %>
+            <%= attachment_image_tag answer.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg", size:'60x60' %>
            </div>
            <br />回答更新日時
             <br /><%= answer.updated_at.to_s(:datetime_jp) %>
@@ -69,8 +69,8 @@
            <%= simple_format(answer.answersyutten) %>
           </div>
           参考画像
-          <div style="padding: 30px; border: 1px solid #333333; border-radius: 1px;">
-           <%= attachment_image_tag answer, :answerimage, :fill, 140, 80, fallback: "no_image.jpg" %>
+          <div style="padding: 5px; border: 1px solid #333333; border-radius: 1px;">
+           <%= attachment_image_tag answer, :answerimage, :fill, 150, 90, fallback: "no_image.jpg", size:'150x90' %>
            <br />
            画像分類
            <% answer.tags.each do |tag| %>
