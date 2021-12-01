@@ -1,4 +1,7 @@
 class Manager::PostsController < ApplicationController
+
+  impressionist actions: [:show] # showアクションで閲覧数確認のため追加
+
   # 管理者側では一覧・詳細画面と質問削除が可能
   def index
     # 更新日時を降順に + 質問数が10より多かったら次ページに
@@ -8,6 +11,7 @@ class Manager::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    impressionist(@post, nil, unique: [:session_hash.to_s]) # HP閲覧数を表示 to_sメソッドはSessionIdエラー防止のため追加
     @answers = @post.answers.order(updated_at: 'DESC').page(params[:page]).per(2) # 回答一覧表示+ページネーション用
   end
 
