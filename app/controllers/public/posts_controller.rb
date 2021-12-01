@@ -1,6 +1,6 @@
 class Public::PostsController < ApplicationController
 
-  impressionist :actions=> [:show] # showアクションで閲覧数確認のため追加
+  impressionist actions: [:show] # showアクションで閲覧数確認のため追加
 
   def index
     # 更新日時を降順に + 質問数が10より多かったら次ページに
