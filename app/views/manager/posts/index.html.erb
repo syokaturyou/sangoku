@@ -1,11 +1,10 @@
 <% breadcrumb :managerpostindex  %>
 <%= breadcrumbs separator: " > " , class: :logo %>
 
-
 <h1>投稿質問一覧</h1>
  <div class="oocontainer">
    <div class="row">
-    <div class="col-lg-7">
+    <div class="word-break: break-all;">
      <%= form_with url: search_path, local: true, method: :get do |f| %>
       <%= f.text_field :word, size: "50", class: 'form-control-sm' %>
       <%= f.select :range, options_for_select([['質問タイトル'],['会員'],['ジャンル']]) %>
@@ -13,6 +12,13 @@
       <%= f.submit "検索", class: "btn btn-primary" %>
      <% end %>
     </div>
+
+   <div class="word-break: break-all;">
+    <%= form_with url: public_posts_path, local: true, method: :get do |f| %>
+     <%= f.select :range, options_for_select([['投稿Noが新しい順に'],['投稿Noが古い順に'],['更新日時が新しい順に']]) %>
+     <%= f.submit "回答並べ替え", class: "btn btn-dark", data: {"turbolinks"=>false} %>
+    <% end %>
+   </div>
 
     <div class="col-lg-7">
      <%= paginate @posts %>

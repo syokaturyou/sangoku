@@ -300,13 +300,17 @@ h1:before {
   color: turquoise;
   background-color: green;
 }
-// .pagination > .active > a {
-//   color: turquoise;
-// }
-// .pagination > .active > a:hover {
-//   color: turquoise;
-// }
-/* --ページネーション */
+
+
+/* --プルダウンメニュー */
+
+select {
+	margin: 3px;
+	padding: 7px 10px;
+	font-size: 92%;
+	border-radius: 10px;
+	background-color: #bddfff;
+}
 
 @media only screen and (max-width: 500px) {
   .header-nav {

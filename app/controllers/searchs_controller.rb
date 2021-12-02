@@ -13,11 +13,19 @@ class SearchsController < ApplicationController
       @posts = Post.where(genre_id: genre_ids).order(updated_at: "DESC").page(params[:page]).per(10)
       @oogenre = params[:word]
       render 'result'
-    else
-      # 質問タイトルで検索時
+    when "質問タイトル" # 質問タイトルで検索時
       @posts = Post.looks(params[:search], params[:word]).order(updated_at: "DESC").page(params[:page]).per(10)
       @oopost = params[:word]
       render 'result'
+    when "更新日時が新しい順に"
+    @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
+    render 'result'
+    when "投稿Noが新しい順に"
+    @posts = Post.all.order(id: 'DESC').page(params[:page]).per(10)
+    render 'result'
+    else #"投稿Noが古い順に"
+    @posts = Post.all.order(id: 'ASC').page(params[:page]).per(10)
+    render 'result'
     end
   end
 end

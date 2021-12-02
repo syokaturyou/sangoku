@@ -13,7 +13,14 @@
      <% end %>
     </div>
 
-    <div class="col-lg-5">
+   <div class="word-break: break-all;">
+    <%= form_with url: public_posts_path, local: true, method: :get do |f| %>
+     <%= f.select :range, options_for_select([['投稿Noが新しい順に'],['投稿Noが古い順に'],['更新日時が新しい順に']]) %>
+     <%= f.submit "回答並べ替え", class: "btn btn-dark", data: {"turbolinks"=>false} %>
+     <% end %>
+   </div>
+
+    <div class="col-lg-7">
      <% if member_signed_in? %>
      <%= link_to ' 新規質問投稿する', new_public_post_path, class: 'btn btn-success btn-lg', data: {"turbolinks"=>false} %>
      <% end %>
