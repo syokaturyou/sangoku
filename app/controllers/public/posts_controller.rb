@@ -1,12 +1,9 @@
 class Public::PostsController < ApplicationController
 
-  # impressionist :actions => [:show]
-
   def index
-    # 更新日時の降順に並べる
+    # デフォルトは更新日時の降順に並べる
     @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
-    # 並べ替え選択時のページネーションを場合分け
-    @range = params[:range]
+    @range = params[:range] # 並べ替え選択時のページネーションを場合分け
     case @range
     when "更新日時が新しい順に"
       @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)

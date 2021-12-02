@@ -1,11 +1,10 @@
 class Manager::PostsController < ApplicationController
-
   # 管理者側では一覧・詳細画面と質問削除が可能
   def index
-    # 更新日時の降順に並べる
+    # デフォルトは更新日時の降順に並べる
     @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
     @range = params[:range] # 並べ替え選択時のページネーションを場合分け
-    case @ranges
+    case @range
     when "更新日時が新しい順に"
       @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
     when "更新日時が古い順に"
