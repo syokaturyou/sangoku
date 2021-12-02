@@ -7,15 +7,14 @@ class Manager::PostsController < ApplicationController
     # 更新日時を降順に + 質問数が10より多かったら次ページに
     @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
     @answer = Answer.all # 回答数カウントに使用
-     # 並べ替え選択時のページネーションを場合分け
-    @range = params[:range]
+    @range = params[:range] # 並べ替え選択時のページネーションを場合分け
     case @ranges
     when "更新日時が新しい順に"
-    @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
+      @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
     when "投稿Noが新しい順に"
-    @posts = Post.all.order(id: 'DESC').page(params[:page]).per(10)
+      @posts = Post.all.order(id: 'DESC').page(params[:page]).per(10)
     when "投稿Noが古い順に"
-    @posts = Post.all.order(id: 'ASC').page(params[:page]).per(10)
+      @posts = Post.all.order(id: 'ASC').page(params[:page]).per(10)
     end
   end
 

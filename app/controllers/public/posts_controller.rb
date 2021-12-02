@@ -10,11 +10,11 @@ class Public::PostsController < ApplicationController
     @range = params[:range]
     case @range
     when "更新日時が新しい順に"
-    @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
+      @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
     when "投稿Noが新しい順に"
-    @posts = Post.all.order(id: 'DESC').page(params[:page]).per(10)
+      @posts = Post.all.order(id: 'DESC').page(params[:page]).per(10)
     when "投稿Noが古い順に"
-    @posts = Post.all.order(id: 'ASC').page(params[:page]).per(10)
+      @posts = Post.all.order(id: 'ASC').page(params[:page]).per(10)
     end
   end
 

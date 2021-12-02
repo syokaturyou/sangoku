@@ -35,7 +35,7 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 
 Metrics/AbcSize:
-  Max: 50
+  Max: 80
 
 #メソッドの長さ指定
 MethodLength:
