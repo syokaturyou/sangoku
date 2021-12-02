@@ -3,8 +3,8 @@ class Public::PostsController < ApplicationController
   # impressionist :actions => [:show]
 
   def index
-    # 更新日時の降順に並べる + impressions_countを記載することでカウントさせる。
-    @posts = Post.all.order(updated_at: 'DESC').order(impressions_count: 'DESC').page(params[:page]).per(10)
+    # 更新日時の降順に並べる
+    @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
     @answer = Answer.all # 回答数カウントに使用
     # 並べ替え選択時のページネーションを場合分け
     @range = params[:range]
