@@ -1,11 +1,9 @@
 class Manager::PostsController < ApplicationController
 
-  impressionist actions: [:show] # showアクションで閲覧数確認のため追加
-
   # 管理者側では一覧・詳細画面と質問削除が可能
   def index
-    # 更新日時を降順に + 質問数が10より多かったら次ページに
-    @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
+    # 更新日時の降順に並べる + impressions_countを記載することでカウントさせる。
+    @posts = Post.all.order(updated_at: 'DESC').order(impressions_count: 'DESC').page(params[:page]).per(10)
     @answer = Answer.all # 回答数カウントに使用
     @range = params[:range] # 並べ替え選択時のページネーションを場合分け
     case @ranges
@@ -15,14 +13,14 @@ class Manager::PostsController < ApplicationController
       @posts = Post.all.order(id: 'DESC').page(params[:page]).per(10)
     when "投稿Noが古い順に"
       @posts = Post.all.order(id: 'ASC').page(params[:page]).per(10)
-    when "pV数の多い順に"
+    when "PV数の多い順に"
       @posts = Post.all.order(impressions_count: 'DESC').page(params[:page]).per(10)
     end
   end
 
   def show
     @post = Post.find(params[:id])
-    impressionist(@post, nil, unique: [:session_hash.to_s]) # HP閲覧数を表示 to_sメソッドはSessionIdエラー防止のため追加
+    impressionist(@post, nil, unique: [:session_hash.to_s]) # show画面閲覧時にカウントさせる to_sメソッド記載はSessionIdエラー防止のため
     @answers = @post.answers.order(updated_at: 'DESC').page(params[:page]).per(2) # 回答一覧表示+ページネーション用
   end
 

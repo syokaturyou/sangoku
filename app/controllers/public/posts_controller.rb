@@ -1,8 +1,8 @@
 class Public::PostsController < ApplicationController
 
   def index
-    # 更新日時を降順に + 質問数が10より多かったら次ページに
-    @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
+    # 更新日時の降順に並べる + impressions_countを記載することでカウントさせる。
+    @posts = Post.all.order(updated_at: 'DESC').order(impressions_count: 'DESC').page(params[:page]).per(10)
     @answer = Answer.all # 回答数カウントに使用
     # 並べ替え選択時のページネーションを場合分け
     @range = params[:range]
@@ -20,7 +20,7 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    impressionist(@post, nil, unique: [:session_hash.to_s]) # HP閲覧数を表示 to_sメソッドはSessionIdエラー防止のため追加
+    impressionist(@post, nil, unique: [:session_hash.to_s]) # show画面閲覧時にカウントさせる to_sメソッド記載はSessionIdエラー防止のため
     # 現ログインユーザーが一回既に回答してたらそれ以上回答できなくする
     @answer = Answer.find_by(post_id: params[:id], member_id: current_member.id) if member_signed_in? # 非ログイン時にエラーとなるため
     @answers = @post.answers.order(updated_at: 'DESC').page(params[:page]).per(2) # 回答一覧表示+ページネーション用

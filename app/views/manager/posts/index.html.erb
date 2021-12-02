@@ -34,6 +34,7 @@
         <th>更新日時</th>
         <th>回答数</th>
         <th>ジャンル名</th>
+        <th>PV数</th>
         <th></th>
        </tr>
       <thead>
@@ -49,6 +50,7 @@
           <td><%= post.updated_at.to_s(:datetime_jp) %></td>
           <td><%= post.answers.count %></td>
           <td><%= post.genre.name %></td>
+          <td><%= post.impressions_count %></td>
           <td><%= link_to '削除する', manager_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%></td>
         </tr>
         <% end %>

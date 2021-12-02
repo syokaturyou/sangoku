@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
 
-  is_impressionable counter_cache: true # 閲覧数確認のため追加
+  is_impressionable counter_cache: true # 閲覧数確認のため記載
 
   belongs_to :member
   belongs_to :genre
