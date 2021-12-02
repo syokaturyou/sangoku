@@ -4,7 +4,6 @@ class Manager::PostsController < ApplicationController
   def index
     # 更新日時の降順に並べる
     @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
-    @answer = Answer.all # 回答数カウントに使用
     @range = params[:range] # 並べ替え選択時のページネーションを場合分け
     case @ranges
     when "更新日時が新しい順に"
