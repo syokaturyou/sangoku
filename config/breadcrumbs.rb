@@ -64,7 +64,7 @@ end
 
 crumb :publicansweredit do
   link "回答内容編集", edit_public_answer_path
-  parent :publicpostshow
+  parent :publicpostindex
 end
 
 crumb :publicpostedit do
