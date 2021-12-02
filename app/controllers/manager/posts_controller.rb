@@ -15,6 +15,8 @@ class Manager::PostsController < ApplicationController
       @posts = Post.all.order(id: 'DESC').page(params[:page]).per(10)
     when "投稿Noが古い順に"
       @posts = Post.all.order(id: 'ASC').page(params[:page]).per(10)
+    when "pV数の多い順に"
+      @posts = Post.all.order(impressions_count: 'DESC').page(params[:page]).per(10)
     end
   end
 

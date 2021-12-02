@@ -1,7 +1,5 @@
 class Public::PostsController < ApplicationController
 
-  impressionist actions: [:show] # showアクションで閲覧数確認のため追加
-
   def index
     # 更新日時を降順に + 質問数が10より多かったら次ページに
     @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
@@ -15,6 +13,8 @@ class Public::PostsController < ApplicationController
       @posts = Post.all.order(id: 'DESC').page(params[:page]).per(10)
     when "投稿Noが古い順に"
       @posts = Post.all.order(id: 'ASC').page(params[:page]).per(10)
+    when "PV数の多い順に"
+      @posts = Post.all.order(impressions_count: 'DESC').page(params[:page]).per(10)
     end
   end
 

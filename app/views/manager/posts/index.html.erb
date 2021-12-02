@@ -15,7 +15,7 @@
 
    <div class="word-break: break-all;">
     <%= form_with url: public_posts_path, local: true, method: :get do |f| %>
-     <%= f.select :range, options_for_select([['投稿Noが新しい順に'],['投稿Noが古い順に'],['更新日時が新しい順に']]) %>
+     <%= f.select :range, options_for_select([['投稿Noが新しい順に'],['投稿Noが古い順に'],['更新日時が新しい順に'],["PV数の多い順に"]]) %>
      <%= f.submit "回答並べ替え", class: "btn btn-dark", data: {"turbolinks"=>false} %>
     <% end %>
    </div>
