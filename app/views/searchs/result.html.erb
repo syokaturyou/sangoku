@@ -44,6 +44,7 @@
        <th>質問者情報</th>
        <th>回答更新日時</th>
        <th>回答数</th>
+       <th>PV数</th>
        <th colspan="6"></th>
       </tr>
        <% @posts.each do |post| %>
@@ -57,6 +58,7 @@
           </td>
           <td><%= post.updated_at.to_s(:datetime_jp) %></td>
           <td><%= post.answers.count %></td>
+          <td><%= post.impressions_count %></td>
           <% if member_signed_in? %>
            <% if post.member.id == current_member.id %>
             <td><%= link_to '編集する', edit_public_post_path(post), class: 'btn btn-success', data: {"turbolinks"=>false} %>
@@ -85,6 +87,7 @@
        <th>更新日時</th>
        <th>回答数</th>
        <th>ジャンル名</th>
+       <th>PV数</th>
        <th colspan="4"></th>
       </tr>
       <% @posts.each do |post| %>
@@ -98,6 +101,7 @@
        <td><%= post.updated_at.to_s(:datetime_jp) %></td>
        <td><%= post.answers.count %></td>
        <td><%= post.genre.name %></td>
+       <td><%= post.impressions_count %></td>
         <% if member_signed_in? %>
          <% if post.member.id == current_member.id %>
           <td><%= link_to '編集する', edit_public_post_path(post), class: 'btn btn-success', data: {"turbolinks"=>false} %>

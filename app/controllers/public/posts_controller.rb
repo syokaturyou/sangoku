@@ -1,5 +1,7 @@
 class Public::PostsController < ApplicationController
 
+  # impressionist :actions => [:show]
+
   def index
     # 更新日時の降順に並べる + impressions_countを記載することでカウントさせる。
     @posts = Post.all.order(updated_at: 'DESC').order(impressions_count: 'DESC').page(params[:page]).per(10)
