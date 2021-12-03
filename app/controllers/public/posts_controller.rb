@@ -51,11 +51,8 @@ class Public::PostsController < ApplicationController
       @post.update(post_params)
       @post.score = Language.get_data(post_params[:postbody]) # 更新されれば感情スコアも更新されるよう実施
       @post.save
-      if params[:image_delete].present? # 画像なしの場合に既存画像削除
-        @post.update(postimage: nil)
-      else
-       redirect_to  public_posts_path
-      end
+      @post.update(postimage: nil) if params[:image_delete].present? # 「画像なし」を選択した場合postimageをnilにする
+      redirect_to  public_posts_path
    end
 
   def destroy
