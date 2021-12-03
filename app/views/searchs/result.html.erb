@@ -38,7 +38,7 @@
        <b>"<%= @oogenre %>"のジャンル検索結果表示</b>
       </tr>
       <tr bgcolor=#66FFCC>
-       <th>ジャンル名</th>
+       <th>ジャンルid/ジャンル名</th>
        <th>質問タイトル</th>
        <th>投稿id</th>
        <th>質問者情報</th>
@@ -49,7 +49,7 @@
       </tr>
        <% @posts.each do |post| %>
          <tr bgcolor=#EEEEEE>
-          <td><%= post.genre.name %></td>
+          <td>[<%= post.genre.id %>]/<%= post.genre.name %></td>
           <td><%= link_to post.posttitle, public_post_path(post) %></td>
           <td><%= post.id %></td>
           <td>
@@ -86,7 +86,7 @@
        <th>質問者</th>
        <th>更新日時</th>
        <th>回答数</th>
-       <th>ジャンル名</th>
+       <th>ジャンルid/ジャンル名</th>
        <th>PV数</th>
        <th colspan="4"></th>
       </tr>
@@ -100,7 +100,7 @@
        </td>
        <td><%= post.updated_at.to_s(:datetime_jp) %></td>
        <td><%= post.answers.count %></td>
-       <td><%= post.genre.name %></td>
+       <td>[<%= post.genre.id %>]/<%= post.genre.name %></td>
        <td><%= post.impressions_count %></td>
         <% if member_signed_in? %>
          <% if post.member.id == current_member.id %>
