@@ -15,14 +15,14 @@
      <table class="table table-hover table-inverse" frame="border">
       <thead>
        <tr bgcolor=#BBBBBB>
-        <th>ジャンル</th>
+        <th>ジャンルid/ジャンル名</th>
         <th></th>
         <th></th>
        </tr>
       </thead>
        <% @genres.each do |genre| %>
         <tr bgcolor=#EEEEEE>
-         <th><%= genre.name %></th>
+         <th>[<%= genre.id %>]/<%= genre.name %></th>
          <th><%= link_to '編集する', edit_manager_genre_path(genre.id), class: 'btn btn-success' %></th>
          <th><%= link_to '削除する', manager_genre_path(genre.id), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" } %></th>
         </tr>

@@ -5,14 +5,18 @@ class Public::PostsController < ApplicationController
     @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
     @range = params[:range] # 並べ替え選択時のページネーションを場合分け
     case @range
-    when "更新日時が新しい順に"
-      @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
-    when "更新日時が古い順に"
-      @posts = Post.all.order(updated_at: 'ASC').page(params[:page]).per(10)
     when "投稿Noが新しい順に"
       @posts = Post.all.order(id: 'DESC').page(params[:page]).per(10)
     when "投稿Noが古い順に"
       @posts = Post.all.order(id: 'ASC').page(params[:page]).per(10)
+    when "更新日時が新しい順に"
+      @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
+    when "更新日時が古い順に"
+      @posts = Post.all.order(updated_at: 'ASC').page(params[:page]).per(10)
+    when "ジャンルidが大きい順に"
+      @posts = Post.all.order(genre_id: 'DESC').page(params[:page]).per(10)
+    when "ジャンルidが小さい順に"
+      @posts = Post.all.order(genre_id: 'ASC').page(params[:page]).per(10)
     when "PV数の多い順に"
       @posts = Post.all.order(impressions_count: 'DESC').page(params[:page]).per(10)
     when "PV数の少ない順に"
