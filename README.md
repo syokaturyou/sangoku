@@ -28,8 +28,7 @@
 
 
 ## 動画(基本機能確認)
-<https://user-images.githubusercontent.com/78064150/142983518-ada8351e-b0a9-4734-89cf-50f6e1079a91.mp4>
-
+<https://user-images.githubusercontent.com/78064150/144544892-34a69c99-305b-4acb-8a75-601c851e6686.mp4>
 
 ## 設計書
 <https://app.diagrams.net/#G1LahYWsL-gyXUqNxGy_AztbNSppLeBiYQ>

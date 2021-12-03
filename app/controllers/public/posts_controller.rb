@@ -46,14 +46,14 @@ class Public::PostsController < ApplicationController
      end
   end
 
-   def update
-      @post = Post.find(params[:id])
-      @post.update(post_params)
-      @post.score = Language.get_data(post_params[:postbody]) # 更新されれば感情スコアも更新されるよう実施
-      @post.save
-      @post.update(postimage: nil) if params[:image_delete].present? # 「画像なし」を選択した場合postimageをnilにする
-      redirect_to  public_posts_path
-   end
+  def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    @post.score = Language.get_data(post_params[:postbody]) # 更新されれば感情スコアも更新されるよう実施
+    @post.save
+    @post.update(postimage: nil) if params[:image_delete].present? # 「画像なし」を選択した場合postimageをnilにする
+    redirect_to  public_posts_path
+  end
 
   def destroy
     post = Post.find(params[:id])

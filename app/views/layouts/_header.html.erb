@@ -11,8 +11,7 @@
     <div class="header__header-nav">
      <% if member_signed_in? %>
      <div class="header__header-nav__header-box">
-      <!--ロード画面を永続させないため data: {"turbolinks" => false}を追加-->
-      <%= link_to 'トップページ',root_path, class: "fas fa-home nav-link", data: {"turbolinks" => false} %>
+      <%= link_to 'トップページ',root_path, class: "fas fa-home nav-link" %>
      </div>
      <div class="header__header-nav__header-box">
       <%= link_to 'マイページ',public_member_path(current_member.id), class: "fas fa-user nav-link" %>
