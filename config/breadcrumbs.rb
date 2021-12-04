@@ -82,6 +82,16 @@ crumb :managerpostshow do
   parent :managerpostindex
 end
 
+crumb :managergenresindex do
+  link "ジャンル一覧", manager_genres_path
+  parent :root
+end
+
+crumb :managergenresedit do
+  link "ジャンル編集", edit_manager_genre_path
+  parent :managergenresindex
+end
+
 crumb :articleindex do
   link "お知らせ一覧", articles_path
   parent :root

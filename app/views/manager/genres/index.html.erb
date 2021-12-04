@@ -1,13 +1,15 @@
+<% breadcrumb :managergenresindex  %>
+<%= breadcrumbs separator: " > " , class: :logo %>
+
 <h1>ジャンル一覧・追加</h1>
  <div class="container">
   <div class="row">
 
    <div class="col-lg-12">
     <%= form_with model:@genre,url: manager_genres_path, local:true do |f| %>
-     <div style = "display:flex">
-       ジャンル名<%= f.text_field :name, size: "50", class: 'form-control-sm' %>
-                 <%= f.submit '新規登録', class: 'btn btn-success btn-lg' %>
-     </div>
+     ジャンル名入力
+     <%= f.text_field :name, size: "50", class: 'form-control-sm' %>
+     <%= f.submit '新規登録', class: 'btn btn-success btn-lg' %>
     <% end %>
    </div>
 
