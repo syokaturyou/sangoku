@@ -9,16 +9,16 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-
+   <div id="wrapper">
     <!--ヘッダー部分-->
      <%= render 'layouts/header' %>
-
-      <main class="main">
+    <main class="main">
      <%= yield %>
-      </main>
+    </main>
 
+    <footer>
+     <p class="footer-text">© warerano3594 2021</p>
+    </footer>
+   </div>
   </body>
-  <footer>
-   <%= render 'layouts/footer' %>
-  </footer>
 </html>
