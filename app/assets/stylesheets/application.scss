@@ -312,6 +312,13 @@ select {
 	background-color: #bddfff;
 }
 
+/* --テーブル枠 */
+.table {
+   border-radius: 5px;
+   border-width: 3px;
+}
+
+
 @media only screen and (max-width: 500px) {
   .header-nav {
     display: flex;
