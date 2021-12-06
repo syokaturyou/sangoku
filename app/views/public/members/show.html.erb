@@ -55,9 +55,7 @@
    </table>
  </div>
 <% elsif @range == "過去回答" %>
- <div class="col-lg-7">
-  <%= paginate @answers %>
- </div>
+
  <div class="oocontainer">
   <div class="row">
    <table class="table" frame="border">
@@ -72,7 +70,7 @@
      </tr>
     </thead>
     <tbody>
-     <% @answers.each do |answer| %>
+     <% @member.answers.each do |answer| %>
       <tr bgcolor=#EEEEEE>
       <% if answer.score >= -0.2 %>
        <td><%= link_to answer.answerbody.truncate(20), public_post_path(answer.post) %></td>
