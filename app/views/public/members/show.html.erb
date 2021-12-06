@@ -75,14 +75,14 @@
      <% @answers.each do |answer| %>
       <tr bgcolor=#EEEEEE>
       <% if answer.score >= -0.2 %>
-       <td></td>
+       <td><%= link_to answer.answerbody.truncate(20), manager_post_path(answer.post) %></td>
       <% else %>
        <td style="color:#CC6633">感情スコアが-0.3以下であるため表示できません</td>
       <% end %>
-       <td><%= answer.score %> / 1.0</td>
-       <td><%= answer.updated_at.to_s(:datetime_jp) %></td>
-       <td><%= answer.post.id %></td>
-       <td><%= link_to answer.post.posttitle, public_post_path(answer.post) %></td>
+       <td></td>
+       <td></td>
+       <td></td>
+       <td></td>
        <% if member_signed_in? %>
        <% if answer.member.id == current_member.id %>
         <td>
