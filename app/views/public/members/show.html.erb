@@ -63,7 +63,6 @@
    <table class="table" frame="border">
     <thead>
      <tr bgcolor=#66FFCC>
-      <th>回答id</th>
       <th>回答文</th>
       <th>感情スコア</th>
       <th>回答更新日時</th>
@@ -75,7 +74,6 @@
     <tbody>
      <% @answers.each do |answer| %>
       <tr bgcolor=#EEEEEE>
-       <td><%= answer.id %></td>
       <% if answer.score >= -0.2 %>
        <td><%= link_to answer.answerbody.truncate(20), public_post_path(answer.post) %></td>
       <% else %>
