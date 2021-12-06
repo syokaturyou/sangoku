@@ -79,10 +79,10 @@
       <% else %>
        <td style="color:#CC6633">感情スコアが-0.3以下であるため表示できません</td>
       <% end %>
-       <td></td>
-       <td></td>
-       <td></td>
-       <td></td>
+       <td><%= answer.score %> / 1.0</td>
+       <td><%= answer.updated_at.to_s(:datetime_jp) %></td>
+       <td><%= answer.post.id %></td>
+       <td><%= link_to answer.post.posttitle, public_post_path(answer.post) %></td>
        <% if member_signed_in? %>
        <% if answer.member.id == current_member.id %>
         <td>
