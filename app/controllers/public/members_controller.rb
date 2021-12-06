@@ -6,6 +6,9 @@ class Public::MembersController < ApplicationController
 
   def show
     @member = Member.find(params[:id])
+    @range = params[:range] # 過去回答と過去質問選択時に場合分け
+    @posts = @member.posts.order(updated_at: 'DESC').page(params[:page]).per(10)
+    @answers = @member.answers.order(updated_at: 'DESC').page(params[:page]).per(10)
   end
 
   # ログインしたユーザーだけ見えるようにcurrent_memberとする
