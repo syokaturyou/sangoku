@@ -30,7 +30,7 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    impressionist(@post, nil, unique: [:session_hash.to_s]) # show画面閲覧時にカウントさせる to_sメソッド記載はSessionIdエラー防止のため
+    impressionist(@post, nil) # show画面閲覧時にカウントさせる to_sメソッド記載はSessionIdエラー防止のため
     # 現ログインユーザーが一回既に回答してたらそれ以上回答できなくする
     @answer = Answer.find_by(post_id: params[:id], member_id: current_member.id) if member_signed_in? # 非ログイン時にエラーとなるため
     @answers = @post.answers.order(updated_at: 'DESC').page(params[:page]).per(2) # 回答一覧表示+ページネーション用
