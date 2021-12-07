@@ -12,6 +12,9 @@
      <div class="header__header-nav__header-box">
       <%= link_to 'トップページ',root_path, class: "fas fa-home nav-link" %>
      </div>
+     <div class="header__header-nav__header-box">
+      <%= link_to '雑談部屋', zatudans_path, class: 'fas fa-comment-dots nav-link' %>
+     </div>
      <% if member_signed_in? %>
      <div class="header__header-nav__header-box">
       <%= link_to 'マイページ',public_member_path(current_member.id), class: "fas fa-user nav-link" %>
@@ -21,9 +24,6 @@
      </div>
      <div class="header__header-nav__header-box">
       <%= link_to '質問投稿一覧',public_posts_path, class: "fas fa-user-edit nav-link" %>
-     </div>
-     <div class="header__header-nav__header-box">
-      <%= link_to '雑談部屋', zatudans_path, class: 'fas fa-comment-dots nav-link' %>
      </div>
      <div class="header__header-nav__header-box">
       <%= link_to 'お問い合わせ',new_contract_path, class: "far fa-paper-plane nav-link", data: {"turbolinks"=>false} %>
@@ -37,9 +37,6 @@
      </div>
      <div class="header__header-nav__header-box">
       <%= link_to '質問投稿一覧',manager_posts_path, class: "fas fa-user-edit nav-link" %>
-     </div>
-     <div class="header__header-nav__header-box">
-      <%= link_to '雑談部屋', zatudans_path, class: 'fas fa-comment-dots nav-link' %>
      </div>
      <div class="header__header-nav__header-box">
       <%= link_to 'ジャンル一覧',manager_genres_path, class: "fas fa-file-alt nav-link" %>
@@ -56,9 +53,6 @@
      </div>
      <div class="header__header-nav__header-box">
       <%= link_to '質問投稿一覧',public_posts_path, class: "fas fa-user-edit nav-link" %>
-     </div>
-     <div class="header__header-nav__header-box">
-      <%= link_to '雑談部屋', zatudans_path, class: 'fas fa-comment-dots nav-link' %>
      </div>
      <div class="header__header-nav__header-box">
       <%= link_to '新規登録', new_member_registration_path,class: 'fas fa-user-plus nav-link' %>
