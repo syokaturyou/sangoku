@@ -35,9 +35,13 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 
 Metrics/AbcSize:
-  Max: 80
+  Max: 120
 
 #メソッドの長さ指定
 MethodLength:
   CountComments: false  # count full line comments?
   Max: 50
+
+# Rubyの循環的複雑度をデフォルト7から変更
+CyclomaticComplexity:
+  Max: 13

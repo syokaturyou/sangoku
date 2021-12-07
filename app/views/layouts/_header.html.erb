@@ -6,13 +6,13 @@
    <input type="checkbox" id="label1"/>
     <div class="hidden_show">
 
- <!--<ログイン状態で項目変更>-->
+  <!--<ログイン状態で項目変更>-->
    <div class="header">
     <div class="header__header-nav">
-     <% if member_signed_in? %>
      <div class="header__header-nav__header-box">
       <%= link_to 'トップページ',root_path, class: "fas fa-home nav-link" %>
      </div>
+     <% if member_signed_in? %>
      <div class="header__header-nav__header-box">
       <%= link_to 'マイページ',public_member_path(current_member.id), class: "fas fa-user nav-link" %>
      </div>
@@ -33,9 +33,6 @@
      </div>
     <% elsif admin_signed_in? %>
      <div class="header__header-nav__header-box">
-      <%= link_to 'トップページ',root_path, class: "fas fa-home nav-link", data: {"turbolinks" => false} %>
-     </div>
-     <div class="header__header-nav__header-box">
       <%= link_to '会員一覧',manager_members_path, class: "fas fa-user nav-link" %>
      </div>
      <div class="header__header-nav__header-box">
@@ -54,9 +51,6 @@
       <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link' %>
      </div>
     <% else %>
-     <div class="header__header-nav__header-box">
-      <%= link_to 'トップページ',root_path, class: "fas fa-home nav-link", data: {"turbolinks" => false} %>
-     </div>
      <div class="header__header-nav__header-box">
       <%= link_to '会員一覧',public_members_path, class: "fas fa-user nav-link" %>
      </div>
