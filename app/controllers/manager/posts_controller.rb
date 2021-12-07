@@ -30,7 +30,7 @@ class Manager::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    impressionist(@post, nil) # show画面閲覧時にカウントさせる to_sメソッド記載はSessionIdエラー防止のため
+    impressionist(@post, nil) # show画面閲覧時にカウントさせる
     @answers = @post.answers.order(updated_at: 'DESC').page(params[:page]).per(2) # 回答一覧表示+ページネーション用
   end
 
