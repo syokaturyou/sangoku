@@ -5,7 +5,7 @@
  <h2>「<%= @member.name %>」さんの会員情報</h2>
  <%= form_with url: manager_member_path, local: true, method: :get do |f| %>
   <%= f.select :range, options_for_select([["過去質問"],["過去回答"],["登録情報"]]) %>
-  <%= f.submit "を表示", class: "btn btn-dark", data: {"turbolinks"=>false} %>
+  <%= f.submit "を表示", class: "btn btn-outline-dark", data: {"turbolinks"=>false} %>
  <% end %>
 </div>
 
