@@ -23,7 +23,7 @@
         <td><%= member.id %></td>
         <td>
          <%= attachment_image_tag member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg", size:'60x60' %>
-         <%= link_to member.name, manager_member_path(member) %>
+         <%= link_to member.name.truncate(25), manager_member_path(member) %>
         </td>
         <td>
          <% if member.is_deleted == true %><font color="gray">退会</font>

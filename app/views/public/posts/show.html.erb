@@ -22,7 +22,7 @@
         <tr bgcolor=#DDDDDD>
          <td>質問者
           <div style="padding: 10px; border: 1px solid #333333; border-radius: 1px;">
-           <%= link_to @post.member.name, public_member_path(@post.member) %>
+           <%= link_to @post.member.name.truncate(15), public_member_path(@post.member) %>
           <br />
            <%= attachment_image_tag @post.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg", size:'60x60' %>
           </div>
@@ -50,7 +50,7 @@
        <tr bgcolor=#EEEEEE>
          <td>回答者
           <div style="padding: 10px; border: 1px solid #333333; border-radius: 1px;">
-           <%= link_to answer.member.name, public_member_path(answer.member) %>
+           <%= link_to answer.member.nametruncate(15), public_member_path(answer.member) %>
            <br />
              <%= attachment_image_tag answer.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg", size:'60x60' %>
           </div>

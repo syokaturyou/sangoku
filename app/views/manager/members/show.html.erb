@@ -70,7 +70,7 @@
      <% @answers.each do |answer| %>
       <tr bgcolor=#EEEEEE>
       <% if answer.score >= -0.2 %>
-       <td><%= link_to answer.answerbody.truncate(20), manager_post_path(answer.post) %></td>
+       <td><%= link_to answer.answerbody.truncate(25), manager_post_path(answer.post) %></td>
       <% else %>
        <td style="color:#CC6633">感情スコアが-0.3以下であるため表示できません</td>
       <% end %>

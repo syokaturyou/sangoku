@@ -42,10 +42,10 @@
       <% @posts.each do |post| %>
        <tr bgcolor=#EEEEEE>
         <td><%= post.id %></td>
-        <td><%= link_to post.posttitle, manager_post_path(post) %></td>
+        <td><%= link_to post.posttitle.truncate(25), manager_post_path(post) %></td>
         <td>
          <%= attachment_image_tag post.member, :profileimage, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %>
-         <%= link_to post.member.name, manager_member_path(post.member) %>
+         <%= link_to post.member.name.truncate(15), manager_member_path(post.member) %>
         </td>
         <td><%= post.updated_at.to_s(:datetime_jp) %></td>
         <td><%= post.answers.count %></td>
