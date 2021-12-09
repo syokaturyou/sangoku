@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   attachment :postimage
 
   # 回答数の多い順に並べ替える際に使用
-  scope :recent, -> { joins(:answers).order('count(answers.member_id) desc').group("answers.post_id") }
+  # scope :recent, -> { joins(:answers).order('count(answers.member_id) desc').group("answers.post_id") }
 
   # 検索方法分岐
   def self.looks(search, word)
