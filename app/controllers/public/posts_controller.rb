@@ -25,14 +25,10 @@ class Public::PostsController < ApplicationController
       @posts = Post.all.order(impressions_count: 'DESC').page(params[:page]).per(10)
     when "PV数の少ない順に"
       @posts = Post.all.order(impressions_count: 'ASC').page(params[:page]).per(10)
-    # when "回答数の多い順に"
-    #   @posts = Post.joins(:answers).order('count(member_id) desc').group("answers.post_id").page(params[:page]).per(10)
     when "回答数の多い順に"
       @posts = Post.recent.page(params[:page]).per(10)
-    # when "回答数の少ない順に"
-    #   @posts = Post.joins(:answers).order('count(member_id) asc').group(:post_id).page(params[:page]).per(10)
-     when "回答数の少ない順に"
-      @posts = Post.joins(:answers).where.not(member_id: nil).group("answers.post_id").page(params[:page]).per(10)
+    when "回答数の少ない順に"
+      @posts = Post.joins(:answers).order('count(answers.member_id) asc').group("answers.post_id").page(params[:page]).per(10)
     end
   end
 
