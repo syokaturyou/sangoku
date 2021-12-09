@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   attachment :postimage
 
   # scope :featured, order('member_ids_count DESC')
-  scope :recent, -> { joins(:answers).order('count(member_id) desc').group("answers.post_id") }
+  scope :recent, -> { joins(:answers).order('count(answers.member_id) desc').group("answers.post_id") }
 
   # 検索方法分岐
   def self.looks(search, word)
