@@ -44,4 +44,4 @@ MethodLength:
 
 # Rubyの循環的複雑度をデフォルト7から変更
 CyclomaticComplexity:
-  Max: 13
+  Max: 17
