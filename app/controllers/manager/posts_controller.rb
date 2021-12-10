@@ -29,6 +29,8 @@ class Manager::PostsController < ApplicationController
       @posts = Post.joins(:answers).order('count(answers.member_id) desc').group("answers.post_id").page(params[:page]).per(10)
     when "回答数の少ない順に"
       @posts = Post.joins(:answers).order('count(answers.member_id) asc').group("answers.post_id").page(params[:page]).per(10)
+    when "回答数0"
+      @posts = Post.recent.page(params[:page]).per(10)
     end
   end
 
