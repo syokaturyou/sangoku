@@ -14,11 +14,11 @@
     <% end %>
    </div>
 
-<br>
-
 <div class="center">
  <%= form_with model: @newzatudan, url: zatudans_path, remote: true do |f| %>
      <%= f.text_field :message, required: true, maxlength: "75", size: '50' %>
      <%= f.submit "メッセージ送信", class: 'btn btn-success btn-lg' %>
  <% end %>
 </div>
+
+<br />
