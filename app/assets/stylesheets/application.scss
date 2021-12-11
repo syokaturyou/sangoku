@@ -111,6 +111,13 @@ html {
     box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
 }
 
+_:lang(x)+_:-webkit-full-screen-document, .wrapper{
+    min-height: 10vh;
+    position: relative;/*←相対位置*/
+    padding-bottom: 5px;/*←footerの高さ*/
+    box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
  footer {
     position: absolute; /*←絶対位置*/
     bottom: 0; /*下に固定*/
