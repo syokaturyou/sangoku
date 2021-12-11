@@ -64,7 +64,7 @@ html {
   display: flex;
 }
 
-/*ヘッダー開閉ボタン231*/
+/*ヘッダー開閉ボタン*/
 .hidden_box label {
     font-weight: bold;
     position: absolute;
@@ -152,7 +152,6 @@ h1:before {
   }
 
  /* 雑談、チャット */
-
  .zatudans{
    padding: 20px 10px;
    max-width: 100%;
@@ -240,7 +239,7 @@ h1:before {
    -webkit-transform: rotate(-35deg);
    transform: rotate(-35deg);
  }
- /* 雑談、チャット */
+ /*  */
 
  .main {
  width: 100%;
@@ -300,7 +299,7 @@ h1:before {
 
 .btn:hover {
    box-shadow: 0px 12px 24px rgba(30, 146, 175, 0.38);
-    transform: translateY(-4px);
+   transform: translateY(-4px);
 }
 
 /* ページネーション */
@@ -318,7 +317,6 @@ h1:before {
   color: turquoise;
   background-color: green;
 }
-
 
 /* --プルダウンメニュー */
 select {
@@ -354,7 +352,6 @@ select {
   transform: translate(-50%, -50%);
  }
 
-
   _:lang(x)+_:-webkit-full-screen-document, .bottom {
   position: absolute;
   top: 80%;
@@ -378,6 +375,5 @@ select {
   }
 
 }
-
 
 @import './homes'
