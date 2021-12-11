@@ -1,24 +1,24 @@
 <h1>雑談部屋♪</h1>
-  <h2>最新20件のメッセージ表示。非会員の方も気軽に投稿ください( ｀・∀・´)ﾉ<h2>
+ <h2>最新20件のメッセージ表示。非会員の方も気軽に投稿ください( ｀・∀・´)ﾉ<h2>
 
-   <div class="zatudans">
-    <% @zatudans.first(20).each do |zatudan| %>
-      <div class="fukidasi">
-       <div class="chatting">
-        <%= zatudan.updated_at.to_s(:datetime_jp) %>投稿
-        <div class="says">
+  <div class="zatudans">
+   <% @zatudans.first(20).each do |zatudan| %>
+    <div class="fukidasi">
+     <div class="chatting">
+      <%= zatudan.updated_at.to_s(:datetime_jp) %>投稿
+       <div class="says">
         <%= zatudan.message %>
-        </div>
        </div>
-      </div>
-    <% end %>
-   </div>
+     </div>
+    </div>
+   <% end %>
+  </div>
 
-<div class="center">
- <%= form_with model: @newzatudan, url: zatudans_path, remote: true do |f| %>
-     <%= f.text_field :message, required: true, maxlength: "75", size: '50' %>
-     <%= f.submit "メッセージ送信", class: 'btn btn-success btn-lg' %>
- <% end %>
-</div>
+  <div class="center">
+   <%= form_with model: @newzatudan, url: zatudans_path, remote: true do |f| %>
+    <%= f.text_field :message, required: true, maxlength: "75", size: '50' %>
+    <%= f.submit "メッセージ送信", class: 'btn btn-success btn-lg' %>
+   <% end %>
+  </div>
 
 <br />
