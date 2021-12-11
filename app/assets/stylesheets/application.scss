@@ -328,7 +328,9 @@ select {
   flex-direction: column;
   }
 
-  .bottom {
+
+
+  _:lang(x)+_:-webkit-full-screen-document, .bottom {
   position: absolute;
   top: 80%;
   left: 50%;
@@ -351,5 +353,8 @@ select {
   }
 
 }
+
+
+
 
 @import './homes'
