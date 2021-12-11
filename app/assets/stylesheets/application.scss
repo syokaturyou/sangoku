@@ -335,6 +335,14 @@ select {
   flex-direction: column;
   }
 
+  .bottom {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ }
+
+
   _:lang(x)+_:-webkit-full-screen-document, .bottom {
   position: absolute;
   top: 80%;
