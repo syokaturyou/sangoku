@@ -1,0 +1,8 @@
+<% @posts.each do |post| %>
+  <%= link_to public_post_path(post.id) do %>
+  <%= attachment_image_tag post.member, :profileimage, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %>
+  <% end %>
+  <p>説明：<%= post.posttitle %></p>
+  <p>質問者名：<%= post.member.name %></p>
+  <p><%= link_to "#{post.answers.count} 回答数", public_post_path(post.id) %></p>
+<% end %>
