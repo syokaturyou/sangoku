@@ -10,12 +10,10 @@
     <%= f.hidden_field :search, :value => "partial_match" %>
     <%= f.submit "検索", class: "btn btn-primary", data: {"turbolinks"=>false} %>
    <% end %>
-  <table class="table" frame="border" >
+  <table class="informtable">
     <% if @range == "会員" %>
      <tbody>
-      <tr>
        <b>"<%= @oomember %>"の会員検索結果表示</b>
-      </tr>
       <tr bgcolor=#66FFCC>
        <th>会員id</th>
        <th>登録会員</th>
@@ -34,16 +32,14 @@
 
    <% elsif @range == "ジャンル" %>
      <tbody>
-      <tr>
        <b>"<%= @oogenre %>"のジャンル検索結果表示</b>
-      </tr>
       <tr bgcolor=#66FFCC>
        <th>ジャンルid/ジャンル名</th>
        <th>質問タイトル</th>
        <th>投稿id</th>
        <th>質問者情報</th>
-       <th>回答更新日時</th>
        <th>回答数</th>
+       <th>回答更新日時</th>
        <th>PV数</th>
        <th colspan="6"></th>
       </tr>
@@ -56,8 +52,8 @@
            <%= attachment_image_tag post.member, :profileimage, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %>
            <%= link_to post.member.name, public_member_path(post.member) %>
           </td>
-          <td><%= post.updated_at.to_s(:datetime_jp) %></td>
           <td><%= post.answers.count %></td>
+          <td><%= post.updated_at.to_s(:datetime_jp) %></td>
           <td><%= post.impressions_count %></td>
           <% if member_signed_in? %>
            <% if post.member.id == current_member.id %>
@@ -77,9 +73,7 @@
 
     <% elsif @range == "質問タイトル" %>
      <tbody>
-      <tr>
        <b>"<%= @oopost %>"の質問タイトル検索結果を表示</b>
-      </tr>
       <tr bgcolor=#66FFCC>
        <th>投稿No</th>
        <th>質問タイトル</th>
