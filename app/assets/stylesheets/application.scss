@@ -332,6 +332,13 @@ select {
 }
 
 @media only screen and (max-width: 500px) {
+  .main {
+  width: 100%;
+  margin: 0;
+//   height: 700px;
+  padding: 10px;
+  }
+
   .header-nav {
     display: flex;
     flex-direction: column;
