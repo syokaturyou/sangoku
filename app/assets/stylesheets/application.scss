@@ -26,6 +26,7 @@ html {
   box-sizing: border-box;
 }
 
+// table関連レスポンシブ
 .posttable th,
 .posttable td {
   min-width: 130px;
@@ -63,6 +64,7 @@ table.informtable td:nth-child(6){
   width: 100%;
   padding: 5px;
  }
+//table関連終了
 
  .header {
  width: 100%;
@@ -188,6 +190,7 @@ h1:before {
  /* 雑談、チャット */
  .zatudans{
    padding: 20px 10px;
+   min-width: 700px;
    max-width: 100%;
    margin: 15px auto;
    border-radius: 70px;
@@ -200,6 +203,7 @@ h1:before {
  .chats{
    padding: 20px 10px;
    max-width: 100%;
+   min-width: 700px;
    border-radius: 70px;
    border: #FF9999 double 6px;
    margin: 15px auto;
