@@ -113,7 +113,7 @@ table.informtable td:nth-child(6){
     text-align: center;
     border: solid 2px blue;
     border-radius: 10px;
-    background-color: #888888;
+    background-color: white;
 }
 
 /*ボタンホバー時*/
@@ -309,6 +309,7 @@ h1:before {
   text-align: center;
   max-height: 500px;
   min-width: 700px;
+  font-weight: 600;
   padding: 5px;
  }
 
