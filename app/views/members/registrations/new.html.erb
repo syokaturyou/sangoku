@@ -5,11 +5,11 @@
     <table class="logtable">
      <tr>
       <td><%= f.label :登録名 %></td>
-      <td><%= f.text_field :name, autofocus: true, required: true, maxlength: "40", class: 'form-control', size: "35" %></td>
+      <td><%= f.text_field :name, autofocus: true, required: true, maxlength: "60", class: 'form-control', size: "60" %></td>
      </tr>
      <tr>
       <td>ログイン用<%= f.label :仮メールアドレス %></td>
-      <td><%= f.email_field :email, autofocus: true, required: true, autocomplete: "email", maxlength: "80", class: 'form-control' %></td>
+      <td><%= f.email_field :email, autofocus: true, required: true, autocomplete: "email", maxlength: "60", class: 'form-control' %></td>
      </tr>
      <tr>
       <td><%= f.label :パスワード（６文字以上） %></td>
