@@ -1,33 +1,33 @@
 <h2>新規会員登録</h2>
   <div class ="login">
-   <div class ="bottom">
     <%= form_for(resource, as: resource_name, url: member_registration_path) do |f| %>
     <%= render "members/shared/error_messages", resource: resource %>
     <table class="logtable">
      <tr>
-      <th><%= f.label :登録名 %></th>
-      <th><%= f.text_field :name, autofocus: true, required: true, maxlength: "40", class: 'form-control', size: "35" %></th>
+      <td><%= f.label :登録名 %></td>
+      <td><%= f.text_field :name, autofocus: true, required: true, maxlength: "40", class: 'form-control', size: "35" %></td>
      </tr>
      <tr>
-      <th>ログイン用<%= f.label :仮メールアドレス %></th>
-      <th><%= f.email_field :email, autofocus: true, required: true, autocomplete: "email", maxlength: "80", class: 'form-control' %></th>
+      <td>ログイン用<%= f.label :仮メールアドレス %></td>
+      <td><%= f.email_field :email, autofocus: true, required: true, autocomplete: "email", maxlength: "80", class: 'form-control' %></td>
      </tr>
      <tr>
-      <th><%= f.label :パスワード（６文字以上） %></th>
-      <th><%= f.password_field :password, required: true, autocomplete: "new-password", class: 'form-control' %></th>
+      <td><%= f.label :パスワード（６文字以上） %></td>
+      <td><%= f.password_field :password, required: true, autocomplete: "new-password", class: 'form-control' %></td>
      </tr>
      <tr>
-      <th><%= f.label :パスワード（確認用） %></th>
-      <th><%= f.password_field :password_confirmation, required: true, autocomplete: "new-password", class: 'form-control' %></th>
+      <td><%= f.label :パスワード（確認用） %></td>
+      <td><%= f.password_field :password_confirmation, required: true, autocomplete: "new-password", class: 'form-control' %></td>
+     </tr>
+     <tr>
+      <td><%= f.submit "新規登録する", class: 'btn btn-success btn-lg' %></td>
+     </tr>
+     <tr>
+      <td><%= link_to "ログイン画面へ", new_session_path(resource_name), class: 'btn btn-primary btn-lg' %>既に登録済みの方</td>
      </tr>
     </table>
-    <br />
-    <%= f.submit "新規登録する", class: 'btn btn-success btn-lg' %>
-    <% end %>
-    <br />
 
-  <h3>既に登録済みの方</h3>
-  <%= link_to "ログイン画面へ", new_session_path(resource_name), class: 'btn btn-primary btn-lg' %>
+   <% end %>
 
    </div>
   </div>
