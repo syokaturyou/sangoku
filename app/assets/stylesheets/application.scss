@@ -313,12 +313,12 @@ h1:before {
  }
 
 
-.logtable th {
+.logtable tr {
 //  text-align: center;
  min-width: 600px;
 }
-.logtable tr {
- min-width: 600px;
+.logtable td {
+//  min-width: 600px;
 //  width: 1000px;
 //  height: 50px;
 }

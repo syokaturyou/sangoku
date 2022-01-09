@@ -11,13 +11,11 @@
       <td><%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %></th>
      </tr>
      <tr>
-      <td> <%= f.submit "ログイン", class: 'btn btn-primary btn-lg' %></td>
+      <td><%= f.submit "ログイン", class: 'btn btn-primary btn-lg' %></td>
      </tr>
      <tr>
-      <td>
-        <%= link_to "新規会員登録へ", new_registration_path(resource_name), class: 'btn btn-success btn-lg' %>
-        会員登録がお済みでない方
-      </td>
+      <td><%= link_to "新規会員登録へ", new_registration_path(resource_name), class: 'btn btn-success btn-lg' %></td>
+      <td>会員登録がお済みでない方</td>
      </tr>
     </table>
     <% end %>
