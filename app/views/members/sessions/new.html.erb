@@ -1,6 +1,5 @@
 <h2>会員ログイン</h2>
  <div class ="login">
-  <div class ="bottom">
     <%= form_for(resource, as: resource_name, url: member_session_path) do |f| %>
     <table>
      <tr>
@@ -17,5 +16,4 @@
   <% end %>
    <h3>会員登録がお済みでない方</h3>
     <%= link_to "新規会員登録へ", new_registration_path(resource_name), class: 'btn btn-success btn-lg' %>
-  </div>
 </div>
