@@ -1,7 +1,7 @@
 <h2>会員ログイン</h2>
  <div class ="login">
     <%= form_for(resource, as: resource_name, url: member_session_path) do |f| %>
-    <table>
+    <table class="logtable">
      <tr>
       <th><%= f.label :メールアドレス %></th>
       <th><%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', size: "45" %></th>

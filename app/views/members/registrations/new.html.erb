@@ -3,7 +3,7 @@
    <div class ="bottom">
     <%= form_for(resource, as: resource_name, url: member_registration_path) do |f| %>
     <%= render "members/shared/error_messages", resource: resource %>
-    <table>
+    <table class="logtable">
      <tr>
       <th><%= f.label :登録名 %></th>
       <th><%= f.text_field :name, autofocus: true, required: true, maxlength: "40", class: 'form-control', size: "35" %></th>
