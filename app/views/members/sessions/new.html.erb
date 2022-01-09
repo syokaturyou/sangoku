@@ -1,28 +1,22 @@
-<div class ="center">
-  <h2>会員ログイン</h2>
+<h2>会員ログイン</h2>
+ <div class ="center">
   <div class ="bottom">
     <%= form_for(resource, as: resource_name, url: member_session_path) do |f| %>
     <table>
-    <tr>
-    <div class="field">
-    <th><%= f.label :メールアドレス %></th>
-    <th><%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', size: "45" %></th>
-    </div>
-    </tr>
-    <tr>
-    <div class="field">
-    <th><%= f.label :パスワード %></th>
-    <th><%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %></th>
-    </div>
-    <tr>
+     <tr>
+      <th><%= f.label :メールアドレス %></th>
+      <th><%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', size: "45" %></th>
+     </tr>
+     <tr>
+      <th><%= f.label :パスワード %></th>
+      <th><%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %></th>
+     </tr>
     </table>
 
-  <br></br>
-  <div class="actions">
+  <br />
   <%= f.submit "ログイン", class: 'btn btn-primary btn-lg' %>
    <% end %>
-
-   <br></br>
+   <br />
    <h3>会員登録がお済みでない方</h3>
     <%= link_to "新規会員登録へ", new_registration_path(resource_name), class: 'btn btn-success btn-lg' %>
   </div>
