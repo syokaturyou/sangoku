@@ -29,8 +29,8 @@
           </td>
         </tr>
       </table>
-      <%= paginate @members %>
       <% end %>
+      <%= paginate @members %>
 
    <% elsif @range == "ジャンル" %>
     <b>"<%= @oogenre %>"のジャンル検索結果表示</b>
@@ -74,8 +74,8 @@
          </tr>
         </tbody>
        </table>
-      <%= paginate @posts %>
-     <% end %>
+      <% end %>
+     <%= paginate @posts %>
 
     <% elsif @range == "質問タイトル" %>
     <table class="informtable">
