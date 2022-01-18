@@ -17,8 +17,9 @@
     <% if @range == "会員" %>
      <b>"<%= @oomember %>"の会員検索結果表示</b>
       <tr bgcolor=#66FFCC>
-       <th>会員id</th>
+       <th>会員No</th>
        <th>登録会員</th>
+       <th></th>
       </tr>
      <% @members.each do |member| %>
       <tr bgcolor=#EEEEEE>
@@ -26,6 +27,12 @@
        <td>
         <%= attachment_image_tag member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg", size:'60x60' %>
         <%= link_to member.name, public_member_path(member) %>
+       </td>
+       <td>
+        <% if member.is_deleted == true %><font color="gray">退会</font>
+         <% elsif member.is_deleted == false %><font color="green">有効</font>
+         <% else %>
+        <% end %>
        </td>
       </tr>
      <% end %>
