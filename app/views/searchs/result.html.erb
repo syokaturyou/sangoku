@@ -15,25 +15,24 @@
   <div style="word-break: break-all;">
    <table class="informtable">
     <% if @range == "会員" %>
-       <b>"<%= @oomember %>"の会員検索結果表示</b>
+     <b>"<%= @oomember %>"の会員検索結果表示</b>
       <tr bgcolor=#66FFCC>
        <th>会員id</th>
        <th>登録会員</th>
       </tr>
-      <% @members.each do |member| %>
-        <tr bgcolor=#EEEEEE>
-          <td><%= member.id %></td>
-          <td>
-           <%= attachment_image_tag member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg", size:'60x60' %>
-           <%= link_to member.name, public_member_path(member) %>
-          </td>
-        </tr>
-      <% end %>
-      <%= paginate @members %>
+     <% @members.each do |member| %>
+      <tr bgcolor=#EEEEEE>
+       <td><%= member.id %></td>
+       <td>
+        <%= attachment_image_tag member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg", size:'60x60' %>
+        <%= link_to member.name, public_member_path(member) %>
+       </td>
+      </tr>
+     <% end %>
+    <%= paginate @members %>
 
-   <% elsif @range == "ジャンル" %>
-    <b>"<%= @oogenre %>"のジャンル検索結果表示</b>
-     <thead>
+    <% elsif @range == "ジャンル" %>
+     <b>"<%= @oogenre %>"のジャンル検索結果表示</b>
       <tr bgcolor=#66FFCC>
        <th>投稿id</th>
        <th>ジャンルid/ジャンル名</th>
@@ -44,62 +43,17 @@
        <th>PV数</th>
        <th></th>
       </tr>
-     </thead>
-     <tbody>
-       <% @posts.each do |post| %>
-         <tr bgcolor=#EEEEEE>
-          <td><%= post.id %></td>
-          <td>[<%= post.genre.id %>]/<%= post.genre.name %></td>
-          <td>
-           <%= attachment_image_tag post.member, :profileimage, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %>
-           <%= link_to post.member.name, public_member_path(post.member) %>
-          </td>
-          <td><%= link_to post.posttitle, public_post_path(post) %></td>
-          <td><%= post.answers.count %></td>
-          <td><%= post.updated_at.to_s(:datetime_jp) %></td>
-          <td><%= post.impressions_count %></td>
-          <% if member_signed_in? %>
-           <% if post.member.id == current_member.id %>
-            <td><%= link_to '編集する', edit_public_post_path(post), class: 'btn btn-success', data: {"turbolinks"=>false} %>
-                <%= link_to '削除する', public_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%>
-            </td>
-           <% else %>
-            <td><%= "" %></td>
-           <% end %>
-           <% else %>
-            <td><%= "" %></td>
-          <% end %>
-         </tr>
-        <% end %>
-       <%= paginate @posts %>
-       </tbody>
-
-    <% elsif @range == "質問タイトル" %>
-     <thead>
-       <b>"<%= @oopost %>"の質問タイトル検索結果を表示</b>
-      <tr bgcolor=#66FFCC>
-       <th>投稿No</th>
-       <th>質問タイトル</th>
-       <th>質問者</th>
-       <th>更新日時</th>
-       <th>回答数</th>
-       <th>ジャンルid/ジャンル名</th>
-       <th>PV数</th>
-       <th></th>
-      </tr>
-     </thead>
-     <tbody>
-      <% @posts.each do |post| %>
+     <% @posts.each do |post| %>
       <tr bgcolor=#EEEEEE>
        <td><%= post.id %></td>
-       <td><%= link_to post.posttitle, public_post_path(post) %></td>
-       <td>
-         <%= attachment_image_tag post.member, :profileimage, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %>
-         <%= link_to post.member.name, public_member_path(post.member) %>
-       </td>
-       <td><%= post.updated_at.to_s(:datetime_jp) %></td>
-       <td><%= post.answers.count %></td>
        <td>[<%= post.genre.id %>]/<%= post.genre.name %></td>
+       <td>
+        <%= attachment_image_tag post.member, :profileimage, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %>
+        <%= link_to post.member.name, public_member_path(post.member) %>
+       </td>
+       <td><%= link_to post.posttitle, public_post_path(post) %></td>
+       <td><%= post.answers.count %></td>
+       <td><%= post.updated_at.to_s(:datetime_jp) %></td>
        <td><%= post.impressions_count %></td>
         <% if member_signed_in? %>
          <% if post.member.id == current_member.id %>
@@ -109,15 +63,53 @@
          <% else %>
           <td><%= "" %></td>
          <% end %>
-         <% else %>
-          <td><%= "" %></td>
+        <% else %>
+         <td><%= "" %></td>
         <% end %>
-       </tr>
+      </tr>
+     <% end %>
+     <%= paginate @posts %>
+
+    <% elsif @range == "質問タイトル" %>
+     <b>"<%= @oopost %>"の質問タイトル検索結果を表示</b>
+     <tr bgcolor=#66FFCC>
+      <th>投稿No</th>
+      <th>質問タイトル</th>
+      <th>質問者</th>
+      <th>更新日時</th>
+      <th>回答数</th>
+      <th>ジャンルid/ジャンル名</th>
+      <th>PV数</th>
+      <th></th>
+     </tr>
+    <% @posts.each do |post| %>
+     <tr bgcolor=#EEEEEE>
+      <td><%= post.id %></td>
+      <td><%= link_to post.posttitle, public_post_path(post) %></td>
+      <td>
+       <%= attachment_image_tag post.member, :profileimage, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %>
+       <%= link_to post.member.name, public_member_path(post.member) %>
+      </td>
+      <td><%= post.updated_at.to_s(:datetime_jp) %></td>
+      <td><%= post.answers.count %></td>
+      <td>[<%= post.genre.id %>]/<%= post.genre.name %></td>
+      <td><%= post.impressions_count %></td>
+       <% if member_signed_in? %>
+        <% if post.member.id == current_member.id %>
+         <td><%= link_to '編集する', edit_public_post_path(post), class: 'btn btn-success', data: {"turbolinks"=>false} %>
+             <%= link_to '削除する', public_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%>
+         </td>
+        <% else %>
+         <td><%= "" %></td>
+        <% end %>
+       <% else %>
+        <td><%= "" %></td>
        <% end %>
-      <%= paginate @posts %>
+      </tr>
+     <% end %>
+     <%= paginate @posts %>
     <% else %>
     <% end %>
-    <tbody>
    </table>
 
   </div>
