@@ -31,9 +31,11 @@
       <% end %>
       <%= paginate @members %>
      </table>
+     </div>
 
    <% elsif @range == "ジャンル" %>
     <b>"<%= @oogenre %>"のジャンル検索結果表示</b>
+    <div style="word-break: break-all;">
     <table class="informtable">
      <thead>
       <tr bgcolor=#66FFCC>
@@ -76,8 +78,10 @@
        <%= paginate @posts %>
       </tbody>
      </table>
+     </div>
 
     <% elsif @range == "質問タイトル" %>
+    <div style="word-break: break-all;">
     <table class="informtable">
      <thead>
        <b>"<%= @oopost %>"の質問タイトル検索結果を表示</b>
@@ -124,5 +128,6 @@
     <tbody>
    </table>
   </div>
+
  </div>
 </div>
