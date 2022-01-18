@@ -12,7 +12,7 @@
    <% end %>
   <table class="informtable">
     <% if @range == "会員" %>
-     <tbody>
+     <thead>
        <b>"<%= @oomember %>"の会員検索結果表示</b>
       <tr bgcolor=#66FFCC>
        <th>会員id</th>
@@ -28,10 +28,10 @@
         </tr>
       <% end %>
       <%= paginate @members %>
-     </tbody>
+     </thead>
 
    <% elsif @range == "ジャンル" %>
-     <tbody>
+     <thead>
        <b>"<%= @oogenre %>"のジャンル検索結果表示</b>
       <tr bgcolor=#66FFCC>
        <th>投稿id</th>
@@ -69,10 +69,10 @@
          </tr>
         <% end %>
        <%= paginate @posts %>
-     </tbody>
+     </thead>
 
     <% elsif @range == "質問タイトル" %>
-     <tbody>
+     <thead>
        <b>"<%= @oopost %>"の質問タイトル検索結果を表示</b>
       <tr bgcolor=#66FFCC>
        <th>投稿No</th>
@@ -110,7 +110,7 @@
        </tr>
        <% end %>
       <%= paginate @posts %>
-     </tbody>
+     </thead>
 
     <% else %>
     <% end %>
