@@ -10,8 +10,10 @@
     <%= f.hidden_field :search, :value => "partial_match" %>
     <%= f.submit "検索", class: "btn btn-primary", data: {"turbolinks"=>false} %>
    <% end %>
-  <table class="informtable">
+
     <% if @range == "会員" %>
+    <table class="informtable">
+     <thead>
        <b>"<%= @oomember %>"の会員検索結果表示</b>
       <tr bgcolor=#66FFCC>
        <th>会員id</th>
@@ -27,8 +29,12 @@
         </tr>
       <% end %>
       <%= paginate @members %>
+     </thead>
+     </table>
 
    <% elsif @range == "ジャンル" %>
+   <table class="informtable">
+     <thead>
        <b>"<%= @oogenre %>"のジャンル検索結果表示</b>
       <tr bgcolor=#66FFCC>
        <th>投稿id</th>
@@ -66,8 +72,12 @@
          </tr>
         <% end %>
        <%= paginate @posts %>
+     </thead>
+     </table>
 
     <% elsif @range == "質問タイトル" %>
+    <table class="informtable">
+     <thead>
        <b>"<%= @oopost %>"の質問タイトル検索結果を表示</b>
       <tr bgcolor=#66FFCC>
        <th>投稿No</th>
@@ -105,6 +115,7 @@
        </tr>
        <% end %>
       <%= paginate @posts %>
+     </thead>
 
     <% else %>
     <% end %>
