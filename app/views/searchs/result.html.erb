@@ -34,10 +34,10 @@
      <tbody>
        <b>"<%= @oogenre %>"のジャンル検索結果表示</b>
       <tr bgcolor=#66FFCC>
-       <th>ジャンルid/ジャンル名</th>
-       <th>質問タイトル</th>
        <th>投稿id</th>
+       <th>ジャンルid/ジャンル名</th>
        <th>質問者情報</th>
+       <th>質問タイトル</th>
        <th>回答数</th>
        <th>回答更新日時</th>
        <th>PV数</th>
@@ -45,13 +45,13 @@
       </tr>
        <% @posts.each do |post| %>
          <tr bgcolor=#EEEEEE>
-          <td>[<%= post.genre.id %>]/<%= post.genre.name %></td>
-          <td><%= link_to post.posttitle, public_post_path(post) %></td>
           <td><%= post.id %></td>
+          <td>[<%= post.genre.id %>]/<%= post.genre.name %></td>
           <td>
            <%= attachment_image_tag post.member, :profileimage, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %>
            <%= link_to post.member.name, public_member_path(post.member) %>
           </td>
+          <td><%= link_to post.posttitle, public_post_path(post) %></td>
           <td><%= post.answers.count %></td>
           <td><%= post.updated_at.to_s(:datetime_jp) %></td>
           <td><%= post.impressions_count %></td>
