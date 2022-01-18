@@ -31,8 +31,9 @@
      </table>
 
    <% elsif @range == "ジャンル" %>
-   <table class="informtable">
-       <b>"<%= @oogenre %>"のジャンル検索結果表示</b>
+    <b>"<%= @oogenre %>"のジャンル検索結果表示</b>
+    <table class="informtable">
+     <thead>
       <tr bgcolor=#66FFCC>
        <th>投稿id</th>
        <th>ジャンルid/ジャンル名</th>
@@ -43,6 +44,8 @@
        <th>PV数</th>
        <th colspan="6"></th>
       </tr>
+     </thead>
+     <tbody>
        <% @posts.each do |post| %>
          <tr bgcolor=#EEEEEE>
           <td><%= post.id %></td>
@@ -69,10 +72,12 @@
          </tr>
         <% end %>
        <%= paginate @posts %>
+      </tbody>
      </table>
 
     <% elsif @range == "質問タイトル" %>
     <table class="informtable">
+     <thead>
        <b>"<%= @oopost %>"の質問タイトル検索結果を表示</b>
       <tr bgcolor=#66FFCC>
        <th>投稿No</th>
@@ -84,6 +89,8 @@
        <th>PV数</th>
        <th colspan="4"></th>
       </tr>
+     </thead>
+     <tbody>
       <% @posts.each do |post| %>
       <tr bgcolor=#EEEEEE>
        <td><%= post.id %></td>
@@ -110,10 +117,9 @@
        </tr>
        <% end %>
       <%= paginate @posts %>
-
     <% else %>
     <% end %>
-
+    <tbody>
    </table>
   </div>
  </div>
