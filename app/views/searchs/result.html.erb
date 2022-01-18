@@ -13,8 +13,8 @@
   </div>
 
   <div style="word-break: break-all;">
+   <table class="informtable">
     <% if @range == "会員" %>
-    <table class="informtable">
        <b>"<%= @oomember %>"の会員検索結果表示</b>
       <tr bgcolor=#66FFCC>
        <th>会員id</th>
@@ -28,13 +28,11 @@
            <%= link_to member.name, public_member_path(member) %>
           </td>
         </tr>
-      </table>
       <% end %>
       <%= paginate @members %>
 
    <% elsif @range == "ジャンル" %>
     <b>"<%= @oogenre %>"のジャンル検索結果表示</b>
-    <table class="informtable">
      <thead>
       <tr bgcolor=#66FFCC>
        <th>投稿id</th>
@@ -72,13 +70,11 @@
             <td><%= "" %></td>
           <% end %>
          </tr>
-        </tbody>
-       </table>
-      <% end %>
-     <%= paginate @posts %>
+        <% end %>
+       <%= paginate @posts %>
+       </tbody>
 
     <% elsif @range == "質問タイトル" %>
-    <table class="informtable">
      <thead>
        <b>"<%= @oopost %>"の質問タイトル検索結果を表示</b>
       <tr bgcolor=#66FFCC>
