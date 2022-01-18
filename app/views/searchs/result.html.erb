@@ -10,7 +10,9 @@
     <%= f.hidden_field :search, :value => "partial_match" %>
     <%= f.submit "検索", class: "btn btn-primary", data: {"turbolinks"=>false} %>
    <% end %>
+  </div>
 
+  <div style="word-break: break-all;">
     <% if @range == "会員" %>
     <table class="informtable">
        <b>"<%= @oomember %>"の会員検索結果表示</b>
