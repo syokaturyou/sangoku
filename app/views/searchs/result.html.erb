@@ -28,14 +28,12 @@
            <%= link_to member.name, public_member_path(member) %>
           </td>
         </tr>
-      <% end %>
+      </table>
       <%= paginate @members %>
-     </table>
-     </div>
+      <% end %>
 
    <% elsif @range == "ジャンル" %>
     <b>"<%= @oogenre %>"のジャンル検索結果表示</b>
-    <div style="word-break: break-all;">
     <table class="informtable">
      <thead>
       <tr bgcolor=#66FFCC>
@@ -46,6 +44,7 @@
        <th>回答数</th>
        <th>回答更新日時</th>
        <th>PV数</th>
+       <th></th>
       </tr>
      </thead>
      <tbody>
@@ -73,14 +72,12 @@
             <td><%= "" %></td>
           <% end %>
          </tr>
-        <% end %>
-       <%= paginate @posts %>
-      </tbody>
-     </table>
-     </div>
+        </tbody>
+       </table>
+      <%= paginate @posts %>
+     <% end %>
 
     <% elsif @range == "質問タイトル" %>
-    <div style="word-break: break-all;">
     <table class="informtable">
      <thead>
        <b>"<%= @oopost %>"の質問タイトル検索結果を表示</b>
@@ -92,6 +89,7 @@
        <th>回答数</th>
        <th>ジャンルid/ジャンル名</th>
        <th>PV数</th>
+       <th></th>
       </tr>
      </thead>
      <tbody>
@@ -125,7 +123,7 @@
     <% end %>
     <tbody>
    </table>
-  </div>
 
+  </div>
  </div>
 </div>
