@@ -1,8 +1,6 @@
 <% breadcrumb :result  %>
 <%= breadcrumbs separator: " > " , class: :logo %>
 
-<div class="oocontainer">
- <div class="row">
   <div style="word-break: break-all;">
    <%= form_with url: search_path, local: true, method: :get do |f| %>
     <%= f.text_field :word, size: "50", class: 'form-control-sm' %>
@@ -13,13 +11,17 @@
   </div>
 
   <div style="word-break: break-all;">
-   <table class="informtable">
     <% if @range == "会員" %>
-    <p></p>
+    <div class="col-lg-7">
+     <%= paginate @members %>
+    </div>
+
+    <table class="informtable">
      <b>"<%= @oomember %>"の会員検索結果表示</b>
       <tr bgcolor=#66FFCC>
        <th>会員No</th>
        <th>登録会員</th>
+       <th>            </th>
        <th>ステータス</th>
       </tr>
      <% @members.each do |member| %>
@@ -29,6 +31,7 @@
         <%= attachment_image_tag member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg", size:'60x60' %>
         <%= link_to member.name, public_member_path(member) %>
        </td>
+       <td>            </td>
        <td>
         <% if member.is_deleted == true %><font color="gray">退会</font>
          <% elsif member.is_deleted == false %><font color="green">有効</font>
@@ -37,9 +40,14 @@
        </td>
       </tr>
      <% end %>
-      <%= paginate @members %>
+     </table>
+
 
     <% elsif @range == "ジャンル" %>
+    <div class="col-lg-7">
+     <%= paginate @posts %>
+    </div>
+    <table class="informtable">
      <b>"<%= @oogenre %>"のジャンル検索結果表示</b>
       <tr bgcolor=#66FFCC>
        <th>投稿id</th>
@@ -76,9 +84,10 @@
         <% end %>
       </tr>
      <% end %>
-     <%= paginate @posts %>
+     </table>
 
     <% elsif @range == "質問タイトル" %>
+    <table class="informtable">
      <b>"<%= @oopost %>"の質問タイトル検索結果を表示</b>
      <tr bgcolor=#66FFCC>
       <th>投稿No</th>
@@ -121,5 +130,3 @@
    </table>
 
   </div>
- </div>
-</div>
