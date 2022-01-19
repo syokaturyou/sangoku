@@ -342,13 +342,6 @@ h1:before {
   padding: 10px 10px 10px 10px;
  }
 
- .bottom {
-//   position: absolute;
-//   top: 55%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
- }
-
  .label {
   background-color: #337ab7;
   font-weight: 500;
@@ -405,12 +398,12 @@ select {
 }
 
 @media only screen and (max-width: 500px) {
-//   .main {
-//   width: 100%;
-//   margin: 0;
-// //   height: 700px;
-//   padding: 10px;
-//   }
+  .main {
+  min-width: 1000px;
+  margin: 0;
+  height: 700px;
+  padding: 10px;
+  }
 
   .header-nav {
     display: flex;
@@ -441,7 +434,7 @@ select {
 
 @media screen and (min-height: 700px) {
   .main {
-  width: 100%;
+  min-width: 1000px;
   margin: 0;
   height: 700px;
   padding: 10px;
