@@ -12,9 +12,10 @@
    <% end %>
   </div>
 
-  <!--<div style="word-break: break-all;">-->
+  <div style="word-break: break-all;">
    <table class="informtable">
     <% if @range == "会員" %>
+    <p></p>
      <b>"<%= @oomember %>"の会員検索結果表示</b>
       <tr bgcolor=#66FFCC>
        <th>会員No</th>
@@ -36,12 +37,9 @@
        </td>
       </tr>
      <% end %>
-    <%= paginate @members %>
-   </table>
+      <%= paginate @members %>
 
-<div style="word-break: break-all;">
     <% elsif @range == "ジャンル" %>
-    <table class="informtable">
      <b>"<%= @oogenre %>"のジャンル検索結果表示</b>
       <tr bgcolor=#66FFCC>
        <th>投稿id</th>
@@ -79,10 +77,8 @@
       </tr>
      <% end %>
      <%= paginate @posts %>
-    </table>
 
     <% elsif @range == "質問タイトル" %>
-    <table class="informtable">
      <b>"<%= @oopost %>"の質問タイトル検索結果を表示</b>
      <tr bgcolor=#66FFCC>
       <th>投稿No</th>
