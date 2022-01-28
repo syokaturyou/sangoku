@@ -27,21 +27,22 @@ html {
 }
 
 // table関連レスポンシブ
+.posttable{
+//  table-layout:   auto;
+ word-break: break-all;
+}
 .posttable th,
 .posttable td {
   min-width: 130px;
   vertical-align: top;
-  table-layout:   auto;
 }
 table.posttable td:nth-child(2){
   min-width: 360px;
   max-width: 500px;
-  table-layout:   auto;
 }
 table.posttable td:nth-child(3){
   min-width: 160px;
   max-width: 360px;
-  table-layout:   auto;
 }
 table.posttable td:nth-child(4){
   min-width: 240px;
