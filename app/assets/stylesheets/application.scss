@@ -376,10 +376,12 @@ h1:before {
 .pagination > li > a {
   border: none;
   color: #999;
+  border-radius: 10px;
 }
 .pagination > li > a:hover {
   color: turquoise;
   background-color: green;
+  border-radius: 10px;
 }
 
 /* --プルダウンメニュー */
