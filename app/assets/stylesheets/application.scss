@@ -119,47 +119,46 @@ table.informtable td:nth-child(8){
 
 /*ヘッダー開閉ボタン*/
 .hidden_box label {
-    font-weight: bold;
-    position: absolute;
-    top: 70px;
-    left: 340px;
-    height: 50px;
-    width: 60px;
-    text-align: center;
-    border: solid 2px blue;
-    border-radius: 10px;
-    background-color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  left: 1100px;
+  height: 50px;
+  width: 60px;
+  text-align: center;
+  border: solid 2px blue;
+  border-radius: 10px;
+  background-color: white;
 }
 
 /*ボタンホバー時*/
 .hidden_box label:hover {
-    background: #efefef;
+  background: #BBBBBB;
 }
 
 /*チェックは見えなくする*/
 .hidden_box input {
-    display: none;
+  display: none;
 }
 
 /*中身*/
 .hidden_box .hidden_show {
-    opacity: 1;
+  opacity: 1;
 }
 
 /*クリックで中身をheader-navを非表示に*/
 .hidden_box input:checked ~ .hidden_show {
-    padding: 0;
-    overflow: hidden;
-    height: 0px;
-    opacity: 0;
-    transition: 0.8s;
+  padding: 0;
+  overflow: hidden;
+  height: 0px;
+  opacity: 0;
 }
 
 // /フッター関連/
 .wrapper{
-    min-height: 2vh;
-    position: relative;/*←相対位置*/
-    padding-bottom: 2px;/*←footerの高さ*/
+  min-height: 2vh;
+  position: relative;/*←相対位置*/
+  padding-bottom: 2px;/*←footerの高さ*/
 }
 
 _:lang(x)+_:-webkit-full-screen-document, .wrapper{
@@ -368,7 +367,6 @@ h1:before {
 
 /* ページネーション */
 .pagination {
-  display: flex;
   justify-content: center;
   border: 2px;
   border-radius: 10px;
