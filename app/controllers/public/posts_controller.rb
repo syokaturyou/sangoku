@@ -17,10 +17,6 @@ class Public::PostsController < ApplicationController
       @posts = Post.all.order(genre_id: 'DESC').page(params[:page]).per(10)
     when "ジャンルidが小さい順に"
       @posts = Post.all.order(genre_id: 'ASC').page(params[:page]).per(10)
-    when "質問者idが大きい順に"
-      @posts = Post.all.order(member_id: 'DESC').page(params[:page]).per(10)
-    when "質問者idが小さい順に"
-      @posts = Post.all.order(member_id: 'ASC').page(params[:page]).per(10)
     when "PV数の多い順に"
       @posts = Post.all.order(impressions_count: 'DESC').page(params[:page]).per(10)
     when "PV数の少ない順に"
