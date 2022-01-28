@@ -33,13 +33,16 @@ html {
   vertical-align: top;
 }
 table.posttable td:nth-child(2){
-  min-width: 340px;
+  min-width: 360px;
+  max-width; 500px;
 }
 table.posttable td:nth-child(3){
   min-width: 160px;
+  max-width: 360px;
 }
 table.posttable td:nth-child(4){
   min-width: 240px;
+  max-width: 360px;
 }
 .informtable {
  border: 4px gray solid;
