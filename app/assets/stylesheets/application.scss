@@ -161,11 +161,6 @@ table.informtable td:nth-child(8){
 }
 
 // /フッター関連/
-.wrapper{
-  min-height: 2vh;
-  position: relative;/*←相対位置*/
-  padding-bottom: 2px;/*←footerの高さ*/
-}
 
 _:lang(x)+_:-webkit-full-screen-document, .wrapper{
     min-height: 2vh;
@@ -175,9 +170,9 @@ _:lang(x)+_:-webkit-full-screen-document, .wrapper{
 
  footer {
     position: fixed; /*←絶対位置*/
-    bottom: 0; /*下に固定*/
+    bottom: 10px; /*下に固定*/
     text-align: center;
-    color: #777;
+    color: #555555;
     width: 100%;
   }
 
