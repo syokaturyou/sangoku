@@ -6,8 +6,6 @@ Rails.application.routes.draw do
    sessions: 'members/sessions',
    passwords: 'members/passwords',
    registrations: 'members/registrations',
-   # ツイッター認証は凍結
-#   :omniauth_callbacks => "members/omniauth_callbacks"
  }
 
    devise_for :admins, skip: [:registrations], controllers: {
