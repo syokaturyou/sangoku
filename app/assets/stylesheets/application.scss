@@ -26,6 +26,10 @@ html {
   box-sizing: border-box;
 }
 
+  .notice {
+    background-color: lightBlue;
+  }
+
 // table関連
 .posttable{
  word-break: break-all;
@@ -300,7 +304,7 @@ h1:before {
  min-width: 1000px;
  margin: 0;
  height: 100%;
- padding: 10px;
+ padding: 3px;
  }
 
 .container {

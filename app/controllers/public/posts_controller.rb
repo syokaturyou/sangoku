@@ -50,6 +50,7 @@ class Public::PostsController < ApplicationController
     @newpost = current_member.posts.build(post_params)
     @newpost.score = Language.get_data(post_params[:postbody])  # 感情スコア取得
      if @newpost.save
+     flash[:notice] = "質問を投稿しました"
      redirect_to  public_posts_path
      else
      redirect_to root_path

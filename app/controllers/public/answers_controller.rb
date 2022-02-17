@@ -23,6 +23,7 @@ class Public::AnswersController < ApplicationController
          @newanswer.tags.create(name: tag)
         end
        end
+        flash[:notice] = "回答を投稿しました"
         redirect_to public_post_path(@newanswer.post_id)
      else
         redirect_to root_path
