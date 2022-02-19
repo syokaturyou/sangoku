@@ -63,6 +63,7 @@ class Public::PostsController < ApplicationController
     @post.score = Language.get_data(post_params[:postbody]) # 更新されれば感情スコアも更新されるよう実施
     @post.save
     @post.update(postimage: nil) if params[:image_delete].present? # 「画像なし」を選択した場合postimageをnilにする
+    flash[:notice] = "質問を更新しました"
     redirect_to  public_posts_path
   end
 
@@ -70,6 +71,7 @@ class Public::PostsController < ApplicationController
     post = Post.find(params[:id])
     post.member_id = current_member.id # ログイン者自身の投稿のみ削除可能
     post.destroy
+    flash[:notice] = "質問を削除しました"
     redirect_to action: :index
   end
 

@@ -8,6 +8,7 @@ class Public::AnswersController < ApplicationController
     answer = Answer.find(params[:id])
     answer.member_id = current_member.id
     answer.destroy
+    flash[:notice] = "回答を削除しました"
     redirect_back(fallback_location: root_path)
   end
 
@@ -51,6 +52,7 @@ class Public::AnswersController < ApplicationController
          @answer.tags.create(name: tag)
         end
        end
+       flash[:notice] = "回答を更新しました"
        redirect_to  public_post_path(@answer.post_id)
     else
        redirect_to root_path

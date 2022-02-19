@@ -3,6 +3,7 @@ class Manager::AnswersController < ApplicationController
   def destroy
     answer = Answer.find(params[:id])
     answer.destroy
+    flash[:notice] = "回答を削除しました"
     redirect_back(fallback_location: root_path)
   end
 

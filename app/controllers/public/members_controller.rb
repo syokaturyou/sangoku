@@ -21,6 +21,7 @@ class Public::MembersController < ApplicationController
     @member = current_member
     @member.update(member_params)
     @member.update(profileimage: nil) if params[:image_delete].present? # 画像なしの場合に既存画像削除
+    flash[:notice] = "ユーザー情報を更新しました"
     redirect_to public_member_path(@member)
   end
 

@@ -12,6 +12,7 @@ class Manager::GenresController < ApplicationController
   def update
     @genre = Genre.find(params[:id])
     if @genre.update(genre_params)
+      flash[:notice] = "ジャンルを更新しました"
       redirect_to manager_genres_path(@genre)
     else
       render :edit
@@ -21,6 +22,7 @@ class Manager::GenresController < ApplicationController
   def create
     @genre = Genre.new(genre_params)
     if @genre.save
+      flash[:notice] = "ジャンルを新規作成しました"
       redirect_to manager_genres_path
     else
       @genres = Genre.all
@@ -31,6 +33,7 @@ class Manager::GenresController < ApplicationController
   def destroy
     genre = Genre.find(params[:id])
     genre.destroy
+    flash[:notice] = "ジャンルを削除しました"
     redirect_back(fallback_location: root_path)
   end
 
