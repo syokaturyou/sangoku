@@ -9,16 +9,16 @@
    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
- </head>
- <body>
-  <!--ヘッダー部分-->
-   <%= render 'layouts/header' %>
-  <main class="main">
-   <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
-   <% end %>
-   <%= yield %>
-  </main>
+  </head>
+  <body>
+    <!--ヘッダー部分-->
+     <%= render 'layouts/header' %>
+      <main class="main">
+       <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+       <% end %>
+       <%= yield %>
+      </main>
 
    <%= render 'layouts/footer' %>
 
