@@ -21,7 +21,7 @@ class Public::MembersController < ApplicationController
     @member = current_member
     @member.update(member_params)
     @member.update(profileimage: nil) if params[:image_delete].present? # 画像なしの場合に既存画像削除
-    flash[:notice] = "ユーザー情報を更新しました"
+    flash[:notice] = 'ユーザー情報を更新しました'
     redirect_to public_member_path(@member)
   end
 
@@ -32,7 +32,7 @@ class Public::MembersController < ApplicationController
      member = current_member
      member.update(is_deleted: true) # is_deletedという退会フラグを更新
      reset_session
-     flash[:notice] = "退会致しました。"
+     flash[:notice] = '退会致しました'
      redirect_to root_path
    end
 
