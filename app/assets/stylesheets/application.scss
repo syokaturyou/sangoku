@@ -168,8 +168,8 @@ table.informtable td:nth-child(8){
 
 _:lang(x)+_:-webkit-full-screen-document, .wrapper{
     min-height: 2vh;
-    position: relative;/*←相対位置*/
-    padding-bottom: 2px;/*←footerの高さ*/
+    position: relative;
+    padding-bottom: 2px;
 }
 
  footer {
