@@ -8,8 +8,10 @@ class ContractsController < ApplicationController
     @contract = Contract.new(contract_params)
     if @contract.save
       ContractMailer.send_mail(@contract).deliver_now
+      flash[:notice] = '問い合わせを送信しました'
       redirect_to done_path
     else
+      flash[:notice] = '問い合わせを送信できませんでした'
       render :new
     end
   end
