@@ -7,7 +7,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    # 詳細画面は表示するだけ
     @article = Article.find(params[:id])
   end
 
@@ -16,7 +15,6 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    # edit画面自体は表示するだけ
     @article = Article.find(params[:id])
   end
 
