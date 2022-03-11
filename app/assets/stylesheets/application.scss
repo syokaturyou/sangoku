@@ -173,16 +173,16 @@ _:lang(x)+_:-webkit-full-screen-document, .wrapper{
 }
 
  footer {
-    position: fixed; /*←絶対位置*/
-    bottom: 10px; /*下に固定*/
+    position: fixed;
+    bottom: 10px;
     text-align: center;
     color: #555555;
     width: 100%;
   }
 
   _:lang(x)+_:-webkit-full-screen-document, footer {
-    position: fixed; /*←絶対位置*/
-    bottom: 0; /*下に固定*/
+    position: fixed;
+    bottom: 0;
     text-align: center;
     color: #777;
     width: 100%;
