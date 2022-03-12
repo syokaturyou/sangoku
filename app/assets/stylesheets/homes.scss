@@ -155,41 +155,41 @@
 }
 
 
-// トップページloading追加
-#loading {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 99999;
-  width: 100%;
-  height: 100%;
-  background: #FF9999;
-  background-image: image-url("sakura.png");
-  background-position: center;
-  background-size: 300%;
-  background-repeat:  no-repeat;
-}
-#loading_box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  text-align: center;
-}
-.loading-one {
-  display: inline-block;
-  border: 3px solid 	#0066FF;
-  border-radius: 100px;
-}
-.loading-one p.loading-txt {
-  color: #000000;
-  font-size: 40px;
-  letter-spacing: 0.25em;
-  line-height: 2.0;
-  padding: 2em 0;
-}
+// // トップページloading追加
+// #loading {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   bottom: 0;
+//   z-index: 99999;
+//   width: 100%;
+//   height: 100%;
+//   background: #FF9999;
+//   background-image: image-url("sakura.png");
+//   background-position: center;
+//   background-size: 300%;
+//   background-repeat:  no-repeat;
+// }
+// #loading_box {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   width: 100%;
+//   text-align: center;
+// }
+// .loading-one {
+//   display: inline-block;
+//   border: 3px solid 	#0066FF;
+//   border-radius: 100px;
+// }
+// .loading-one p.loading-txt {
+//   color: #000000;
+//   font-size: 40px;
+//   letter-spacing: 0.25em;
+//   line-height: 2.0;
+//   padding: 2em 0;
+// }
 // アニメーション
 .animation_loading {
   animation: equalizer_loading 7000ms infinite;
