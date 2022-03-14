@@ -94,38 +94,38 @@
 
 /* --- 段差で背景画像のアニメーションを実行 ----------------- */
 .slide .src1 {
-  background-image: image-url("nigaoe_kanu.png");   /* 背景の画像を指定 */
+  background-image: image-url("nigaoe_kanu.png");
   background-repeat:  no-repeat;
   background-size:contain;
 }
 .slide .src2 {
-  background-image: image-url("nigaoe_chouhi.png");    /* 背景の画像を指定 */
+  background-image: image-url("nigaoe_chouhi.png");
   background-repeat:  no-repeat;
   background-size:contain;
   animation-delay  : 5s;
 }
 .slide .src3 {
-  background-image: image-url("sousou.png");   /* 背景の画像を指定 */
+  background-image: image-url("sousou.png");
   background-repeat:  no-repeat;
   background-size:contain;
   animation-delay  : 10s;
 }
 .slide .src4 {
-  background-image: image-url("nigaoe_sonken.png");    /* 背景の画像を指定 */
+  background-image: image-url("nigaoe_sonken.png");
   background-repeat:  no-repeat;
   background-size:contain;
   animation-delay  : 15s;
 }
 
 .slide .src5 {
-  background-image: image-url("nigaoe_syokatsu_koumei.png");    /* 背景の画像を指定 */
+  background-image: image-url("nigaoe_syokatsu_koumei.png");
   background-repeat:  no-repeat;
   background-size:contain;
   animation-delay  : 20s;
 }
 
 .slide .src6 {
-  background-image: image-url("himiko.png");    /* 背景の画像を指定 */
+  background-image: image-url("himiko.png");
   background-repeat:  no-repeat;
   background-size:contain;
   animation-delay  : 25s;
