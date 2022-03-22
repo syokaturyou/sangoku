@@ -12,7 +12,6 @@ class Public::MembersController < ApplicationController
   end
 
   # ログインしたユーザーだけ見えるようにcurrent_memberとする
-
   def edit
     @member = current_member
   end
@@ -25,16 +24,16 @@ class Public::MembersController < ApplicationController
     redirect_to public_member_path(@member)
   end
 
-   def unsubscribe
-   end
+  def unsubscribe
+  end
 
-   def withdrawal
-     member = current_member
-     member.update(is_deleted: true) # is_deletedという退会フラグを更新
-     reset_session
-     flash[:notice] = '退会致しました'
-     redirect_to root_path
-   end
+  def withdrawal
+    member = current_member
+    member.update(is_deleted: true) # is_deletedという退会フラグを更新
+    reset_session
+    flash[:notice] = '退会致しました'
+    redirect_to root_path
+  end
 
   def member_params
     params.require(:member).permit(:name, :email, :profile, :profileimage)
