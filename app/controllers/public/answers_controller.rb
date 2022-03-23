@@ -38,7 +38,7 @@ class Public::AnswersController < ApplicationController
   def update
      @answer = Answer.find(params[:id])
     if @answer.update(answer_params)
-      if params[:image_delete].present? # 画像消去時の条件
+      if params[:image_delete].present?
         @answer.update(answerimage: nil)
         @answer.tags.delete_all # 画像なしの場合にタグ消去
       end
