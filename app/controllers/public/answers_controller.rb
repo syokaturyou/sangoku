@@ -64,5 +64,4 @@ class Public::AnswersController < ApplicationController
   def answer_params
     params.require(:answer).permit(:answerbody, :answersyutten, :answerimage, :post_id, :updated_at)
   end
-
 end
