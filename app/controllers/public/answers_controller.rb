@@ -1,5 +1,5 @@
 class Public::AnswersController < ApplicationController
-  # 会員側で新規回答投稿、回答削除が可能
+  # 会員側では新規回答投稿、回答編集、回答削除が可能
   def new
     @newanswer = Answer.new
   end
