@@ -73,6 +73,20 @@ group :development, :test do
   gem 'pry-rails'
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'pry-doc'
+  gem 'rails-erd'
+  gem 'annotate'
+end
+
+group :test do
+  gem 'capybara', '>= 2.15'
+  gem "factory_bot_rails"
+  gem 'faker'
+end
+
 gem "gretel"
 gem 'impressionist', '~>1.6.1'
 gem 'font-awesome-sass', '~>5.13'
