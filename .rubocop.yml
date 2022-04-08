@@ -10,11 +10,12 @@ AllCops:
   TargetRubyVersion: 2.6
   # 除外
   Exclude:
-    - 'config.ru'
     - 'bin/**'
     - 'lib/**'
     - 'db/**/*'
-    - 'config/**/*'
+    - 'config/environments/*'
+    - 'config/application.rb'
+    - 'config/initializers/*'
     - 'script/**/*'
     - !ruby/regexp /old_and_unused\.rb$/
 
