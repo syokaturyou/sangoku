@@ -46,3 +46,11 @@ MethodLength:
 # Rubyの循環的複雑度をデフォルト7から変更
 CyclomaticComplexity:
   Max: 17
+
+# Railsのファイルパスの記述についてチェックを外す
+Rails/FilePath:
+  Enabled: false
+
+# Railsのファイルパスの記述についてチェックを外す
+Style/BlockComments:
+  Enabled: false
