@@ -85,32 +85,30 @@ table.informtable td:nth-child(8){
   width: 100%;
   padding: 5px;
  }
-//
 
 .user {
-    //  color: white;
+  color: white;
   margin-left: auto;
 }
-.loginaicon {
-  padding: 15px 0;
-  line-height: 30px;
-}
 .dropdown-menu {
-   padding: 15px;
+   padding: 5px;
 }
 .aicon {
    border-radius: 40px;
    text-align: center;
 }
 
- .header {
+ header {
  width: 100%;
  height: 100%;
  min-width: 1200px;
- background-color: #99FF99;
+ padding: 3px;
+ background-color: lightBlue;
  border-bottom: solid 4px #5d627b;
  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
-  &__header-nav {
+}
+
+.header-nav {
   display: inline-flex;
   margin: 5px;
   border-radius: 10px;
@@ -128,44 +126,47 @@ table.informtable td:nth-child(8){
     transform: translateY(-3px);
   }
 }
-}
+
+  .blue{
+    background-color: #99FF99;
+  }
 //ヘッダーメニュー開閉/
-.hidden_box {
-  margin-left: auto;
-  display: flex;
-}
-/*ヘッダー開閉ボタン*/
-.hidden_box label {
-  font-weight: bold;
-  position: absolute;
-  top: 10px;
-  left: 1100px;
-  height: 50px;
-  width: 60px;
-  text-align: center;
-  border: solid 2px blue;
-  border-radius: 10px;
-  background-color: white;
-}
-/*ボタンホバー時*/
-.hidden_box label:hover {
-  background: #BBBBBB;
-}
-/*チェックは見えなくする*/
-.hidden_box input {
-  display: none;
-}
-/*中身*/
-.hidden_box .hidden_show {
-  opacity: 1;
-}
-/*クリックで中身をheader-navを非表示に*/
-.hidden_box input:checked ~ .hidden_show {
-  padding: 0;
-  overflow: hidden;
-  height: 0px;
-  opacity: 0;
-}
+// .hidden_box {
+//   margin-left: auto;
+//   display: flex;
+// }
+// /*ヘッダー開閉ボタン*/
+// .hidden_box label {
+//   font-weight: bold;
+//   position: absolute;
+//   top: 10px;
+//   left: 1100px;
+//   height: 50px;
+//   width: 60px;
+//   text-align: center;
+//   border: solid 2px blue;
+//   border-radius: 10px;
+//   background-color: white;
+// }
+// /*ボタンホバー時*/
+// .hidden_box label:hover {
+//   background: #BBBBBB;
+// }
+// /*チェックは見えなくする*/
+// .hidden_box input {
+//   display: none;
+// }
+// /*中身*/
+// .hidden_box .hidden_show {
+//   opacity: 1;
+// }
+// /*クリックで中身をheader-navを非表示に*/
+// .hidden_box input:checked ~ .hidden_show {
+//   padding: 0;
+//   overflow: hidden;
+//   height: 0px;
+//   opacity: 0;
+// }
 // /フッター関連/
 
 _:lang(x)+_:-webkit-full-screen-document, .wrapper{
