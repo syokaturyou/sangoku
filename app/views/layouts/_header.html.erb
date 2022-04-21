@@ -66,7 +66,7 @@
         <%= current_member.name %>
          <a data-toggle="dropdown" ><%= attachment_image_tag current_member, :profileimage, fallback: "no_image.jpg", size: '60x60', class: "aicon" %></a>
          <ul class="dropdown-menu">
-          <div class="header__header-nav__header-box">
+          <div>
            <li><div class="header__header-nav__header-box"><%= link_to 'トップページ', root_path, class: "fas fa-home nav-link" %></div></li>
            <li><div class="header__header-nav__header-box"><%= link_to '雑談部屋', zatudans_path, class: 'fas fa-comment-dots nav-link' %></div></li>
            <li><div class="header__header-nav__header-box"><%= link_to 'マイページ', public_member_path(current_member.id), class: "fas fa-user nav-link" %></div></li>
@@ -79,7 +79,7 @@
        <% elsif admin_signed_in? %>
          <a data-toggle="dropdown" ><%= image_tag 'no_image_logo.png', size: '50x50', class: "aicon" %></a>
          <ul class="dropdown-menu">
-          <div class="header__header-nav__header-box">
+          <div>
            <li><div class="header__header-nav__header-box"><%= link_to 'トップページ', root_path, class: "fas fa-home nav-link" %></div></li>
            <li><div class="header__header-nav__header-box"><%= link_to '雑談部屋', zatudans_path, class: 'fas fa-comment-dots nav-link' %></div></li>
            <li><div class="header__header-nav__header-box"><%= link_to '会員一覧', manager_members_path, class: "fas fa-user nav-link" %></div></li>
