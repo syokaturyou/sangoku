@@ -66,24 +66,28 @@
         <%= current_member.name %>
          <a data-toggle="dropdown" ><%= attachment_image_tag current_member, :profileimage, fallback: "no_image.jpg", size: '60x60', class: "aicon" %></a>
          <ul class="dropdown-menu">
-          <li><%= link_to 'トップページ', root_path, class: "fas fa-home nav-link" %></li>
-          <li><%= link_to '雑談部屋', zatudans_path, class: 'fas fa-comment-dots nav-link' %></li>
-          <li><%= link_to 'マイページ', public_member_path(current_member.id), class: "fas fa-user nav-link" %></li>
-          <li><%= link_to '会員一覧', public_members_path, class: "fas fa-user nav-link" %></li>
-          <li><%= link_to '質問投稿一覧', public_posts_path, class: "fas fa-user-edit nav-link" %></li>
-          <li><%= link_to 'お問い合わせ', new_contract_path, class: "fas fa-envelope-square nav-link", data: {"turbolinks"=>false} %></li>
-          <li><%= link_to 'ログアウト', destroy_member_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link' %></li>
+          <div class="header__header-nav__header-box">
+           <li><%= link_to 'トップページ', root_path, class: "fas fa-home nav-link" %></li>
+           <li><%= link_to '雑談部屋', zatudans_path, class: 'fas fa-comment-dots nav-link' %></li>
+           <li><%= link_to 'マイページ', public_member_path(current_member.id), class: "fas fa-user nav-link" %></li>
+           <li><%= link_to '会員一覧', public_members_path, class: "fas fa-user nav-link" %></li>
+           <li><%= link_to '質問投稿一覧', public_posts_path, class: "fas fa-user-edit nav-link" %></li>
+           <li><%= link_to 'お問い合わせ', new_contract_path, class: "fas fa-envelope-square nav-link", data: {"turbolinks"=>false} %></li>
+           <li><%= link_to 'ログアウト', destroy_member_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link' %></li>
+          </div>
          </ul>
        <% elsif admin_signed_in? %>
          <a data-toggle="dropdown" ><%= image_tag 'no_image_logo.png', size: '50x50', class: "aicon" %></a>
          <ul class="dropdown-menu">
-          <li><%= link_to 'トップページ', root_path, class: "fas fa-home nav-link" %></li>
-          <li><%= link_to '雑談部屋', zatudans_path, class: 'fas fa-comment-dots nav-link' %></li>
-          <li><%= link_to '会員一覧', manager_members_path, class: "fas fa-user nav-link" %></li>
-          <li><%= link_to '質問投稿一覧', manager_posts_path, class: "fas fa-user-edit nav-link" %></li>
-          <li><%= link_to 'ジャンル一覧', manager_genres_path, class: "fas fa-file-alt nav-link" %></li>
-          <li><%= link_to 'お知らせ一覧', articles_path, class: "fas fa-newspaper nav-link" %></li>
-          <li><%= link_to 'ログアウト', destroy_member_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link' %></li>
+          <div class="header__header-nav__header-box">
+           <li><%= link_to 'トップページ', root_path, class: "fas fa-home nav-link" %></li>
+           <li><%= link_to '雑談部屋', zatudans_path, class: 'fas fa-comment-dots nav-link' %></li>
+           <li><%= link_to '会員一覧', manager_members_path, class: "fas fa-user nav-link" %></li>
+           <li><%= link_to '質問投稿一覧', manager_posts_path, class: "fas fa-user-edit nav-link" %></li>
+           <li><%= link_to 'ジャンル一覧', manager_genres_path, class: "fas fa-file-alt nav-link" %></li>
+           <li><%= link_to 'お知らせ一覧', articles_path, class: "fas fa-newspaper nav-link" %></li>
+           <li><%= link_to 'ログアウト', destroy_member_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link' %></li>
+          </div>
          </ul>
        <% else %>
         <div class="loginaicon">
