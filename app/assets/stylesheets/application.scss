@@ -87,8 +87,11 @@ table.informtable td:nth-child(8){
  }
 
 .user {
-  color: white;
-  margin-left: auto;
+  color: black;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: black;
+  width: 10%;
 }
 .dropdown-menu {
    padding: 5px;
@@ -110,7 +113,7 @@ table.informtable td:nth-child(8){
 
 .header-nav {
   display: inline-flex;
-  margin: 5px;
+  margin: 1px;
   border-radius: 10px;
   &__header-box {
     padding: 8px;
@@ -126,6 +129,9 @@ table.informtable td:nth-child(8){
     transform: translateY(-3px);
   }
 }
+
+  .search{
+  }
 
   .blue{
     background-color: #99FF99;
@@ -174,13 +180,7 @@ _:lang(x)+_:-webkit-full-screen-document, .wrapper{
     position: relative;
     padding-bottom: 2px;
 }
-//  footer {
-//     position: fixed;
-//     bottom: 10px;
-//     text-align: center;
-//     color: #555555;
-//     width: 100%;
-//   }
+
  footer {
    width: 100%;
    min-height: 10px;

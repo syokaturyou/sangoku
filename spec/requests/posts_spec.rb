@@ -3,8 +3,10 @@ require 'rails_helper'
 RSpec.describe 'Posts', type: :request do
   describe 'GET public/posts#index' do
     let(:post) { create(:post) }
+    # let(:image) { create(:image) }
 
     before do
+      # post.images << image
       get public_posts_path
     end
 
@@ -13,7 +15,7 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it '質問タイトルが表示されているかどうか' do
-      expect(response).to include post.posttitle
+      expect(response.body).to include post.posttitle
     end
   end
 end
