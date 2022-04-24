@@ -2,39 +2,39 @@
 <%= breadcrumbs separator: " > " , class: :logo %>
 
 <div class='container'>
-  <div class="row">
-    <div class="col-lg-6">
-      <h2>新規質問投稿</h2>
-    </div>
-    <table class="newtable">
-      <tbody>
-       <%= form_with model: @newpost, url: public_posts_path, local: true do |f| %>
-        <tr>
-         <td><%= f.label :質問タイトル入力 %></td>
-         <td><%= f.text_field :posttitle, autofocus: true, required: true, size: "50" %></td>
-        </tr>
-        <tr>
-         <td><%= f.label :説明文入力 %></td>
-         <td><%= f.text_area :postbody, autofocus: true, required: true, size: '80x10' %></td>
-        </tr>
-        <tr>
-         <td><%= f.label :出典・参考url入力 %></td>
-         <td><%= f.text_field :postsyutten, autofocus: true, size: "50" %></td>
-        </tr>
-        <tr>
-         <td><%= f.label :ジャンル名入力 %></td>
-         <td><%= f.collection_select :genre_id, Genre.all, :id, :name, required: true %></td>
-        </tr>
-        <tr>
-         <td><%= f.label :参考画像 %></td>
-         <td><%= f.attachment_field :postimage %></td>
-        </tr>
-        <tr>
-         <td><%= link_to '質問一覧へ戻る', public_posts_path, class: 'btn btn-danger btn-lg' %></td>
-         <td><%= f.submit "質問を投稿する", class: 'btn btn-success btn-lg' %></td>
-          <% end %>
-        </tr>
-      </tbody>
-    </table>
-   </div>
+ <div class="row">
+  <div class="col-lg-6">
+    <h2>新規質問投稿</h2>
   </div>
+  <table class="newtable">
+    <tbody>
+     <%= form_with model: @newpost, url: public_posts_path, local: true do |f| %>
+      <tr>
+       <td><%= f.label :質問タイトル入力 %></td>
+       <td><%= f.text_field :posttitle, autofocus: true, required: true, size: "50" %></td>
+      </tr>
+      <tr>
+       <td><%= f.label :説明文入力 %></td>
+       <td><%= f.text_area :postbody, autofocus: true, required: true, size: '80x10' %></td>
+      </tr>
+      <tr>
+       <td><%= f.label :出典・参考url入力 %></td>
+       <td><%= f.text_field :postsyutten, autofocus: true, size: "50" %></td>
+      </tr>
+      <tr>
+       <td><%= f.label :ジャンル名入力 %></td>
+       <td><%= f.collection_select :genre_id, Genre.all, :id, :name, required: true %></td>
+      </tr>
+      <tr>
+       <td><%= f.label :参考画像 %></td>
+       <td><%= f.attachment_field :postimage %></td>
+      </tr>
+      <tr>
+       <td><%= link_to '質問一覧へ戻る', public_posts_path, class: 'btn btn-danger btn-lg' %></td>
+       <td><%= f.submit "質問を投稿する", class: 'btn btn-success btn-lg' %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+ </div>
+</div>
