@@ -3,18 +3,18 @@
 
 <div class="oocontainer">
   <div class="row">
-     <div class="posttitle">
-      <h3>質問タイトル</h3>
-      <h3><%= simple_format(@post.posttitle) %></h3>
-      <% if member_signed_in? %>
-       <% if @post.member.id != current_member.id %>
-        <% if @answer.blank? %>
-         <%= link_to ' 新規回答投稿する', new_public_post_answer_path(@post), class: 'btn btn-info', data: {"turbolinks"=>false} %>
-        <% end %>
+    <div class="posttitle">
+     <h3>質問タイトル</h3>
+     <h3><%= simple_format(@post.posttitle) %></h3>
+     <% if member_signed_in? %>
+      <% if @post.member.id != current_member.id %>
+       <% if @answer.blank? %>
+        <%= link_to ' 新規回答投稿する', new_public_post_answer_path(@post), class: 'btn btn-info', data: {"turbolinks"=>false} %>
        <% end %>
       <% end %>
-      <%= link_to '質問一覧へ戻る', public_posts_path, class: 'btn btn-danger' %>
-     </div>
+     <% end %>
+     <%= link_to '質問一覧へ戻る', public_posts_path, class: 'btn btn-danger' %>
+    </div>
    <div class="dip">
      <table class="posttable">
       <thead>
