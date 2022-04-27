@@ -5,22 +5,17 @@
   <title>Sangoku</title>
    <%= csrf_meta_tags %>
    <%= csp_meta_tag %>
-
    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
   <body>
-    <!--ヘッダー部分-->
-     <%= render 'layouts/header' %>
-      <main class="main">
-       <% if flash[:notice] %>
-        <div class="notice"><%= flash[:notice] %></div>
-       <% end %>
-       <%= yield %>
-      </main>
-
+   <%= render 'layouts/header' %>
+    <main class="main">
+     <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+     <% end %>
+     <%= yield %>
+    </main>
    <%= render 'layouts/footer' %>
-
  </body>
 </html>

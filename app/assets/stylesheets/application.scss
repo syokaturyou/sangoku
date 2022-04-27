@@ -88,10 +88,11 @@ table.informtable td:nth-child(8){
 
 .user {
   color: black;
+  text-align: center;
   border-style: solid;
   border-radius: 10px;
   border-color: black;
-  width: 10%;
+  width: 5%;
 }
 .dropdown-menu {
    padding: 5px;
@@ -106,13 +107,13 @@ table.informtable td:nth-child(8){
  height: 100%;
  min-width: 1200px;
  padding: 3px;
- background-color: lightBlue;
+ background-color: #66FFFF;
  border-bottom: solid 4px #5d627b;
  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }
 
 .header-nav {
-  display: inline-flex;
+  display: flex;
   margin: 1px;
   border-radius: 10px;
   &__header-box {
@@ -129,11 +130,7 @@ table.informtable td:nth-child(8){
     transform: translateY(-3px);
   }
 }
-
-  .search{
-  }
-
-  .blue{
+  .box-color{
     background-color: #99FF99;
   }
 //ヘッダーメニュー開閉/

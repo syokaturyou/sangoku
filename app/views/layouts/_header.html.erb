@@ -2,9 +2,9 @@
  <div class="header-nav">
    <div class="user">
     <% if member_signed_in? %>
-      <a data-toggle="dropdown" ><%= attachment_image_tag current_member, :profileimage, fallback: "no_image.jpg", size: '75x50', class: "aicon" %></a>
+      <a data-toggle="dropdown" ><label for="label1" class="fas fa-bars fa-3x"></a>
       <ul class="dropdown-menu">
-       <div class="blue">
+       <div class="box-color">
         <li><div class="header-nav__header-box"><%= link_to 'トップページ', root_path, class: "fas fa-home nav-link" %></div></li>
         <li><div class="header-nav__header-box"><%= link_to '雑談部屋', zatudans_path, class: 'fas fa-comment-dots nav-link' %></div></li>
         <li><div class="header-nav__header-box"><%= link_to 'マイページ', public_member_path(current_member.id), class: "fas fa-user nav-link" %></div></li>
@@ -17,7 +17,7 @@
     <% elsif admin_signed_in? %>
       <a data-toggle="dropdown" ><label for="label1" class="fas fa-bars fa-3x"></label></a>
       <ul class="dropdown-menu">
-       <div class="blue">
+       <div class="box-color">
         <li><div class="header-nav__header-box"><%= link_to 'トップページ', root_path, class: "fas fa-home nav-link" %></div></li>
         <li><div class="header-nav__header-box"><%= link_to '雑談部屋', zatudans_path, class: 'fas fa-comment-dots nav-link' %></div></li>
         <li><div class="header-nav__header-box"><%= link_to '会員一覧', manager_members_path, class: "fas fa-user nav-link" %></div></li>
@@ -30,7 +30,7 @@
     <% else %>
      <a data-toggle="dropdown" ><label for="label1" class="fas fa-bars fa-3x"></label></a>
       <ul class="dropdown-menu">
-       <div class="blue">
+       <div class="box-color">
         <li><div class="header-nav__header-box"><%= link_to 'トップページ', root_path, class: "fas fa-home nav-link" %></div></li>
         <li><div class="header-nav__header-box"><%= link_to '雑談部屋', zatudans_path, class: 'fas fa-comment-dots nav-link' %></div></li>
         <li><div class="header-nav__header-box"><%= link_to '会員一覧', public_members_path, class: "fas fa-user nav-link" %></div></li>
@@ -43,10 +43,10 @@
   </div>
   <div class="search">
    <%= form_with url: search_path, local: true, method: :get do |f| %>
-     <%= f.text_field :word, size: "75x10", class: 'form-control-sm', :placeholder => "検索内容入力" %>
-     <%= f.select :range, options_for_select([['質問タイトル'],['会員'],['ジャンル']]) %>
-     <%= f.hidden_field :search, :value => "partial_match" %>
-     <%= f.submit "検索", size: "15x10", class: "btn btn-outline-primary", data: {"turbolinks"=>false} %>
+    <%= f.select :range, options_for_select([['質問タイトル'],['会員'],['ジャンル']]) %>
+    <%= f.text_field :word, size: "75x30", class: 'form-control-sm', :placeholder => "検索内容入力" %>
+    <%= f.hidden_field :search, :value => "partial_match" %>
+    <%= f.submit "検索", size: "15x30", class: "btn btn-outline-primary", data: {"turbolinks"=>false} %>
    <% end %>
   </div>
  </div>
