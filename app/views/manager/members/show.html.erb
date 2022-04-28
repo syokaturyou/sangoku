@@ -1,6 +1,5 @@
 <% breadcrumb :managermembershow  %>
 <%= breadcrumbs separator: " > " , class: :logo %>
-
 <div>
  <h2>「<%= @member.name %>」さんの会員情報</h2>
  <%= form_with url: manager_member_path, local: true, method: :get do |f| %>
@@ -8,7 +7,6 @@
   <%= f.submit "を表示", class: "btn btn-outline-dark", data: {"turbolinks"=>false} %>
  <% end %>
 </div>
-
 <% if @range == "過去質問" %>
  <div class="col-lg-7">
   <%= paginate @posts %>
@@ -90,7 +88,6 @@
     </tbody>
   </table>
  </div>
-
 <% else %>
 <div class='container'>
   <div class="row">
@@ -122,7 +119,7 @@
          <td>会員ステータス</td>
          <td><% if @member.is_deleted == true %><font color="gray">退会</font>
              <% elsif @member.is_deleted == false %><font color="green">有効</font>
-             <% end %></p>
+             <% end %>
          </td>
         </tr>
        </tbody>
@@ -131,5 +128,4 @@
     </div>
   </div>
 </div>
-
 <% end %>

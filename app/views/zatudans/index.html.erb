@@ -1,6 +1,5 @@
 <h1>雑談部屋♪</h1>
  <h2>最新20件のメッセージ表示。非会員の方も気軽に投稿ください( ｀・∀・´)ﾉ<h2>
-
   <div class="zatudans">
    <% @zatudans.first(20).each do |zatudan| %>
     <div class="fukidasi">
@@ -13,12 +12,10 @@
     </div>
    <% end %>
   </div>
-
   <div class="center">
    <%= form_with model: @newzatudan, url: zatudans_path, remote: true do |f| %>
     <%= f.text_field :message, required: true, maxlength: "75", size: '40', :placeholder => "メッセージ入力" %>
     <%= f.submit "メッセージ送信", class: 'btn btn-success btn-lg' %>
    <% end %>
   </div>
-
 <br />

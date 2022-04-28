@@ -1,10 +1,8 @@
 <% breadcrumb :managergenresindex  %>
 <%= breadcrumbs separator: " > " , class: :logo %>
-
 <h1>ジャンル一覧・追加</h1>
  <div class="container">
   <div class="row">
-
    <div class="col-lg-12">
     <%= form_with model:@genre,url: manager_genres_path, local:true do |f| %>
      ジャンル名入力
@@ -12,11 +10,9 @@
      <%= f.submit '新規登録', class: 'btn btn-success btn-lg' %>
     <% end %>
    </div>
-
    <div class="col-lg-7">
     <%= paginate @genres %>
    </div>
-
    <div class="col-lg-6">
     <table class="table" frame="border">
      <thead>
@@ -37,6 +33,5 @@
      </tbody>
     </table>
    </div>
-
   </div>
  </div>

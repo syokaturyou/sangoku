@@ -1,14 +1,11 @@
 <% breadcrumb :publicmemberindex  %>
 <%= breadcrumbs separator: " > " , class: :logo %>
-
 <h1>会員一覧</h1>
 <div class="oocontainer">
   <div class="row">
-
     <div class="col-lg-7">
      <%= paginate @members %>
     </div>
-
     <table class="table" frame="border">
      <thead>
       <tr bgcolor=#66FFCC>
@@ -36,4 +33,5 @@
       </td></td>
      </tbody>
     </table>
+ </div>
 </div>

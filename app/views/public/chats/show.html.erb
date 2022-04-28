@@ -1,6 +1,5 @@
 <% breadcrumb :publicchat  %>
 <%= breadcrumbs separator: " > " , class: :logo %>
-
 <div class="center">
  <h2>自分と「<%= @member.name %>」さんとのチャット
      <%= attachment_image_tag @member, :profileimage, :fill, 90, 90, fallback: "no_image.jpg" %>
@@ -24,7 +23,6 @@
   <%end%>
  <% end %>
 </div>
-
 <div class="center">
  <%= form_with model: @chat, url: public_chats_path, remote: true do |f| %>
   <%= f.text_area :message, autofocus: true, required: true, maxlength: "70", size: '50x2', :placeholder => "メッセージ入力" %>
@@ -32,5 +30,3 @@
   <%= f.submit "チャット送信", class: 'btn btn-success' %>
  <% end %>
 </div>
-
-<br />
