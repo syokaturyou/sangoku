@@ -1,6 +1,5 @@
 module Public
   class PostsController < ApplicationController
-
     def index
       # デフォルトは更新日時の降順に並べる
       @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
