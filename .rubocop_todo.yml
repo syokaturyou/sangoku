@@ -31,15 +31,12 @@ Layout/ClosingParenthesisIndentation:
 # Cop supports --auto-correct.
 Layout/CommentIndentation:
   Exclude:
-    - 'app/controllers/contracts_controller.rb'
-    - 'app/controllers/public/answers_controller.rb'
     - 'config/environments/development.rb'
 
 # Offense count: 4
 # Cop supports --auto-correct.
 Layout/EmptyLines:
   Exclude:
-    - 'app/controllers/manager/members_controller.rb'
     - 'app/models/member.rb'
     - 'app/models/post.rb'
     - 'db/migrate/20210611135501_devise_create_admins.rb'
@@ -50,11 +47,11 @@ Layout/EmptyLines:
 # SupportedStyles: around, only_before
 Layout/EmptyLinesAroundAccessModifier:
   Exclude:
-    - 'app/controllers/manager/members_controller.rb'
-    - 'app/controllers/manager/posts_controller.rb'
-    - 'app/controllers/public/answers_controller.rb'
-    - 'app/controllers/public/posts_controller.rb'
-    - 'app/controllers/public/rates_controller.rb'
+    # - 'app/controllers/manager/members_controller.rb'
+    # - 'app/controllers/manager/posts_controller.rb'
+    # - 'app/controllers/public/answers_controller.rb'
+    # - 'app/controllers/public/posts_controller.rb'
+    # - 'app/controllers/public/rates_controller.rb'
 
 # Offense count: 9
 # Cop supports --auto-correct.
@@ -76,15 +73,15 @@ Layout/EmptyLinesAroundBlockBody:
 # SupportedStyles: empty_lines, empty_lines_except_namespace, empty_lines_special, no_empty_lines, beginning_only, ending_only
 Layout/EmptyLinesAroundClassBody:
   Exclude:
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/contracts_controller.rb'
-    - 'app/controllers/manager/answers_controller.rb'
-    - 'app/controllers/manager/members_controller.rb'
-    - 'app/controllers/manager/posts_controller.rb'
-    - 'app/controllers/public/answers_controller.rb'
-    - 'app/controllers/public/members_controller.rb'
-    - 'app/controllers/public/posts_controller.rb'
-    - 'app/controllers/public/rates_controller.rb'
+    # - 'app/controllers/application_controller.rb'
+    # - 'app/controllers/contracts_controller.rb'
+    # - 'app/controllers/manager/answers_controller.rb'
+    # - 'app/controllers/manager/members_controller.rb'
+    # - 'app/controllers/manager/posts_controller.rb'
+    # - 'app/controllers/public/answers_controller.rb'
+    # - 'app/controllers/public/members_controller.rb'
+    # - 'app/controllers/public/posts_controller.rb'
+    # - 'app/controllers/public/rates_controller.rb'
     - 'app/models/answer.rb'
     - 'app/models/member.rb'
     - 'app/models/post.rb'
@@ -95,15 +92,15 @@ Layout/EmptyLinesAroundClassBody:
 # Cop supports --auto-correct.
 Layout/EmptyLinesAroundMethodBody:
   Exclude:
-    - 'app/controllers/public/rates_controller.rb'
+    # - 'app/controllers/public/rates_controller.rb'
 
 # Offense count: 5
 # Cop supports --auto-correct.
 # Configuration parameters: AllowForAlignment, AllowBeforeTrailingComments, ForceEqualSignAlignment.
 Layout/ExtraSpacing:
   Exclude:
-    - 'app/controllers/public/answers_controller.rb'
-    - 'app/controllers/public/posts_controller.rb'
+    # - 'app/controllers/public/answers_controller.rb'
+    # - 'app/controllers/public/posts_controller.rb'
     - 'app/mailers/contract_mailer.rb'
     - 'db/migrate/20210611140817_create_contracts.rb'
 
@@ -131,13 +128,13 @@ Layout/FirstHashElementIndentation:
 # SupportedStyles: normal, indented_internal_methods
 Layout/IndentationConsistency:
   Exclude:
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/contracts_controller.rb'
-    - 'app/controllers/public/answers_controller.rb'
-    - 'app/controllers/public/members_controller.rb'
-    - 'app/controllers/public/posts_controller.rb'
-    - 'app/controllers/public/rates_controller.rb'
-    - 'app/controllers/searchs_controller.rb'
+    # - 'app/controllers/application_controller.rb'
+    # - 'app/controllers/contracts_controller.rb'
+    # - 'app/controllers/public/answers_controller.rb'
+    # - 'app/controllers/public/members_controller.rb'
+    # - 'app/controllers/public/posts_controller.rb'
+    # - 'app/controllers/public/rates_controller.rb'
+    # - 'app/controllers/searchs_controller.rb'
     - 'app/models/member.rb'
     - 'app/models/rate.rb'
     - 'config/routes.rb'
@@ -147,13 +144,13 @@ Layout/IndentationConsistency:
 # Configuration parameters: Width, IgnoredPatterns.
 Layout/IndentationWidth:
   Exclude:
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/contracts_controller.rb'
-    - 'app/controllers/public/answers_controller.rb'
-    - 'app/controllers/public/members_controller.rb'
-    - 'app/controllers/public/posts_controller.rb'
-    - 'app/controllers/public/rates_controller.rb'
-    - 'app/controllers/searchs_controller.rb'
+    # - 'app/controllers/application_controller.rb'
+    # - 'app/controllers/contracts_controller.rb'
+    # - 'app/controllers/public/answers_controller.rb'
+    # - 'app/controllers/public/members_controller.rb'
+    # - 'app/controllers/public/posts_controller.rb'
+    # - 'app/controllers/public/rates_controller.rb'
+    # - 'app/controllers/searchs_controller.rb'
     - 'app/mailers/contract_mailer.rb'
     - 'app/models/member.rb'
     - 'app/models/rate.rb'
@@ -164,10 +161,10 @@ Layout/IndentationWidth:
 # Configuration parameters: AllowDoxygenCommentStyle, AllowGemfileRubyComment.
 Layout/LeadingCommentSpace:
   Exclude:
-    - 'app/controllers/contracts_controller.rb'
-    - 'app/controllers/manager/answers_controller.rb'
-    - 'app/controllers/public/answers_controller.rb'
-    - 'app/controllers/public/members_controller.rb'
+    # - 'app/controllers/contracts_controller.rb'
+    # - 'app/controllers/manager/answers_controller.rb'
+    # - 'app/controllers/public/answers_controller.rb'
+    # - 'app/controllers/public/members_controller.rb'
     - 'app/models/contract.rb'
     - 'config/environments/development.rb'
     - 'config/routes.rb'

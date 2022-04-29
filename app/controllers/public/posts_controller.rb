@@ -77,6 +77,7 @@ module Public
     end
 
     private
+
     def post_params
       params.require(:post).permit(:posttitle, :postbody, :postsyutten, :postimage, :genre_id)
     end

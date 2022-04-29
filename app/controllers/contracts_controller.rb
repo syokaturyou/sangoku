@@ -17,13 +17,12 @@ class ContractsController < ApplicationController
   end
 
   # メール完了画面
-   def done
-   end
+  def done
+  end
 
   private
 
   def contract_params
     params.require(:contract).permit(:email, :name, :phone_number, :message)
   end
-
 end
