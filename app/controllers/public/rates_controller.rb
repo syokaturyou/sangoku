@@ -14,15 +14,15 @@ module Public
       @newrate.rationality = @newrate.rationality || 0
       @newrate.intellect = @newrate.intellect || 0
       rate_count = Rate.where(answer_id: params[:answer_id]).where(member_id: current_member.id).count
-        # 各会員は1回答に1回だけレビュー可能であるため条件分岐
-        if rate_count < 1
-           @newrate.save
-           flash[:notice] = '評価を投稿しました'
-           redirect_to public_post_path(@newrate.answer.post_id)
-        else
-           flash[:notice] = '一度評価を投稿したため再度投稿できません'
-           redirect_to public_posts_path
-        end
+      # 各会員は1回答に1回だけレビュー可能であるため条件分岐
+      if rate_count < 1
+        @newrate.save
+        flash[:notice] = '評価を投稿しました'
+        redirect_to public_post_path(@newrate.answer.post_id)
+      else
+        flash[:notice] = '一度評価を投稿したため再度投稿できません'
+        redirect_to public_posts_path
+      end
     end
 
     private

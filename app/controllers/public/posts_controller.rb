@@ -49,13 +49,13 @@ module Public
 
     def create
       @newpost = current_member.posts.build(post_params)
-      @newpost.score = Language.get_data(post_params[:postbody])  # 感情スコア取得
-       if @newpost.save
-       flash[:notice] = '質問を投稿しました'
-       redirect_to  public_posts_path
-       else
-       redirect_to root_path
-       end
+      @newpost.score = Language.get_data(post_params[:postbody]) # 感情スコア取得
+      if @newpost.save
+        flash[:notice] = '質問を投稿しました'
+        redirect_to public_posts_path
+      else
+        redirect_to root_path
+      end
     end
 
     def update
@@ -65,7 +65,7 @@ module Public
       @post.save
       @post.update(postimage: nil) if params[:image_delete].present? # 「画像なし」を選択した場合postimageをnilにする
       flash[:notice] = '質問を更新しました'
-      redirect_to  public_posts_path
+      redirect_to public_posts_path
     end
 
     def destroy

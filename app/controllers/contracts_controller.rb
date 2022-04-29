@@ -17,8 +17,7 @@ class ContractsController < ApplicationController
   end
 
   # メール完了画面
-  def done
-  end
+  def done; end
 
   private
 

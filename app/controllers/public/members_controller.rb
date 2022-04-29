@@ -25,8 +25,7 @@ module Public
       redirect_to public_member_path(@member)
     end
 
-    def unsubscribe
-    end
+    def unsubscribe; end
 
     def withdrawal
       member = current_member

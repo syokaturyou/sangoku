@@ -189,9 +189,9 @@ Layout/SpaceAfterComma:
 # Configuration parameters: AllowForAlignment.
 Layout/SpaceBeforeFirstArg:
   Exclude:
-    - 'app/controllers/manager/members_controller.rb'
-    - 'app/controllers/public/answers_controller.rb'
-    - 'app/controllers/public/posts_controller.rb'
+    # - 'app/controllers/manager/members_controller.rb'
+    # - 'app/controllers/public/answers_controller.rb'
+    # - 'app/controllers/public/posts_controller.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -216,7 +216,7 @@ Layout/SpaceInsideHashLiteralBraces:
 # SupportedStyles: space, no_space
 Layout/SpaceInsideParens:
   Exclude:
-    - 'app/controllers/application_controller.rb'
+    # - 'app/controllers/application_controller.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -230,7 +230,7 @@ Layout/TrailingEmptyLines:
 # Cop supports --auto-correct.
 Lint/ElseLayout:
   Exclude:
-    - 'app/controllers/application_controller.rb'
+    # - 'app/controllers/application_controller.rb'
 
 # Offense count: 2
 # Configuration parameters: IgnoredMethods, CountRepeatedAttributes.
@@ -259,13 +259,13 @@ Naming/VariableName:
 # AllowedChars: ©
 Style/AsciiComments:
   Exclude:
-    - 'app/controllers/contracts_controller.rb'
-    - 'app/controllers/manager/answers_controller.rb'
-    - 'app/controllers/manager/posts_controller.rb'
-    - 'app/controllers/public/answers_controller.rb'
-    - 'app/controllers/public/members_controller.rb'
-    - 'app/controllers/public/posts_controller.rb'
-    - 'app/controllers/public/rates_controller.rb'
+    # - 'app/controllers/contracts_controller.rb'
+    # - 'app/controllers/manager/answers_controller.rb'
+    # - 'app/controllers/manager/posts_controller.rb'
+    # - 'app/controllers/public/answers_controller.rb'
+    # - 'app/controllers/public/members_controller.rb'
+    # - 'app/controllers/public/posts_controller.rb'
+    # - 'app/controllers/public/rates_controller.rb'
     - 'app/models/contract.rb'
     - 'app/models/member.rb'
     - 'app/models/post.rb'
@@ -278,7 +278,7 @@ Style/AsciiComments:
 # Cop supports --auto-correct.
 Style/CaseLikeIf:
   Exclude:
-    - 'app/controllers/application_controller.rb'
+    # - 'app/controllers/application_controller.rb'
     - 'app/models/member.rb'
     - 'app/models/post.rb'
 
@@ -308,9 +308,9 @@ Style/Documentation:
 # SupportedStyles: compact, expanded
 Style/EmptyMethod:
   Exclude:
-    - 'app/controllers/contracts_controller.rb'
-    - 'app/controllers/homes_controller.rb'
-    - 'app/controllers/public/members_controller.rb'
+    # - 'app/controllers/contracts_controller.rb'
+    # - 'app/controllers/homes_controller.rb'
+    # - 'app/controllers/public/members_controller.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -336,7 +336,7 @@ Style/GlobalStdStream:
 # Cop supports --auto-correct.
 Style/IdenticalConditionalBranches:
   Exclude:
-    - 'app/controllers/searchs_controller.rb'
+    # - 'app/controllers/searchs_controller.rb'
 
 # Offense count: 2
 Style/MixinUsage:
@@ -396,10 +396,10 @@ Style/StringConcatenation:
 Style/StringLiterals:
   Exclude:
     - 'Gemfile'
-    - 'app/controllers/manager/posts_controller.rb'
-    - 'app/controllers/public/members_controller.rb'
-    - 'app/controllers/public/posts_controller.rb'
-    - 'app/controllers/searchs_controller.rb'
+    # - 'app/controllers/manager/posts_controller.rb'
+    # - 'app/controllers/public/members_controller.rb'
+    # - 'app/controllers/public/posts_controller.rb'
+    # - 'app/controllers/searchs_controller.rb'
     - 'app/models/member.rb'
     - 'app/models/post.rb'
     - 'bin/yarn'
