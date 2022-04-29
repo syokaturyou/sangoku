@@ -81,10 +81,10 @@ table.informtable td:nth-child(8){
 .newtable td{
   min-width: 150px;
 }
- .posttitle{
+.posttitle{
   width: 100%;
   padding: 5px;
- }
+}
 
 .user {
   color: black;
@@ -111,7 +111,6 @@ table.informtable td:nth-child(8){
  border-bottom: solid 4px #5d627b;
  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }
-
 .header-nav {
   display: flex;
   margin: 1px;
@@ -130,9 +129,9 @@ table.informtable td:nth-child(8){
     transform: translateY(-3px);
   }
 }
-  .box-color{
-    background-color: #99FF99;
-  }
+.box-color{
+  background-color: #99FF99;
+}
 //ヘッダーメニュー開閉/
 // .hidden_box {
 //   margin-left: auto;
