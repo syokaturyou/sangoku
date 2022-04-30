@@ -12,15 +12,15 @@ RSpec.feature 'Poss', type: :feature do
       visit public_posts_path
     end
 
-    scenario '商品の詳細情報が適切なタグ内に存在すること' do
-      expect(page).to have_selector 'li', text: product.name
-      expect(page).to have_selector 'h2', text: product.name
-      expect(page).to have_selector '.page-title', text: product.name
+    scenario '投稿の詳細情報が適切なタグ内に存在すること' do
+      expect(page).to have_selector 'td', text: post.posttitle
+      expect(page).to have_selector 'td', text: post.name
+      expect(page).to have_selector '.page-title', text: post.name
     end
 
-    scenario 'カテゴリーページに遷移できること' do
-      click_link '一覧ページへ戻る'
-      expect(current_path).to eq potepan_category_path(taxon.id)
+    scenario '詳細ページに遷移できること' do
+      click_link post.posttitle.truncate(25)
+      expect(current_path).to eq public_post_path(post)
     end
 
   end

@@ -16,10 +16,10 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to have_http_status(:success)
     end
 
-    # it '質問タイトルが表示されているかどうか' do
-    #   posts.all? do |post|
-    #     expect(response.body).to include post.posttitle
-    #   end
-    # end
+    it '質問タイトルが表示されているかどうか' do
+      posts.all? do |post|
+        expect(response.body).to include post.posttitle.truncate(25)
+      end
+    end
   end
 end
