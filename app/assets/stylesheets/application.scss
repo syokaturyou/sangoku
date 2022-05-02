@@ -176,9 +176,6 @@ table.informtable td:nth-child(8){
   margin-left: auto;
   form {
     padding: 3px;
-    a{
-      padding: 3px;
-    }
   }
 }
 
@@ -194,8 +191,8 @@ table.informtable td:nth-child(8){
        background: url(./searchaicon.png) no-repeat center center / auto 100%; /* 背景にアイコン画像を配置 */
        display: inline-block; /* 高さを持たせるためにインラインブロック要素にする */
        position: absolute;    /* 相対位置に指定 */
-       top: 5px;              /* アイコンの位置。微調整してね */
-       left: 7px;             /* アイコンの位置。微調整してね */
+       top: 15px;              /* アイコンの位置。微調整してね */
+       left: 10px;             /* アイコンの位置。微調整してね */
      }
       .keywordaicon input {
         padding: 3px 0 3px 2em; /* アイコンを設置するため左の余白を多めに指定*/
@@ -427,6 +424,7 @@ h1:before {
   color: turquoise;
   background-color: green;
   border-radius: 10px;
+  padding: 10px;
 }
 /* --プルダウンメニュー */
 select {
@@ -455,21 +453,21 @@ select {
     text-align: center;
   }
   .dip {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
   }
   .bottom {
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   _:lang(x)+_:-webkit-full-screen-document, .bottom {
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 @media screen and (min-height: 700px) {
