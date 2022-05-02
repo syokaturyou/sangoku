@@ -324,6 +324,7 @@ Style/RedundantInterpolation:
   Exclude:
     - 'app/models/member.rb'
     - 'app/models/post.rb'
+    - 'spec/features/posts_spec.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.

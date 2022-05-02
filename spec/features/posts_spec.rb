@@ -25,6 +25,5 @@ RSpec.feature 'Poss', type: :feature do
       click_link "#{post.posttitle}"
       expect(current_path).to eq public_post_path(post)
     end
-
   end
 end
