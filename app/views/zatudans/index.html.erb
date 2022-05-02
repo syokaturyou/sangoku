@@ -12,10 +12,10 @@
     </div>
    <% end %>
   </div>
-  <div class="center">
+  <div class="zatudansearch">
    <%= form_with model: @newzatudan, url: zatudans_path, remote: true do |f| %>
-    <%= f.text_field :message, required: true, maxlength: "75", size: '40', :placeholder => "メッセージ入力" %>
-    <%= f.submit "メッセージ送信", class: 'btn btn-success btn-lg' %>
+    <a class="zatudanaicon"><%= f.text_field :message, required: true, maxlength: "75", size: '40', :placeholder => "メッセージ入力" %></a>
+    <a><%= f.submit "メッセージ送信", class: 'btn btn-success btn-lg' %></a>
    <% end %>
   </div>
 <br />
