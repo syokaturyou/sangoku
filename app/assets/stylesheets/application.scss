@@ -66,6 +66,9 @@ table.posttable td:nth-child(4){
 table.informtable td:nth-child(2){
   min-width: 180px;
 }
+table.informtable td:nth-child(3){
+  text-align: left;
+}
 table.informtable td:nth-child(4){
   min-width: 180px;
 }
@@ -75,6 +78,30 @@ table.informtable td:nth-child(6){
 table.informtable td:nth-child(8){
   min-width: 180px;
 }
+
+.membertable {
+ border: 4px gray solid;
+}
+.membertable th {
+ text-align: center;
+}
+.membertable tr {
+ min-width: 600px;
+ width: 1000px;
+ height: 50px;
+}
+.membertable td {
+ min-width: 120px;
+ text-align: center;
+}
+table.membertable td:nth-child(2){
+  min-width: 180px;
+  text-align: left;
+}
+table.membertable td:nth-child(3){
+  text-align: left;
+}
+
 .newtable{
   border-spacing: 30px 5px;
 }
