@@ -23,10 +23,11 @@
   <%end%>
  <% end %>
 </div>
-<div class="center">
+<div class="chatsearch">
  <%= form_with model: @chat, url: public_chats_path, remote: true do |f| %>
-  <%= f.text_area :message, autofocus: true, required: true, maxlength: "70", size: '50x2', :placeholder => "メッセージ入力" %>
+  <a class="chataicon">
+   <%= f.text_field :message, autofocus: true, required: true, maxlength: "75", size: '40', :placeholder => "メッセージ入力" %></a>
+  <a><%= f.submit "チャット送信", class: 'btn btn-success btn-lg' %></a>
   <%= f.hidden_field :room_id %>
-  <%= f.submit "チャット送信", class: 'btn btn-success' %>
  <% end %>
 </div>

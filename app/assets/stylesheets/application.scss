@@ -225,10 +225,10 @@ table.membertable td:nth-child(3){
         padding: 3px 0 3px 2em; /* アイコンを設置するため左の余白を多めに指定*/
       }
 
-      .zatudansearch {
-         margin-right: auto;
-         margin-left: auto;
-       }
+     .zatudansearch {
+      margin-right: auto;
+      margin-left: auto;
+     }
       .zatudanaicon {
       position: relative;
       padding-left: 100px;
@@ -242,9 +242,30 @@ table.membertable td:nth-child(3){
       top: -90px;
       left: 10px;
      }
-      .zatudanaicon input {
-        padding: 3px 0 3px 2em; /* アイコンを設置するため左の余白を多めに指定*/
-      }
+     .zatudanaicon input {
+      padding: 3px 0 3px 2em; /* アイコンを設置するため左の余白を多めに指定*/
+     }
+
+     .chatsearch {
+      margin-right: auto;
+      margin-left: auto;
+     }
+      .chataicon {
+      position: relative;
+      padding-left: 100px;
+     }
+     .chataicon::before {
+      content: url(./searchaicon.png);
+      display: inline-block;
+      vertical-align: middle;
+      transform: scale(0.1);
+      position: absolute;
+      top: -100px;
+      left: 5px;
+     }
+     .chataicon input {
+      padding: 3px 0 3px 2em; /* アイコンを設置するため左の余白を多めに指定*/
+     }
 
 _:lang(x)+_:-webkit-full-screen-document, .wrapper{
     min-height: 2vh;
