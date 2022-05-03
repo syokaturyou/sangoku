@@ -6,19 +6,19 @@
       <%= form_with model: @contract, url: contracts_path, local: true do |f| %>
        <tr>
         <td><%= f.label :name, 'お名前(必須)' %></td>
-        <td><%= f.text_field :name, autofocus: true, required: true, class: 'form-control', size: "60" %></td>
+        <td><%= f.text_field :name, autofocus: true, required: true, class: 'form-control', size: "60", :placeholder => "名前入力" %></td>
        </tr>
        <tr>
         <td><%= f.label :email, '返信先メールアドレス' %></td>
-        <td><%= f.text_field :email, autofocus: true, class: 'form-control' %></td>
+        <td><%= f.text_field :email, autofocus: true, class: 'form-control', :placeholder => "メールアドレス入力" %></td>
        </tr>
        <tr>
         <td><%= f.label :phone_number, '電話番号' %></td>
-        <td><%= f.text_field :phone_number, autofocus: true, class: 'form-control' %></td>
+        <td><%= f.text_field :phone_number, autofocus: true, class: 'form-control', :placeholder => "電話番号" %></td>
        </tr>
        <tr>
         <td><%= f.label :message, 'メッセージ(必須)' %></td>
-        <td><%= f.text_area :message, autofocus: true, required: true, class: 'form-control', size: '5x5' %></td>
+        <td><%= f.text_area :message, autofocus: true, required: true, class: 'form-control', size: '5x5', :placeholder => "メッセージ入力" %></td>
        </tr>
        <tr>
         <td></td>
