@@ -67,6 +67,11 @@ crumb :publicansweredit do
   parent :publicpostindex
 end
 
+crumb :publicanswerrate do
+  link '評価投稿', new_public_answer_rate_path
+  parent :publicpostindex
+end
+
 crumb :publicpostedit do
   link '投稿質問編集', edit_public_post_path
   parent :publicpostshow
