@@ -1,10 +1,5 @@
 <% breadcrumb :result  %>
 <%= breadcrumbs separator: " > " , class: :logo %>
-  <div class="col-lg-7">
-   <% if member_signed_in? %>
-    <%= link_to ' 新規質問投稿する', new_public_post_path, class: 'btn btn-success btn-lg', data: {"turbolinks"=>false} %>
-   <% end %>
-  </div>
   <div style="word-break: break-all;">
    <% if @range == "会員" %>
     <div class="col-lg-7">
@@ -36,6 +31,11 @@
      <% end %>
      </table>
     <% elsif @range == "ジャンル" %>
+     <div class="col-lg-7">
+       <% if member_signed_in? %>
+        <%= link_to ' 新規質問投稿する', new_public_post_path, class: 'btn btn-success btn-lg', data: {"turbolinks"=>false} %>
+       <% end %>
+      </div>
      <div class="col-lg-7">
       <%= paginate @posts %>
      </div>
@@ -78,6 +78,11 @@
      <% end %>
      </table>
     <% elsif @range == "質問タイトル" %>
+     <div class="col-lg-7">
+       <% if member_signed_in? %>
+        <%= link_to ' 新規質問投稿する', new_public_post_path, class: 'btn btn-success btn-lg', data: {"turbolinks"=>false} %>
+       <% end %>
+      </div>
      <div class="col-lg-7">
       <%= paginate @posts %>
      </div>
