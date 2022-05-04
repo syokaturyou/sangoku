@@ -1,10 +1,7 @@
 <h1>お知らせ編集</h1>
-
 <% breadcrumb :articleedit  %>
 <%= breadcrumbs separator: " > " , class: :logo %>
-
 <% if admin_signed_in? %>
-
 <%= render 'form', article: @article %>
  <%= link_to '詳細', @article, class: 'btn btn-primary' %>
  <%= link_to '戻る', articles_path, class: 'btn btn-danger' %>

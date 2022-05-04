@@ -1,30 +1,28 @@
-  <% if article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
-      <ul>
-      <% article.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <table class="table table-borderless">
-   <tbody>
-    <%= form_with(model: article, local: true) do |form| %>
-     <tr>
-      <td><%= form.label :タイトル %></td>
-      <td><%= form.text_field :title, autofocus: true, required: true, size: "50" %></td>
-     </tr>
-     <tr>
-      <td><%= form.label :本文 %></td>
-      <td><%= form.text_area :body, autofocus: true, required: true, size: '80x10' %></td>
-     </tr>
-     <tr>
-      <td></td>
-      <td><%= form.submit "お知らせ作成", class: 'btn btn-success btn-lg' %></td>
-     </tr>
+<% if article.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+    <ul>
+    <% article.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
     <% end %>
-   </tbody>
-  </table>
-
+    </ul>
+  </div>
+<% end %>
+<table class="table table-borderless">
+ <tbody>
+  <%= form_with(model: article, local: true) do |form| %>
+   <tr>
+    <td><%= form.label :タイトル %></td>
+    <td><%= form.text_field :title, autofocus: true, required: true, size: "50" %></td>
+   </tr>
+   <tr>
+    <td><%= form.label :本文 %></td>
+    <td><%= form.text_area :body, autofocus: true, required: true, size: '80x10' %></td>
+   </tr>
+   <tr>
+    <td></td>
+    <td><%= form.submit "お知らせ作成", class: 'btn btn-success btn-lg' %></td>
+   </tr>
+  <% end %>
+ </tbody>
+</table>
