@@ -213,7 +213,7 @@ table.membertable td:nth-child(3){
      }
      .keywordaicon::before {
        content: "";           /* 疑似要素に必須 */
-       width: 18px;           /* アイコンの横幅 */
+       width: 20px;           /* アイコンの横幅 */
        height: 20px;          /* アイコンの高さ */
        background: url(./searchaicon.png) no-repeat center center / auto 100%; /* 背景にアイコン画像を配置 */
        display: inline-block; /* 高さを持たせるためにインラインブロック要素にする */
