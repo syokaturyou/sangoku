@@ -4,11 +4,11 @@
     <table class="logtable">
      <tr>
       <td><%= f.label :メールアドレス %></td>
-      <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', size: "60" %></td>
+      <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', size: "60", :placeholder => "メールアドレス入力" %></td>
      </tr>
      <tr>
       <td><%= f.label :パスワード %></td>
-      <td><%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %></th>
+      <td><%= f.password_field :password, autocomplete: "current-password", class: 'form-control', :placeholder => "パスワード入力" %></th>
      </tr>
      <tr>
       <td>管理者情報を入力</td>

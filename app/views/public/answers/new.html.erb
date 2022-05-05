@@ -10,11 +10,11 @@
       <%= form_with model: @newanswer, url: public_post_answers_path, local: true do |f| %>
        <tr>
         <td><%= f.label :回答本文入力 %></td>
-        <td><%= f.text_area :answerbody, autofocus: true, required: true, size: '80x10' %></td>
+        <td><%= f.text_area :answerbody, autofocus: true, required: true, size: '80x10', :placeholder => "回答本文入力" %></td>
        </tr>
        <tr>
         <td><%= f.label :出典・参考url入力 %></td>
-        <td><%= f.text_area :answersyutten, autofocus: true, required: true, size: "50x3" %></td>
+        <td><%= f.text_area :answersyutten, autofocus: true, required: true, size: "50x3", :placeholder => "URL入力" %></td>
        </tr>
         <%= f.hidden_field :post_id, :value => params[:post_id] %>
        <tr>

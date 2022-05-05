@@ -1,16 +1,12 @@
 <% if admin_signed_in? %>
-
  <% breadcrumb :articleindex  %>
  <%= breadcrumbs separator: " > " , class: :logo %>
-
  <h1>お知らせ一覧</h1>
  <%= link_to 'お知らせを新規作成', new_article_path, class: 'btn btn-success btn-lg', data: {"turbolinks"=>false} %>
  <br>
-
  <div class="col-lg-7">
   <%= paginate @articles %>
  </div>
-
  <table class="table table-hover table-inverse" frame="border">
   <thead>
    <tr bgcolor=#66FFCC>
@@ -34,5 +30,4 @@
    <% end %>
   </tbody>
  </table>
-
 <% end %>

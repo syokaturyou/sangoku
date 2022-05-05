@@ -10,15 +10,15 @@
      <%= form_with model: @newpost, url: public_posts_path, local: true do |f| %>
       <tr>
        <td><%= f.label :質問タイトル入力 %></td>
-       <td><%= f.text_field :posttitle, autofocus: true, required: true, size: "50" %></td>
+       <td><%= f.text_field :posttitle, autofocus: true, required: true, size: "50", :placeholder => "タイトル入力" %></td>
       </tr>
       <tr>
        <td><%= f.label :説明文入力 %></td>
-       <td><%= f.text_area :postbody, autofocus: true, required: true, size: '80x10' %></td>
+       <td><%= f.text_area :postbody, autofocus: true, required: true, size: '80x10', :placeholder => "説明文入力" %></td>
       </tr>
       <tr>
        <td><%= f.label :出典・参考url入力 %></td>
-       <td><%= f.text_field :postsyutten, autofocus: true, size: "50" %></td>
+       <td><%= f.text_field :postsyutten, autofocus: true, size: "50", :placeholder => "URL入力" %></td>
       </tr>
       <tr>
        <td><%= f.label :ジャンル名入力 %></td>

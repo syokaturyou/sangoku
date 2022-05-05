@@ -13,11 +13,11 @@
   <%= form_with(model: article, local: true) do |form| %>
    <tr>
     <td><%= form.label :タイトル %></td>
-    <td><%= form.text_field :title, autofocus: true, required: true, size: "50" %></td>
+    <td><%= form.text_field :title, autofocus: true, required: true, size: "50", :placeholder => "タイトル入力" %></td>
    </tr>
    <tr>
     <td><%= form.label :本文 %></td>
-    <td><%= form.text_area :body, autofocus: true, required: true, size: '80x10' %></td>
+    <td><%= form.text_area :body, autofocus: true, required: true, size: '80x10', :placeholder => "本文入力" %></td>
    </tr>
    <tr>
     <td></td>

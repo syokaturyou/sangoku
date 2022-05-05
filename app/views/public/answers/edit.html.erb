@@ -11,13 +11,13 @@
        <tr>
         <td><%= f.label :回答本文更新 %></td>
         <td>
-         <%= f.text_area :answerbody, autofocus: true, required: true, size: '60x10' %>
+         <%= f.text_area :answerbody, autofocus: true, required: true, size: '60x10', :placeholder => "回答本文入力" %>
          <p class="sentiment-score">感情分析スコア <%= @answer.score %> / 1.0</p>
         </td>
        </tr>
        <tr>
         <td><%= f.label :出典・参考url更新 %></td>
-        <td><%= f.text_area :answersyutten, autofocus: true, required: true, size: "50x3" %></td>
+        <td><%= f.text_area :answersyutten, autofocus: true, required: true, size: "50x3", :placeholder => "URL入力" %></td>
        </tr>
        <tr>
         <td><%= f.label :参考画像 %></td>
