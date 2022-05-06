@@ -20,7 +20,6 @@
 //= require_tree .
 //= require jquery.raty.js
 
-
 //ローディング画面の表示
 $(window).on('load',function(){
   $("#loading").delay(1200).fadeOut('slow');//ローディング画面を1秒（1200ms）待機してからフェードアウト

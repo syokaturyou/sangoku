@@ -5,8 +5,8 @@ class MapsController < ApplicationController
   end
 
   def create
-    @newmap = Map.new(map_params)
-    if @newmap.save
+    @map = Map.new(map_params)
+    if @map.save
       flash[:notice] = '成功'
       # redirect_to root_path
       redirect_to :action => 'index'
@@ -26,6 +26,6 @@ class MapsController < ApplicationController
   private
 
   def map_params
-    params.require(:map).permit(:address, :latitude, :longitude, :profile)
+    params.require(:map).permit(:address, :latitude, :profile)
   end
 end
