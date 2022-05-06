@@ -1,7 +1,7 @@
 class MapsController < ApplicationController
   def index
-    # @maps = Map.all
-    # @newmap = Map.new
+    @maps = Map.all
+    @newmap = Map.new
   end
 
   def new
