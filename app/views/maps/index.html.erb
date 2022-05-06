@@ -26,20 +26,20 @@
           zoom: 12,
       });
       // mapsテーブルにあるそれぞれのレコードをmap上に表示
-      <% @maps.each do |m| %>
+      <% @maps.each do |map| %>
           (function(){
-          var contentString = "住所：<%= m.address %>";
+          var contentString = "住所：<%= map.address %>";
           // マーカーを立てる
           var marker = new google.maps.Marker({
-              position:{lat: <%= m.latitude %>, lng: <%= m.longitude %>},
+              position:{lat: <%= map.latitude %>, lng: <%= map.longitude %>},
               map: map,
               title: contentString
           });
           // 情報ウィンドウ(吹き出し)の定義
           // 投稿の詳細ページへのリンクも
           var infowindow = new google.maps.InfoWindow({
-          position: {lat: <%= m.latitude %>, lng: <%= m.longitude %>},
-          content: "<a href='<%= map_url(m.id) %>' target='_blank'><%= m.address %></a>"
+          position: {lat: <%= map.latitude %>, lng: <%= map.longitude %>},
+          content: "<a href='<%= map_url(map.id) %>' target='_blank'><%= map.address %></a>"
           });
           // クリックしたときに情報ウィンドウを表示
           marker.addListener('click', function() {
@@ -52,7 +52,6 @@
   // 地図検索関数
   function codeAddress() {
       let inputAddress = document.getElementById('address').value;
-
       geocoder.geocode({
           'address': inputAddress
       }, function (results, status) {
@@ -62,7 +61,6 @@
                   map: map,
                   position: results[0].geometry.location
               });
-
           display.textContent = "検索結果：" + results[ 0 ].geometry.location
           } else {
               alert('該当する結果がありませんでした：' + status);
@@ -78,9 +76,9 @@
 <%= form_with model: @map, url: maps_path, local: true do |f| %>
   <p>
   <%= f.label :住所 %>
-  <%= f.text_field :address, size: "50x1" %>
+  <%= f.text_field :address, size: "50x1", required: true, :placeholder => "住所入力" %>
   <%= f.label :説明 %>
-  <%= f.text_field :profile, size: "50x1" %>
+  <%= f.text_field :profile, size: "50x1", :placeholder => "説明文入力" %>
   </p>
   <%= f.submit "送信"%>
 <% end %>
