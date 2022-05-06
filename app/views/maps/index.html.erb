@@ -47,7 +47,7 @@ function codeAddress(){
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_map_api_key %>&callback=initMap" async defer></script>
 
-<%= form_with model: @map, url: maps_path, local: true do |f| %>
+<%= form_with model: @newmap, url: maps_path, local: true do |f| %>
   <%= f.label :address ,"住所" %>
   <%= f.text_field :address, required: true, size: '40', :placeholder => "住所入力" %>
   <%= f.label :profile ,"説明" %>

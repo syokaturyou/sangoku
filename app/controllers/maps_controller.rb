@@ -1,12 +1,12 @@
 class MapsController < ApplicationController
   def index
     @maps = Map.all
-    @map = Map.new
+    @newmap = Map.new
   end
 
   def create
-    @map = Map.new(map_params)
-    if @map.save
+    @newmap = Map.new(map_params)
+    if @newmap.save
       flash[:notice] = '成功'
       # redirect_to root_path
       redirect_to maps_path
