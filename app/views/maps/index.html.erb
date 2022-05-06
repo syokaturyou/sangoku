@@ -5,7 +5,6 @@
 <div id="display">緯度経度が表示されるよ！</div>
 
 <div id='map'></div>
-
 <style>
     #map {
         height: 400px;
@@ -87,15 +86,12 @@
     src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"
     async defer>
 </script>
-
 <h3>場所投稿フォーム</h3>
 <%= form_for(@map, :url => { controller:'maps', action:'create'})do |f| %>
-
     <p>
     <%= f.label :address %>
     <%= f.text_field :address, size: "50x1" %>
     </p>
-
     <%= f.submit "送信"%>
 <% end %>
 
