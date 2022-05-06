@@ -5,14 +5,14 @@ class MapsController < ApplicationController
   end
 
   def create
-    @map = Map.new(map_params)
-    if @map.save
+    @newmap = Map.new(map_params)
+    if @newmap.save
       flash[:notice] = '成功'
       # redirect_to root_path
       redirect_to :action => 'index'
     else
       flash[:notice] = '失敗'
-      redirect_to :action => 'index'
+      redirect_to root_path
     end
   end
 
