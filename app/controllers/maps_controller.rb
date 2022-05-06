@@ -14,7 +14,7 @@ class MapsController < ApplicationController
     if @newmap.save
       flash[:notice] = '成功'
       # redirect_to root_path
-      redirect_to root_path
+      redirect_to maps_path
     else
       flash[:notice] = '失敗'
       redirect_to root_path
@@ -25,12 +25,12 @@ class MapsController < ApplicationController
     @map = Map.find(params[:id])
     @map.destroy
     flash[:notice] = '削除しました'
-    redirect_to root_path
+    redirect_to maps_path
   end
 
   private
 
   def map_params
-    params.require(:map).permit(:address, :profile)
+    params.require(:map).permit(:address, :profile, :latitude, :longitude)
   end
 end
