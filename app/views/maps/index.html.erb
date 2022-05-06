@@ -52,8 +52,6 @@ function codeAddress(){
   <%= f.text_field :address, required: true, size: '40', :placeholder => "住所入力" %>
   <%= f.label :profile ,"説明" %>
   <%= f.text_field :profile, size: '40', :placeholder => "説明文入力" %>
-  <%= f.hidden_field :latitude, :value => 33.000 %>
-  <%= f.hidden_field :longitude, :value => 44.000 %>
   <%= f.submit "送信", class: 'btn btn-primary', data: {"turbolinks"=>false} %>
 <% end %>
 
