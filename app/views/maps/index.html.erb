@@ -91,8 +91,7 @@
     <p>
     <%= f.label :address %>
     <%= f.text_field :address, size: "50x1" %>
-    <%= f.label :profile %>
-    <%= f.text_field :profile, size: "50x1" %>
+
     </p>
     <%= f.submit "送信"%>
 <% end %>
@@ -102,7 +101,7 @@
     <p>住所 : <%= t.address %></p>
     <p>緯度 : <%= t.latitude %></p>
     <p>経度 : <%= t.longitude %></p>
-    <p>プロフィール : <%= t.profile %></p>
+
     <p><%= link_to "削除する", map_path(t.id), method: :delete %></p>
     <hr>
 <% end %>
