@@ -59,6 +59,6 @@ function codeAddress(){
 <% @maps.each do |map| %>
   <p>住所 : <%= map.address %></p>
   <p>説明 : <%= map.profile %></p>
-  <p><%= link_to "削除する", map_path(map.id), method: :delete %></p>
+  <p><%= link_to "削除する", map_path(map), method: :delete %></p>
   <hr>
 <% end %>
