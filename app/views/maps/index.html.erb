@@ -82,16 +82,16 @@
     }
 </script>
 
-<script
-    src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"
-    async defer>
-</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_map_api_key %>&callback=initMap" async defer></script>
+
+
 <h3>場所投稿フォーム</h3>
 <%= form_for(@map, :url => { controller:'maps', action:'create'})do |f| %>
     <p>
     <%= f.label :address %>
     <%= f.text_field :address, size: "50x1" %>
-
+    <%= f.label :profile %>
+    <%= f.text_field :profile, size: "50x1" %>
     </p>
     <%= f.submit "送信"%>
 <% end %>
@@ -99,9 +99,9 @@
 <h3>場所一覧</h3>
 <% @maps.each do |t| %>
     <p>住所 : <%= t.address %></p>
+    <p>紹介 : <%= t.profile %></p>
     <p>緯度 : <%= t.latitude %></p>
     <p>経度 : <%= t.longitude %></p>
-
     <p><%= link_to "削除する", map_path(t.id), method: :delete %></p>
     <hr>
 <% end %>
