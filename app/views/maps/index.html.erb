@@ -74,7 +74,8 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_map_api_key %>&callback=initMap" async defer></script>
 
 <h3>場所投稿フォーム</h3>
-<%= form_for(@map, :url => { controller:'maps', action:'create'})do |f| %>
+
+<%= form_with model: @map, url: maps_path, local: true do |f| %>
   <p>
   <%= f.label :住所 %>
   <%= f.text_field :address, size: "50x1" %>
