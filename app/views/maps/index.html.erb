@@ -47,10 +47,3 @@ function codeAddress(){
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_map_api_key %>&callback=initMap" async defer></script>
 
-<h3>場所一覧</h3>
-<% @maps.each do |map| %>
-  <p>住所 : <%= map.address %></p>
-  <p>説明 : <%= map.profile %></p>
-  <p><%= link_to "削除する", map_path(map), method: :delete %></p>
-  <hr>
-<% end %>

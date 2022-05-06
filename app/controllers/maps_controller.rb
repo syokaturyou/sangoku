@@ -1,11 +1,12 @@
 class MapsController < ApplicationController
   def index
-    @maps = Map.all
+    # @maps = Map.all
     # @newmap = Map.new
   end
 
   def new
     @newmap = Map.new
+    @maps = Map.all
   end
 
   def create
@@ -30,6 +31,6 @@ class MapsController < ApplicationController
   private
 
   def map_params
-    params.require(:map).permit(:address, :latitude, :profile)
+    params.require(:map).permit(:address, :profile)
   end
 end
