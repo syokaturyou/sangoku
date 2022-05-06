@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_02_060227) do
+ActiveRecord::Schema.define(version: 2022_05_06_044833) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -89,6 +89,15 @@ ActiveRecord::Schema.define(version: 2021_12_02_060227) do
     t.index ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
     t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
     t.index ["user_id"], name: "index_impressions_on_user_id"
+  end
+
+  create_table "maps", force: :cascade do |t|
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "profile"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "member_rooms", force: :cascade do |t|

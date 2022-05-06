@@ -152,6 +152,7 @@ GEM
     ffi (1.15.5)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
+    geocoder (1.7.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
     gretel (4.4.0)
@@ -415,6 +416,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   font-awesome-sass (~> 5.13)
+  geocoder
   gretel
   impressionist (~> 1.6.1)
   jbuilder (~> 2.5)
