@@ -5,10 +5,10 @@ class MapsController < ApplicationController
   end
 
   def create
-    map = Map.new(map_params)
-    if map.save
+    @map = Map.new(map_params)
+    if @map.save
       flash[:notice] = '成功'
-      redirect_to :action => 'index'
+      redirect_to root_path
     else
       flash[:notice] = '失敗'
       redirect_to :action => 'index'
@@ -16,8 +16,8 @@ class MapsController < ApplicationController
   end
 
   def destroy
-    map = Map.find(params[:id])
-    map.destroy
+    @map = Map.find(params[:id])
+    @map.destroy
     flash[:notice] = '削除しました'
     redirect_to action: :index
   end

@@ -85,11 +85,11 @@
 <% end %>
 
 <h3>場所一覧</h3>
-<% @maps.each do |t| %>
-  <p>住所 : <%= t.address %></p>
-  <p>紹介 : <%= t.profile %></p>
-  <p>緯度 : <%= t.latitude %></p>
-  <p>経度 : <%= t.longitude %></p>
-  <p><%= link_to "削除する", map_path(t.id), method: :delete %></p>
+<% @maps.each do |map| %>
+  <p>住所 : <%= map.address %></p>
+  <p>紹介 : <%= map.profile %></p>
+  <p>緯度 : <%= map.latitude %></p>
+  <p>経度 : <%= map.longitude %></p>
+  <p><%= link_to "削除する", map_path(map.id), method: :delete %></p>
   <hr>
 <% end %>
