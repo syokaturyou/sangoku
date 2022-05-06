@@ -9,7 +9,7 @@ class MapsController < ApplicationController
     if @map.save
       flash[:notice] = '成功'
       # redirect_to root_path
-      redirect_to :action => 'index'
+      redirect_to maps_path
     else
       flash[:notice] = '失敗'
       redirect_to root_path
