@@ -116,3 +116,13 @@ crumb :result do
   link '検索結果', search_result_path
   parent :publicpostindex
 end
+
+crumb :newmap do
+  link 'マップ探索', new_map_path
+  parent :root
+end
+
+crumb :mapindex do
+  link 'マップ一覧', maps_path
+  parent :newmap
+end
