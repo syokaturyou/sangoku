@@ -9,8 +9,8 @@ class MapsController < ApplicationController
   end
 
   def create
-    # @newmap = Map.new(map_params)
-    @newmap = current_member.maps.build(map_params)
+    @newmap = Map.new(map_params)
+    # @newmap = current_member.maps.build(map_params)
     if @newmap.save
       flash[:notice] = '成功'
       redirect_to maps_path
@@ -31,6 +31,6 @@ class MapsController < ApplicationController
   private
 
   def map_params
-    params.require(:map).permit(:address, :profile, :latitude, :longitude, :mapimage)
+    params.require(:map).permit(:address, :profile, :latitude, :longitude, :mapimage, :member_id)
   end
 end
