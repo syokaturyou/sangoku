@@ -6,6 +6,13 @@
 <div id="kekka">検索住所</div>
 <div id="display">(緯度, 経度)</div>
 
+<%= form_for @newmap do |f| %>
+<input type="hidden" name="map[address]" id="hidden_address">
+  <%= f.label :profile ,"説明" %>
+  <%= f.text_field :profile, size: '40', :placeholder => "説明文入力" %>
+  <%= f.submit "送信", class: 'btn btn-primary', data: {"turbolinks"=>false} %>
+<% end %>
+
 <div id='map'></div>
 
 <style>#map {height: 600px;width: 600px;}</style>
@@ -41,7 +48,7 @@ function codeAddress(){
           position: results[0].geometry.location
       });
       display.textContent = "(緯度, 経度)：" + results[ 0 ].geometry.location
-      kekka.textContent = inputAddress
+      kekka.textContent = "検索住所：" + inputAddress
 
       let hidden_address = document.getElementById('hidden_address');
       hidden_address.setAttribute("value", inputAddress);
@@ -54,17 +61,11 @@ function codeAddress(){
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_map_api_key %>&callback=initMap" async defer></script>
 
-<%= form_for @newmap do |f| %>
-<input type="hidden" name="map[address]" id="hidden_address">
-  <%= f.label :profile ,"説明" %>
-  <%= f.text_field :profile, size: '40', :placeholder => "説明文入力" %>
-  <%= f.submit "送信", class: 'btn btn-primary', data: {"turbolinks"=>false} %>
-<% end %>
-
 <h3>場所一覧</h3>
 <% @maps.each do |map| %>
   <p>住所 : <%= map.address %></p>
   <p>説明 : <%= map.profile %></p>
+  <p>id : <%= map.id %></p>
   <p>緯度 : <%= map.latitude %></p>
   <p>経度 : <%= map.longitude %></p>
   <p><%= link_to "削除する", map_path(map), method: :delete, data: { confirm: "本当に削除しますか？" }%></p>

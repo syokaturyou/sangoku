@@ -1,5 +1,6 @@
 module Public
   class RatesController < ApplicationController
+    before_action :set_current_member
     # Rateモデルはレビュー機能に関して使用
     def new
       @newrate = Rate.new

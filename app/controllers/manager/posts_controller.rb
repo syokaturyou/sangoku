@@ -1,5 +1,6 @@
 module Manager
   class PostsController < ApplicationController
+    before_action :authenticate_admin!
     # 管理者側では一覧・詳細画面と質問削除が可能
     def index
       # デフォルトは更新日時の降順に並べる

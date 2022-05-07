@@ -1,5 +1,6 @@
 module Manager
   class GenresController < ApplicationController
+    before_action :authenticate_admin!
     # ジャンル名新規登録・更新は管理者側で可能
     def index
       @genres = Genre.all.order(id: 'ASC').page(params[:page]).per(10)
