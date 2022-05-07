@@ -1,6 +1,6 @@
 module Public
   class AnswersController < ApplicationController
-    before_action :set_current_member
+    before_action :authenticate_member!
     # 会員側では新規回答投稿、回答編集、回答削除が可能
     def new
       @newanswer = Answer.new

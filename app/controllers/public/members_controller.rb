@@ -13,7 +13,7 @@ module Public
 
     # ログインしたユーザーだけ見えるようにcurrent_memberとする
     def edit
-      before_action :set_current_member
+      before_action :authenticate_member!
       @member = current_member
     end
 

@@ -1,6 +1,6 @@
 module Public
   class ChatsController < ApplicationController
-    before_action :set_current_member
+    before_action :authenticate_member!
     def show
       # どのユーザーとチャットするかを取得。
       @member = Member.find(params[:id])

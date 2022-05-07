@@ -1,6 +1,6 @@
 module Manager
   class AnswersController < ApplicationController
-     before_action :authenticate_admin!
+    before_action :authenticate_admin!
     # 管理者側では回答削除のみ
     def destroy
       answer = Answer.find(params[:id])
