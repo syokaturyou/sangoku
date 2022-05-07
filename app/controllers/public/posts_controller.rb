@@ -44,7 +44,6 @@ module Public
     end
 
     def new
-      before_action :set_current_member
       @newpost = Post.new
     end
 
