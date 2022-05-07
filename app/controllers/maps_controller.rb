@@ -1,5 +1,4 @@
 class MapsController < ApplicationController
-
   def new
     @newmap = Map.new
   end
