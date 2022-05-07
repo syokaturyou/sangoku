@@ -1,8 +1,10 @@
 <h2>gmap</h2>
 
-<input id="address" type="textbox" value="GeekSalon">
-<input type="button" value="Encode" onclick="codeAddress()">
+<input id="address" type="textbox" value="Tokyo">
+<input type="button" value="住所検索" onclick="codeAddress()">
+
 <div id="display">something</div>
+<div id="kekka">結果</div>
 
 <div id='map'></div>
 
@@ -17,12 +19,12 @@ function initMap(){
   geocoder = new google.maps.Geocoder()
 
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 40.7828, lng:-73.9653},
+    center: {lat: 35.6803997, lng:139.7690174},
     zoom: 10,
   });
 
   marker = new google.maps.Marker({
-    position:  {lat: 40.7828, lng:-73.9653},
+    position:  {lat: 35.6803997, lng:139.7690174},
     map: map
   });
 }
@@ -38,6 +40,8 @@ function codeAddress(){
           position: results[0].geometry.location
       });
       display.textContent = "検索結果：" + results[ 0 ].geometry.location
+      kekka.textContent = results[ 0 ].geometry.location
+      uooo = results[ 0 ].geometry.location
     } else {
       alert('該当する結果がありませんでした：' + status);
     }
@@ -47,14 +51,13 @@ function codeAddress(){
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_map_api_key %>&callback=initMap" async defer></script>
 
-
 <%= form_with model: @newmap, url: maps_path, local: true do |f| %>
   <%= f.label :address ,"住所" %>
   <%= f.text_field :address, required: true, size: '40', :placeholder => "住所入力" %>
   <%= f.label :profile ,"説明" %>
   <%= f.text_field :profile, size: '40', :placeholder => "説明文入力" %>
-  <%= f.hidden_field :latitude, :value => 33.000 %>
-  <%= f.hidden_field :longitude, :value => 44.000 %>
+  <%= f.hidden_field :latitude, :value =>  35.6803997 %>
+  <%= f.hidden_field :longitude, :value => 139.7690174 %>
   <%= f.submit "送信", class: 'btn btn-primary', data: {"turbolinks"=>false} %>
 <% end %>
 
@@ -64,6 +67,6 @@ function codeAddress(){
   <p>説明 : <%= map.profile %></p>
   <p>緯度 : <%= map.latitude %></p>
   <p>経度 : <%= map.longitude %></p>
-  <p><%= link_to "削除する", map_path(map), method: :delete %></p>
+  <p><%= link_to "削除する", map_path(map), method: :delete, data: { confirm: "本当に削除しますか？" }%></p>
   <hr>
 <% end %>
