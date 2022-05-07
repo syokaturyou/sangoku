@@ -1,10 +1,10 @@
 <h2>gmap</h2>
 
-<input id="address" type="textbox" value="Tokyo">
+<input id="address" type="textbox" value="東京">
 <input type="button" value="住所検索" onclick="codeAddress()">
 
-<div id="display">something</div>
-<div id="kekka">結果</div>
+<div id="kekka">検索住所</div>
+<div id="display">(緯度, 経度)</div>
 
 <div id='map'></div>
 
@@ -13,19 +13,20 @@
 <script>
 let map
 let geocoder
+let marker
 const display = document.getElementById('display')
 
 function initMap(){
   geocoder = new google.maps.Geocoder()
 
-  map = new google.maps.Map(document.getElementById('map'), {
+  mapInstance  = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 35.6803997, lng:139.7690174},
     zoom: 10,
   });
 
   marker = new google.maps.Marker({
     position:  {lat: 35.6803997, lng:139.7690174},
-    map: map
+    map: mapInstance
   });
 }
 
@@ -34,15 +35,17 @@ function codeAddress(){
 
   geocoder.geocode( { 'address': inputAddress}, function(results, status) {
     if (status == 'OK') {
-      map.setCenter(results[0].geometry.location);
-      var marker = new google.maps.Marker({
-          map: map,
+      mapInstance .setCenter(results[0].geometry.location);
+      marker = new google.maps.Marker({
+          map: mapInstance ,
           position: results[0].geometry.location
       });
-      display.textContent = "検索結果：" + results[ 0 ].geometry.location
-      kekka.textContent = results[ 0 ].geometry.location
-      uooo = results[ 0 ].geometry.location
-    } else {
+      display.textContent = "(緯度, 経度)：" + results[ 0 ].geometry.location
+      kekka.textContent = inputAddress
+
+      let hidden_address = document.getElementById('hidden_address');
+      hidden_address.setAttribute("value", inputAddress);
+      } else {
       alert('該当する結果がありませんでした：' + status);
     }
   });
@@ -51,13 +54,10 @@ function codeAddress(){
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_map_api_key %>&callback=initMap" async defer></script>
 
-<%= form_with model: @newmap, url: maps_path, local: true do |f| %>
-  <%= f.label :address ,"住所" %>
-  <%= f.text_field :address, required: true, size: '40', :placeholder => "住所入力" %>
+<%= form_for @newmap do |f| %>
+<input type="hidden" name="map[address]" id="hidden_address">
   <%= f.label :profile ,"説明" %>
   <%= f.text_field :profile, size: '40', :placeholder => "説明文入力" %>
-  <%= f.hidden_field :latitude, :value =>  35.6803997 %>
-  <%= f.hidden_field :longitude, :value => 139.7690174 %>
   <%= f.submit "送信", class: 'btn btn-primary', data: {"turbolinks"=>false} %>
 <% end %>
 

@@ -4,16 +4,10 @@ class MapsController < ApplicationController
     @newmap = Map.new
   end
 
-  def new
-    @newmap = Map.new
-    @maps = Map.all
-  end
-
   def create
     @newmap = Map.new(map_params)
     if @newmap.save
       flash[:notice] = '成功'
-      # redirect_to root_path
       redirect_to maps_path
     else
       flash[:notice] = '失敗'
