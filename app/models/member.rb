@@ -9,7 +9,7 @@ class Member < ApplicationRecord
          has_many :rates, dependent: :destroy
          has_many :member_rooms, dependent: :destroy
          has_many :chats, dependent: :destroy
-         has_many :maps, dependent: :destroy
+         has_many :sights, dependent: :destroy
 
          attachment :profileimage
 

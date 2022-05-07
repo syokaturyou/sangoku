@@ -1,4 +1,4 @@
-class Map < ApplicationRecord
+class Sight < ApplicationRecord
   belongs_to :member
 
   geocoded_by :address

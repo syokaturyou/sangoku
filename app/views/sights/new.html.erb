@@ -8,7 +8,7 @@
 <div id="kekka">検索住所</div>
 <div id="display">(緯度, 経度)</div>
 
-<%= form_with model: @newsight, url: maps_path, local: true do |f| %>
+<%= form_with model: @newsight, url: sights_path, local: true do |f| %>
 <input type="hidden" name="map[address]" id="hidden_address">
   <%= f.label :profile ,"説明" %>
   <%= f.text_field :profile, size: '40', :placeholder => "説明文入力" %>

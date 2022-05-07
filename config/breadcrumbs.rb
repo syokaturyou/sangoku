@@ -117,12 +117,12 @@ crumb :result do
   parent :publicpostindex
 end
 
-crumb :newmap do
-  link 'マップ探索', new_map_path
+crumb :newsight do
+  link 'マップ探索', new_sight_path
   parent :root
 end
 
-crumb :mapindex do
-  link 'マップ一覧', maps_path
-  parent :newmap
+crumb :sightindex do
+  link 'マップ一覧', sights_path
+  parent :newsight
 end
