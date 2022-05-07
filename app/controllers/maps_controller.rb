@@ -1,5 +1,6 @@
 class MapsController < ApplicationController
   def index
+    before_action :authenticate_member!
     @maps = Map.all
     @newmap = Map.new
   end
