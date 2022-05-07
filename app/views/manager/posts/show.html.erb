@@ -13,8 +13,8 @@
         <tr bgcolor=#DDDDDD>
          <td width='130'>質問者
           <div style="padding: 2px; border: 1px solid #333333;">
-           <%= attachment_image_tag @post.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg", size:'120x100' %>
-           <%= link_to @post.member.name.truncate(15), manager_member_path(@post.member) %>
+           <%= link_to attachment_image_tag( @post.member, :profileimage, fallback: "no_image.jpg", size: '120x100'), manager_member_path(@post.member), data: {"turbolinks"=>false} %>
+           <%= @post.member.name.truncate(15) %>
           </div>
          </td>
          <td width='400'>質問本文
@@ -40,8 +40,8 @@
         <tr bgcolor=#EEEEEE>
           <td width='130'>回答者
            <div style="padding: 2px; border: 1px solid #333333;">
-            <%= attachment_image_tag answer.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg", size:'120x100' %>
-            <%= link_to answer.member.name.truncate(15), manager_member_path(answer.member) %>
+            <%= link_to attachment_image_tag( answer.member, :profileimage, fallback: "no_image.jpg", size: '120x100'), manager_member_path(answer.member), data: {"turbolinks"=>false} %>
+            <%= answer.member.name.truncate(15) %>
            </div>
            <br />回答更新日時
             <br /><%= answer.updated_at.to_s(:datetime_jp) %>

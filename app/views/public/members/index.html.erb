@@ -19,8 +19,8 @@
        <tr bgcolor=#EEEEEE>
         <td><%= member.id %></td>
         <td>
-         <%= attachment_image_tag member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg", size:'60x60' %>
-         <%= link_to member.name.truncate(25), public_member_path(member) %>
+         <%= link_to attachment_image_tag(member, :profileimage, fallback: "no_image.jpg", size: '60x60'), public_member_path(member), data: {"turbolinks"=>false} %>
+         <%= member.name.truncate(25) %>
         </td>
         <td>
          <% if member.is_deleted == true %><font color="gray">退会</font>

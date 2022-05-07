@@ -6,9 +6,8 @@
   <p>説明: <%= map.profile %></p>
   <p>マップid  : <%= map.id %></p>
   <p>投稿者id  : <%= map.member_id %></p>
-  <p>投稿者
-  <%= attachment_image_tag map.member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg", size:'120x100' %>
-  <%= link_to map.member.name.truncate(15), public_member_path(map.member) %>
+  <p>投稿者: <%= map.member.name %>
+  <%= link_to attachment_image_tag( map.member, :profileimage, fallback: "no_image.jpg", size: '180x120'), public_member_path(map.member), data: {"turbolinks"=>false} %>
   </p>
   <p>緯度: <%= map.latitude %></p>
   <p>経度: <%= map.longitude %></p>

@@ -17,8 +17,8 @@
       <tr bgcolor=#EEEEEE>
        <td><%= member.id %></td>
        <td>
-        <%= attachment_image_tag member, :profileimage, :fill, 60, 60, fallback: "no_image.jpg", size:'60x60' %>
-        <%= link_to member.name, public_member_path(member) %>
+        <%= link_to attachment_image_tag(member, :profileimage, fallback: "no_image.jpg", size: '60x60'), public_member_path(member), data: {"turbolinks"=>false} %>
+        <%= member.name.truncate(25) %>
        </td>
        <td>            </td>
        <td>
@@ -56,8 +56,8 @@
        <td><%= post.id %></td>
        <td>[<%= post.genre.id %>]/<%= post.genre.name %></td>
        <td>
-        <%= attachment_image_tag post.member, :profileimage, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %>
-        <%= link_to post.member.name, public_member_path(post.member) %>
+        <%= link_to attachment_image_tag( post.member, :profileimage, fallback: "no_image.jpg", size: '40x40'), public_member_path(post.member), data: {"turbolinks"=>false} %>
+        <%= post.member.name.truncate(25) %>
        </td>
        <td><%= link_to post.posttitle, public_post_path(post) %></td>
        <td><%= post.answers.count %></td>
@@ -103,8 +103,8 @@
        <td><%= post.id %></td>
        <td><%= link_to post.posttitle, public_post_path(post) %></td>
        <td>
-        <%= attachment_image_tag post.member, :profileimage, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %>
-        <%= link_to post.member.name, public_member_path(post.member) %>
+        <%= link_to attachment_image_tag( post.member, :profileimage, fallback: "no_image.jpg", size: '40x40'), public_member_path(post.member), data: {"turbolinks"=>false} %>
+        <%= post.member.name.truncate(25) %>
        </td>
        <td><%= post.updated_at.to_s(:datetime_jp) %></td>
        <td><%= post.answers.count %></td>
