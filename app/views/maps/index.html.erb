@@ -5,13 +5,10 @@
   <p>住所: <%= map.address %></p>
   <p>説明: <%= map.profile %></p>
   <p>マップid  : <%= map.id %></p>
-  <p>投稿者id  : <%= map.member_id %></p>
-  <p>投稿者: <%= map.member.name %>
-  <%= link_to attachment_image_tag( map.member, :profileimage, fallback: "no_image.jpg", size: '180x120'), public_member_path(map.member), data: {"turbolinks"=>false} %>
-  </p>
+
   <p>緯度: <%= map.latitude %></p>
   <p>経度: <%= map.longitude %></p>
-  <p>画像:<%= attachment_image_tag map, :mapimage, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %></p>
+
   <p><%= link_to "削除する", map_path(map), method: :delete, data: { confirm: "本当に削除しますか？" }%></p>
   <hr>
 <% end %>
