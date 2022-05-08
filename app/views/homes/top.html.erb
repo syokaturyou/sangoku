@@ -40,7 +40,6 @@
   <div class="home-top__home-title--blue">
    <span class="home-top__home-subtitle">おすすめスポット</span>
   </div>
-
   <table class="sighttable">
      <tr>
       <th>画像</th>
@@ -48,6 +47,7 @@
       <th>説明</th>
       <th>投稿者</th>
       <th>更新日時</th>
+      <th>平均評価点</th>
       <th></th>
      </tr>
      <% @sights.first(4).each do |sight| %>
@@ -62,13 +62,14 @@
        <%= sight.member.name %>
       </td>
       <td><%= sight.updated_at.to_s(:datetime_jp) %></td>
+      <td><%= render 'evaluates/review', sight: sight %></td>
       <td>
        <% if member_signed_in? %>
          <% if sight.member.id == current_member.id %>
           <%= link_to "削除する", sight_path(sight), class: 'btn btn-danger', method: :delete, data: { confirm: "本当に削除しますか？" }%>
           <%= link_to "編集する", edit_sight_path(sight), class: 'btn btn-success', data: {"turbolinks"=>false} %>
          <% elsif sight.member.id != current_member.id %>
-          <%= link_to '評価する', root_path, class: 'btn btn-warning', data: {"turbolinks"=>false} %>
+          <%= link_to '評価する', new_sight_evaluate_path(sight.id), class: 'btn btn-warning', data: {"turbolinks"=>false} %>
          <% end %>
         <% elsif admin_signed_in? %>
          <%= link_to "削除する", sight_path(sight), class: 'btn btn-danger', method: :delete, data: { confirm: "本当に削除しますか？" }%>

@@ -39,7 +39,6 @@ module Public
     end
 
     def edit
-      before_action :set_current_member
       @post = Post.find(params[:id])
     end
 

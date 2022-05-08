@@ -118,16 +118,21 @@ crumb :result do
 end
 
 crumb :newsight do
-  link 'マップ探索', new_sight_path
+  link 'おすすめ地域探索', new_sight_path
   parent :root
 end
 
 crumb :sightindex do
-  link 'マップ一覧', sights_path
+  link 'おすすめ地域一覧', sights_path
   parent :newsight
 end
 
 crumb :sightedit do
-  link 'マップ編集', edit_sight_path
+  link 'おすすめ地域編集', edit_sight_path
+  parent :sightindex
+end
+
+crumb :newevaluate do
+  link 'おすすめ地域評価投稿', new_sight_evaluate_path
   parent :sightindex
 end

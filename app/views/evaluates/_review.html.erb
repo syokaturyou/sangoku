@@ -1,0 +1,14 @@
+<span id="star1-rate-<%= sight.id %>"></span>
+  <script>
+    $('#star1-rate-<%= sight.id %>').raty({
+      size: 36,
+      starOff: "<%= asset_path('star-off.png') %>",
+      starOn: "<%= asset_path('star-on.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      half: true,
+      readOnly: true,
+      score: <%= sight.evaluates.average(:rate).to_f.round(1) %>,
+    });
+  </script>
+<br/>
+合計評価数 : <%= sight.evaluates.count %>
