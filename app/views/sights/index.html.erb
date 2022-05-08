@@ -1,24 +1,40 @@
 <% breadcrumb :sightindex  %>
 <%= breadcrumbs separator: " > " , class: :logo %>
-<h2>場所一覧</h2>
-<% @sights.each do |sight| %>
-  <p>住所: <%= sight.address %></p>
-  <p>説明: <%= sight.profile %></p>
-  <p>マップid  : <%= sight.id %></p>
-  <p>投稿者id  : <%= sight.member_id %></p>
-  <p>投稿者: <%= sight.member.name %>
-  <%= link_to attachment_image_tag( sight.member, :profileimage, fallback: "no_image.jpg", size: '180x120'), public_member_path(sight.member), data: {"turbolinks"=>false} %>
-  </p>
-  <p>緯度: <%= sight.latitude %></p>
-  <p>経度: <%= sight.longitude %></p>
-  <p>画像:<%= attachment_image_tag sight, :mapimage, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %></p>
-  <p><% if member_signed_in? %>
+
+<table class="sighttable">
+  <tr>
+   <th>画像</th>
+   <th>住所 (緯度,経度)</th>
+   <th>説明</th>
+   <th>投稿者</th>
+   <th>更新日時</th>
+   <th></th>
+  </tr>
+  <%= paginate @sights %>
+  <% @sights.each do |sight| %>
+  <tr>
+   <td><%= attachment_image_tag sight, :mapimage, :fill, 40, 40, fallback: "no_image.jpg", size:'160x120' %></td>
+   <td><%= sight.address %>
+      (<%= sight.latitude %>, <%= sight.longitude %>)
+   </td>
+   <td><%= sight.profile %></td>
+   <td>
+    <%= link_to attachment_image_tag( sight.member, :profileimage, fallback: "no_image.jpg", size: '80x80'), public_member_path(sight.member), data: {"turbolinks"=>false} %>
+    <%= sight.member.name %>
+   </td>
+   <td><%= sight.updated_at.to_s(:datetime_jp) %></td>
+   <td>
+    <% if member_signed_in? %>
       <% if sight.member.id == current_member.id %>
        <%= link_to "削除する", sight_path(sight), class: 'btn btn-danger', method: :delete, data: { confirm: "本当に削除しますか？" }%>
        <%= link_to "編集する", edit_sight_path(sight), class: 'btn btn-success', data: {"turbolinks"=>false} %>
+      <% elsif sight.member.id != current_member.id %>
+       <%= link_to '評価する', root_path, class: 'btn btn-warning', data: {"turbolinks"=>false} %>
       <% end %>
      <% elsif admin_signed_in? %>
       <%= link_to "削除する", sight_path(sight), class: 'btn btn-danger', method: :delete, data: { confirm: "本当に削除しますか？" }%>
      <% end %>
-  </p>
-<% end %>
+   </td>
+   </tr>
+   <% end %>
+ </table>

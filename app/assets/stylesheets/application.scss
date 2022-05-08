@@ -113,6 +113,36 @@ table.membertable td:nth-child(3){
   padding: 5px;
 }
 
+
+.sighttable {
+   border: 2px #C0C0C0 solid;
+   margin: 10px 30px;
+  }
+  .sighttable td{
+    min-width: 120px;
+    text-align: center;
+    padding: 3px;
+  }
+   table.sighttable tr:nth-child(1){
+    border: 2px #C0C0C0 solid;
+    text-align: center;
+    background-color: #99FFCC;
+  }
+  table.sighttable td:nth-child(1){
+    min-width: 360px;
+    text-align: center;
+  }
+  table.sighttable td:nth-child(2){
+    font-size: 18px;
+    text-decoration: underline;
+  }
+  .sighttable th{
+    min-width: 120px;
+    text-align: center;
+    padding: 3px;
+  }
+
+
 .user {
   color: black;
   text-align: center;

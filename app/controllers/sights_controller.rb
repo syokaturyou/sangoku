@@ -4,7 +4,7 @@ class SightsController < ApplicationController
   end
 
   def index
-    @sights = Sight.all
+    @sights = Sight.all.order(updated_at: 'DESC').page(params[:page]).per(4)
   end
 
   def edit

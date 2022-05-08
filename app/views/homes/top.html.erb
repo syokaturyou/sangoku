@@ -36,6 +36,48 @@
     <% end %>
     </table>
   </div>
+
+  <div class="home-top__home-title--blue">
+   <span class="home-top__home-subtitle">おすすめスポット</span>
+  </div>
+
+  <table class="sighttable">
+     <tr>
+      <th>画像</th>
+      <th>住所 (緯度,経度)</th>
+      <th>説明</th>
+      <th>投稿者</th>
+      <th>更新日時</th>
+      <th></th>
+     </tr>
+     <% @sights.first(4).each do |sight| %>
+     <tr>
+      <td><%= attachment_image_tag sight, :mapimage, :fill, 40, 40, fallback: "no_image.jpg", size:'160x120' %></td>
+      <td><%= sight.address %>
+         (<%= sight.latitude %>, <%= sight.longitude %>)
+      </td>
+      <td><%= sight.profile %></td>
+      <td>
+       <%= link_to attachment_image_tag( sight.member, :profileimage, fallback: "no_image.jpg", size: '80x80'), public_member_path(sight.member), data: {"turbolinks"=>false} %>
+       <%= sight.member.name %>
+      </td>
+      <td><%= sight.updated_at.to_s(:datetime_jp) %></td>
+      <td>
+       <% if member_signed_in? %>
+         <% if sight.member.id == current_member.id %>
+          <%= link_to "削除する", sight_path(sight), class: 'btn btn-danger', method: :delete, data: { confirm: "本当に削除しますか？" }%>
+          <%= link_to "編集する", edit_sight_path(sight), class: 'btn btn-success', data: {"turbolinks"=>false} %>
+         <% elsif sight.member.id != current_member.id %>
+          <%= link_to '評価する', root_path, class: 'btn btn-warning', data: {"turbolinks"=>false} %>
+         <% end %>
+        <% elsif admin_signed_in? %>
+         <%= link_to "削除する", sight_path(sight), class: 'btn btn-danger', method: :delete, data: { confirm: "本当に削除しますか？" }%>
+        <% end %>
+      </td>
+      </tr>
+      <% end %>
+    </table>
+
   <div class="home-top__home-title--green">
    <span class="home-top__home-subtitle">参考サイト</span>
   </div>
