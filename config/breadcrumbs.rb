@@ -126,3 +126,8 @@ crumb :sightindex do
   link 'マップ一覧', sights_path
   parent :newsight
 end
+
+crumb :sightedit do
+  link 'マップ編集', edit_sight_path
+  parent :sightindex
+end

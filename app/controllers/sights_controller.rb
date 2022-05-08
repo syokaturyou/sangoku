@@ -7,9 +7,12 @@ class SightsController < ApplicationController
     @sights = Sight.all
   end
 
+  def edit
+    @sight =  Sight.find(params[:id])
+  end
+
   def create
     @newsight = Sight.new(sight_params)
-    # @newmap = current_member.maps.build(map_params)
     if @newsight.save
       flash[:notice] = '成功'
       redirect_to sights_path
@@ -17,6 +20,14 @@ class SightsController < ApplicationController
       flash[:notice] = '失敗'
       redirect_to root_path
     end
+  end
+
+  def update
+    @sight = Sight.find(params[:id])
+    @sight.update(sight_params)
+    @sight.update(mapimage: nil) if params[:image_delete].present? # 「画像なし」を選択した場合mapimageをnilにする
+    flash[:notice] = 'マップを更新しました'
+    redirect_to sights_path
   end
 
   def destroy

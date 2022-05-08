@@ -2,14 +2,14 @@
 <%= breadcrumbs separator: " > " , class: :logo %>
 
 <h2>gmap</h2>
-<input id="address" type="textbox" value="東京" placeholder="入力してください">
+<input id="address" type="textbox" value="東京">
 <input type="button" value="住所検索" onclick="codeAddress()">
 
 <div id="kekka">検索住所</div>
 <div id="display">(緯度, 経度)</div>
 
 <%= form_with model: @newsight, url: sights_path, local: true do |f| %>
-<input type="hidden" name="map[address]" id="hidden_address">
+<input type="hidden" name="sight[address]" id="hidden_address">
   <%= f.label :profile ,"説明" %>
   <%= f.text_field :profile, size: '40', :placeholder => "説明文入力" %>
   <%= f.label :参考画像 %>

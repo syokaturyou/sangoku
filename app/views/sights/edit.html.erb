@@ -1,0 +1,34 @@
+<% breadcrumb :sightedit  %>
+<%= breadcrumbs separator: " > " , class: :logo %>
+<div class='container'>
+  <div class="row">
+   <table class="newtable">
+    <div class="col-lg-6">
+     <h2>マップ編集</h2>
+    </div>
+     <tbody>
+      <%= form_with model: @sight, url: sight_path(@sight), local: true do |f| %>
+       <tr>
+        <td><%= f.label :アドレス変更 %></td>
+        <td><%= f.text_field :address, autofocus: true, size: "60", :placeholder => "住所入力" %></td>
+       </tr>
+       <tr>
+        <td><%= f.label :説明変更 %></td>
+        <td><%= f.text_field :profile, autofocus: true, size: "50", :placeholder => "説明入力" %></td>
+       </tr>
+       <tr>
+        <td><%= f.label :参考画像 %></td>
+        <td><%= attachment_image_tag @sight, :mapimage, :fill, 90, 90, fallback: "no_image.jpg" %>
+         <label><%= check_box_tag :image_delete %>画像なし</label>
+         <label><%= f.attachment_field :mapimage %></label>
+        </td>
+       </tr>
+       <tr>
+       <td><%= link_to '戻る', :back, class: 'btn btn-danger btn-lg' %></td>
+       <td><%= f.submit "内容を更新する", class: 'btn btn-success btn-lg', data: {"turbolinks"=>false} %></td>
+       <% end %>
+       </tr>
+     </tbody>
+   </table>
+ </div>
+</div>
