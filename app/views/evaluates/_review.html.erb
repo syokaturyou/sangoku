@@ -11,4 +11,6 @@
     });
   </script>
 <br/>
-合計評価数 : <%= sight.evaluates.count %>
+評価数 : <%= sight.evaluates.count %>
+<br/>
+平均評価点 : <%= sight.evaluates.average(:rate) %>

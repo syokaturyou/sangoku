@@ -9,6 +9,7 @@
    <%= f.label :rate, "評価：" %>
    <%= f.hidden_field :sight_id, :value => params[:sight_id] %>
    <%= f.hidden_field :rate, :value => 0,  id: :evaluate_star %>
+   <%= f.hidden_field :review, :value => params[:rate] %>
    <script>
       $('#star1').raty({
         size     : 36,
