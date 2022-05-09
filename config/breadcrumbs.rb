@@ -132,6 +132,11 @@ crumb :sightedit do
   parent :sightindex
 end
 
+crumb :sightshow do
+  link 'おすすめ地域詳細', sight_path
+  parent :sightindex
+end
+
 crumb :newevaluate do
   link 'おすすめ地域評価投稿', new_sight_evaluate_path
   parent :sightindex

@@ -11,6 +11,10 @@ class SightsController < ApplicationController
     @sight =  Sight.find(params[:id])
   end
 
+  def show
+    @sight =  Sight.find(params[:id])
+  end
+
   def create
     @newsight = Sight.new(sight_params)
     if @newsight.save
