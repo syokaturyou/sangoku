@@ -15,8 +15,7 @@
   <%= paginate @sights %>
   <% @sights.each do |sight| %>
   <tr>
-   <td><%= attachment_image_tag sight, :mapimage, :fill, 40, 40, fallback: "no_image.jpg", size:'160x120' %>
-       <%= link_to attachment_image_tag( sight, :mapimage, fallback: "no_image.jpg", size: '160x120'), sight_path(sight), data: {"turbolinks"=>false} %></td>
+   <td><%= link_to attachment_image_tag( sight, :mapimage, fallback: "no_image.jpg", size: '160x120'), sight_path(sight), data: {"turbolinks"=>false} %></td>
    <td><%= sight.address %>
       (<%= sight.latitude %>, <%= sight.longitude %>)
    </td>
