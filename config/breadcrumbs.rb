@@ -139,5 +139,5 @@ end
 
 crumb :newevaluate do
   link 'おすすめ地域評価投稿', new_sight_evaluate_path
-  parent :sightshow
+  parent :sightindex
 end
