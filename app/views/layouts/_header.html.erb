@@ -36,8 +36,8 @@
         <li><div class="header-nav__header-box"><%= link_to '会員一覧', public_members_path, class: "fas fa-user nav-link" %></div></li>
         <li><div class="header-nav__header-box"><%= link_to '質問投稿一覧', public_posts_path, class: "fas fa-user-edit nav-link" %></div></li>
         <li><div class="header-nav__header-box"><%= link_to 'お問い合わせ', new_contract_path, class: "fas fa-envelope-square nav-link", data: {"turbolinks"=>false} %></div></li>
-        <li><div class="header-nav__header-box"><%= link_to "新規登録", new_member_registration_path, class: 'btn btn-secondary btn-lg' %></div></li>
-        <li><div class="header-nav__header-box"><%= link_to 'ログイン', new_member_session_path, class: 'btn btn-primary btn-lg' %></div></li>
+        <li><div class="header-nav__header-box"><%= link_to "新規登録", new_member_registration_path, class: 'fa-solid fa-circle-plus' %></div></li>
+        <li><div class="header-nav__header-box"><%= link_to 'ログイン', new_member_session_path, class: 'fa-solid fa-arrow-right-to-arc' %></div></li></i>
        </div>
       </ul>
     <% end %>
@@ -52,16 +52,16 @@
   </div>
    <% if member_signed_in? %>
     <p><%= link_to 'ログアウト', destroy_member_session_path, method: :delete, class: "btn btn-primary" %></p>
+   <% elsif admin_signed_in? %>
+    <p><%= link_to 'ログアウト', destroy_member_session_path, method: :delete, class: "btn btn-primary" %></p>
    <% else %>
-   <p><%= link_to "新規登録", new_member_registration_path, class: 'btn btn-secondary btn-lg' %></p>
-   <p><%= link_to 'ログイン', new_member_session_path, class: 'btn btn-primary btn-lg' %></p>
+    <p><%= link_to "新規登録", new_member_registration_path, class: 'btn btn-secondary btn-lg' %></p>
+    <p><%= link_to 'ログイン', new_member_session_path, class: 'btn btn-primary btn-lg' %></p>
      <%= form_for(resource, as: resource_name, url: member_session_path) do |f| %>
       <%= f.hidden_field :email, :value => 'guest@example.com' %>
       <%= f.hidden_field :password, :value => 'password' %>
       <p><%= f.submit 'ゲストログイン', class: "btn btn-warning btn-lg" %></p>
      <% end %>
    <% end %>
-
  </div>
-
 </header>
