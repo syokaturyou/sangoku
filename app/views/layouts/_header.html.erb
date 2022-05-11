@@ -11,7 +11,7 @@
         <li><div class="header-nav__header-box"><%= link_to '会員一覧', public_members_path, class: "fas fa-user nav-link" %></div></li>
         <li><div class="header-nav__header-box"><%= link_to '質問投稿一覧', public_posts_path, class: "fas fa-user-edit nav-link" %></div></li>
         <li><div class="header-nav__header-box"><%= link_to 'おすすめ地域一覧', sights_path, class: "fas fa-solid fa-map nav-link" %></div></li>
-        <li><div class="header-nav__header-box"><%= link_to 'ログアウト', destroy_member_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link' %></div></li>
+        <li><div class="header-nav__header-box"><%= link_to 'ログアウト', destroy_member_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link' %></div></li>
        </div>
       </ul>
     <% elsif admin_signed_in? %>
@@ -24,7 +24,7 @@
         <li><div class="header-nav__header-box"><%= link_to '質問投稿一覧', manager_posts_path, class: "fas fa-user-edit nav-link" %></div></li>
         <li><div class="header-nav__header-box"><%= link_to 'ジャンル一覧', manager_genres_path, class: "fas fa-file-alt nav-link" %></div></li>
         <li><div class="header-nav__header-box"><%= link_to 'お知らせ一覧', articles_path, class: "fas fa-newspaper nav-link" %></div></li>
-        <li><div class="header-nav__header-box"><%= link_to 'ログアウト', destroy_member_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link' %></div></li>
+        <li><div class="header-nav__header-box"><%= link_to 'ログアウト', destroy_member_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link' %></div></li>
        </div>
       </ul>
     <% else %>
@@ -37,7 +37,7 @@
         <li><div class="header-nav__header-box"><%= link_to '質問投稿一覧', public_posts_path, class: "fas fa-user-edit nav-link" %></div></li>
         <li><div class="header-nav__header-box"><%= link_to 'お問い合わせ', new_contract_path, class: "fas fa-envelope-square nav-link", data: {"turbolinks"=>false} %></div></li>
         <li><div class="header-nav__header-box"><%= link_to "新規登録", new_member_registration_path, class: "fas fa-circle-plus nav-link" %></div></li>
-        <li><div class="header-nav__header-box"><%= link_to 'ログイン', new_member_session_path, class: "fas fa-arrow-right-to-arc nav-link" %></div></li></i>
+        <li><div class="header-nav__header-box"><%= link_to 'ログイン', new_member_session_path, class: "fas fa-registered nav-link" %></div></li></i>
        </div>
       </ul>
     <% end %>
