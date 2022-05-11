@@ -50,5 +50,18 @@
     <%= f.hidden_field :search, :value => "partial_match" %>
    <% end %>
   </div>
+   <% if member_signed_in? %>
+    <p><%= link_to 'ログアウト', destroy_member_session_path, method: :delete, class: "btn btn-primary" %></p>
+   <% else %>
+   <p><%= link_to "新規登録", new_member_registration_path, class: 'btn btn-secondary btn-lg' %></p>
+   <p><%= link_to 'ログイン', new_member_session_path, class: 'btn btn-primary btn-lg' %></p>
+     <%= form_for(resource, as: resource_name, url: member_session_path) do |f| %>
+      <%= f.hidden_field :email, :value => 'guest@example.com' %>
+      <%= f.hidden_field :password, :value => 'password' %>
+      <p><%= f.submit 'ゲストログイン', class: "btn btn-warning btn-lg" %></p>
+     <% end %>
+   <% end %>
+
  </div>
+
 </header>

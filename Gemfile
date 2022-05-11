@@ -97,7 +97,7 @@ gem 'dotenv-rails'
 gem 'redcarpet', '~> 2.3.0'  # マークダウン形式での表示
 gem 'coderay'                # シンタックスハイライト対応
 gem 'rails-i18n' # エラーメッセージ日本語化
-gem 'geocoder' # googlemaps利用
+gem 'geocoder' # google map apiを用いて緯度経度を出力
 group :production do
   gem 'mysql2'
 end

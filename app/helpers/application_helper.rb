@@ -39,4 +39,16 @@ module ApplicationHelper
     markdown = Redcarpet::Markdown.new(html_render, options)
     markdown.render(text)
   end
+
+  def resource_name
+   :member
+  end
+
+  def resource
+     @resource ||= Member.new
+  end
+
+  def devise_mapping
+     @devise_mapping ||= Devise.mappings[:membr]
+  end
 end

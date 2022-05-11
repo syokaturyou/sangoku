@@ -2,15 +2,15 @@ Rails.application.routes.draw do
 
   resources :zatudans, only: [:index, :create]
   resources :articles, only: [:index, :new, :create, :show, :edit, :update, :destroy]
-   devise_for :members,controllers: {
-   sessions: 'members/sessions',
-   passwords: 'members/passwords',
-   registrations: 'members/registrations'
- }
+  devise_for :members,controllers: {
+  sessions: 'members/sessions',
+  passwords: 'members/passwords',
+  registrations: 'members/registrations'
+}
 
-   devise_for :admins, skip: [:registrations], controllers: {
-   sessions: 'admins/sessions',
-   passwords: 'admins/passwords'
+  devise_for :admins, skip: [:registrations], controllers: {
+  sessions: 'admins/sessions',
+  passwords: 'admins/passwords'
 }
 
   root to: 'homes#top'
