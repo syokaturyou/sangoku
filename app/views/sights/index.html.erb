@@ -11,7 +11,9 @@
    <th>平均評価点</th>
    <th></th>
   </tr>
-  <%= link_to "新規探索する", new_sight_path, class: 'btn btn-success btn-lg', data: {"turbolinks"=>false} %>
+  <% if member_signed_in? %>
+   <%= link_to "新規探索する", new_sight_path, class: 'btn btn-success btn-lg', data: {"turbolinks"=>false} %>
+  <% end %>
   <%= paginate @sights %>
   <% @sights.each do |sight| %>
   <tr>

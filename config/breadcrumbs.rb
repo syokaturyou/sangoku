@@ -119,17 +119,17 @@ end
 
 crumb :newsight do
   link 'おすすめ地域探索', new_sight_path
-  parent :root
+  parent :sightindex
 end
 
 crumb :sightindex do
   link 'おすすめ地域一覧', sights_path
-  parent :newsight
+  parent :root
 end
 
 crumb :sightedit do
   link 'おすすめ地域編集', edit_sight_path
-  parent :sightindex
+  parent :sightshow
 end
 
 crumb :sightshow do
@@ -139,5 +139,5 @@ end
 
 crumb :newevaluate do
   link 'おすすめ地域評価投稿', new_sight_evaluate_path
-  parent :sightindex
+  parent :sightshow
 end
