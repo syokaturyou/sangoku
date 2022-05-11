@@ -26,4 +26,14 @@ class Member < ApplicationRecord
               Member.all
              end
    end
+
+   def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |member|
+      member.password = SecureRandom.urlsafe_base64
+      member.name = 'guest'
+      member.profile = 'ゲストユーザーです。お気軽にお試しください'
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+      # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
+    end
+   end
 end

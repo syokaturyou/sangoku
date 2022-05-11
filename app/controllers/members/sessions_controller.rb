@@ -8,6 +8,12 @@ class Members::SessionsController < Devise::SessionsController
   #   super
   # end
 
+  def guest_sign_in
+    member = Member.guest
+    sign_in member
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
   # POST /resource/sign_in
   # def create
   #   super

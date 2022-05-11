@@ -27,7 +27,6 @@ module Public
     def unsubscribe; end
 
     def withdrawal
-      before_action :set_current_member
       member = current_member
       member.update(is_deleted: true) # is_deletedという退会フラグを更新
       reset_session

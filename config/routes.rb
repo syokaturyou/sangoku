@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   passwords: 'admins/passwords'
 }
 
+  devise_scope :member do
+    post 'members/guest_sign_in', to: 'members/sessions#guest_sign_in'
+  end
+
   root to: 'homes#top'
   resources :contracts, only: [:new, :create]
   resources :sights, only: [:new, :create, :index, :destroy, :edit, :update, :show] do

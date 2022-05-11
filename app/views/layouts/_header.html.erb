@@ -57,11 +57,7 @@
    <% else %>
     <p><%= link_to "新規登録", new_member_registration_path, class: 'btn btn-secondary' %></p>
     <p><%= link_to 'ログイン', new_member_session_path, class: 'btn btn-primary' %></p>
-     <%= form_for(resource, as: resource_name, url: member_session_path) do |f| %>
-      <%= f.hidden_field :email, :value => 'guest@example.com' %>
-      <%= f.hidden_field :password, :value => 'password' %>
-      <p><%= f.submit 'ゲストログイン', class: 'btn btn-warning' %></p>
-     <% end %>
+    <p><%= link_to 'ゲストログイン', members_guest_sign_in_path, method: :post, class: 'btn btn-warning' %></p>
    <% end %>
  </div>
 </header>
