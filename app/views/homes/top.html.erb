@@ -46,8 +46,6 @@
       <th>画像</th>
       <th>住所 (緯度,経度)</th>
       <th>説明</th>
-      <th>投稿者</th>
-      <th>更新日時</th>
       <th>平均評価点</th>
       <th></th>
      </tr>
@@ -58,11 +56,6 @@
          (<%= sight.latitude %>, <%= sight.longitude %>)
       </td>
       <td><%= sight.profile %></td>
-      <td>
-       <%= link_to attachment_image_tag( sight.member, :profileimage, fallback: "no_image.jpg", size: '80x80'), public_member_path(sight.member), data: {"turbolinks"=>false} %>
-       <%= sight.member.name %>
-      </td>
-      <td><%= sight.updated_at.to_s(:datetime_jp) %></td>
       <td><%= render 'evaluates/review', sight: sight %></td>
       <td>
        <% if member_signed_in? %>
