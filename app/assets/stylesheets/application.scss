@@ -236,10 +236,6 @@ table.membertable td:nth-child(3){
 
 .search{
   margin-right: auto;
-//   margin-left: auto;
-  form {
-    padding: 3px;
-  }
 }
 
     .keywordaicon {
@@ -533,8 +529,8 @@ select {
   }
   .header-nav {
     display: flex;
-    flex-direction: column;
-    text-align: center;
+    margin: 1px;
+    border-radius: 10px;
   }
   .dip {
     display: flex;

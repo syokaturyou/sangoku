@@ -52,16 +52,16 @@
        <a><%= f.submit "検索", class: "btn btn-outline-primary btn-lg", data: {"turbolinks"=>false} %></a>
        <%= f.hidden_field :search, :value => "partial_match" %>
       <% end %>
-     </div>
       <% if member_signed_in? %>
-       <p><%= link_to 'ログアウト', destroy_member_session_path, method: :delete, class: 'btn btn-primary' %></p>
+       <a><%= link_to 'ログアウト', destroy_member_session_path, method: :delete, class: 'btn btn-primary' %></a>
       <% elsif admin_signed_in? %>
-       <p><%= link_to 'ログアウト', destroy_member_session_path, method: :delete, class: 'btn btn-primary' %></p>
+       <a><%= link_to 'ログアウト', destroy_member_session_path, method: :delete, class: 'btn btn-primary' %></a>
       <% else %>
-       <p><%= link_to "新規登録", new_member_registration_path, class: 'btn btn-secondary' %></p>
-       <p><%= link_to 'ログイン', new_member_session_path, class: 'btn btn-primary' %></p>
-       <p><%= link_to 'ゲストログイン', members_guest_sign_in_path, method: :post, class: 'btn btn-warning' %></p>
+       <a><%= link_to "新規登録", new_member_registration_path, class: 'btn btn-secondary' %></a>
+       <a><%= link_to 'ログイン', new_member_session_path, class: 'btn btn-primary' %></a>
+       <a><%= link_to 'ゲストログイン', members_guest_sign_in_path, method: :post, class: 'btn btn-warning' %></a>
       <% end %>
+      </div>
     </div>
    </tr>
   </tbody>
