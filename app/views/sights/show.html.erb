@@ -6,7 +6,7 @@
   <div class="col-8">
    <%= attachment_image_tag @sight, :mapimage, :fill, 40, 40, fallback: "no_image.jpg", size:'640x420' %>
    </br>
-   説明
+   説明:
    <%= @sight.profile %>
   </div>
   <div class="col-4">
@@ -29,6 +29,28 @@
        <td><%= @sight.updated_at.to_s(:datetime_jp) %></td>
       </tr>
       <tr>
+       <td>いいね数:</td>
+       <td><%= @sight.likes.count %>
+           <% if member_signed_in? %>
+            <% if @sight.liked?(current_member) %>
+             <%= link_to sight_likes_path(@sight.id), method: :delete do %>
+              <span style="color:red;">❤︎</span>
+             <% end %>
+            <% else %>
+             <%= link_to sight_likes_path(@sight.id), method: :post do %>
+              <span>❤︎</span>
+             <% end %>
+            <% end %>
+           <% else %>
+            <span>❤︎</span>
+           <% end %>
+       </td>
+      </tr>
+      <tr>
+       <td>評価:</td>
+       <td><%= render 'evaluates/review', sight: @sight %></td>
+      </tr>
+      <tr>
        <td></td>
        <td>
        <% if member_signed_in? %>
@@ -48,3 +70,4 @@
   </div>
  </div>
 </div>
+

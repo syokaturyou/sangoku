@@ -7,10 +7,13 @@ class Member < ApplicationRecord
          has_many :answers, dependent: :destroy
          has_many :posts, dependent: :destroy
          has_many :rates, dependent: :destroy
-         has_many :evaluates, dependent: :destroy
          has_many :member_rooms, dependent: :destroy
          has_many :chats, dependent: :destroy
          has_many :sights, dependent: :destroy
+         has_many :likes, dependent: :destroy
+         has_many :evaluates, dependent: :destroy
+         has_many :liked_sights, through: :likes, source: :sight
+
 
          attachment :profileimage
 

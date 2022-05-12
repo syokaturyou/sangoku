@@ -8,16 +8,17 @@
    <th>説明</th>
    <th>投稿者</th>
    <th>更新日時</th>
+   <th>いいね数</th>
    <th>平均評価点</th>
    <th></th>
   </tr>
   <% if member_signed_in? %>
    <%= link_to "新規探索する", new_sight_path, class: 'btn btn-success btn-lg', data: {"turbolinks"=>false} %>
   <% end %>
-  <%= paginate @sights %>
+
   <% @sights.each do |sight| %>
   <tr>
-   <td><%= link_to attachment_image_tag( sight, :mapimage, fallback: "no_image.jpg", size: '160x120'), sight_path(sight), data: {"turbolinks"=>false} %></td>
+   <td><%= link_to attachment_image_tag( sight, :mapimage, fallback: "no_image.jpg", size: '240x180'), sight_path(sight), data: {"turbolinks"=>false} %></td>
    <td><%= sight.address %>
       (<%= sight.latitude %>, <%= sight.longitude %>)
    </td>
@@ -27,6 +28,21 @@
     <%= sight.member.name %>
    </td>
    <td><%= sight.updated_at.to_s(:datetime_jp) %></td>
+   <td><%= sight.likes.count %>
+       <% if member_signed_in? %>
+        <% if sight.liked?(current_member) %>
+         <%= link_to sight_likes_path(sight.id), method: :delete do %>
+          <span style="color:red;">❤︎</span>
+         <% end %>
+        <% else %>
+         <%= link_to sight_likes_path(sight.id), method: :post do %>
+          <span>❤︎</span>
+         <% end %>
+        <% end %>
+       <% else %>
+        <span>❤︎</span>
+       <% end %>
+   </td>
    <td><%= render 'evaluates/review', sight: sight %></td>
    <td>
     <% if member_signed_in? %>

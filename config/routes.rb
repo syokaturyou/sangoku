@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :contracts, only: [:new, :create]
   resources :sights, only: [:new, :create, :index, :destroy, :edit, :update, :show] do
     resources :evaluates, only: [:new, :create]
+    resource :likes, only: [:create, :destroy]
   end
   resources :evaluates, only: [:index]
   get 'done', to: 'contracts#done', as: 'done'
