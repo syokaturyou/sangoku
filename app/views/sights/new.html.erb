@@ -8,7 +8,7 @@
      <%= form_with model: @newsight, url: sights_path, local: true do |f| %>
      <tr>
       <td>住所入力:</td>
-      <td><input id="address" type="textbox" value="" placeholder="住所入力" required ><input type="button" id ="button1" value="住所検索" onclick="codeAddress()"></td>
+      <td><input id="address" type="textbox" value="" placeholder="住所入力" required ><input type="button" id ="button1" value="住所画像取得" onclick="codeAddress()"></td>
      </tr>
      <tr>
       <td><div id="kekka">検索住所</div></td>
@@ -32,7 +32,6 @@
 
 <div id='map'></div>
 <style>#map {height: 600px;width: 600px;}</style>
-
 <script>
 let map
 let geocoder
@@ -46,7 +45,6 @@ function initMap(){
     center: {lat: 35.6803997, lng:139.7690174},
     zoom: 10,
   });
-
   marker = new google.maps.Marker({
     position:  {lat: 35.6803997, lng:139.7690174},
     map: mapInstance
@@ -65,7 +63,6 @@ function codeAddress(){
       });
       display.textContent = "(緯度, 経度)：" + results[ 0 ].geometry.location
       kekka.textContent = "検索住所：" + inputAddress
-
       let hidden_address = document.getElementById('hidden_address');
       hidden_address.setAttribute("value", inputAddress);
       } else {
@@ -74,5 +71,4 @@ function codeAddress(){
   });
 }
 </script>
-
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_map_api_key %>&callback=initMap" async defer></script>
