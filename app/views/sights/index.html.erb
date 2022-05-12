@@ -38,11 +38,11 @@
    <td><%= sight.likes.count %>
        <% if member_signed_in? %>
         <% if sight.liked?(current_member) %>
-         <%= link_to sight_likes_path(sight.id), method: :delete do %>
+         <%= link_to sight_likes_path(sight.id), method: :delete, data: {remote: true} do %>
           <span style="color:red;">❤︎</span>
          <% end %>
         <% else %>
-         <%= link_to sight_likes_path(sight.id), method: :post do %>
+         <%= link_to sight_likes_path(sight.id), method: :post, data: {remote: true} do %>
           <span>❤︎</span>
          <% end %>
         <% end %>
@@ -55,7 +55,7 @@
     <% if member_signed_in? %>
       <% if sight.member.id == current_member.id %>
        <%= link_to "編集する", edit_sight_path(sight), class: 'btn btn-success', data: {"turbolinks"=>false} %>
-       <%= link_to "削除する", sight_path(sight), class: 'btn btn-danger', method: :delete, data: { confirm: "本当に削除しますか？" } %>
+       <%= link_to "削除する", sight_path(sight), class: 'btn btn-danger', method: :delete, data: { confirm: "本当に削除しますか？", remote: true } %>
       <% elsif sight.member.id != current_member.id %>
        <%= link_to '評価する', new_sight_evaluate_path(sight.id), class: 'btn btn-warning', data: {"turbolinks"=>false} %>
       <% end %>

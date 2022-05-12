@@ -66,7 +66,7 @@
         <% if member_signed_in? %>
          <% if post.member.id == current_member.id %>
           <td><%= link_to '編集する', edit_public_post_path(post), class: 'btn btn-success', data: {"turbolinks"=>false} %>
-              <%= link_to '削除する', public_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%>
+              <%= link_to '削除する', public_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？", remote: true }%>
           </td>
          <% else %>
           <td><%= "" %></td>
@@ -113,7 +113,7 @@
         <% if member_signed_in? %>
          <% if post.member.id == current_member.id %>
           <td><%= link_to '編集する', edit_public_post_path(post), class: 'btn btn-success', data: {"turbolinks"=>false} %>
-              <%= link_to '削除する', public_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%>
+              <%= link_to '削除する', public_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？", remote: true }%>
           </td>
          <% else %>
           <td><%= "" %></td>

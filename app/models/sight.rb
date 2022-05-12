@@ -7,8 +7,6 @@ class Sight < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
 
-  # attachment :mapimage
-
   def liked?(member)
     likes.where(member_id: member.id).exists?
   end

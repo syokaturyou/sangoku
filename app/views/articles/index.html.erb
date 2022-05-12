@@ -24,7 +24,7 @@
      <td><%= article.updated_at.to_s(:datetime_jp) %></td>
      <td>
       <%= link_to '編集', edit_article_path(article), data: {"turbolinks"=>false}, class: 'btn btn-success btn-lg' %>
-      <%= link_to '削除', article, method: :delete, data: { confirm: '削除しますか?' }, class: 'btn btn-danger btn-lg' %>
+      <%= link_to '削除', article, method: :delete, data: { confirm: '削除しますか?', remote: true }, class: 'btn btn-danger btn-lg' %>
      </td>
     </tr>
    <% end %>

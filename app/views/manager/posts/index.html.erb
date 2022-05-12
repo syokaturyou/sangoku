@@ -39,7 +39,7 @@
         <td><%= post.answers.count %></td>
         <td>[<%= post.genre.id %>]/<%= post.genre.name %></td>
         <td><%= post.impressions_count %></td>
-        <td><%= link_to '削除する', manager_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%></td>
+        <td><%= link_to '削除する', manager_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？", remote: true }%></td>
        </tr>
       <% end %>
      </tbody>

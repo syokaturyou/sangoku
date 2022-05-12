@@ -19,7 +19,6 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery.raty.js
-//= require jquery
 
 //ローディング画面の表示
 $(window).on('load',function(){

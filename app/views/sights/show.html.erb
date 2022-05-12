@@ -37,11 +37,11 @@
        <td><%= @sight.likes.count %>
            <% if member_signed_in? %>
             <% if @sight.liked?(current_member) %>
-             <%= link_to sight_likes_path(@sight.id), method: :delete do %>
+             <%= link_to sight_likes_path(@sight.id), method: :delete, data: {remote: true} do %>
               <span style="color:red;">❤︎</span>
              <% end %>
             <% else %>
-             <%= link_to sight_likes_path(@sight.id), method: :post do %>
+             <%= link_to sight_likes_path(@sight.id), method: :post, data: {remote: true} do %>
               <span>❤︎</span>
              <% end %>
             <% end %>
