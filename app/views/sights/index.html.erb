@@ -22,7 +22,7 @@
    <td><%= sight.address %>
       (<%= sight.latitude %>, <%= sight.longitude %>)
    </td>
-   <td><%= sight.profile %></td>
+   <td><%= simple_format(sight.profile) %></td>
    <td>
     <%= link_to attachment_image_tag( sight.member, :profileimage, fallback: "no_image.jpg", size: '80x80'), public_member_path(sight.member), data: {"turbolinks"=>false} %>
     <%= sight.member.name %>

@@ -7,7 +7,7 @@
    <%= attachment_image_tag @sight, :mapimage, :fill, 40, 40, fallback: "no_image.jpg", size:'640x420' %>
    </br>
    説明:
-   <%= @sight.profile %>
+   <%= simple_format(@sight.profile) %>
   </div>
   <div class="col-4">
    <table>

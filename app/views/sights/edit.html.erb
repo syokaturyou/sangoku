@@ -4,37 +4,34 @@
 <div class='container'>
   <div class="row">
    <table class="newtable">
-    <div class="col-lg-6">
-     <h2>マップ編集</h2>
-    </div>
-      <tbody>
-       <%= form_with model: @sight, url: sight_path(@sight), local: true do |f| %>
-       <tr>
-        <td>現住所:<%= @sight.address %></td>
-        <td><input id="address" type="textbox" value="" placeholder="住所入力" required ><input type="button" value="住所検索" onclick="codeAddress()"></td>
-       </tr>
-       <tr>
-        <td><div id="kekka">検索住所</div></td>
-        <td><div id="display">(緯度, 経度)</div></td>
-       </tr>
-       <input type="hidden" name="sight[address]" id="hidden_address">
-       <tr>
-        <td><%= f.label :説明変更 %></td>
-        <td><%= f.text_field :profile, autofocus: true, size: "50", :placeholder => "説明入力" %></td>
-       </tr>
-       <tr>
-        <td><%= f.label :参考画像 %></td>
-        <td><%= attachment_image_tag @sight, :mapimage, :fill, 90, 90, fallback: "no_image.jpg" %>
-         <label><%= check_box_tag :image_delete %>画像なし</label>
-         <label><%= f.attachment_field :mapimage %></label>
-        </td>
-       </tr>
-       <tr>
-        <td><%= link_to '戻る', :back, class: 'btn btn-danger btn-lg' %></td>
-        <td><%= f.submit "内容を更新する", class: 'btn btn-success btn-lg', data: {"turbolinks"=>false} %></td>
-       </tr>
-       <% end %>
-     </tbody>
+     <tbody>
+      <%= form_with model: @sight, url: sight_path(@sight), local: true do |f| %>
+      <tr>
+       <td>現住所:<%= @sight.address %></td>
+       <td><input id="address" type="textbox" value="" placeholder="住所入力" required ><input type="button" id ="button1" value="住所検索" onclick="codeAddress()"></td>
+      </tr>
+      <tr>
+       <td><div id="kekka">検索住所</div></td>
+       <td><div id="display">(緯度, 経度)</div></td>
+      </tr>
+      <input type="hidden" name="sight[address]" id="hidden_address">
+      <tr>
+       <td><%= f.label :説明変更 %></td>
+       <td><%= f.text_area :profile, autofocus: true, size: "50", :placeholder => "説明入力" %></td>
+      </tr>
+      <tr>
+       <td><%= f.label :参考画像 %></td>
+       <td><%= attachment_image_tag @sight, :mapimage, :fill, 90, 90, fallback: "no_image.jpg" %>
+        <label><%= check_box_tag :image_delete %>画像なし</label>
+        <label><%= f.attachment_field :mapimage %></label>
+       </td>
+      </tr>
+      <tr>
+       <td><%= link_to '戻る', :back, class: 'btn btn-danger btn-lg' %></td>
+       <td><%= f.submit "内容を更新する", class: 'btn btn-success btn-lg', data: {"turbolinks"=>false} %></td>
+      </tr>
+      <% end %>
+    </tbody>
    </table>
  </div>
 </div>

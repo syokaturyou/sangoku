@@ -1,19 +1,38 @@
 <% breadcrumb :newsight  %>
 <%= breadcrumbs separator: " > " , class: :logo %>
 <h2>おすすめ地域探索</h2>
-<%= form_with model: @newsight, url: sights_path, local: true do |f| %>
-  <input id="address" type="textbox" value="" placeholder="住所入力" required>
-  <input type="button" value="住所検索" onclick="codeAddress()" required>
-  <div id="kekka">検索住所</div>
-  <div id="display">(緯度, 経度)</div>
-  <input type="hidden" name="sight[address]" id="hidden_address">
-  <%= f.label :profile ,"説明" %>
-  <%= f.text_field :profile, size: '40', :placeholder => "説明文入力" %>
-  <%= f.label :参考画像 %>
-  <%= f.attachment_field :mapimage %>
-  <%= f.hidden_field :member_id, :value => current_member.id %>
-  <%= f.submit "場所追加", class: 'btn btn-primary', data: {"turbolinks"=>false} %>
-<% end %>
+<div class='container'>
+  <div class="row">
+   <table class="newtable">
+    <tbody>
+     <%= form_with model: @newsight, url: sights_path, local: true do |f| %>
+     <tr>
+      <td>住所入力:</td>
+      <td><input id="address" type="textbox" value="" placeholder="住所入力" required ><input type="button" id ="button1" value="住所検索" onclick="codeAddress()"></td>
+     </tr>
+     <tr>
+      <td><div id="kekka">検索住所</div></td>
+      <td><div id="display">(緯度, 経度)</div></td>
+     </tr>
+     <input type="hidden" name="sight[address]" id="hidden_address">
+     <tr>
+      <td><%= f.label :profile ,"説明" %></td>
+      <td><%= f.text_area :profile, autofocus: true, size: "40", :placeholder => "説明文入力" %></td>
+     </tr>
+     <tr>
+      <td><%= f.label :参考画像 %></td>
+      <td><%= f.attachment_field :mapimage %></td>
+     </tr>
+     <%= f.hidden_field :member_id, :value => current_member.id %>
+     <tr>
+      <td><%= link_to '戻る', :back, class: 'btn btn-danger btn-lg' %></td>
+      <td><%= f.submit "場所追加", class: 'btn btn-primary btn-lg', data: {"turbolinks"=>false} %></td>
+     </tr>
+     <% end %>
+    </tbody>
+   </table>
+ </div>
+</div>
 
 <div id='map'></div>
 <style>#map {height: 600px;width: 600px;}</style>
@@ -61,5 +80,3 @@ function codeAddress(){
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_map_api_key %>&callback=initMap" async defer></script>
-
-

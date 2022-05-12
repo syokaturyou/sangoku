@@ -44,7 +44,7 @@
   <table class="sighttable">
    <tr>
     <th>画像</th>
-    <th>住所 (緯度,経度)</th>
+    <th>地名</th>
     <th>説明</th>
     <th>いいね数</th>
     <th>平均評価点</th>
@@ -53,10 +53,8 @@
    <% @sights.first(4).each do |sight| %>
    <tr>
     <td><%= link_to attachment_image_tag( sight, :mapimage, fallback: "no_image.jpg", size: '240x180'), sight_path(sight), data: {"turbolinks"=>false} %></td>
-    <td><%= sight.address %>
-       (<%= sight.latitude %>, <%= sight.longitude %>)
-    </td>
-    <td><%= sight.profile %></td>
+    <td><%= sight.address %></td>
+    <td><%= simple_format(sight.profile) %></td>
     <td><%= sight.likes.count %>
         <% if member_signed_in? %>
          <% if sight.liked?(current_member) %>
