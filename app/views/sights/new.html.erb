@@ -19,10 +19,6 @@
       <td><%= f.label :profile ,"説明" %></td>
       <td><%= f.text_area :profile, autofocus: true, size: "40", :placeholder => "説明文入力" %></td>
      </tr>
-     <tr>
-      <td><%= f.label :参考画像 %></td>
-      <td><%= f.attachment_field :mapimage %></td>
-     </tr>
      <%= f.hidden_field :member_id, :value => current_member.id %>
      <tr>
       <td><%= link_to '戻る', :back, class: 'btn btn-danger btn-lg' %></td>

@@ -52,7 +52,15 @@
    </tr>
    <% @sights.first(4).each do |sight| %>
    <tr>
-    <td><%= link_to attachment_image_tag( sight, :mapimage, fallback: "no_image.jpg", size: '240x180'), sight_path(sight), data: {"turbolinks"=>false} %></td>
+    <td>
+     <%= form_with url: sight_path(sight), method: :get, local: true do |f| %>
+      <% results=Geocoder.search(sight.address) %>
+      <% if results.present? %>
+       <% @latlng=results.first.coordinates %>
+       <%= image_submit_tag "https://maps.googleapis.com/maps/api/streetview?size=300x200&heading=180&fov=120&location=#{@latlng[0]},#{@latlng[1]}&sensor=true&key=#{Rails.application.credentials.google_map_api_key}" %>'
+      <% end %>
+     <% end %>
+    </td>
     <td><%= sight.address %></td>
     <td><%= simple_format(sight.profile) %></td>
     <td><%= sight.likes.count %>
@@ -74,8 +82,8 @@
     <td>
      <% if member_signed_in? %>
        <% if sight.member.id == current_member.id %>
-        <%= link_to "削除する", sight_path(sight), class: 'btn btn-danger', method: :delete, data: { confirm: "本当に削除しますか？" }%>
         <%= link_to "編集する", edit_sight_path(sight), class: 'btn btn-success', data: {"turbolinks"=>false} %>
+        <%= link_to "削除する", sight_path(sight), class: 'btn btn-danger', method: :delete, data: { confirm: "本当に削除しますか？" }%>
        <% elsif sight.member.id != current_member.id %>
         <%= link_to '評価する', new_sight_evaluate_path(sight.id), class: 'btn btn-warning', data: {"turbolinks"=>false} %>
        <% end %>

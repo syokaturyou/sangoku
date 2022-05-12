@@ -4,7 +4,13 @@
 <div class="container">
  <div class="row">
   <div class="col-8">
-   <%= attachment_image_tag @sight, :mapimage, :fill, 40, 40, fallback: "no_image.jpg", size:'640x420' %>
+   <%= form_with url: sight_path(@sight), method: :get, local: true do |f| %>
+     <% results=Geocoder.search(@sight.address) %>
+      <% if results.present? %>
+       <% @latlng=results.first.coordinates %>
+       <%= image_submit_tag "https://maps.googleapis.com/maps/api/streetview?size=640x420&heading=180&fov=120&location=#{@latlng[0]},#{@latlng[1]}&sensor=true&key=#{Rails.application.credentials.google_map_api_key}" %>'
+      <% end %>
+     <% end %>
    </br>
    説明:
    <%= simple_format(@sight.profile) %>
