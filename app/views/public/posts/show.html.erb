@@ -60,7 +60,7 @@
           <% if answer.member.id == current_member.id %>
            <%= link_to '編集する', edit_public_answer_path(answer), class: 'btn btn-success', data: {"turbolinks"=>false} %>
            <br />
-           <%= link_to '削除する', public_answer_path(answer), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%>
+           <%= link_to '削除する', public_answer_path(answer), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？", remote: true }%>
           <% end %>
          <% end %>
          </td>
