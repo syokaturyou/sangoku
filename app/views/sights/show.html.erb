@@ -4,13 +4,11 @@
 <div class="container">
  <div class="row">
   <div class="col-8">
-   <%= form_with url: sight_path(@sight), method: :get, local: true do |f| %>
-     <% results=Geocoder.search(@sight.address) %>
-      <% if results.present? %>
-       <% @latlng=results.first.coordinates %>
-       <%= image_submit_tag "https://maps.googleapis.com/maps/api/streetview?size=640x420&heading=180&fov=120&location=#{@latlng[0]},#{@latlng[1]}&sensor=true&key=#{Rails.application.credentials.google_map_api_key}" %>'
-      <% end %>
-     <% end %>
+   <% results=Geocoder.search(@sight.address) %>
+    <% if results.present? %>
+     <% @latlng=results.first.coordinates %>
+     <%= image_tag "https://maps.googleapis.com/maps/api/streetview?size=640x420&heading=180&fov=120&location=#{@latlng[0]},#{@latlng[1]}&sensor=true&key=#{Rails.application.credentials.google_map_api_key}", fallback: "no_image.jpg", size: '640x420' %>
+   <% end %>
    </br>
    説明:
    <%= simple_format(@sight.profile) %>
@@ -61,8 +59,8 @@
        <td>
        <% if member_signed_in? %>
         <% if @sight.member.id == current_member.id %>
-         <%= link_to "削除する", sight_path(@sight), class: 'btn btn-danger', method: :delete, data: { confirm: "本当に削除しますか？" }%>
          <%= link_to "編集する", edit_sight_path(@sight), class: 'btn btn-success', data: {"turbolinks"=>false} %>
+         <%= link_to "削除する", sight_path(@sight), class: 'btn btn-danger', method: :delete, data: { confirm: "本当に削除しますか？" }%>
         <% elsif @sight.member.id != current_member.id %>
          <%= link_to '評価する', new_sight_evaluate_path(@sight.id), class: 'btn btn-warning', data: {"turbolinks"=>false} %>
         <% end %>
@@ -76,4 +74,3 @@
   </div>
  </div>
 </div>
-

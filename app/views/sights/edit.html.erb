@@ -20,8 +20,18 @@
        <td><%= f.text_area :profile, autofocus: true, size: "50", :placeholder => "説明入力" %></td>
       </tr>
       <tr>
+       <td>更新前画像</td>
+       <td>
+        <% results=Geocoder.search(@sight.address) %>
+         <% if results.present? %>
+          <% @latlng=results.first.coordinates %>
+          <%= image_tag "https://maps.googleapis.com/maps/api/streetview?size=300x200&heading=180&fov=120&location=#{@latlng[0]},#{@latlng[1]}&sensor=true&key=#{Rails.application.credentials.google_map_api_key}" %>
+        <% end %>
+       </td>
+      </tr>
+      <tr>
        <td><%= link_to '戻る', :back, class: 'btn btn-danger btn-lg' %></td>
-       <td><%= f.submit "内容を更新する",method: :post, data: { confirm: "本当に削除しますか？"}, class: 'btn btn-success btn-lg' %></td>
+       <td><%= f.submit "内容を更新する", data: {"turbolinks"=>false}, class: 'btn btn-success btn-lg' %></td>
       </tr>
       <% end %>
     </tbody>
