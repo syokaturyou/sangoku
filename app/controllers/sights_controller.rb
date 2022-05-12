@@ -46,6 +46,6 @@ class SightsController < ApplicationController
   private
 
   def sight_params
-    params.require(:sight).permit(:address, :profile, :latitude, :longitude, :mapimage, :member_id)
+    params.require(:sight).permit(:address, :profile, :latitude, :longitude, :member_id)
   end
 end
