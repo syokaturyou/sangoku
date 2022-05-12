@@ -4,10 +4,11 @@ class Members::PasswordsController < Devise::PasswordsController
   before_action :ensure_normal_member, only: :create
 
   def ensure_normal_member
-    if params[:member][:email].downcase == 'guest@example.com'
-      redirect_to new_member_session_path, alert: 'ゲストユーザーのパスワード再設定はできません。'
-    end
+    redirect_to new_member_session_path, alert: 'ゲストユーザーのパスワード再設定はできません。' if params[:member][:email].downcase == 'guest@example.com'
   end
+
+  def create; end
+
   # GET /resource/password/new
   # def new
   #   super

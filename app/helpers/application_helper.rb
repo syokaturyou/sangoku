@@ -41,14 +41,14 @@ module ApplicationHelper
   end
 
   def resource_name
-   :member
+    :member
   end
 
   def resource
-     @resource ||= Member.new
+    @resource ||= Member.new
   end
 
   def devise_mapping
-     @devise_mapping ||= Devise.mappings[:membr]
+    @devise_mapping ||= Devise.mappings[:membr]
   end
 end

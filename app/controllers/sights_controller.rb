@@ -5,7 +5,7 @@ class SightsController < ApplicationController
 
   def index
     # いいね数の多い順に表示させる
-    @sights = Sight.includes(:liked_members).sort {|a,b| b.liked_members.size <=> a.liked_members.size}
+    @sights = Sight.includes(:liked_members).sort { |a, b| b.liked_members.size <=> a.liked_members.size }
   end
 
   def edit

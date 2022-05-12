@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def guest_sign_in
-    member = Member.find_or_create_by!(email: 'guest@example.com') do |member|
+    member = Member.find_or_create_by!(email: 'guest@example.com') do
       member.password = SecureRandom.urlsafe_base64
     end
     sign_in member

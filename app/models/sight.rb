@@ -10,6 +10,6 @@ class Sight < ApplicationRecord
   attachment :mapimage
 
   def liked?(member)
-   likes.where(member_id: member.id).exists?
+    likes.where(member_id: member.id).exists?
   end
 end
