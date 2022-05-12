@@ -30,7 +30,6 @@ class SightsController < ApplicationController
   def update
     @sight = Sight.find(params[:id])
     @sight.update(sight_params)
-    @sight.update(mapimage: nil) if params[:image_delete].present? # 「画像なし」を選択した場合mapimageをnilにする
     flash[:notice] = 'マップを更新しました'
     redirect_to sights_path
   end
