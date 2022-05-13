@@ -60,7 +60,7 @@
        <%= link_to '評価する', new_sight_evaluate_path(sight.id), class: 'btn btn-warning', data: {"turbolinks"=>false} %>
       <% end %>
      <% elsif admin_signed_in? %>
-      <%= link_to "削除する", sight_path(sight), class: 'btn btn-danger', method: :delete, data: { confirm: "本当に削除しますか？" } %>
+      <%= link_to "削除する", sight_path(sight), class: 'btn btn-danger', method: :delete, data: { confirm: "本当に削除しますか？", remote: true } %>
      <% end %>
    </td>
    </tr>
