@@ -1,15 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
-  describe 'GET public/posts#index' do
-    # let(:post) { create(:post) }
-    let(:posts) { create_list(:post, 4) }
+  describe 'GET public/posts#show' do
+    # let(:posts) { create_list(:post, 4) }
     # let(:image) { create(:image) }
+    # let(:genre) { create(:genre, name: 'genre') }
+    # let(:member) { create(:member, name: 'member', email: '1@1') }
+    # let(:post) { create(:post, genres: [genre], members: [member]) }
+    # let(:posts) { create_list(:post, 5, genres: [genre], members: [member]) }
 
     before do
       post.images << image
       posts.each { |post| post.images << create(:image) }
-      get public_posts_path
+      get public_post_path(post.id)
     end
 
     it 'httpリクエストが正常に返るかどうか' do
@@ -17,9 +20,7 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it '質問タイトルが表示されているかどうか' do
-      posts.all? do |post|
-        expect(response.body).to include post.posttitle
-      end
+      expect(response.body).to include post.posttitle
     end
   end
 end
