@@ -57,7 +57,7 @@
       <% results=Geocoder.search(sight.address) %>
       <% if results.present? %>
        <% @latlng=results.first.coordinates %>
-       <%= image_submit_tag "https://maps.googleapis.com/maps/api/streetview?size=300x200&heading=180&fov=120&location=#{@latlng[0]},#{@latlng[1]}&sensor=true&key=#{Rails.application.credentials.google_map_api_key}" %>
+       <%= image_submit_tag "https://maps.googleapis.com/maps/api/streetview?size=300x200&heading=180&fov=120&location=#{@latlng[0]},#{@latlng[1]}&sensor=true&key=#{ENV['GOOGLE_API_KEY']}" %>
       <% end %>
      <% end %>
     </td>

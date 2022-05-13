@@ -7,7 +7,7 @@
    <% results=Geocoder.search(@sight.address) %>
     <% if results.present? %>
      <% @latlng=results.first.coordinates %>
-     <%= image_tag "https://maps.googleapis.com/maps/api/streetview?size=640x420&heading=180&fov=120&location=#{@latlng[0]},#{@latlng[1]}&sensor=true&key=#{Rails.application.credentials.google_map_api_key}", fallback: "no_image.jpg", size: '640x420' %>
+     <%= image_tag "https://maps.googleapis.com/maps/api/streetview?size=640x420&heading=180&fov=120&location=#{@latlng[0]},#{@latlng[1]}&sensor=true&key=#{ENV['GOOGLE_API_KEY']}", fallback: "no_image.jpg", size: '640x420' %>
    <% end %>
    </br>
    説明:
