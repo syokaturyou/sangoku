@@ -2,13 +2,9 @@ require 'rails_helper'
 
 RSpec.feature 'Posts', type: :feature do
   describe 'display post details' do
-    given(:post) { create(:post) }
-    # let(:posts) { create_list(:post, 4) }
-    # given(:genre) { create(:genre, name: 'genre') }
-    # given(:member) { create(:member) }
-    # given(:post) { create(:post, genres: [genre], members: [member]) }
-    # given(:posts) { create_list(:post, 5, genres: [genre], members: [member]) }
-    # given(:image) { create(:image) }
+    given(:genre) { create(:genre) }
+    given(:member) { create(:member) }
+    given(:post) { create(:post, member:member, genre:genre) }
 
     background do
       visit public_post_path(post.id)
@@ -16,8 +12,8 @@ RSpec.feature 'Posts', type: :feature do
 
     scenario '投稿の詳細情報が適切なタグ内に存在すること' do
       expect(page).to have_selector 'td', text: post.posttitle
-      expect(page).to have_selector 'td', text: post.name
-      expect(page).to have_selector '.page-title', text: post.name
+      expect(page).to have_selector 'td', text: post.postsyutten
+      expect(page).to have_selector 'td', text: post.postbody
     end
 
     # scenario '詳細ページに遷移できること' do
