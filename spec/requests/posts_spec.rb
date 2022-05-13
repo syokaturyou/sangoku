@@ -29,4 +29,34 @@ RSpec.describe 'Posts', type: :request do
       expect(response.body).to include post.postsyutten
     end
   end
+
+  describe 'GET public/posts#index' do
+    # let(:posts) { create_list(:post, 4) }
+    let(:genre) { create(:genre) }
+    let(:member) { create(:member) }
+    # let(:post) { create(:post, genre:genre, member:member) }
+    let(:posts) { create_list(:post, 5, genre:genre, member:member) }
+
+    before do
+      get public_posts_path
+    end
+
+    it 'httpリクエストが正常に返るかどうか' do
+      expect(response).to have_http_status(:success)
+    end
+
+    # it '質問タイトルが表示されているかどうか' do
+    #   # posts.all? do |post|
+    #   expect(response.body).to include post.posttitle
+    #   # end
+    # end
+
+    # it '質問文が表示されているかどうか' do
+    #   expect(response.body).to include post.postbody
+    # end
+
+    # it '参考urlが表示されているかどうか' do
+    #   expect(response.body).to include post.postsyutten
+    # end
+  end
 end
