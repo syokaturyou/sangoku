@@ -31,4 +31,3 @@
 /config/master.key
 
 /.env
-/config/initializers/geocoder.rb
