@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Members', type: :request do
   describe 'GET public/members#show' do
-   let(:member) { create(:member) }
+    let(:member) { create(:member) }
 
     before do
       get public_member_path(member.id)

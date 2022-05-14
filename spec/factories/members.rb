@@ -1,5 +1,5 @@
 FactoryBot.define do
- factory :member do
+  factory :member do
     name { 'MyString' }
     email { '1@1' }
     profile { 'MyString' }

@@ -2,12 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
   describe 'GET public/posts#show' do
-    # let(:posts) { create_list(:post, 4) }
-    # let(:image) { create(:image) }
     let(:genre) { create(:genre) }
     let(:member) { create(:member) }
-    let(:post) { create(:post, genre:genre, member:member) }
-    # let(:posts) { create_list(:post, 5, genres: [genre], members: [member]) }
+    let(:post) { create(:post, genre: genre, member: member) }
 
     before do
       get public_post_path(post.id)
@@ -31,32 +28,35 @@ RSpec.describe 'Posts', type: :request do
   end
 
   describe 'GET public/posts#index' do
-    # let(:posts) { create_list(:post, 4) }
+    # let(:image) { create(:image) }
     let(:genre) { create(:genre) }
     let(:member) { create(:member) }
-    # let(:post) { create(:post, genre:genre, member:member) }
-    let(:posts) { create_list(:post, 5, genre:genre, member:member) }
+    let(:posts) { create_list(:post, 5, genre: genre, member: member) }
 
     before do
+      # posts.images << image
+      # posts.each { |post| post.images << create(:image) }
       get public_posts_path
+      # sign_in :member
     end
 
     it 'httpリクエストが正常に返るかどうか' do
       expect(response).to have_http_status(:success)
     end
 
-    # it '質問タイトルが表示されているかどうか' do
-    #   # posts.all? do |post|
-    #   expect(response.body).to include post.posttitle
-    #   # end
-    # end
+    it '質問タイトルが表示されているかどうか' do
+      posts.all? do |post|
+        expect(response.body).to include post.posttitle
+      end
+    end
 
-    # it '質問文が表示されているかどうか' do
-    #   expect(response.body).to include post.postbody
-    # end
-
-    # it '参考urlが表示されているかどうか' do
-    #   expect(response.body).to include post.postsyutten
-    # end
+    it '遷移できるかどうか' do
+      # posts.all? do |post|
+        click_on '新規質問投稿する'
+          # click_button '回答並べ替え'
+          # expect(current_path).to eq public_post_path(post.id)
+        expect(current_path).to eq new_public_post_path
+      # end
+    end
   end
 end
