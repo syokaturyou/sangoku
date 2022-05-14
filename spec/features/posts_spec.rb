@@ -29,11 +29,11 @@ RSpec.feature 'Posts', type: :feature do
 
     scenario '投稿の詳細情報が適切なタグ内に存在すること' do
       within '.informtable' do
-        posts.all? do |post|
-          expect(page).to have_selector 'th', text: '質問タイトル'
+        # posts.all? do |post|
+        expect(page).to have_selector 'th', text: '質問タイトル'
           # expect(page).to have_selector 'td', text: post.posttitle
           # expect(page).to have_selector 'td', text: post.postbody
-        end
+        # end
       end
     end
 
