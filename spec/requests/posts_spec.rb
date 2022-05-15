@@ -56,10 +56,10 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it '質問タイトルが表示されているかどうか' do
-      # posts.all? do |post|
       expect(response.body).to include '質問タイトル'
-        # expect(response.body).to include "#{post.posttitle}"
-        # expect(response.body).to include post.posttitle
+      # posts.all? do |post|
+      # expect(response.body).to include "#{post.posttitle}"
+      # expect(response.body).to include post.posttitle
       # end
     end
 

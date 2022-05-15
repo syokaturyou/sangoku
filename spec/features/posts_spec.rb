@@ -7,7 +7,6 @@ RSpec.feature 'Posts', type: :feature do
     given(:post) { create(:post, member: member, genre: genre) }
     given(:answer) { create(:answer, post: post) }
 
-
     background do
       visit public_post_path(post.id)
     end
@@ -35,8 +34,8 @@ RSpec.feature 'Posts', type: :feature do
       within '.informtable' do
         # posts.all? do |post|
         expect(page).to have_selector 'th', text: '質問タイトル'
-          # expect(page).to have_selector 'td', text: post.posttitle
-          # expect(page).to have_selector 'td', text: post.postbody
+        # expect(page).to have_selector 'td', text: post.posttitle
+        # expect(page).to have_selector 'td', text: post.postbody
         # end
       end
     end
