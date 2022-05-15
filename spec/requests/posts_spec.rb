@@ -5,6 +5,7 @@ RSpec.describe 'Posts', type: :request do
     let(:genre) { create(:genre) }
     let(:member) { create(:member) }
     let(:post) { create(:post, genre: genre, member: member) }
+    let(:answer) { create(:answer, post: post) }
 
     before do
       get public_post_path(post.id)
@@ -16,7 +17,7 @@ RSpec.describe 'Posts', type: :request do
 
     it '質問タイトルが表示されているかどうか' do
       expect(response.body).to include post.posttitle
-      expect(response.body).to include "#{post.posttitle.to_s}"
+      # expect(response.body).to include "#{post.posttitle.to_s}"
     end
 
     it '質問文が表示されているかどうか' do
@@ -25,6 +26,14 @@ RSpec.describe 'Posts', type: :request do
 
     it '参考urlが表示されているかどうか' do
       expect(response.body).to include post.postsyutten
+    end
+
+    it '回答本文が表示されているかどうか' do
+      expect(response.body).to include answer.answerbody
+    end
+
+    it '参考URLが表示されているかどうか' do
+      expect(response.body).to include answer.answersyutten
     end
   end
 

@@ -5,6 +5,8 @@ RSpec.feature 'Posts', type: :feature do
     given(:genre) { create(:genre) }
     given(:member) { create(:member) }
     given(:post) { create(:post, member: member, genre: genre) }
+    given(:answer) { create(:answer, post: post) }
+
 
     background do
       visit public_post_path(post.id)
@@ -14,6 +16,8 @@ RSpec.feature 'Posts', type: :feature do
       expect(page).to have_selector 'td', text: post.posttitle
       expect(page).to have_selector 'td', text: post.postsyutten
       expect(page).to have_selector 'td', text: post.postbody
+      expect(page).to have_selector 'td', text: answer.answerbody
+      expect(page).to have_selector 'td', text: answer.answersyutten
     end
   end
 
