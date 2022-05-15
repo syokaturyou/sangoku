@@ -38,7 +38,6 @@ RSpec.describe 'Posts', type: :request do
   end
 
   describe 'GET public/posts#index' do
-    # let(:image) { create(:image) }
     let(:genre) { create(:genre) }
     let(:member) { create(:member) }
     # let(:posts) { create_list(:post, 5, genre: genre, member: member) }

@@ -2,23 +2,23 @@ require 'rails_helper'
 
 RSpec.feature 'Sights', type: :feature do
   describe 'display sight details' do
-    given(:sight) { create(:sight) }
+    given(:member) { create(:member) }
+    given(:sight) { create(:sight, member: member) }
 
     background do
       visit sight_path(sight.id)
     end
 
-    scenario '投稿の詳細情報が適切なタグ内に存在すること' do
-      expect(page).to have_selector 'td', text: post.posttitle
-      expect(page).to have_selector 'td', text: post.postsyutten
-      expect(page).to have_selector 'td', text: post.postbody
-      expect(page).to have_selector 'td', text: answer.answerbody
-      expect(page).to have_selector 'td', text: answer.answersyutten
+    scenario 'おすすめ地域の詳細情報が適切なタグ内に存在すること' do
+      expect(page).to have_selector 'td', text: sight.address
+      expect(page).to have_selector 'td', text: sight.latitude
+      expect(page).to have_selector 'td', text: sight.longitude
     end
   end
 
   describe 'display sight details' do
-    given(:sights) { create_list(:sight, 5) }
+    given(:member) { create(:member) }
+    given(:sights) { create_list(:sight, 5, member: member) }
 
     background do
       visit sights_path
