@@ -24,15 +24,11 @@ RSpec.describe 'Sights', type: :request do
   end
 
   describe 'GET sights#index' do
-    # let(:sight) { create_list(:sight,5) }
     let(:member) { create(:member) }
-    let(:sight) { create(:sight, member: meber) }
+    let!(:sights) { create_list(:sight, 2, member: member) }
 
     before do
-      # posts.images << image
-      # posts.each { |post| post.images << create(:image) }
       get sights_path
-      # sign_in :member
     end
 
     it 'httpリクエストが正常に返るかどうか' do
@@ -40,8 +36,11 @@ RSpec.describe 'Sights', type: :request do
     end
 
     it 'おすすめ地域情報が表示されているかどうか' do
-      expect(response.body).to include '説明'
-      expect(response.body).to include '投稿者'
+      sights.all? do |sight|
+        expect(response.body).to include sight.address
+        expect(response.body).to include sight.latitude.to_s
+        expect(response.body).to include sight.longitude.to_s
+      end
     end
   end
 end

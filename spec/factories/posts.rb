@@ -8,7 +8,5 @@ FactoryBot.define do
     postimage_id { 'MyString' }
     score { 1 }
     impressions_count { 1 }
-    # association :member
-    # association :genre
   end
 end

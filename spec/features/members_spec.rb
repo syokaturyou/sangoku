@@ -15,7 +15,8 @@ RSpec.feature 'Members', type: :feature do
   end
 
   describe 'display member details' do
-    given(:member) { create(:member) }
+    # given(:member) { create(:member) }
+    given(:members) { create_list(:member, 2) }
 
     background do
       visit public_members_path
@@ -23,9 +24,10 @@ RSpec.feature 'Members', type: :feature do
 
     scenario '会員の詳細情報が適切なタグ内に存在すること' do
       within '.membertable' do
-        expect(page).to have_selector 'th', text: 'ステータス'
-        # expect(page).to have_selector 'td', text: member.id
-        # expect(page).to have_selector 'td', text: member.name
+        members.all? do |member|
+          expect(page).to have_selector 'td', text: member.id
+          expect(page).to have_selector 'td', text: member.name
+        end
       end
     end
   end
