@@ -4,6 +4,19 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all.order(updated_at: 'DESC').page(params[:page]).per(10)
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV["TWITTER_API_KEY"]
+      config.consumer_secret     = ENV["TWITTER_API_SECRET_KEY"]
+      config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
+      config.access_token_secret = ENV["TWITTER_ACCESS_SECRET_TOKEN"]
+    end
+    @trends = client.trends(id = 23424856).attrs[:trends].first(10)
+    # @tweets = client.user_timeline(user_id: id, count: 1, exclude_replies: false, include_rts: false, contributor_details: false, result_type: "recent", locale: "ja", tweet_mode: "extended")
+    @tweets = client.user_timeline(user_id: id, result_type: "recent", locale: "ja").first(10)
+    # binding.pry
+    # @tweets.each do |tweet|
+    #   @for_article_tweets << tweet if tag.any?{|t| tweet.text.include?(t)}
+    # end
   end
 
   def show

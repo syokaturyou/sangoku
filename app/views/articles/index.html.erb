@@ -31,3 +31,23 @@
   </tbody>
  </table>
 <% end %>
+
+<table>
+ <th>トレンド</th>
+ <% @trends.each do |trend| %>
+ <tr>
+ <td><%= trend[:name] %></td>
+ </tr>
+ <% end %>
+</table>
+
+<table>
+ <th>ツイート</th>
+ <th></th>
+ <% @tweets.each do |tweet| %>
+ <tr>
+ <td><%= tweet[:id] %></td>
+ <td></td>
+ </tr>
+ <% end %>
+</table>
