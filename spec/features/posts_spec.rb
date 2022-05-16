@@ -23,7 +23,6 @@ RSpec.feature 'Posts', type: :feature do
   describe 'display post details' do
     given(:genre) { create(:genre) }
     given(:member) { create(:member) }
-    # given(:post) { create(:post, member: member, genre: genre) }
     given(:posts) { create_list(:post, 5, genre: genre, member: member) }
 
     background do

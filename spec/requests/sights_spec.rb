@@ -18,8 +18,8 @@ RSpec.describe 'Sights', type: :request do
     end
 
     it '緯度経度が表示されているかどうか' do
-      expect(response.body).to include sight.latitude
-      expect(response.body).to include sight.longitude
+      expect(response.body).to include sight.latitude.to_s
+      expect(response.body).to include sight.longitude.to_s
     end
   end
 

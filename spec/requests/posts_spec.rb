@@ -58,7 +58,7 @@ RSpec.describe 'Posts', type: :request do
       expect(response.body).to include '質問タイトル'
       # posts.all? do |post|
       # expect(response.body).to include "#{post.posttitle}"
-      # expect(response.body).to include post.posttitle
+      # expect(response.body).to include post.posttitle.to_s
       # end
     end
 

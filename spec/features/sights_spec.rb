@@ -24,5 +24,12 @@ RSpec.feature 'Sights', type: :feature do
       visit sights_path
     end
 
+    # scenario 'おすすめ地域の詳細情報が適切なタグ内に存在すること' do
+    #   sights.all? do |sight|
+    #     expect(page).to have_selector 'td', text: sight.address
+    #     expect(page).to have_selector 'td', text: sight.latitude
+    #     expect(page).to have_selector 'td', text: sight.longitude
+    #   end
+    # end
   end
 end
