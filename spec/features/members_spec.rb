@@ -15,8 +15,7 @@ RSpec.feature 'Members', type: :feature do
   end
 
   describe 'display member details' do
-    # given(:member) { create(:member) }
-    given(:members) { create_list(:member, 2) }
+    given!(:members) { create_list(:member, 2) }
 
     background do
       visit public_members_path

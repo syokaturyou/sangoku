@@ -19,8 +19,7 @@ RSpec.describe 'Members', type: :request do
   end
 
   describe 'GET public/members#index' do
-    # let(:member) { create(:member) }
-    let(:members) { create_list(:member, 2) }
+    let!(:members) { create_list(:member, 2) }
 
     before do
       get public_members_path
@@ -30,11 +29,11 @@ RSpec.describe 'Members', type: :request do
       expect(response).to have_http_status(:success)
     end
 
-    it '名前が表示されているかどうか' do
+    it '情報が表示されているかどうか' do
       members.all? do |member|
         expect(response.body).to include member.name
         expect(response.body).to include member.profile
-        end
+      end
     end
   end
 end

@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :member do
     name { 'MyString' }
-    email { '1@1' }
+    sequence(:email) { |n| "MyString#{n}@example.com" }
     profile { 'MyString' }
     is_deleted { 'MyString' }
     password { '111111' }
