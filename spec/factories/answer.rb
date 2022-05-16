@@ -6,5 +6,7 @@ FactoryBot.define do
     answersyutten { 'MyString' }
     answerimage_id { 'MyString' }
     score { 1 }
+    # association :member
+    # association :post
   end
 end

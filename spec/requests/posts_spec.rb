@@ -40,8 +40,11 @@ RSpec.describe 'Posts', type: :request do
   describe 'GET public/posts#index' do
     let(:genre) { create(:genre) }
     let(:member) { create(:member) }
-    # let(:posts) { create_list(:post, 5, genre: genre, member: member) }
-    let(:post) { create(:post, genre: genre, member: member) }
+    # let(:genres) { create_list(:genre, 2) }
+    # let(:members) { create_list(:member, 2) }
+    let!(:posts) { create_list(:post, 2, genre: genre, member: member) }
+    # let(:post) { create(:post, genre: genre, member: member) }
+    # let(:posts) { create_list(:post, 2) }
 
     before do
       # posts.images << image
@@ -56,10 +59,11 @@ RSpec.describe 'Posts', type: :request do
 
     it '質問タイトルが表示されているかどうか' do
       expect(response.body).to include '質問タイトル'
-      # posts.all? do |post|
-      # expect(response.body).to include "#{post.posttitle}"
-      # expect(response.body).to include post.posttitle.to_s
-      # end
+      # expect(response.body).to have_button '新規質問投稿する'
+      posts.each do |post|
+        expect(response.body).to include post.posttitle
+        expect(response.body).to include member.name
+      end
     end
 
     # it '遷移できるかどうか' do

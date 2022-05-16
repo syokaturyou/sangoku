@@ -13,6 +13,8 @@ RSpec.feature 'Sights', type: :feature do
       expect(page).to have_selector 'td', text: sight.address
       expect(page).to have_selector 'td', text: sight.latitude
       expect(page).to have_selector 'td', text: sight.longitude
+      expect(page).to have_selector 'td', text: member.name
+      # expect(page).to have_selector 'td', text: member.name
     end
   end
 

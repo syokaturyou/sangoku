@@ -6,5 +6,6 @@ FactoryBot.define do
     mapimage_id { 'MyString' }
     latitude { 1.0 }
     longitude { 1.0 }
+    # association :member
   end
 end
