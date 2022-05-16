@@ -101,3 +101,4 @@ gem 'geocoder' # google map apiを用いて緯度経度を出力
 group :production do
   gem 'mysql2'
 end
+gem 'twitter'

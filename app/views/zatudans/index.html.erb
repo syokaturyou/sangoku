@@ -19,3 +19,12 @@
    <% end %>
   </div>
 <br />
+
+<% @trends.each do |trend| %>
+<table>
+ <td><%= trend[:name] %></td>
+</table>
+<% end %>
+
+
+

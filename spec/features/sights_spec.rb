@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Sights', type: :feature do
-  describe 'display sight details' do
+  describe 'display sight#show' do
     given(:member) { create(:member) }
     given(:sight) { create(:sight, member: member) }
 
@@ -17,7 +17,7 @@ RSpec.feature 'Sights', type: :feature do
     end
   end
 
-  describe 'display sight details' do
+  describe 'display sight#index' do
     given(:member) { create(:member) }
     given!(:sights) { create_list(:sight, 5, member: member) }
 

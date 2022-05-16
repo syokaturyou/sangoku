@@ -3,6 +3,7 @@ FactoryBot.define do
     member_id { 1 }
     genre_id { 1 }
     posttitle { 'MyString' }
+    # sequence(:posttitle) { |n| "MyString#{n}" }
     postbody { 'MyString' }
     postsyutten { 'MyString' }
     postimage_id { 'MyString' }
