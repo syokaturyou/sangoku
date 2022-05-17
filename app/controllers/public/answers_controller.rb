@@ -1,6 +1,7 @@
 module Public
   class AnswersController < ApplicationController
     before_action :authenticate_member!
+    before_action :twitter_client, only: [:create]
     # 会員側では新規回答投稿、回答編集、回答削除が可能
     def new
       @newanswer = Answer.new
@@ -27,6 +28,8 @@ module Public
          end
        end
         flash[:notice] = '回答を投稿しました'
+        # 新規回答時にツイッターbotを動かす
+        @client.update("回答が入ってました。#{@newanswer.post.posttitle} warerano3594.com/public/posts/#{@newanswer.post_id}\r")
         redirect_to public_post_path(@newanswer.post_id)
      else
        redirect_to root_path
@@ -65,6 +68,15 @@ module Public
 
     def answer_params
       params.require(:answer).permit(:answerbody, :answersyutten, :answerimage, :post_id, :updated_at)
+    end
+
+    def twitter_client
+      @client = Twitter::REST::Client.new do |config|
+        config.consumer_key        = ENV["TWITTER_API_KEY"]
+        config.consumer_secret     = ENV["TWITTER_API_SECRET_KEY"]
+        config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
+        config.access_token_secret = ENV["TWITTER_ACCESS_SECRET_TOKEN"]
+      end
     end
   end
 end
