@@ -1,7 +1,7 @@
 module Public
   class AnswersController < ApplicationController
     before_action :authenticate_member!
-    before_action :twitter_client, only: [:create]
+    before_action :twitter_client, only: [:create, :update]
     # 会員側では新規回答投稿、回答編集、回答削除が可能
     def new
       @newanswer = Answer.new
@@ -58,6 +58,8 @@ module Public
           end
          end
          flash[:notice] = '回答を更新しました'
+         # 回答更新時にもツイッターbotを動作させる
+         @client.update("回答が更新されました。 \n \n #{@answer.post.posttitle}  \n warerano3594.com/public/posts/#{@answer.post_id}\r")
          redirect_to public_post_path(@answer.post_id)
       else
         redirect_to root_path

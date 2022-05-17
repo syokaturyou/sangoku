@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   # トップページに表示するお知らせ用に作成 マークダウン形式使用
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :twitter_client, only: [:create]
+  before_action :twitter_client, only: [:create, :update]
 
   def index
     @articles = Article.all.order(updated_at: 'DESC').page(params[:page]).per(10)
@@ -30,7 +30,6 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
@@ -50,6 +49,8 @@ class ArticlesController < ApplicationController
       if @article.update(article_params)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
+        # お知らせ更新時にもtwitterbot作成
+        @client.update("お知らせを更新しました。\n \n #{@article.title} \n #{article_url(@article.id)}\r")
         flash[:notice] = 'お知らせを更新しました'
       else
         format.html { render :edit, status: :unprocessable_entity }
