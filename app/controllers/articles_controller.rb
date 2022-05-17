@@ -35,6 +35,7 @@ class ArticlesController < ApplicationController
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
+        # お知らせ作成時にtwitterbot作成
         @client.update("お知らせを作成しました。\n \n #{@article.title} \n #{article_url(@article.id)}\r")
         flash[:notice] = 'お知らせを新規作成しました'
       else

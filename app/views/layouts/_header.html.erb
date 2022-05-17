@@ -1,7 +1,5 @@
 <header>
- <table>
-  <tbody>
-   <tr>
+
     <div class="header-nav">
       <div class="user">
        <% if member_signed_in? %>
@@ -9,10 +7,10 @@
          <ul class="dropdown-menu">
           <div class="box-color">
            <li><div class="header-nav__header-box"><%= link_to 'トップページ', root_path, class: 'fas fa-home nav-link' %></div></li>
+           <li><div class="header-nav__header-box"><%= link_to '質問投稿一覧', public_posts_path, class: 'fas fa-user-edit nav-link' %></div></li>
            <li><div class="header-nav__header-box"><%= link_to '雑談部屋', zatudans_path, class: 'fas fa-comment-dots nav-link' %></div></li>
            <li><div class="header-nav__header-box"><%= link_to 'マイページ', public_member_path(current_member.id), class: 'fas fa-user nav-link' %></div></li>
            <li><div class="header-nav__header-box"><%= link_to '会員一覧', public_members_path, class: 'fas fa-user nav-link' %></div></li>
-           <li><div class="header-nav__header-box"><%= link_to '質問投稿一覧', public_posts_path, class: 'fas fa-user-edit nav-link' %></div></li>
            <li><div class="header-nav__header-box"><%= link_to 'おすすめ地域一覧', sights_path, class: 'fas fa-solid fa-map nav-link' %></div></li>
            <li><div class="header-nav__header-box"><%= link_to 'ログアウト', destroy_member_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link' %></div></li>
           </div>
@@ -22,9 +20,9 @@
          <ul class="dropdown-menu">
           <div class="box-color">
            <li><div class="header-nav__header-box"><%= link_to 'トップページ', root_path, class: 'fas fa-home nav-link' %></div></li>
+           <li><div class="header-nav__header-box"><%= link_to '質問投稿一覧', manager_posts_path, class: 'fas fa-user-edit nav-link' %></div></li>
            <li><div class="header-nav__header-box"><%= link_to '雑談部屋', zatudans_path, class: 'fas fa-comment-dots nav-link' %></div></li>
            <li><div class="header-nav__header-box"><%= link_to '会員一覧', manager_members_path, class: 'fas fa-user nav-link' %></div></li>
-           <li><div class="header-nav__header-box"><%= link_to '質問投稿一覧', manager_posts_path, class: 'fas fa-user-edit nav-link' %></div></li>
            <li><div class="header-nav__header-box"><%= link_to 'ジャンル一覧', manager_genres_path, class: 'fas fa-file-alt nav-link' %></div></li>
            <li><div class="header-nav__header-box"><%= link_to 'お知らせ一覧', articles_path, class: 'fas fa-newspaper nav-link' %></div></li>
            <li><div class="header-nav__header-box"><%= link_to 'ログアウト', destroy_member_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link' %></div></li>
@@ -35,9 +33,9 @@
          <ul class="dropdown-menu">
           <div class="box-color">
            <li><div class="header-nav__header-box"><%= link_to 'トップページ', root_path, class: 'fas fa-home nav-link' %></div></li>
+           <li><div class="header-nav__header-box"><%= link_to '質問投稿一覧', public_posts_path, class: 'fas fa-user-edit nav-link' %></div></li>
            <li><div class="header-nav__header-box"><%= link_to '雑談部屋', zatudans_path, class: 'fas fa-comment-dots nav-link' %></div></li>
            <li><div class="header-nav__header-box"><%= link_to '会員一覧', public_members_path, class: 'fas fa-user nav-link' %></div></li>
-           <li><div class="header-nav__header-box"><%= link_to '質問投稿一覧', public_posts_path, class: 'fas fa-user-edit nav-link' %></div></li>
            <li><div class="header-nav__header-box"><%= link_to 'お問い合わせ', new_contract_path, class: 'fas fa-envelope-square nav-link', data: {"turbolinks"=>false} %></div></li>
            <li><div class="header-nav__header-box"><%= link_to "新規登録", new_member_registration_path, class: 'fas fa-registered nav-link' %></div></li>
            <li><div class="header-nav__header-box"><%= link_to 'ログイン', new_member_session_path, class: 'fas fa-sign-in-alt nav-link' %></div></li></i>
@@ -45,6 +43,7 @@
          </ul>
        <% end %>
      </div>
+
      <div class="search">
       <%= form_with url: search_path, local: true, method: :get do |f| %>
        <a><%= f.select :range, options_for_select([['質問タイトル'],['会員'],['ジャンル']]) %></a>
@@ -63,7 +62,5 @@
       <% end %>
       </div>
     </div>
-   </tr>
-  </tbody>
- </table>
+
 </header>
