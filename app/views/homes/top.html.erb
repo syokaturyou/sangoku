@@ -53,7 +53,7 @@
    <% @sights.first(4).each do |sight| %>
    <tr>
     <td>
-     <%= form_with url: sight_path(sight), method: :get, local: true do |f| %>
+     <%= form_with url: sight_path(sight), method: :get, data: { remote: true } do |f| %>
       <% results=Geocoder.search(sight.address) %>
       <% if results.present? %>
        <% @latlng=results.first.coordinates %>
@@ -109,6 +109,5 @@
     </tr>
    </table>
   </div>
-  <br />
  </div>
 </div>
