@@ -29,7 +29,7 @@ module Public
        end
         flash[:notice] = '回答を投稿しました'
         # 新規回答時にツイッターbotを動かす
-        @client.update("回答が入ってました。#{@newanswer.post.posttitle} warerano3594.com/public/posts/#{@newanswer.post_id}\r")
+        @client.update("回答が入ってました。 \n \n #{@newanswer.post.posttitle}  \n warerano3594.com/public/posts/#{@newanswer.post_id}\r")
         redirect_to public_post_path(@newanswer.post_id)
      else
        redirect_to root_path
@@ -72,10 +72,10 @@ module Public
 
     def twitter_client
       @client = Twitter::REST::Client.new do |config|
-        config.consumer_key        = ENV["TWITTER_API_KEY"]
-        config.consumer_secret     = ENV["TWITTER_API_SECRET_KEY"]
-        config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
-        config.access_token_secret = ENV["TWITTER_ACCESS_SECRET_TOKEN"]
+        config.consumer_key        = ENV['TWITTER_API_KEY']
+        config.consumer_secret     = ENV['TWITTER_API_SECRET_KEY']
+        config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
+        config.access_token_secret = ENV['TWITTER_ACCESS_SECRET_TOKEN']
       end
     end
   end
