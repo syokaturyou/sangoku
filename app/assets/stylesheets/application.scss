@@ -528,6 +528,11 @@ select {
    border-width: 3px;
 }
 
+ img{
+    border-radius: 15px;
+    border-color: black;
+ }
+
 @media only screen and (max-width: 500px) {
   .main {
   min-width: 1000px;
