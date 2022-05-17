@@ -1,5 +1,6 @@
 module Public
   class PostsController < ApplicationController
+    before_action :twitter_client, only: [:create, :update]
     def index
       # デフォルトは更新日時の降順に並べる
       @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
@@ -51,6 +52,8 @@ module Public
       @newpost.score = Language.get_data(post_params[:postbody]) # 感情スコア取得
       if @newpost.save
         flash[:notice] = '質問を投稿しました'
+        # 新規投稿時にツイッターbotを動かす
+        @client.update("新規質問が投稿されました。\n\n #{@newpost.posttitle} \n warerano3594.com/public/posts/#{@newpost.id}  \n 回答をお待ちしております\r")
         redirect_to public_posts_path
       else
         redirect_to root_path
@@ -63,6 +66,8 @@ module Public
       @post.score = Language.get_data(post_params[:postbody]) # 更新されれば感情スコアも更新されるよう実施
       @post.save
       @post.update(postimage: nil) if params[:image_delete].present? # 「画像なし」を選択した場合postimageをnilにする
+      # 質問更新時にもツイッターbotを動かす
+      @client.update("質問が更新されました。\n\n #{@post.posttitle} \n warerano3594.com/public/posts/#{@post.id}  \n 回答をお待ちしております\r")
       flash[:notice] = '質問を更新しました'
       redirect_to public_posts_path
     end
@@ -79,6 +84,15 @@ module Public
 
     def post_params
       params.require(:post).permit(:posttitle, :postbody, :postsyutten, :postimage, :genre_id)
+    end
+
+    def twitter_client
+      @client = Twitter::REST::Client.new do |config|
+        config.consumer_key        = ENV['TWITTER_API_KEY']
+        config.consumer_secret     = ENV['TWITTER_API_SECRET_KEY']
+        config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
+        config.access_token_secret = ENV['TWITTER_ACCESS_SECRET_TOKEN']
+      end
     end
   end
 end
