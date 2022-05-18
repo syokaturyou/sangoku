@@ -1,11 +1,12 @@
 <div class="split">
  <% if current_page?(public_members_path) %>
   <div class="nowpath"><%= link_to '会員一覧', public_members_path, data: {"turbolinks"=>false} %></div>
-   </br>
-  <div><%= link_to 'マイページ', public_member_path(current_member.id), data: {"turbolinks"=>false} %></div>
- <% elsif current_page?(public_member_path(current_member.id)) %>
-  <div><%= link_to '会員一覧', public_members_path, data: {"turbolinks"=>false} %></div>
-   </br>
-  <div class="nowpath"><%= link_to 'マイページ', public_member_path(current_member.id), data: {"turbolinks"=>false} %></div>
+ <% elsif current_page?(public_member_path(@member.id)) %>
+  <div><%= link_to '会員一覧', public_members_path, data: {"turbolinks"=>false} %></div></br>
+  <div class="nowpath"><%= link_to '会員詳細', public_member_path(@member.id), data: {"turbolinks"=>false} %></div>
+ <% elsif current_page?(edit_public_member_path(@member.id)) %>
+  <div><%= link_to '会員一覧', public_members_path, data: {"turbolinks"=>false} %></div></br>
+  <div><%= link_to '会員詳細', public_member_path(@member.id), data: {"turbolinks"=>false} %></div></br>
+  <div class="nowpath"><%= link_to '会員編集', edit_public_member_path(@member.id), data: {"turbolinks"=>false} %></div>
  <% end %>
 </div>
