@@ -1,45 +1,45 @@
 <% breadcrumb :publicpostedit  %>
 <%= breadcrumbs separator: " > " , class: :logo %>
-<div class='container'>
-  <div class="row">
-   <table class="newtable">
-    <div class="col-lg-6">
-     <h2>質問内容編集</h2>
-    </div>
-     <tbody>
-      <%= form_with model: @post, url: public_post_path(@post), local: true do |f| %>
-       <tr>
-        <td><%= f.label :質問タイトル変更 %></td>
-        <td><%= f.text_field :posttitle, autofocus: true, required: true, size: "60", :placeholder => "タイトル入力" %></td>
-       </tr>
-       <tr>
-        <td><%= f.label :説明文変更 %></td>
-        <td>
-         <%= f.text_area :postbody, autofocus: true, required: true, size: '60x10', :placeholder => "説明文入力" %>
-         <p class="sentiment-score">感情分析スコア <%= @post.score %> / 1.0</p>
-        </td>
-       </tr>
-       <tr>
-        <td><%= f.label :出典・参考url変更 %></td>
-        <td><%= f.text_area :postsyutten, autofocus: true, size: "50x3", :placeholder => "URL入力" %></td>
-       </tr>
-       <tr>
-        <td><%= f.label :ジャンル名入力 %></td>
-        <td><%= f.collection_select :genre_id, Genre.all, :id, :name, required: true %></td>
-       </tr>
-       <tr>
-        <td><%= f.label :参考画像 %></td>
-        <td><%= attachment_image_tag @post, :postimage, :fill, 90, 90, fallback: "no_image.jpg" %>
-         <label><%= check_box_tag :image_delete %>画像なし</label>
-         <label><%= f.attachment_field :postimage %></label>
-        </td>
-       </tr>
-       <tr>
-       <td><%= link_to '質問に戻る', :back, class: 'btn btn-danger btn-lg' %></td>
-       <td><%= f.submit "質問内容を更新する", class: 'btn btn-success btn-lg' %></td>
-       <% end %>
-       </tr>
-     </tbody>
-   </table>
+ <div class='container'>
+   <div class="row">
+    <table class="newtable">
+     <div class="col-lg-6">
+      <h2>質問内容編集</h2>
+     </div>
+      <tbody>
+       <%= form_with model: @post, url: public_post_path(@post), local: true do |f| %>
+        <tr>
+         <td><%= f.label :質問タイトル変更 %></td>
+         <td><%= f.text_field :posttitle, autofocus: true, required: true, size: "60", :placeholder => "タイトル入力" %></td>
+        </tr>
+        <tr>
+         <td><%= f.label :説明文変更 %></td>
+         <td>
+          <%= f.text_area :postbody, autofocus: true, required: true, size: '60x10', :placeholder => "説明文入力" %>
+          <p class="sentiment-score">感情分析スコア <%= @post.score %> / 1.0</p>
+         </td>
+        </tr>
+        <tr>
+         <td><%= f.label :出典・参考url変更 %></td>
+         <td><%= f.text_area :postsyutten, autofocus: true, size: "50x3", :placeholder => "URL入力" %></td>
+        </tr>
+        <tr>
+         <td><%= f.label :ジャンル名入力 %></td>
+         <td><%= f.collection_select :genre_id, Genre.all, :id, :name, required: true %></td>
+        </tr>
+        <tr>
+         <td><%= f.label :参考画像 %></td>
+         <td><%= attachment_image_tag @post, :postimage, :fill, 90, 90, fallback: "no_image.jpg" %>
+          <label><%= check_box_tag :image_delete %>画像なし</label>
+          <label><%= f.attachment_field :postimage %></label>
+         </td>
+        </tr>
+        <tr>
+        <td><%= link_to '質問に戻る', :back, class: 'btn btn-danger btn-lg' %></td>
+        <td><%= f.submit "質問内容を更新する", class: 'btn btn-success btn-lg' %></td>
+        <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
  </div>
-</div>

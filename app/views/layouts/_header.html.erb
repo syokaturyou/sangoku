@@ -46,7 +46,7 @@
    <%= form_with url: search_path, local: true, method: :get do |f| %>
     <a><%= f.select :range, options_for_select([['質問タイトル'],['会員'],['ジャンル']]) %></a>
     <a class="keywordaicon"><%= f.text_field :word, size: '60', :placeholder => "検索内容入力" %></a>
-    <a><%= f.submit "検索", class: "btn btn-outline-primary btn-lg", data: {"turbolinks"=>false} %></a>
+    <a><%= f.submit "検索", class: "btn btn-primary btn-lg", data: {"turbolinks"=>false} %></a>
     <%= f.hidden_field :search, :value => "partial_match" %>
    <% end %>
    <% if member_signed_in? %>

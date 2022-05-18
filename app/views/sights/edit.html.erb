@@ -1,80 +1,91 @@
-<% breadcrumb :sightedit  %>
-<%= breadcrumbs separator: " > " , class: :logo %>
-<h2>おすすめ地域編集</h2>
-<div class='container'>
-  <div class="row">
-   <table class="newtable">
-     <tbody>
-      <%= form_with model: @sight, url: sight_path(@sight), local: true do |f| %>
-      <tr>
-       <td>現住所:<%= @sight.address %></td>
-       <td><input id="address" type="textbox" value="" placeholder="住所入力" required ><input type="button" id ="button1" value="住所画像取得" onclick="codeAddress()"></td>
-      </tr>
-      <tr>
-       <td><div id="kekka">検索住所</div></td>
-       <td><div id="display">(緯度, 経度)</div></td>
-      </tr>
-      <input type="hidden" name="sight[address]" id="hidden_address">
-      <tr>
-       <td><%= f.label :説明変更 %></td>
-       <td><%= f.text_area :profile, autofocus: true, size: "50", :placeholder => "説明入力" %></td>
-      </tr>
-      <tr>
-       <td>更新前画像</td>
-       <td>
-        <% results=Geocoder.search(@sight.address) %>
-         <% if results.present? %>
-          <% @latlng=results.first.coordinates %>
-          <%= image_tag "https://maps.googleapis.com/maps/api/streetview?size=300x200&heading=180&fov=120&location=#{@latlng[0]},#{@latlng[1]}&sensor=true&key=##{ENV['GOOGLE_API_KEY']}" %>
-        <% end %>
-       </td>
-      </tr>
-      <tr>
-       <td><%= link_to '戻る', :back, class: 'btn btn-danger btn-lg' %></td>
-       <td><%= f.submit "内容を更新する", data: {"turbolinks"=>false}, class: 'btn btn-success btn-lg' %></td>
-      </tr>
-      <% end %>
-    </tbody>
-   </table>
+<div class="row">
+  <div class="col-2">
+   <% breadcrumb :sightedit  %>
+   <%= breadcrumbs separator: " > " , class: :logo %>
+   <%= render "shared/sightlayout" %>
+  </div>
+<div class="col-10">
+ <div class="out">
+  <div class="in">
+    <h2>おすすめ地域編集</h2>
+    <div class='container'>
+      <div class="row">
+       <table class="newtable">
+         <tbody>
+          <%= form_with model: @sight, url: sight_path(@sight), local: true do |f| %>
+          <tr>
+           <td>現住所:<%= @sight.address %></td>
+           <td><input id="address" type="textbox" value="" placeholder="住所入力" required ><input type="button" id ="button1" value="住所画像取得" onclick="codeAddress()"></td>
+          </tr>
+          <tr>
+           <td><div id="kekka">検索住所</div></td>
+           <td><div id="display">(緯度, 経度)</div></td>
+          </tr>
+          <input type="hidden" name="sight[address]" id="hidden_address">
+          <tr>
+           <td><%= f.label :説明変更 %></td>
+           <td><%= f.text_area :profile, autofocus: true, size: "50", :placeholder => "説明入力" %></td>
+          </tr>
+          <tr>
+           <td>更新前画像</td>
+           <td>
+            <% results=Geocoder.search(@sight.address) %>
+             <% if results.present? %>
+              <% @latlng=results.first.coordinates %>
+              <%= image_tag "https://maps.googleapis.com/maps/api/streetview?size=300x200&heading=180&fov=120&location=#{@latlng[0]},#{@latlng[1]}&sensor=true&key=##{ENV['GOOGLE_API_KEY']}" %>
+            <% end %>
+           </td>
+          </tr>
+          <tr>
+           <td><%= link_to '戻る', :back, class: 'btn btn-danger btn-lg' %></td>
+           <td><%= f.submit "内容を更新する", data: {"turbolinks"=>false}, class: 'btn btn-success btn-lg' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+       </table>
+     </div>
+    </div>
+    <div id='map'></div>
+    <style>#map {height: 600px;width: 600px;}</style>
+    <script>
+    let map
+    let geocoder
+    let marker
+    const display = document.getElementById('display')
+
+    function initMap(){
+      geocoder = new google.maps.Geocoder()
+      mapInstance  = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 35.6803997, lng:139.7690174},
+        zoom: 10,
+      });
+      marker = new google.maps.Marker({
+        position:  {lat: 35.6803997, lng:139.7690174},
+        map: mapInstance
+      });
+    }
+    function codeAddress(){
+      let inputAddress = document.getElementById('address').value;
+
+      geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+        if (status == 'OK') {
+          mapInstance .setCenter(results[0].geometry.location);
+          marker = new google.maps.Marker({
+              map: mapInstance ,
+              position: results[0].geometry.location
+          });
+          display.textContent = "(緯度, 経度)：" + results[ 0 ].geometry.location
+          kekka.textContent = "検索住所：" + inputAddress
+          let hidden_address = document.getElementById('hidden_address');
+          hidden_address.setAttribute("value", inputAddress);
+          } else {
+          alert('該当する結果がありませんでした：' + status);
+        }
+      });
+    }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
+   </div>
+  </div>
  </div>
 </div>
-<div id='map'></div>
-<style>#map {height: 600px;width: 600px;}</style>
-<script>
-let map
-let geocoder
-let marker
-const display = document.getElementById('display')
-
-function initMap(){
-  geocoder = new google.maps.Geocoder()
-  mapInstance  = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 35.6803997, lng:139.7690174},
-    zoom: 10,
-  });
-  marker = new google.maps.Marker({
-    position:  {lat: 35.6803997, lng:139.7690174},
-    map: mapInstance
-  });
-}
-function codeAddress(){
-  let inputAddress = document.getElementById('address').value;
-
-  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
-    if (status == 'OK') {
-      mapInstance .setCenter(results[0].geometry.location);
-      marker = new google.maps.Marker({
-          map: mapInstance ,
-          position: results[0].geometry.location
-      });
-      display.textContent = "(緯度, 経度)：" + results[ 0 ].geometry.location
-      kekka.textContent = "検索住所：" + inputAddress
-      let hidden_address = document.getElementById('hidden_address');
-      hidden_address.setAttribute("value", inputAddress);
-      } else {
-      alert('該当する結果がありませんでした：' + status);
-    }
-  });
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
