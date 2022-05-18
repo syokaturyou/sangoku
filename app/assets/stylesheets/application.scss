@@ -201,114 +201,75 @@ table.membertable td:nth-child(3){
 .box-color{
   background-color: #99FF99;
 }
-//ヘッダーメニュー開閉/
-// .hidden_box {
-//   margin-left: auto;
-//   display: flex;
-// }
-// /*ヘッダー開閉ボタン*/
-// .hidden_box label {
-//   font-weight: bold;
-//   position: absolute;
-//   top: 10px;
-//   left: 1100px;
-//   height: 50px;
-//   width: 60px;
-//   text-align: center;
-//   border: solid 2px blue;
-//   border-radius: 10px;
-//   background-color: white;
-// }
-// /*ボタンホバー時*/
-// .hidden_box label:hover {
-//   background: #BBBBBB;
-// }
-// /*チェックは見えなくする*/
-// .hidden_box input {
-//   display: none;
-// }
-// /*中身*/
-// .hidden_box .hidden_show {
-//   opacity: 1;
-// }
-// /*クリックで中身をheader-navを非表示に*/
-// .hidden_box input:checked ~ .hidden_show {
-//   padding: 0;
-//   overflow: hidden;
-//   height: 0px;
-//   opacity: 0;
-// }
-// /フッター関連/
+
 
 .search{
   margin-right: auto;
 }
+.keywordaicon {
+  position: relative;
+  padding: 15px 0;
+  line-height: 30px;
+ }
+ .keywordaicon::before {
+   content: "";           /* 疑似要素に必須 */
+   width: 20px;           /* アイコンの横幅 */
+   height: 20px;          /* アイコンの高さ */
+   background: url(./searchaicon.png) no-repeat center center / auto 100%; /* 背景にアイコン画像を配置 */
+   display: inline-block; /* 高さを持たせるためにインラインブロック要素にする */
+   position: absolute;    /* 相対位置に指定 */
+   top: 15px;              /* アイコンの位置。微調整してね */
+   left: 10px;             /* アイコンの位置。微調整してね */
+ }
+  .keywordaicon input {
+    padding: 3px 0 3px 2em; /* アイコンを設置するため左の余白を多めに指定*/
+  }
+ .zatudansearch {
+  margin-right: auto;
+  margin-left: auto;
+ }
+  .zatudanaicon {
+  position: relative;
+  padding-left: 100px;
+ }
+ .zatudanaicon::before {
+  content: url(./searchaicon.png);
+  display: inline-block;
+  vertical-align: middle;
+  transform: scale(0.15);
+  position: absolute;
+  top: -90px;
+  left: 10px;
+ }
+ .zatudanaicon input {
+  padding: 3px 0 3px 2em; /* アイコンを設置するため左の余白を多めに指定*/
+ }
 
-    .keywordaicon {
-      position: relative;
-      padding: 15px 0;
-      line-height: 30px;
-     }
-     .keywordaicon::before {
-       content: "";           /* 疑似要素に必須 */
-       width: 20px;           /* アイコンの横幅 */
-       height: 20px;          /* アイコンの高さ */
-       background: url(./searchaicon.png) no-repeat center center / auto 100%; /* 背景にアイコン画像を配置 */
-       display: inline-block; /* 高さを持たせるためにインラインブロック要素にする */
-       position: absolute;    /* 相対位置に指定 */
-       top: 15px;              /* アイコンの位置。微調整してね */
-       left: 10px;             /* アイコンの位置。微調整してね */
-     }
-      .keywordaicon input {
-        padding: 3px 0 3px 2em; /* アイコンを設置するため左の余白を多めに指定*/
-      }
-
-     .zatudansearch {
-      margin-right: auto;
-      margin-left: auto;
-     }
-      .zatudanaicon {
-      position: relative;
-      padding-left: 100px;
-     }
-     .zatudanaicon::before {
-      content: url(./searchaicon.png);
-      display: inline-block;
-      vertical-align: middle;
-      transform: scale(0.15);
-      position: absolute;
-      top: -90px;
-      left: 10px;
-     }
-     .zatudanaicon input {
-      padding: 3px 0 3px 2em; /* アイコンを設置するため左の余白を多めに指定*/
-     }
-
-     .chatsearch {
-      margin-right: auto;
-      margin-left: auto;
-     }
-      .chataicon {
-      position: relative;
-      padding-left: 100px;
-     }
-     .chataicon::before {
-      content: url(./searchaicon.png);
-      display: inline-block;
-      vertical-align: middle;
-      transform: scale(0.1);
-      position: absolute;
-      top: -100px;
-      left: 5px;
-     }
-     .chataicon input {
-      padding: 3px 0 3px 2em; /* アイコンを設置するため左の余白を多めに指定*/
-     }
+ .chatsearch {
+  margin-right: auto;
+  margin-left: auto;
+ }
+  .chataicon {
+  position: relative;
+  padding-left: 100px;
+ }
+ .chataicon::before {
+  content: url(./searchaicon.png);
+  display: inline-block;
+  vertical-align: middle;
+  transform: scale(0.1);
+  position: absolute;
+  top: -100px;
+  left: 5px;
+ }
+ .chataicon input {
+  padding: 3px 0 3px 2em; /* アイコンを設置するため左の余白を多めに指定*/
+ }
 
 _:lang(x)+_:-webkit-full-screen-document, .wrapper{
-    min-height: 2vh;
-    position: relative;
-    padding-bottom: 2px;
+  min-height: 2vh;
+  position: relative;
+  padding-bottom: 2px;
 }
 
  footer {
@@ -435,6 +396,7 @@ h1:before {
  width: 100%;
  min-width: 1000px;
  margin: 0;
+ min-height: 800px;
  height: 100%;
  padding: 2px;
  }
@@ -539,29 +501,26 @@ select {
  .split {
  font-size: 18px;
  text-align: center;
- padding: 30px 0;
  .nowpath {
   color: black;
   border-right: 3px solid blue;
  }
 }
 
-.row{
-     height: 100%;
-      .out {
-        background-color: #F6F8F9;
-        border-left: 2px solid #e2e2e2;
-        height: 100%;
-      .in {
-        margin: 0px 40px;
-        padding: 10px;
-        border: 2px solid #e2e2e2;
-        background-color: white;
-        position: relative;
-        top: 5%;
-      }
-    }
+.row {
+  height: 100%;
+  .out {
+    background-color: #F6F8F9;
+    border-left: 2px solid #e2e2e2;
+    padding: 20px 30px;
+    min-height: 900px;
+  .in {
+    padding: 10px 10px;
+    border: 2px solid #e2e2e2;
+    background-color: white;
   }
+ }
+}
 
 
 @media only screen and (max-width: 500px) {
