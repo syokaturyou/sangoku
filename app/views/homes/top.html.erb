@@ -37,7 +37,6 @@
     <% end %>
     </table>
   </div>
-
   <div class="home-top__home-title--blue">
    <span class="home-top__home-subtitle"><%= link_to "おすすめスポット", sights_path, data: {"turbolinks"=>false} %></span>
   </div>
@@ -80,6 +79,7 @@
     </td>
     <td><%= render 'evaluates/review', sight: sight %></td>
     <td>
+     <%= link_to "詳細ページ", sight_path(sight), class: 'btn btn-secondary', data: {"turbolinks"=>false} %>
      <% if member_signed_in? %>
        <% if sight.member.id == current_member.id %>
         <%= link_to "編集する", edit_sight_path(sight), class: 'btn btn-success', data: {"turbolinks"=>false} %>
