@@ -60,7 +60,7 @@
     <a><%= link_to "新規登録", new_member_registration_path, class: 'btn btn-success' %></a>
     <a><%= link_to 'ログイン', new_member_session_path, class: 'btn btn-primary' %></a>
     <a><%= link_to 'ゲストログイン', members_guest_sign_in_path, method: :post, class: 'btn btn-warning' %></a>
-    <a><%= link_to "googleアカウントログイン", member_google_oauth2_omniauth_authorize_path, method: :post , class: 'btn btn-secondary' %></a>
+    <a><%= link_to "Googleアカウントログイン", member_google_oauth2_omniauth_authorize_path, method: :post , class: 'btn btn-secondary' %></a>
    <% end %>
    </div>
   <%= link_to image_tag("warerano3594.png"), root_path, data: {"turbolinks"=>false} %>

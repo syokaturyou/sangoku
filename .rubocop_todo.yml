@@ -369,6 +369,10 @@ Style/StringLiterals:
 Style/SymbolArray:
   EnforcedStyle: brackets
 
+Style/RedundantReturn:
+  Exclude:
+    - 'app/models/member.rb'
+
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.

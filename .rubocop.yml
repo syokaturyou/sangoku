@@ -54,3 +54,7 @@ Rails/FilePath:
 # Railsのファイルパスの記述についてチェックを外す
 Style/BlockComments:
   Enabled: false
+
+# 複数の戻り値に対する return に関しても警告を出さない
+RedundantReturn:
+  AllowMultipleReturnValues: true

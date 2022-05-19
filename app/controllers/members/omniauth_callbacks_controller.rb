@@ -9,7 +9,7 @@ class Members::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @member = info[:member]
     if @member.persisted?
       sign_in_and_redirect @member, event: :authentication
-      set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
+      set_flash_message(:notice, :success, kind: provider.to_s.capitalize) if is_navigational_format?
     else
       @sns = info[:sns]
       render template: 'devise/registrations/new'
