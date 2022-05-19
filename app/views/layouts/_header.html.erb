@@ -41,7 +41,7 @@
         <li><div class="header-nav__header-box"><%= link_to 'お問い合わせ', new_contract_path, class: 'fas fa-envelope-square nav-link fa-lg', data: {"turbolinks"=>false} %></div></li>
         <li><div class="header-nav__header-box"><%= link_to "新規登録", new_member_registration_path, class: 'fas fa-registered nav-link fa-lg' %></div></li>
         <li><div class="header-nav__header-box"><%= link_to 'ログイン', new_member_session_path, class: 'fas fa-sign-in-alt nav-link fa-lg' %></div></li>
-        <li><div class="header-nav__header-box"><%= link_to "Googleアカウントログイン", member_google_oauth2_omniauth_authorize_path, method: :post, class: 'fas nav-link fa-lg'%></div></li>
+        <li><div class="header-nav__header-box"><%= link_to "Googleアカウントログイン", member_google_oauth2_omniauth_authorize_path, method: :post, class: 'fab fa-google nav-link fa-lg'%></div></li>
        </div>
       </ul>
     <% end %>
@@ -62,6 +62,7 @@
     <a><%= link_to 'ログイン', new_member_session_path, class: 'btn btn-primary' %></a>
     <a><%= link_to 'ゲストログイン', members_guest_sign_in_path, method: :post, class: 'btn btn-warning' %></a>
     <a><%= link_to "Googleアカウントログイン", member_google_oauth2_omniauth_authorize_path, method: :post , class: 'btn btn-secondary' %></a>
+    <a><%= link_to "twitterログイン", member_twitter_omniauth_authorize_path, method: :post, class:' fab fa-twitter btn-lg' %></a>
    <% end %>
    </div>
   <%= link_to image_tag("warerano3594.png"), root_path, data: {"turbolinks"=>false} %>

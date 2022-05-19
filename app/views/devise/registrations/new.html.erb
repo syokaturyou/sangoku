@@ -1,4 +1,4 @@
-<h2>googleアカウント登録</h2>
+<h2>アカウント登録</h2>
   <div class ="login">
     <%= form_for(resource, as: resource_name, url: member_registration_path) do |f| %>
      <%= render "members/shared/error_messages", resource: resource %>
@@ -8,7 +8,7 @@
        <td><%= f.text_field :name, maxlength: "60", class: 'form-control', :readonly => true %></td>
       </tr>
       <tr>
-       <td>ログイン用メールアドレス</td>
+       <td>メールアドレス</td>
        <td><%= f.email_field :email, maxlength: "60", class: 'form-control', :readonly => true %></td>
       </tr>
       <tr>
@@ -17,7 +17,11 @@
       </tr>
       <tr>
        <td></td>
-       <td><%= f.submit "今後このアカウントで登録/ログインする", class: 'btn btn-success btn-lg' %></td>
+       <td><%= f.submit "上記設定で利用する", class: 'btn btn-success btn-lg' %></td>
+      </tr>
+      <tr>
+       <td></td>
+       <td>※設定は後から更新可能です</td>
       </tr>
      </table>
     <% end %>

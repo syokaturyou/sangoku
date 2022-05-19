@@ -20,7 +20,11 @@
      </tr>
      <tr>
       <td>Googleアカウント使用なら入力不要</td>
-      <td><%= link_to "Googleアカウントログイン", member_google_oauth2_omniauth_authorize_path, method: :post , class: 'btn btn-secondary btn-lg' %></td>
+      <td><%= link_to "Googleアカウントログイン", member_google_oauth2_omniauth_authorize_path, method: :post, class: 'btn btn-secondary btn-lg' %></td>
+     </tr>
+     <tr>
+      <td>twwiterアカウントも使用可能</td>
+      <td><%= link_to "twitterログイン", member_twitter_omniauth_authorize_path, method: :post, class:' fab fa-twitter btn-lg' %></td>
      </tr>
     </table>
    <% end %>

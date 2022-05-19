@@ -28,6 +28,10 @@
        <td><%= link_to "Googleアカウントログイン", member_google_oauth2_omniauth_authorize_path, method: :post , class: 'btn btn-secondary btn-lg' %></td>
       </tr>
       <tr>
+       <td>twwiterアカウント使用なら入力不要</td>
+       <td><%= link_to "twitterログイン", member_twitter_omniauth_authorize_path, method: :post, class:' fab fa-twitter btn-lg' %></td>
+      </tr>
+      <tr>
        <td>既に登録済みの方</td>
        <td><%= link_to "ログイン画面へ", new_session_path(resource_name), class: 'btn btn-primary btn-lg' %></td>
       </tr>

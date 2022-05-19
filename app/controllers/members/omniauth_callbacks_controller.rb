@@ -3,6 +3,10 @@ class Members::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_for(:google)
   end
 
+  def twitter
+    callback_for(:twitter)
+  end
+
   def callback_for(provider)
     @omniauth = request.env['omniauth.auth']
     info = Member.find_oauth(@omniauth)

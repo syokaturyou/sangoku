@@ -3,7 +3,7 @@ class Member < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:google_oauth2]
+         :omniauthable, omniauth_providers: [:google_oauth2, :twitter]
 
          has_many :answers, dependent: :destroy
          has_many :posts, dependent: :destroy
@@ -40,10 +40,9 @@ class Member < ApplicationRecord
     end
    end
 
-  # APIからログイン
+  # API(google/twitter)からログイン
   def self.without_sns_data(auth)
     member = Member.where(email: auth.info.email).first
-
       if member.present?
         sns = SnsCredential.create(
           mid: auth.mid,
@@ -89,5 +88,4 @@ class Member < ApplicationRecord
     end
     return {member: member, sns: sns}
   end
-
 end
