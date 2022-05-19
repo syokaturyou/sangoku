@@ -5,16 +5,16 @@ class BooksController < ApplicationController
       @books = []
       books = RakutenWebService::Books::Book.search(title: params[:keyword])
       books.each do |book|
-        if book.title.include?("")
-        @books.push(book)
-        elsif book.item_caption.include?("")
-        @books.push(book)
-        elsif book.author.include?("")
-        @books.push(book)
+        if book.title.include?('')
+          @books.push(book)
+        elsif book.item_caption.include?('')
+          @books.push(book)
+        elsif book.author.include?('')
+          @books.push(book)
         end
       end
       if @books.present?
-       @books = Kaminari.paginate_array(@books).page(params[:page]).per(10)
+        @books = Kaminari.paginate_array(@books).page(params[:page]).per(10)
       end
     end
   end

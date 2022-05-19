@@ -1,0 +1,25 @@
+<h2>googleアカウント登録</h2>
+  <div class ="login">
+    <%= form_for(resource, as: resource_name, url: member_registration_path) do |f| %>
+     <%= render "members/shared/error_messages", resource: resource %>
+     <table class="logtable">
+      <tr>
+       <td>登録名</td>
+       <td><%= f.text_field :name, maxlength: "60", class: 'form-control', :readonly => true %></td>
+      </tr>
+      <tr>
+       <td>ログイン用メールアドレス</td>
+       <td><%= f.email_field :email, maxlength: "60", class: 'form-control', :readonly => true %></td>
+      </tr>
+      <tr>
+       <td>パスワード（入力不要)</td>
+       <td><%= f.hidden_field :password, :value => 222222 %><%= f.hidden_field :password_confirmation, :value => 222222 %></td>
+      </tr>
+      <tr>
+       <td></td>
+       <td><%= f.submit "今後このアカウントで登録/ログインする", class: 'btn btn-success btn-lg' %></td>
+      </tr>
+     </table>
+    <% end %>
+   </div>
+  </div>

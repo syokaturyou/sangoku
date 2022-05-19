@@ -3,7 +3,7 @@ class Member < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[google_oauth2]
+         :omniauthable, omniauth_providers: [:google_oauth2]
 
          has_many :answers, dependent: :destroy
          has_many :posts, dependent: :destroy
@@ -15,7 +15,6 @@ class Member < ApplicationRecord
          has_many :evaluates, dependent: :destroy
          has_many :liked_sights, through: :likes, source: :sight
          has_many :sns_credentials, dependent: :destroy
-
 
          attachment :profileimage
 
@@ -32,7 +31,7 @@ class Member < ApplicationRecord
              end
    end
 
-  # ゲストログイン
+   # ゲストログイン
    def self.guest
     find_or_create_by!(email: 'guest@example.com') do |member|
       member.password = SecureRandom.urlsafe_base64
@@ -42,63 +41,53 @@ class Member < ApplicationRecord
    end
 
   # APIからログイン
-  # def self.without_sns_data(auth)
-  #   member = Member.where(email: auth.info.email).first
+  def self.without_sns_data(auth)
+    member = Member.where(email: auth.info.email).first
 
-  #     if member.present?
-  #       sns = SnsCredential.create(
-  #         mid: auth.mid,
-  #         provider: auth.provider,
-  #         member_id: member.id
-  #       )
-  #     else
-  #       member = Member.new(
-  #         name: auth.info.name,
-  #         email: auth.info.email,
-  #         password: SecureRandom.urlsafe_base64,
-  #       )
-  #       sns = SnsCredential.new(
-  #         mid: auth.mid,
-  #         provider: auth.provider
-  #       )
-  #     end
-  #     return { member: member ,sns: sns}
-  # end
+      if member.present?
+        sns = SnsCredential.create(
+          mid: auth.mid,
+          provider: auth.provider,
+          member_id: member.id
+        )
+      else
+        member = Member.new(
+          name: auth.info.name,
+          email: auth.info.email,
+          password: Devise.friendly_token(12)
+        )
+        sns = SnsCredential.new(
+          mid: auth.mid,
+          provider: auth.provider
+        )
+      end
+      return {member: member, sns: sns}
+  end
 
-  # def self.with_sns_data(auth, snscredential)
-  #   member = Member.where(id: snscredential.member_id).first
-  #   unless member.present?
-  #     member = Member.new(
-  #       name: auth.info.name,
-  #       email: auth.info.email,
-  #       password: SecureRandom.urlsafe_base64,
-  #     )
-  #   end
-  #   return {member: member}
-  # end
-
-  # def self.find_oauth(auth)
-  #   mid = auth.mid
-  #   provider = auth.provider
-  #   snscredential = SnsCredential.where(mid: mid, provider: provider).first
-  #   if snscredential.present?
-  #     member = with_sns_data(auth, snscredential)[:member]
-  #     sns = snscredential
-  #   else
-  #     member = without_sns_data(auth)[:member]
-  #     sns = without_sns_data(auth)[:sns]
-  #   end
-  #   return { member: member ,sns: sns}
-  # end
-
-   def self.from_omniauth(auth)
-    where(provider: auth.provider, mid: auth.mid).first_or_create do |member|
-      # deviseのuserカラムに name を追加している場合は以下のコメントアウトも追記します
-      member.id = 16
-      member.name = auth.info.name
-      member.email = auth.info.email
-      member.password = Devise.friendly_token[0,20]
+  def self.with_sns_data(auth, snscredential)
+    member = Member.where(id: snscredential.member_id).first
+    if member.blank?
+      member = Member.new(
+        name: auth.info.name,
+        email: auth.info.email,
+        password: Devise.friendly_token(12)
+      )
     end
-   end
+    return {member: member}
+  end
+
+  def self.find_oauth(auth)
+    mid = auth.mid
+    provider = auth.provider
+    snscredential = SnsCredential.where(mid: mid, provider: provider).first
+    if snscredential.present?
+      member = with_sns_data(auth, snscredential)[:member]
+      sns = snscredential
+    else
+      member = without_sns_data(auth)[:member]
+      sns = without_sns_data(auth)[:sns]
+    end
+    return {member: member, sns: sns}
+  end
 
 end
