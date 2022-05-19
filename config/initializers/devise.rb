@@ -321,7 +321,7 @@ Devise.setup do |config|
 
   config.omniauth :twitter, ENV['TWITTER_API_KEY'], ENV['TWITTER_API_SECRET_KEY'], skip_jwt: true
 
-  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_API_SECRET_ID'], skip_jwt: true
+  # config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_API_SECRET_ID'], skip_jwt: true
 
   # config.omniauth :github, ENV['GITHUB_APP_ID'], ENV['GITHUB_API_SECRET_ID'], skip_jwt: true
 
