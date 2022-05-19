@@ -102,3 +102,6 @@ group :production do
   gem 'mysql2'
 end
 gem 'twitter'
+gem 'rakuten_web_service'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'

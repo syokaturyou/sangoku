@@ -1,0 +1,18 @@
+<table class="sighttable">
+  <tbody>
+   <tr>
+    <th>画像</th>
+    <th>タイトル</th>
+    <th>著者</th>
+    <th>説明</th>
+   </tr>
+   <% @books.first(30).each do |book| %>
+   <tr>
+    <td><%= link_to (image_tag(book.medium_image_url)), book.item_url %></td>
+    <td><%= book.title %></td>
+    <td><%= book.author %></td>
+    <td><%= book.item_caption %></td>
+   </tr>
+   <% end %>
+  </tbody>
+</table>
