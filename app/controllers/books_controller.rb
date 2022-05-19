@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   def search
     if params[:keyword]
+      @counts = RakutenWebService::Books::Book.search(title: params[:keyword])
       @books = []
       @range = params[:range]
       case @range
