@@ -26,6 +26,10 @@
       <td>twiterアカウントも使用可能</td>
       <td><%= link_to "twitterログイン", member_twitter_omniauth_authorize_path, method: :post, class: 'fab fa-twitter btn-lg' %></td>
      </tr>
+     <tr>
+      <td>facebookアカウント（テスト中）</td>
+      <td><%= link_to "facebookログイン(テスト中)", root_path, method: :post, class: 'fas fa-facebook btn-lg' %></td>
+     </tr>
     </table>
    <% end %>
  </div>
