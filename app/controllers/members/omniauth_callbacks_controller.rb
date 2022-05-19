@@ -7,7 +7,7 @@ class Members::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_for(:twitter)
   end
 
-  def twitter
+  def rakuten
     callback_for(:rakuten)
   end
 
