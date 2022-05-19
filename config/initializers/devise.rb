@@ -321,7 +321,9 @@ Devise.setup do |config|
 
   config.omniauth :twitter, ENV['TWITTER_API_KEY'], ENV['TWITTER_API_SECRET_KEY'], skip_jwt: true
 
-  # config.omniauth :rakuten, ENV['RAKUTEN_APP_ID'], ENV['RAKUTEN_API_SECRET_ID'], skip_jwt: true
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_API_SECRET_ID'], skip_jwt: true
+
+  config.omniauth :github, ENV['GITHUB_APP_ID'], ENV['GITHUB_API_SECRET_ID'], skip_jwt: true
 
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.

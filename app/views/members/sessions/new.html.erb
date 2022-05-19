@@ -27,8 +27,12 @@
       <td><%= link_to "twitterログイン", member_twitter_omniauth_authorize_path, method: :post, class: 'fab fa-twitter btn-lg' %></td>
      </tr>
      <tr>
-      <td>楽天アカウントも使用可能（テスト中）</td>
-      <td><%= link_to "rakutenログイン(テスト)", member_rakuten_omniauth_authorize_path, method: :post, class: 'fas fa-registered btn-lg' %></td>
+      <td>facebookアカウントも使用可能（テスト中）</td>
+      <td><%= link_to "facebookログイン(テスト)", member_facebook_omniauth_authorize_path, method: :post, class: 'fas fa-facebook btn-lg' %></td>
+     </tr>
+     <tr>
+      <td>githubアカウント(テスト中）</td>
+      <td><%= link_to "githubアカウント(テスト)", member_github_omniauth_authorize_path, method: :post, class: 'fas fa-github btn-lg' %></td>
      </tr>
     </table>
    <% end %>
