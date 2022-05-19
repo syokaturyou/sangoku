@@ -1,3 +1,6 @@
+<%= paginate @books %>
+<%= @books.count %>
+<h2>検索結果</h2>
 <table class="sighttable">
   <tbody>
    <tr>
@@ -6,7 +9,7 @@
     <th>著者</th>
     <th>説明</th>
    </tr>
-   <% @books.first(30).each do |book| %>
+   <% @books.each do |book| %>
    <tr>
     <td><%= link_to (image_tag(book.medium_image_url)), book.item_url %></td>
     <td><%= book.title %></td>
