@@ -105,3 +105,6 @@ gem 'twitter'
 gem 'rakuten_web_service'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
