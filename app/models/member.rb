@@ -3,7 +3,7 @@ class Member < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:google_oauth2, :twitter]
+         :omniauthable, omniauth_providers: [:google_oauth2, :twitter, :rakuten]
 
          has_many :answers, dependent: :destroy
          has_many :posts, dependent: :destroy
