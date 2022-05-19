@@ -94,6 +94,7 @@ class Member < ApplicationRecord
    def self.from_omniauth(auth)
     where(provider: auth.provider, mid: auth.mid).first_or_create do |member|
       # deviseのuserカラムに name を追加している場合は以下のコメントアウトも追記します
+      member.id = 16
       member.name = auth.info.name
       member.email = auth.info.email
       member.password = Devise.friendly_token[0,20]
