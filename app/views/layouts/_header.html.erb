@@ -40,7 +40,8 @@
         <li><div class="header-nav__header-box"><%= link_to '書籍検索', book_search_path, class: 'fas fa-book nav-link fa-lg' %></div></li>
         <li><div class="header-nav__header-box"><%= link_to 'お問い合わせ', new_contract_path, class: 'fas fa-envelope-square nav-link fa-lg', data: {"turbolinks"=>false} %></div></li>
         <li><div class="header-nav__header-box"><%= link_to "新規登録", new_member_registration_path, class: 'fas fa-registered nav-link fa-lg' %></div></li>
-        <li><div class="header-nav__header-box"><%= link_to 'ログイン', new_member_session_path, class: 'fas fa-sign-in-alt nav-link fa-lg' %></div></li></i>
+        <li><div class="header-nav__header-box"><%= link_to 'ログイン', new_member_session_path, class: 'fas fa-sign-in-alt nav-link fa-lg' %></div></li>
+        <li><div class="header-nav__header-box"><%= link_to "Googleアカウントログイン", member_google_oauth2_omniauth_authorize_path, method: :post, class: 'fas nav-link fa-lg'%></div></li>
        </div>
       </ul>
     <% end %>
