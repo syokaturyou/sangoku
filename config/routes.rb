@@ -28,7 +28,6 @@ Rails.application.routes.draw do
   get '/search', to: 'searchs#search'
   get 'search/result' => 'searchs#result'
   get "book/search", to: "books#search"
-  # get "/search", to: "books#search"
 
   namespace :manager do
     resources :members, only: [:index, :show, :edit, :update]
