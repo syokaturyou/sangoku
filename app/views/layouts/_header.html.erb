@@ -11,6 +11,7 @@
         <li><div class="header-nav__header-box"><%= link_to 'マイページ', public_member_path(current_member.id), class: 'fas fa-user nav-link fa-lg' %></div></li>
         <li><div class="header-nav__header-box"><%= link_to '会員一覧', public_members_path, class: 'fas fa-user nav-link fa-lg' %></div></li>
         <li><div class="header-nav__header-box"><%= link_to 'おすすめ地域一覧', sights_path, class: 'fas fa-solid fa-map nav-link fa-lg' %></div></li>
+        <li><div class="header-nav__header-box"><%= link_to '書籍検索', book_search_path, class: 'fas fa-book nav-link fa-lg' %></div></li>
         <li><div class="header-nav__header-box"><%= link_to 'ログアウト', destroy_member_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link fa-lg' %></div></li>
        </div>
       </ul>
@@ -24,6 +25,7 @@
         <li><div class="header-nav__header-box"><%= link_to '会員一覧', manager_members_path, class: 'fas fa-user nav-link fa-lg' %></div></li>
         <li><div class="header-nav__header-box"><%= link_to 'ジャンル一覧', manager_genres_path, class: 'fas fa-file-alt nav-link fa-lg' %></div></li>
         <li><div class="header-nav__header-box"><%= link_to 'お知らせ一覧', articles_path, class: 'fas fa-newspaper nav-link fa-lg' %></div></li>
+        <li><div class="header-nav__header-box"><%= link_to '書籍検索', book_search_path, class: 'fas fa-book nav-link fa-lg' %></div></li>
         <li><div class="header-nav__header-box"><%= link_to 'ログアウト', destroy_member_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link fa-lg' %></div></li>
        </div>
       </ul>
@@ -35,6 +37,7 @@
         <li><div class="header-nav__header-box"><%= link_to '質問投稿一覧', public_posts_path, class: 'fas fa-user-edit nav-link fa-lg' %></div></li>
         <li><div class="header-nav__header-box"><%= link_to '雑談部屋', zatudans_path, class: 'fas fa-comment-dots nav-link fa-lg' %></div></li>
         <li><div class="header-nav__header-box"><%= link_to '会員一覧', public_members_path, class: 'fas fa-user nav-link fa-lg' %></div></li>
+        <li><div class="header-nav__header-box"><%= link_to '書籍検索', book_search_path, class: 'fas fa-book nav-link fa-lg' %></div></li>
         <li><div class="header-nav__header-box"><%= link_to 'お問い合わせ', new_contract_path, class: 'fas fa-envelope-square nav-link fa-lg', data: {"turbolinks"=>false} %></div></li>
         <li><div class="header-nav__header-box"><%= link_to "新規登録", new_member_registration_path, class: 'fas fa-registered nav-link fa-lg' %></div></li>
         <li><div class="header-nav__header-box"><%= link_to 'ログイン', new_member_session_path, class: 'fas fa-sign-in-alt nav-link fa-lg' %></div></li></i>
