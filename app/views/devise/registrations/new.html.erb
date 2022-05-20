@@ -6,17 +6,15 @@
       <tr>
        <td>登録名</td>
        <td>
-
          <%= f.text_field :name, maxlength: "60", class: 'form-control', :readonly => true %>
-    \
        </td>
       </tr>
       <tr>
        <td>メールアドレス</td>
        <td>
-
+        <% if @omniauth.email.present? %>
          <%= f.email_field :email, maxlength: "60", class: 'form-control', :readonly => true %>
-
+        <% end %>
        </td>
       </tr>
       <tr>
@@ -26,11 +24,8 @@
       <tr>
        <td></td>
        <td>
-        <% if @omniauth.name.present? and @omniauth.email.present? %>
          <%= f.submit "上記設定で利用する", class: 'btn btn-success btn-lg' %>
-        <% else %>
-         登録名またはメールアドレスが取得できません。設定を見直してください。
-        <% end %>
+         登録名またはメールアドレスが取得できない場合は設定を見直してください。
        </td>
       </tr>
       <tr>
