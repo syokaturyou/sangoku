@@ -108,6 +108,6 @@ gem 'bootstrap-will_paginate'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
-gem 'omniauth-twitter' #twitter認証
-gem 'omniauth-facebook' #facebook認証
-gem 'omniauth-github' #github認証
+gem 'omniauth-twitter' # twitter認証
+gem 'omniauth-facebook' # facebook認証
+gem 'omniauth-github' # github認証
