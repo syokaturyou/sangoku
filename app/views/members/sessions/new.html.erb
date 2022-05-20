@@ -28,8 +28,10 @@
      </tr>
      <tr>
       <td>facebookアカウント（テスト中）</td>
-      <td><%= link_to "facebookログイン(テスト中)", member_facebook_omniauth_authorize_path, method: :post, class: 'fb-root' %></td>
+      <td><%= link_to "facebookログイン(テスト中)", member_facebook_omniauth_authorize_path, method: :post, class: 'fb-login-button' %></td>
      </tr>
     </table>
    <% end %>
  </div>
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v13.0&appId=1126003004793474&autoLogAppEvents=1" nonce="qCL4a4HD"></script>
