@@ -19,19 +19,18 @@
       <td><%= link_to "新規会員登録へ", new_registration_path(resource_name), class: 'btn btn-success btn-lg' %></td>
      </tr>
      <tr>
-      <td>Googleアカウント使用なら入力不要</td>
+      <td>Googleアカウント使用</td>
       <td><%= link_to "Googleアカウントログイン", member_google_oauth2_omniauth_authorize_path, method: :post, class: 'btn btn-secondary btn-lg' %></td>
      </tr>
      <tr>
-      <td>twiterアカウントも使用可能</td>
-      <td><%= link_to "twitterログイン", member_twitter_omniauth_authorize_path, method: :post, class: 'fab fa-twitter btn-lg' %></td>
+      <td>twiterアカウント使用</td>
+      <td><button><%= link_to "twitterログイン", member_twitter_omniauth_authorize_path, method: :post, class: 'fab fa-twitter btn-lg' %></button></td>
      </tr>
      <tr>
-      <td>facebookアカウント（テスト中）</td>
-      <td><%= link_to "facebookログイン(テスト中)", member_facebook_omniauth_authorize_path, method: :post, class: 'fb-login-button' %></td>
+      <td>facebookアカウント使用</td>
+      <td><button><%= link_to "facebookログイン", member_facebook_omniauth_authorize_path, method: :post, class: 'fab fa-facebook-square btn-lg' %></button></td>
      </tr>
     </table>
    <% end %>
  </div>
 
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v13.0&appId=1126003004793474&autoLogAppEvents=1" nonce="qCL4a4HD"></script>
