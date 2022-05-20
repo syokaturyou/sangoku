@@ -20,7 +20,7 @@
      </tr>
      <tr>
       <td>Googleアカウント使用</td>
-      <td><%= link_to "Googleアカウントログイン", member_google_oauth2_omniauth_authorize_path, method: :post, class: 'btn btn-secondary btn-lg' %></td>
+      <td><button><%= link_to "Googleログイン", member_google_oauth2_omniauth_authorize_path, method: :post, class: 'fab fa-google btn-lg' %></button></td>
      </tr>
      <tr>
       <td>twiterアカウント使用</td>
@@ -32,7 +32,7 @@
      </tr>
      <tr>
        <td>gitアカウント使用</td>
-       <td><%= link_to "githubログイン", member_github_omniauth_authorize_path, method: :post, class: 'btn btn-secondary btn-lg' %></td>
+       <td><button><%= link_to "githubログイン", member_github_omniauth_authorize_path, method: :post, class: 'fab fa-github btn-lg' %></button></td>
      </tr>
     </table>
    <% end %>

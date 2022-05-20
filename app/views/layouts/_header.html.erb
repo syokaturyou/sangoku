@@ -60,10 +60,10 @@
     <a><%= link_to "新規登録", new_member_registration_path, class: 'btn btn-success' %></a>
     <a><%= link_to 'ログイン', new_member_session_path, class: 'btn btn-primary' %></a>
     <a><%= link_to 'ゲストログイン', members_guest_sign_in_path, method: :post, class: 'btn btn-warning' %></a>
-    <a><%= link_to "Googleアカウントログイン", member_google_oauth2_omniauth_authorize_path, method: :post , class: 'btn btn-secondary' %></a>
+    <a><button><%= link_to "Googleアカウントログイン", member_google_oauth2_omniauth_authorize_path, method: :post , class: 'fab fa-google' %></button></a>
     <a><button><%= link_to "twitterログイン", member_twitter_omniauth_authorize_path, method: :post, class:' fab fa-twitter' %></button></a>
     <a><button><%= link_to "facebookログイン", member_facebook_omniauth_authorize_path, method: :post, class: 'fab fa-facebook-square' %></button></a>
-    <a><%= link_to "githubログイン", member_github_omniauth_authorize_path, method: :post, class: 'btn btn-secondary' %></a>
+    <a><button><%= link_to "githubログイン", member_github_omniauth_authorize_path, method: :post, class: 'fab fa-github' %></button></a>
    <% end %>
    </div>
   <%= link_to image_tag("warerano3594.png"), root_path, data: {"turbolinks"=>false} %>

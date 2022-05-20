@@ -40,7 +40,7 @@ class Member < ApplicationRecord
     end
    end
 
-  # API(google/twitter)からログイン
+  # SNSやアカウントを使用して(google/twitter/facebook/github)ログイン
   def self.without_sns_data(auth)
     member = Member.where(email: auth.info.email).first
       if member.present?
