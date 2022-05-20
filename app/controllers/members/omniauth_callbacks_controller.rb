@@ -11,9 +11,9 @@ class Members::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_for(:facebook)
   end
 
-  # def github
-  #   callback_for(:github)
-  # end
+  def github
+    callback_for(:github)
+  end
 
   def callback_for(provider)
     @omniauth = request.env['omniauth.auth']
