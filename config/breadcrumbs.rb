@@ -141,3 +141,8 @@ crumb :newevaluate do
   link 'おすすめ地域評価投稿', new_sight_evaluate_path
   parent :sightindex
 end
+
+crumb :booksearch do
+  link '書籍検索', book_search_path
+  parent :root
+end

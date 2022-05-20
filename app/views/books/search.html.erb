@@ -1,3 +1,5 @@
+<% breadcrumb :booksearch  %>
+<%= breadcrumbs separator: " > " , class: :logo %>
 <h1>本検索</h1>
 <%= form_with url: book_search_path, method: :get, local: true do |f| %>
   <%= f.text_field :keyword, required: true, size: "40x20", :placeholder => "キーワード入力" %>
