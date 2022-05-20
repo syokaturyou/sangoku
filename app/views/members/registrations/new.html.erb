@@ -36,6 +36,10 @@
        <td><button><%= link_to "facebookログイン", member_facebook_omniauth_authorize_path, method: :post, class: 'fab fa-facebook-square btn-lg' %></button></td>
       </tr>
       <tr>
+       <td>gitアカウント使用なら入力不要</td>
+       <td><button><%= link_to "githubログイン", member_github_omniauth_authorize_path, method: :post, class: 'btn btn-secondary btn-lg' %></button></td>
+      </tr>
+      <tr>
        <td>既に登録済みの方</td>
        <td><%= link_to "ログイン画面へ", new_session_path(resource_name), class: 'btn btn-primary btn-lg' %></td>
       </tr>
