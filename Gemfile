@@ -109,3 +109,4 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 gem 'omniauth-twitter' #twitter認証
+gem 'omniauth-facebook' #facebook認証
