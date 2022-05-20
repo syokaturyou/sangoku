@@ -9,7 +9,14 @@
       </tr>
       <tr>
        <td>メールアドレス</td>
-       <td><%= f.email_field :email, maxlength: "60", class: 'form-control', :readonly => true %></td>
+       <td>
+        <% if @omniauth.email.present? %>
+         <%= f.email_field :email, maxlength: "60", class: 'form-control', :readonly => true %>
+        <% else  %>
+         <%= f.hidden_field :email, :value => '30@30' %>
+         ※ランダムメールアドレスを作成します。
+        <% end %>
+       </td>
       </tr>
       <tr>
        <td>パスワード（入力不要)</td>
