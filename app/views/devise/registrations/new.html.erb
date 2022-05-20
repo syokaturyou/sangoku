@@ -5,16 +5,17 @@
      <table class="logtable">
       <tr>
        <td>登録名</td>
-       <td><%= f.text_field :name, maxlength: "60", class: 'form-control', :readonly => true %></td>
+       <td>
+        <% if @omniauth.email.present? %>
+         <%= f.text_field :name, maxlength: "60", class: 'form-control', :readonly => true %>
+        <% end %>
+       </td>
       </tr>
       <tr>
        <td>メールアドレス</td>
        <td>
         <% if @omniauth.email.present? %>
          <%= f.email_field :email, maxlength: "60", class: 'form-control', :readonly => true %>
-        <% else  %>
-         <%= f.hidden_field :email, :value => '30@30' %>
-         ※ランダムメールアドレスを作成します。
         <% end %>
        </td>
       </tr>
@@ -24,7 +25,13 @@
       </tr>
       <tr>
        <td></td>
-       <td><%= f.submit "上記設定で利用する", class: 'btn btn-success btn-lg' %></td>
+       <td>
+        <% if @omniauth.name.present? or @omniauth.email.present? %>
+         <%= f.submit "上記設定で利用する", class: 'btn btn-success btn-lg' %>
+        <% else %>
+         登録名またはメールアドレスが取得できません。設定を見直してください。
+        <% end %>
+       </td>
       </tr>
       <tr>
        <td></td>
