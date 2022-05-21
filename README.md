@@ -57,6 +57,16 @@
 ## 設計書
 <https://app.diagrams.net/#G1LahYWsL-gyXUqNxGy_AztbNSppLeBiYQ>
 
+![3594-AWS使用構成図 drawio](https://user-images.githubusercontent.com/78064150/169643132-1840787c-badf-47c2-a610-2c42eacf4134.png)
+
 ![3594-テーブル定義書 drawio](https://user-images.githubusercontent.com/78064150/169643091-e8b98c47-2331-43a7-bbef-85cbaf8089c2.png)
+
+![3594-ER図 drawio](https://user-images.githubusercontent.com/78064150/169643157-1c43efd0-9907-4ed7-8188-1a5ad6983baa.png)
+
+![3594-アプリケーション詳細設計 drawio](https://user-images.githubusercontent.com/78064150/169643139-4e864443-cd45-4fce-961a-782720ad6d15.png)
+
+
+
+
 
 
