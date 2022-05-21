@@ -57,5 +57,6 @@
 ## 設計書
 <https://app.diagrams.net/#G1LahYWsL-gyXUqNxGy_AztbNSppLeBiYQ>
 
-あ
+![3594-テーブル定義書 drawio](https://user-images.githubusercontent.com/78064150/169643091-e8b98c47-2331-43a7-bbef-85cbaf8089c2.png)
+
 
