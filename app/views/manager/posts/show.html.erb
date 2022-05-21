@@ -25,7 +25,7 @@
          </td>
          <td>出典・参考URL
           <div style="border: 1px solid #333333;">
-           <%= link_to(simple_format("#{@post.postsyutten}"), "#{@post.postsyutten}") %>
+           <%= simple_format(@post.postsyutten) %>
           </div>
           参考画像
           <div style="padding: 2px; border: 1px solid #333333;">
@@ -61,7 +61,7 @@
          </td>
          <td>出典・参考URL
           <div style="border: 1px solid #333333;">
-           <%= link_to(simple_format("#{answer.answersyutten}"), "#{answer.answersyutten}") %>
+           <%= simple_format(answer.answersyutten) %>
           </div>
           参考画像
           <div style="padding: 5px; border: 1px solid #333333;">
