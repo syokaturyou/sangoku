@@ -28,7 +28,8 @@
 2.おすすめ地域
 
 ## 動画(基本機能確認)
-<https://user-images.githubusercontent.com/78064150/144544892-34a69c99-305b-4acb-8a75-601c851e6686.mp4>  
+<https://user-images.githubusercontent.com/78064150/169672109-a775960e-932c-4d20-9731-d267ebfedb0c.mp4>
+
 
 ## 開発環境
 
