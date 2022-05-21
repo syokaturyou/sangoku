@@ -57,6 +57,5 @@
 ## 設計書
 <https://app.diagrams.net/#G1LahYWsL-gyXUqNxGy_AztbNSppLeBiYQ>
 
-
-<https://github.com/syokaturyou/sangoku/files/8747221/yamadapf.-.png>
+あ
 
