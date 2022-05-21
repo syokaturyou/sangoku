@@ -40,31 +40,20 @@
 
 ## 主な機能
 
-・deviseログイン(ゲストログイン含む)
+・deviseログイン(ゲストログイン含む)  
+・googleアカウント,twitterアカウント等、Omniauth連携によるSNS認証を用いたログイン  
+・質問、回答に対する,CRUD処理機能  
+・GoogleCLoudAPI使用(自然言語処理、画像認識、map取得)  
+・twitterAPIを用いたトレンド取得、投稿に対するbot作成  
+・rakutenAPIを用いた書籍検索  
+・いいね機能、評価・レビュー機能    
+・全体雑談、会員間チャット機能  
+・お問い合わせ(Action mailer)機能  
+・検索(質問、会員、ジャンル)  
 
-・googleアカウント,twitterアカウント等、Omniauth連携によるSNS認証を用いたログイン
-
-・質問、回答に対する,CRUD処理機能
-
-・GoogleCLoudAPI使用(自然言語処理、画像認識、map取得)
-
-・twitterAPIを用いたトレンド取得、投稿に対するbot作成
-
-・rakutenAPIを用いた書籍検索
-
-・いいね機能、評価・レビュー機能
-
-・全体雑談、会員間チャット機能
-
-・お問い合わせ(Action mailer)機能
-
-・検索(質問、会員、ジャンル)
-
-チャレンジ機能一覧
-
+# チャレンジ機能一覧  
 <https://docs.google.com/spreadsheets/d/1zPWbBf5LPooUiv881fnYykwafSUyzLCTWYFeSWpYjNs/edit#gid=0>
 
 ## 設計書
 <https://app.diagrams.net/#G1LahYWsL-gyXUqNxGy_AztbNSppLeBiYQ>
 
-<mxGraphModel><root><mxCell id="0"/><mxCell id="1" parent="0"/><mxCell id="2" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://wals.s3-ap-northeast-1.amazonaws.com/curriculum/deploy/architect_all.jpg;" vertex="1" parent="1"><mxGeometry x="110" y="120" width="640" height="604.31" as="geometry"/></mxCell></root></mxGraphModel>
