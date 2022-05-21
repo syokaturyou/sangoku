@@ -38,7 +38,7 @@
 - JS ライブラリ：jQuery
 - IDE：Cloud9
 
-## 主な機能
+# 主な機能
 
 ・deviseログイン(ゲストログイン含む)  
 ・googleアカウント,twitterアカウント等、Omniauth連携によるSNS認証を用いたログイン  
@@ -51,9 +51,12 @@
 ・お問い合わせ(Action mailer)機能  
 ・検索(質問、会員、ジャンル)  
 
-# チャレンジ機能一覧  
+ チャレンジ機能詳細    
 <https://docs.google.com/spreadsheets/d/1zPWbBf5LPooUiv881fnYykwafSUyzLCTWYFeSWpYjNs/edit#gid=0>
 
 ## 設計書
 <https://app.diagrams.net/#G1LahYWsL-gyXUqNxGy_AztbNSppLeBiYQ>
+
+
+[テーブル定義書＿yamadapf - アプリケーション定義書.pdf](https://github.com/syokaturyou/sangoku/files/8747221/yamadapf.-.pdf)
 
