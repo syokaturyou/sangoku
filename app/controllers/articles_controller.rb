@@ -13,7 +13,6 @@ class ArticlesController < ApplicationController
     end
     # 日本のトレンドを取得
     @trends = client.trends(234_248_56).attrs[:trends].first(10)
-    # @tweets = client.user_timeline(user_id: id, result_type: "recent", locale: "ja").first(10)
   end
 
   def show
@@ -35,7 +34,7 @@ class ArticlesController < ApplicationController
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
         # お知らせ作成時にtwitterbot作成
-        @client.update("お知らせを作成しました。\n \n #{@article.title} \n #{article_url(@article.id)}\r")
+        @client.update("お知らせを作成しました。\n \n #{@article.title} \n #{article_url(@article.id)}\r \n \n #我らの三国志 #三国志 ")
         flash[:notice] = 'お知らせを新規作成しました'
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -50,7 +49,7 @@ class ArticlesController < ApplicationController
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
         # お知らせ更新時にもtwitterbot作成
-        @client.update("お知らせを更新しました。\n \n #{@article.title} \n #{article_url(@article.id)}\r")
+        @client.update("お知らせを更新しました。\n \n #{@article.title} \n #{article_url(@article.id)}\r \n \n #我らの三国志 #三国志 ")
         flash[:notice] = 'お知らせを更新しました'
       else
         format.html { render :edit, status: :unprocessable_entity }

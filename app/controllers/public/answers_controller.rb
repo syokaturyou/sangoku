@@ -29,7 +29,7 @@ module Public
        end
         flash[:notice] = '回答を投稿しました'
         # 新規回答時にツイッターbotを動かす
-        @client.update("回答が入ってました。 \n \n #{@newanswer.post.posttitle}  \n warerano3594.com/public/posts/#{@newanswer.post_id}\r")
+        @client.update("回答が入ってました。 \n \n #{@newanswer.post.posttitle}  \n warerano3594.com/public/posts/#{@newanswer.post_id}\r \n \n #我らの三国志 #三国志 ")
         redirect_to public_post_path(@newanswer.post_id)
      else
        redirect_to root_path
@@ -59,7 +59,7 @@ module Public
          end
          flash[:notice] = '回答を更新しました'
          # 回答更新時にもツイッターbotを動作させる
-         @client.update("回答が更新されました。 \n \n #{@answer.post.posttitle}  \n warerano3594.com/public/posts/#{@answer.post_id}\r")
+         @client.update("回答が更新されました。 \n \n #{@answer.post.posttitle}  \n warerano3594.com/public/posts/#{@answer.post_id}\r \n \n #我らの三国志 #三国志 ")
          redirect_to public_post_path(@answer.post_id)
       else
         redirect_to root_path
