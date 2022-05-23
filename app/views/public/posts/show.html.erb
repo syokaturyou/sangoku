@@ -3,99 +3,99 @@
 <div class="oocontainer">
   <div class="row">
     <div class="posttitle">
-     <h3>質問タイトル</h3>
-     <h3><%= simple_format(@post.posttitle) %></h3>
-     <% if member_signed_in? %>
-      <% if @post.member.id != current_member.id %>
-       <% if @answer.blank? %>
-        <%= link_to ' 新規回答投稿する', new_public_post_answer_path(@post), class: 'btn btn-info', data: {"turbolinks"=>false} %>
-       <% end %>
+      <h3>質問タイトル</h3>
+      <h3><%= simple_format(@post.posttitle) %></h3>
+      <% if member_signed_in? %>
+        <% if @post.member.id != current_member.id %>
+          <% if @answer.blank? %>
+            <%= link_to ' 新規回答投稿する', new_public_post_answer_path(@post), class: 'btn btn-info', data: {"turbolinks"=>false} %>
+          <% end %>
+        <% end %>
       <% end %>
-     <% end %>
-     <%= link_to '質問一覧へ戻る', public_posts_path, class: 'btn btn-danger' %>
+      <%= link_to '質問一覧へ戻る', public_posts_path, class: 'btn btn-danger' %>
     </div>
-   <div class="dip">
-     <table class="posttable">
-      <thead>
-        <tr bgcolor=#DDDDDD>
-         <td width='130'>質問者
-          <div style="padding: 2px; border: 1px solid #333333; border-radius: 1px;">
-           <%= link_to attachment_image_tag( @post.member, :profileimage, fallback: "no_image.jpg", size: '120x100'), public_member_path(@post.member), data: {"turbolinks"=>false} %>
-           <%= @post.member.name.truncate(15) %>
-          </div>
-         </td>
-         <td width='400'>質問本文
-          <div style="border: 1px solid #333333;">
-           <%= simple_format(@post.postbody) %>
-          </div>
-          <p class="sentiment-score">感情分析スコア <%= @post.score %> / 1.0</p>
-         </td>
-         <td>出典・参考URL
-          <div style="border: 1px solid #333333;">
-           <%= simple_format(@post.postsyutten) %>
-          </div>
-          参考画像
-          <div style="padding: 2px; border: 1px solid #333333;">
-            <%= attachment_image_tag @post, :postimage, :fill, 130, 90, fallback: "no_image.jpg", size:'130x100' %>
-          </div>
-         </td>
-         <td></td>
-        </tr>
-      </thead>
-      <tbody>
-       <% @answers.each do |answer| %>
-       <tr bgcolor=#EEEEEE>
-         <td width='130'>回答者
-          <div style="padding: 2px; border: 1px solid #333333;">
-           <%= link_to attachment_image_tag( answer.member, :profileimage, fallback: "no_image.jpg", size: '120x100'), public_member_path(answer.member), data: {"turbolinks"=>false} %>
-           <%= answer.member.name.truncate(15) %>
-          </div>
-          <br />回答更新日時
-           <%= answer.updated_at.to_s(:datetime_jp) %>
-          <br />
-         <% if member_signed_in? %>
-          <% if answer.member.id != current_member.id %>
-           <%= link_to '評価する', new_public_answer_rate_path(answer.id), class: 'btn btn-warning', data: {"turbolinks"=>false} %>
+    <div class="dip">
+      <table class="posttable">
+        <thead>
+          <tr bgcolor=#DDDDDD>
+            <td width='130'>質問者
+              <div style="padding: 2px; border: 1px solid #333333; border-radius: 1px;">
+                <%= link_to attachment_image_tag( @post.member, :profileimage, fallback: "no_image.jpg", size: '120x100'), public_member_path(@post.member), data: {"turbolinks"=>false} %>
+                <%= @post.member.name.truncate(15) %>
+              </div>
+            </td>
+            <td width='400'>質問本文
+              <div style="border: 1px solid #333333;">
+                <%= simple_format(@post.postbody) %>
+              </div>
+              <p class="sentiment-score">感情分析スコア <%= @post.score %> / 1.0</p>
+            </td>
+            <td>出典・参考URL
+              <div style="border: 1px solid #333333;">
+                <%= simple_format(@post.postsyutten) %>
+              </div>
+              参考画像
+              <div style="padding: 2px; border: 1px solid #333333;">
+                <%= attachment_image_tag @post, :postimage, :fill, 130, 90, fallback: "no_image.jpg", size:'130x100' %>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @answers.each do |answer| %>
+          <tr bgcolor=#EEEEEE>
+            <td width='130'>回答者
+              <div style="padding: 2px; border: 1px solid #333333;">
+                <%= link_to attachment_image_tag( answer.member, :profileimage, fallback: "no_image.jpg", size: '120x100'), public_member_path(answer.member), data: {"turbolinks"=>false} %>
+                <%= answer.member.name.truncate(15) %>
+              </div>
+              <br />回答更新日時
+              <%= answer.updated_at.to_s(:datetime_jp) %>
+              <br />
+            <% if member_signed_in? %>
+              <% if answer.member.id != current_member.id %>
+                <%= link_to '評価する', new_public_answer_rate_path(answer.id), class: 'btn btn-warning', data: {"turbolinks"=>false} %>
+              <% end %>
+              <% if answer.member.id == current_member.id %>
+                <%= link_to '編集する', edit_public_answer_path(answer), class: 'btn btn-success', data: {"turbolinks"=>false} %>
+                <br />
+                <%= link_to '削除する', public_answer_path(answer), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？", remote: true }%>
+              <% end %>
+            <% end %>
+            </td>
+            <td width='400'>回答本文
+              <div style="border: 1px solid #333333;">
+                <% if answer.score >= -0.2 %>
+                  <%= simple_format(answer.answerbody)%>
+                <% else %>
+                  <div style="color:brown">
+                    感情スコアが-0.3以下であるため回答を表示できません。回答を修正してください。
+                  </div>
+                <% end %>
+              </div>
+              <p class="sentiment-score">感情分析スコア <%= answer.score %> / 1.0</p>
+            </td>
+            <td>出典・参考URL
+              <div style="border: 1px solid #333333;">
+                <%= simple_format(answer.answersyutten) %>
+              </div>
+              参考画像
+              <div style="padding: 2px; border: 1px solid #333333;">
+                <%= attachment_image_tag answer, :answerimage, :fill, 130, 90, fallback: "no_image.jpg", size:'130x100' %>
+                <br />
+                画像分類
+                <% answer.tags.each do |tag| %>
+                  <span class="label"><%= tag.name %></span>
+                <% end %>
+              </div>
+            </td>
+            <td><%= render 'public/rates/review', answer: answer %></td>
+          </tr>
           <% end %>
-          <% if answer.member.id == current_member.id %>
-           <%= link_to '編集する', edit_public_answer_path(answer), class: 'btn btn-success', data: {"turbolinks"=>false} %>
-           <br />
-           <%= link_to '削除する', public_answer_path(answer), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？", remote: true }%>
-          <% end %>
-         <% end %>
-         </td>
-         <td width='400'>回答本文
-         <div style="border: 1px solid #333333;">
-          <% if answer.score >= -0.2 %>
-           <%= simple_format(answer.answerbody)%>
-          <% else %>
-          <div style="color:brown">
-           感情スコアが-0.3以下であるため回答を表示できません。回答を修正してください。
-          </div>
-          <% end %>
-         </div>
-         <p class="sentiment-score">感情分析スコア <%= answer.score %> / 1.0</p>
-         </td>
-         <td>出典・参考URL
-          <div style="border: 1px solid #333333;">
-           <%= simple_format(answer.answersyutten) %>
-          </div>
-          参考画像
-          <div style="padding: 2px; border: 1px solid #333333;">
-           <%= attachment_image_tag answer, :answerimage, :fill, 130, 90, fallback: "no_image.jpg", size:'130x100' %>
-           <br />
-           画像分類
-           <% answer.tags.each do |tag| %>
-            <span class="label"><%= tag.name %></span>
-           <% end %>
-          </div>
-         </td>
-         <td><%= render 'public/rates/review', answer: answer %></td>
-        </tr>
-       <% end %>
-      </tbody>
-     </table>
-     <%= paginate @answers %>
-   </div>
+        </tbody>
+      </table>
+      <%= paginate @answers %>
+    </div>
   </div>
 </div>
