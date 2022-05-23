@@ -1,68 +1,68 @@
 <% breadcrumb :publicanswerrate  %>
 <%= breadcrumbs separator: " > " , class: :logo %>
 <h1>評価投稿</h1>
- <div class="center">
+<div class="center">
   <div class="bottom">
-   <h5><b>各回答に対して5段階評価をしましょう！ 一度のみ評価可能です</b></h5><br>
+    <h5><b>各回答に対して5段階評価をしましょう！ 一度のみ評価可能です</b></h5><br>
     <%= form_with model: @newrate, url: public_answer_rates_path, local: true do |f| %>
-  <div id="star1">
-   <%= f.label :communication, "丁重性評価：" %>
-   <%= f.hidden_field :answer_id, :value => params[:answer_id] %>
-   <%= f.hidden_field :communication, :value => 0,  id: :rate_star %>
-   <script>
-      $('#star1').raty({
-        size     : 36,
-        starOff:  '<%= asset_path('star-off.png') %>',
-        starOn : '<%= asset_path('star-on.png') %>',
-        starHalf: '<%= asset_path('star-half.png') %>',
-        scoreName: 'rate[communication]',
-        half: true,
-      });
-   </script>
+      <div id="star1">
+        <%= f.label :communication, "丁重性評価：" %>
+        <%= f.hidden_field :answer_id, :value => params[:answer_id] %>
+        <%= f.hidden_field :communication, :value => 0,  id: :rate_star %>
+        <script>
+          $('#star1').raty({
+            size     : 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            scoreName: 'rate[communication]',
+            half: true,
+          });
+        </script>
+      </div>
+      <div id="star2">
+        <%= f.label :source, "出典性評価： " %>
+        <%= f.hidden_field :source, :value => 0, id: :rate_star %>
+        <script>
+          $('#star2').raty({
+            size     : 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            scoreName: 'rate[source]',
+            half: true,
+          });
+        </script>
+      </div>
+      <div id="star3">
+        <%= f.label :rationality, "合理性評価：" %>
+        <%= f.hidden_field :rationality, :value => 0, id: :rate_star %>
+        <script>
+          $('#star3').raty({
+            size     : 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            scoreName: 'rate[rationality]',
+            half: true,
+          });
+        </script>
+      </div>
+      <div id="star4">
+        <%= f.label :intellect, "考察力評価：" %>
+        <%= f.hidden_field :intellect, :value => 0, id: :rate_star %>
+        <script>
+          $('#star4').raty({
+            size     : 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            scoreName: 'rate[intellect]',
+            half: true,
+          });
+        </script>
+      </div>
+      <%= f.submit "評価する", class: 'btn btn-success btn-lg', data: { confirm: "この内容で評価しますか？" } %>
+    <% end %>
   </div>
-  <div id="star2">
-    <%= f.label :source, "出典性評価： " %>
-    <%= f.hidden_field :source, :value => 0, id: :rate_star %>
-    <script>
-      $('#star2').raty({
-        size     : 36,
-        starOff:  '<%= asset_path('star-off.png') %>',
-        starOn : '<%= asset_path('star-on.png') %>',
-        starHalf: '<%= asset_path('star-half.png') %>',
-        scoreName: 'rate[source]',
-        half: true,
-      });
-    </script>
-  </div>
-  <div id="star3">
-    <%= f.label :rationality, "合理性評価：" %>
-    <%= f.hidden_field :rationality, :value => 0, id: :rate_star %>
-    <script>
-      $('#star3').raty({
-        size     : 36,
-        starOff:  '<%= asset_path('star-off.png') %>',
-        starOn : '<%= asset_path('star-on.png') %>',
-        starHalf: '<%= asset_path('star-half.png') %>',
-        scoreName: 'rate[rationality]',
-        half: true,
-      });
-    </script>
-  </div>
-  <div id="star4">
-    <%= f.label :intellect, "考察力評価：" %>
-    <%= f.hidden_field :intellect, :value => 0, id: :rate_star %>
-    <script>
-      $('#star4').raty({
-        size     : 36,
-        starOff:  '<%= asset_path('star-off.png') %>',
-        starOn : '<%= asset_path('star-on.png') %>',
-        starHalf: '<%= asset_path('star-half.png') %>',
-        scoreName: 'rate[intellect]',
-        half: true,
-      });
-    </script>
-  </div>
-  <%= f.submit "評価する", class: 'btn btn-success btn-lg', data: { confirm: "この内容で評価しますか？" } %>
-  <% end %>
- </div>
 </div>

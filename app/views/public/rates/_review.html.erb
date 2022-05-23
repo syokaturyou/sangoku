@@ -1,57 +1,57 @@
 丁寧性評価:
 <span id="star1-rate-<%= answer.id %>"></span>
-  <script>
-    $('#star1-rate-<%= answer.id %>').raty({
-      size: 36,
-      starOff: "<%= asset_path('star-off.png') %>",
-      starOn: "<%= asset_path('star-on.png') %>",
-      starHalf: "<%= asset_path('star-half.png') %>",
-      half: true,
-      readOnly: true,
-      score: <%= answer.rates.average(:communication).to_f.round(1) %>,
-    });
-  </script>
+<script>
+  $('#star1-rate-<%= answer.id %>').raty({
+    size: 36,
+    starOff: "<%= asset_path('star-off.png') %>",
+    starOn: "<%= asset_path('star-on.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+    half: true,
+    readOnly: true,
+    score: <%= answer.rates.average(:communication).to_f.round(1) %>,
+  });
+</script>
 <br />
 出典性評価:
 <span id="star2-rate-<%= answer.id %>"></span>
-  <script>
-    $('#star2-rate-<%= answer.id %>').raty({
-      size: 36,
-      starOff: "<%= asset_path('star-off.png') %>",
-      starOn: "<%= asset_path('star-on.png') %>",
-      starHalf: "<%= asset_path('star-half.png') %>",
-      half: true,
-      readOnly: true,
-      score: <%= answer.rates.average(:source).to_f.round(1) %>,
-    });
-  </script>
-  <br />
-  合理性評価:
-  <span id="star3-rate-<%= answer.id %>"></span>
-  <script>
-    $('#star3-rate-<%= answer.id %>').raty({
-      size: 36,
-      starOff: "<%= asset_path('star-off.png') %>",
-      starOn: "<%= asset_path('star-on.png') %>",
-      starHalf: "<%= asset_path('star-half.png') %>",
-      half: true,
-      readOnly: true,
-      score: <%= answer.rates.average(:rationality).to_f.round(1) %>,
-    });
-  </script>
-  <br />
-  考察力評価:
-  <span id="star4-rate-<%= answer.id %>"></span>
-  <script>
-    $('#star4-rate-<%= answer.id %>').raty({
-      size: 36,
-      starOff: "<%= asset_path('star-off.png') %>",
-      starOn: "<%= asset_path('star-on.png') %>",
-      starHalf: "<%= asset_path('star-half.png') %>",
-      half: true,
-      readOnly: true,
-      score: <%= answer.rates.average(:intellect).to_f.round(1) %>,
-    });
-  </script>
-  <br />
-  評価数 :<%= answer.rates.count %>
+<script>
+  $('#star2-rate-<%= answer.id %>').raty({
+    size: 36,
+    starOff: "<%= asset_path('star-off.png') %>",
+    starOn: "<%= asset_path('star-on.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+    half: true,
+    readOnly: true,
+    score: <%= answer.rates.average(:source).to_f.round(1) %>,
+  });
+</script>
+<br />
+合理性評価:
+<span id="star3-rate-<%= answer.id %>"></span>
+<script>
+  $('#star3-rate-<%= answer.id %>').raty({
+    size: 36,
+    starOff: "<%= asset_path('star-off.png') %>",
+    starOn: "<%= asset_path('star-on.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+    half: true,
+    readOnly: true,
+    score: <%= answer.rates.average(:rationality).to_f.round(1) %>,
+  });
+</script>
+<br />
+考察力評価:
+<span id="star4-rate-<%= answer.id %>"></span>
+<script>
+  $('#star4-rate-<%= answer.id %>').raty({
+    size: 36,
+    starOff: "<%= asset_path('star-off.png') %>",
+    starOn: "<%= asset_path('star-on.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+    half: true,
+    readOnly: true,
+    score: <%= answer.rates.average(:intellect).to_f.round(1) %>,
+  });
+</script>
+<br />
+評価数 :<%= answer.rates.count %>
