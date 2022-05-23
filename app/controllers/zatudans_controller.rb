@@ -1,6 +1,5 @@
 class ZatudansController < ApplicationController
   # 雑談部屋。非ログイン状態で可能
-
   def index
     @newzatudan = Zatudan.new
     @zatudans = Zatudan.all.order(updated_at: 'DESC').page(params[:page]).per(20)

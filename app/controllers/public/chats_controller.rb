@@ -7,7 +7,6 @@ module Public
       # カレントユーザーのmember_roomにあるroom_idの値の配列をroomsに代入。
       rooms = current_member.member_rooms.pluck(:room_id) # member_roomモデルからmember_idがチャット相手のidが一致するものと、room_idが上記roomsのどれかに一致するレコードをmember_roomsに代入。
       member_rooms = MemberRoom.find_by(member_id: @member.id, room_id: rooms)
-
       if member_rooms.present? # もしuser_roomが空でないなら
         @room = member_rooms.room # @roomに上記user_roomのroomを代入
       else # それ以外は新しくroomを作り、
