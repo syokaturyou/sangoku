@@ -49,19 +49,19 @@ table.posttable td:nth-child(4){
   max-width: 360px;
 }
 .informtable {
- border: 4px gray solid;
+  border: 4px gray solid;
 }
 .informtable th {
- text-align: center;
+  text-align: center;
 }
 .informtable tr {
- min-width: 600px;
- width: 1000px;
- height: 50px;
+  min-width: 600px;
+  width: 1000px;
+  height: 50px;
 }
 .informtable td {
- min-width: 60px;
- text-align: center;
+  min-width: 60px;
+  text-align: center;
 }
 table.informtable td:nth-child(2){
   min-width: 180px;
@@ -80,19 +80,19 @@ table.informtable td:nth-child(8){
 }
 
 .membertable {
- border: 4px gray solid;
+  border: 4px gray solid;
 }
 .membertable th {
- text-align: center;
+  text-align: center;
 }
 .membertable tr {
- min-width: 600px;
- width: 1000px;
- height: 50px;
+  min-width: 600px;
+  width: 1000px;
+  height: 50px;
 }
 .membertable td {
- min-width: 120px;
- text-align: center;
+  min-width: 120px;
+  text-align: center;
 }
 table.membertable td:nth-child(2){
   min-width: 180px;
@@ -114,40 +114,40 @@ table.membertable td:nth-child(3){
 }
 
 .sighttable {
-   border: 3px black solid;
-   margin: 10px 30px;
-   background-color: white;
-  }
-  .sighttable td{
-    min-width: 80px;
-    text-align: center;
-    padding: 3px;
-  }
-   table.sighttable tr:nth-child(1){
-    border: 2px #C0C0C0 solid;
-    text-align: center;
-    background-color: #99FFCC;
-  }
-  table.sighttable td:nth-child(1){
-    min-width: 220px;
-    text-align: center;
-  }
-  table.sighttable td:nth-child(2){
-    font-size: 18px;
-  }
-  table.sighttable td:nth-child(2){
-    font-size: 18px;
-    width: 160px;
-  }
-   table.sighttable td:nth-child(6){
-    width: 170px;
-    font-size: 18px;
-  }
-  .sighttable th{
-    min-width: 120px;
-    text-align: center;
-    padding: 3px;
-  }
+  border: 3px black solid;
+  margin: 10px 30px;
+  background-color: white;
+}
+.sighttable td{
+  min-width: 80px;
+  text-align: center;
+  padding: 3px;
+}
+  table.sighttable tr:nth-child(1){
+  border: 2px #C0C0C0 solid;
+  text-align: center;
+  background-color: #99FFCC;
+}
+table.sighttable td:nth-child(1){
+  min-width: 220px;
+  text-align: center;
+}
+table.sighttable td:nth-child(2){
+  font-size: 18px;
+}
+table.sighttable td:nth-child(2){
+  font-size: 18px;
+  width: 160px;
+}
+  table.sighttable td:nth-child(6){
+  width: 170px;
+  font-size: 18px;
+}
+.sighttable th{
+  min-width: 120px;
+  text-align: center;
+  padding: 3px;
+}
 
 #button1 {
   background-color: orange;
@@ -164,21 +164,21 @@ table.membertable td:nth-child(3){
   width: 5%;
 }
 .dropdown-menu {
-   padding: 5px;
+  padding: 5px;
 }
 .aicon {
-   border-radius: 40px;
-   text-align: center;
+  border-radius: 40px;
+  text-align: center;
 }
 
- header {
- width: 100%;
- height: 100%;
- min-width: 1200px;
- padding: 3px;
- background-color: #66FFFF;
- border-bottom: solid 4px #5d627b;
- box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+header {
+  width: 100%;
+  height: 100%;
+  min-width: 1200px;
+  padding: 3px;
+  background-color: #66FFFF;
+  border-bottom: solid 4px #5d627b;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }
 .header-nav {
   display: flex;
@@ -202,7 +202,6 @@ table.membertable td:nth-child(3){
   background-color: #99FF99;
 }
 
-
 .search{
   margin-right: auto;
 }
@@ -210,29 +209,29 @@ table.membertable td:nth-child(3){
   position: relative;
   padding: 15px 0;
   line-height: 30px;
+}
+.keywordaicon::before {
+  content: "";           /* 疑似要素に必須 */
+  width: 20px;           /* アイコンの横幅 */
+  height: 20px;          /* アイコンの高さ */
+  background: url(./searchaicon.png) no-repeat center center / auto 100%; /* 背景にアイコン画像を配置 */
+  display: inline-block; /* 高さを持たせるためにインラインブロック要素にする */
+  position: absolute;    /* 相対位置に指定 */
+  top: 15px;              /* アイコンの位置。微調整してね */
+  left: 10px;             /* アイコンの位置。微調整してね */
  }
- .keywordaicon::before {
-   content: "";           /* 疑似要素に必須 */
-   width: 20px;           /* アイコンの横幅 */
-   height: 20px;          /* アイコンの高さ */
-   background: url(./searchaicon.png) no-repeat center center / auto 100%; /* 背景にアイコン画像を配置 */
-   display: inline-block; /* 高さを持たせるためにインラインブロック要素にする */
-   position: absolute;    /* 相対位置に指定 */
-   top: 15px;              /* アイコンの位置。微調整してね */
-   left: 10px;             /* アイコンの位置。微調整してね */
- }
-  .keywordaicon input {
-    padding: 3px 0 3px 2em; /* アイコンを設置するため左の余白を多めに指定*/
-  }
- .zatudansearch {
+.keywordaicon input {
+  padding: 3px 0 3px 2em; /* アイコンを設置するため左の余白を多めに指定*/
+}
+.zatudansearch {
   margin-right: auto;
   margin-left: auto;
- }
-  .zatudanaicon {
+}
+.zatudanaicon {
   position: relative;
   padding-left: 100px;
- }
- .zatudanaicon::before {
+}
+.zatudanaicon::before {
   content: url(./searchaicon.png);
   display: inline-block;
   vertical-align: middle;
@@ -240,20 +239,20 @@ table.membertable td:nth-child(3){
   position: absolute;
   top: -90px;
   left: 10px;
- }
- .zatudanaicon input {
+}
+.zatudanaicon input {
   padding: 3px 0 3px 2em; /* アイコンを設置するため左の余白を多めに指定*/
- }
+}
 
- .chatsearch {
+.chatsearch {
   margin-right: auto;
   margin-left: auto;
- }
-  .chataicon {
+}
+.chataicon {
   position: relative;
   padding-left: 100px;
- }
- .chataicon::before {
+}
+.chataicon::before {
   content: url(./searchaicon.png);
   display: inline-block;
   vertical-align: middle;
@@ -261,10 +260,10 @@ table.membertable td:nth-child(3){
   position: absolute;
   top: -100px;
   left: 5px;
- }
- .chataicon input {
+}
+.chataicon input {
   padding: 3px 0 3px 2em; /* アイコンを設置するため左の余白を多めに指定*/
- }
+}
 
 _:lang(x)+_:-webkit-full-screen-document, .wrapper{
   min-height: 2vh;
@@ -272,15 +271,15 @@ _:lang(x)+_:-webkit-full-screen-document, .wrapper{
   padding-bottom: 2px;
 }
 
- footer {
-   width: 100%;
-   min-height: 10px;
-   padding: 10px 0;
-   background-color: black;
-   color: white;
-   text-align: center;
-   position: fixed;
-   bottom: 1px;
+footer {
+  width: 100%;
+  min-height: 10px;
+  padding: 10px 0;
+  background-color: black;
+  color: white;
+  text-align: center;
+  position: fixed;
+  bottom: 1px;
  }
   _:lang(x)+_:-webkit-full-screen-document, footer {
     position: fixed;
@@ -302,103 +301,103 @@ h1:before {
 }
 /* 専用フォント */
 .design {
-   font-family: 'Sawarabi Mincho', sans-serif;
-  }
+  font-family: 'Sawarabi Mincho', sans-serif;
+}
 /* 雑談、チャット */
- .zatudans{
-   padding: 20px 10px;
-   min-width: 700px;
-   max-width: 100%;
-   margin: 15px auto;
-   border-radius: 70px;
-   border: #FF9999 double 6px;
-   font-size: 14px;
-   background: #FF99CC;
-   border: 2px solid;
- }
+.zatudans{
+  padding: 20px 10px;
+  min-width: 700px;
+  max-width: 100%;
+  margin: 15px auto;
+  border-radius: 70px;
+  border: #FF9999 double 6px;
+  font-size: 14px;
+  background: #FF99CC;
+  border: 2px solid;
+}
  .chats{
-   padding: 20px 10px;
-   max-width: 100%;
-   min-width: 700px;
-   border-radius: 70px;
-   border: #FF9999 double 6px;
-   margin: 15px auto;
-   text-align: right;
-   font-size: 14px;
-   background: #7da4cd;
-   border: 2px solid;
+  padding: 20px 10px;
+  max-width: 100%;
+  min-width: 700px;
+  border-radius: 70px;
+  border: #FF9999 double 6px;
+  margin: 15px auto;
+  text-align: right;
+  font-size: 14px;
+  background: #7da4cd;
+  border: 2px solid;
  }
  .fukidasi {
-   width: 100%;
-   margin: 10px 0;
-   overflow: auto;
+  width: 100%;
+  margin: 10px 0;
+  overflow: auto;
  }
  .fukidasi .faceicon {
-   float: left;
-   margin-right: -50px;
-   width: 40px;
+  float: left;
+  margin-right: -50px;
+  width: 40px;
  }
- .fukidasi .faceicon img{
-   width: 90%;
-   height: auto;
-   border-radius: 50%;
+ .fukidasi .faceicon img {
+  width: 90%;
+  height: auto;
+  border-radius: 50%;
  }
  .fukidasi .chatting {
-   width: 100%;
-   text-align: left;
+  width: 100%;
+  text-align: left;
  }
  .says {
-   display: inline-block;
-   position: relative;
-   margin: 0 0 0 50px;
-   padding: 10px;
-   border-radius: 12px;
-   background: #edf1ee;
+  display: inline-block;
+  position: relative;
+  margin: 0 0 0 50px;
+  padding: 10px;
+  border-radius: 12px;
+  background: #edf1ee;
  }
  .says:after {
-   content: "";
-   display: inline-block;
-   position: absolute;
-   top: 3px;
-   left: -19px;
-   border: 8px solid transparent;
-   border-right: 18px solid #edf1ee;
-   -webkit-transform: rotate(35deg);
-   transform: rotate(35deg);
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #edf1ee;
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
  }
  .says p {
-   margin: 0;
-   padding: 0;
+  margin: 0;
+  padding: 0;
  }
  .mycomment {
-   margin: 10px 0;
+  margin: 10px 0;
  }
  .mycomment p {
-   display: inline-block;
-   position: relative;
-   margin: 0 10px 0 0;
-   padding: 8px;
-   border-radius: 12px;
-   background: #30e852;
-   font-size: 15px;
+  display: inline-block;
+  position: relative;
+  margin: 0 10px 0 0;
+  padding: 8px;
+  border-radius: 12px;
+  background: #30e852;
+  font-size: 15px;
  }
  .mycomment p:after {
-   content: "";
-   position: absolute;
-   top: 3px;
-   right: -19px;
-   border: 8px solid transparent;
-   border-left: 18px solid #30e852;
-   -webkit-transform: rotate(-35deg);
-   transform: rotate(-35deg);
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: -19px;
+  border: 8px solid transparent;
+  border-left: 18px solid #30e852;
+  -webkit-transform: rotate(-35deg);
+  transform: rotate(-35deg);
  }
  .main {
- width: 100%;
- min-width: 1000px;
- margin: 0;
- min-height: 800px;
- height: 100%;
- padding: 2px;
+  width: 100%;
+  min-width: 1000px;
+  margin: 0;
+  min-height: 800px;
+  height: 100%;
+  padding: 2px;
  }
 .container {
   display: flex;
@@ -422,21 +421,21 @@ h1:before {
   padding: 5px;
  }
 .logtable{
- min-height: 320px;
+  min-height: 320px;
 }
 .logtable tr {
- min-width: 700px;
+  min-width: 700px;
 }
 .logtable td {
- font-weight: 700;
- text-align: center;
+  font-weight: 700;
+  text-align: center;
 }
- .center {
+.center {
   text-align: center;
   margin: 10px 10px 10px 10px;
   padding: 10px 10px 10px 10px;
- }
- .label {
+}
+.label {
   background-color: #337ab7;
   font-weight: 500;
   display: inline;
@@ -457,8 +456,8 @@ h1:before {
   border-radius: 15px;
 }
 .btn:hover {
-   box-shadow: 0px 12px 24px rgba(30, 146, 175, 0.38);
-   transform: translateY(-4px);
+  box-shadow: 0px 12px 24px rgba(30, 146, 175, 0.38);
+  transform: translateY(-4px);
 }
 /* ページネーション */
 .pagination {
@@ -487,23 +486,23 @@ select {
 }
 /* --テーブル枠 */
 .table {
-   border-radius: 5px;
-   border-width: 3px;
+  border-radius: 5px;
+  border-width: 3px;
 }
 
- img{
-    border-radius: 15px;
-    border: 1px gray solid;
-    border-color: black;
- }
+img{
+  border-radius: 15px;
+  border: 1px gray solid;
+  border-color: black;
+}
 
- .split {
- font-size: 18px;
- text-align: center;
- .nowpath {
-  color: black;
-  border-right: 3px solid blue;
- }
+.split {
+  font-size: 18px;
+  text-align: center;
+  .nowpath {
+    color: black;
+    border-right: 3px solid blue;
+  }
 }
 
 .row {
@@ -513,22 +512,21 @@ select {
     border-left: 2px solid #e2e2e2;
     padding: 20px 30px;
     height: 100%;
-  .in {
-    padding: 10px 10px;
-    border: 2px solid #e2e2e2;
-    background-color: white;
-    min-height: 800px;
+    .in {
+      padding: 10px 10px;
+      border: 2px solid #e2e2e2;
+      background-color: white;
+      min-height: 800px;
+    }
   }
- }
 }
-
 
 @media only screen and (max-width: 500px) {
   .main {
-  min-width: 1000px;
-  margin: 0;
-  height: 700px;
-  padding: 10px;
+    min-width: 1000px;
+    margin: 0;
+    height: 700px;
+    padding: 10px;
   }
   .header-nav {
     display: flex;
@@ -555,14 +553,14 @@ select {
 
 @media screen and (min-height: 700px) {
   .main {
-  min-width: 1000px;
-  margin: 0;
-  height: 700px;
-  padding: 10px;
+    min-width: 1000px;
+    margin: 0;
+    height: 700px;
+    padding: 10px;
   }
   .dip {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
   }
 }
 
