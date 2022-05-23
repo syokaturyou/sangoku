@@ -5,41 +5,41 @@
   <div class="row">
     <table class="table table-borderless">
       <tbody>
-       <%= form_with model:@member, url: manager_member_path(@member), local:true do |f| %>
-        <tr>
-          <td>登録名</td>
-          <td><%= f.text_field :name, maxlength: "40", size: "40", :placeholder => "登録名入力" %></td>
-        </tr>
-        <tr>
-          <td>登録メールアドレス</td>
-          <td><%= f.text_field :email, maxlength: "80", size: "80", :placeholder => "メールアドレス入力" %></td>
-        </tr>
-        <tr>
-          <td>プロフィール</td>
-          <td><%= f.text_area :profile, maxlength: "400", size: '50x5', :placeholder => "プロフィール入力" %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :プロフィール画像 %></td>
-          <td><%= attachment_image_tag @member, :profileimage, :fill, 90, 90, fallback: "no_image.jpg" %>
-          <label><%= check_box_tag :image_delete %>画像なし</label>
-          <label><%= f.attachment_field :profileimage %></label>
-        </tr>
-        <tr>
-          <td>会員ステータス</td>
-          <td>
-            <label><%= f.radio_button :is_deleted, false %>有効</label>
-            <label><%= f.radio_button :is_deleted, true %>退会</label>
-          </td>
-        </tr>
-        <tr>
-          <td><%= link_to '戻る', :back, class: 'btn btn-danger btn-lg' %></td>
-          <td>
-            <div style = "display:flex">
-              <%= f.submit '変更内容を保存', class: 'btn btn-success btn-lg' %></br>
-              <% end %>
-            </div>
-          </td>
-        </tr>
+        <%= form_with model:@member, url: manager_member_path(@member), local:true do |f| %>
+          <tr>
+            <td>登録名</td>
+            <td><%= f.text_field :name, maxlength: "40", size: "40", :placeholder => "登録名入力" %></td>
+          </tr>
+          <tr>
+            <td>登録メールアドレス</td>
+            <td><%= f.text_field :email, maxlength: "80", size: "80", :placeholder => "メールアドレス入力" %></td>
+          </tr>
+          <tr>
+            <td>プロフィール</td>
+            <td><%= f.text_area :profile, maxlength: "400", size: '50x5', :placeholder => "プロフィール入力" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :プロフィール画像 %></td>
+            <td><%= attachment_image_tag @member, :profileimage, :fill, 90, 90, fallback: "no_image.jpg" %>
+            <label><%= check_box_tag :image_delete %>画像なし</label>
+            <label><%= f.attachment_field :profileimage %></label>
+          </tr>
+          <tr>
+            <td>会員ステータス</td>
+            <td>
+              <label><%= f.radio_button :is_deleted, false %>有効</label>
+              <label><%= f.radio_button :is_deleted, true %>退会</label>
+            </td>
+          </tr>
+          <tr>
+            <td><%= link_to '戻る', :back, class: 'btn btn-danger btn-lg' %></td>
+            <td>
+              <div style = "display:flex">
+                <%= f.submit '変更内容を保存', class: 'btn btn-success btn-lg' %></br>
+              </div>
+            </td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>

@@ -1,37 +1,37 @@
 <% breadcrumb :managergenresindex  %>
 <%= breadcrumbs separator: " > " , class: :logo %>
 <h1>ジャンル一覧・追加</h1>
- <div class="container">
+<div class="container">
   <div class="row">
-   <div class="col-lg-12">
-    <%= form_with model:@genre,url: manager_genres_path, data: { remote: true } do |f| %>
-     ジャンル名入力
-     <%= f.text_field :name, size: "50", class: 'form-control-sm', :placeholder => "ジャンル名入力" %>
-     <%= f.submit '新規登録', class: 'btn btn-success btn-lg' %>
-    <% end %>
-   </div>
-   <div class="col-lg-7">
-    <%= paginate @genres %>
-   </div>
-   <div class="col-lg-6">
-    <table class="table" frame="border">
-     <thead>
-      <tr bgcolor=#BBBBBB>
-       <th>ジャンルid/ジャンル名</th>
-       <th></th>
-       <th></th>
-      </tr>
-     </thead>
-     <tbody>
-      <% @genres.each do |genre| %>
-       <tr bgcolor=#EEEEEE>
-        <th>[<%= genre.id %>]/<%= genre.name %></th>
-        <th><%= link_to '編集する', edit_manager_genre_path(genre.id), class: 'btn btn-success' %></th>
-        <th><%= link_to '削除する', manager_genre_path(genre.id), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？", remote: true } %></th>
-       </tr>
+    <div class="col-lg-12">
+      <%= form_with model:@genre,url: manager_genres_path, data: { remote: true } do |f| %>
+        ジャンル名入力
+        <%= f.text_field :name, size: "50", class: 'form-control-sm', :placeholder => "ジャンル名入力" %>
+        <%= f.submit '新規登録', class: 'btn btn-success btn-lg' %>
       <% end %>
-     </tbody>
-    </table>
-   </div>
+    </div>
+    <div class="col-lg-7">
+      <%= paginate @genres %>
+    </div>
+    <div class="col-lg-6">
+      <table class="table" frame="border">
+        <thead>
+          <tr bgcolor=#BBBBBB>
+            <th>ジャンルid/ジャンル名</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @genres.each do |genre| %>
+            <tr bgcolor=#EEEEEE>
+              <th>[<%= genre.id %>]/<%= genre.name %></th>
+              <th><%= link_to '編集する', edit_manager_genre_path(genre.id), class: 'btn btn-success' %></th>
+              <th><%= link_to '削除する', manager_genre_path(genre.id), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？", remote: true } %></th>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
- </div>
+</div>

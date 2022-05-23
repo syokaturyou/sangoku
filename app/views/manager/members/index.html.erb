@@ -4,33 +4,34 @@
 <div class="oocontainer">
   <div class="row">
     <div class="col-lg-7">
-     <%= paginate @members %>
+      <%= paginate @members %>
     </div>
     <table class="membertable">
-     <thead>
-      <tr bgcolor=#66FFCC>
-        <th>会員No </th>
-        <th>登録者 </th>
-        <th>ステータス</th>
-      </tr>
-     </thead>
-     <tbody>
-      <% @members.each do |member| %>
-       <tr bgcolor=#EEEEEE>
-        <td><%= member.id %></td>
-        <td>
-         <%= link_to attachment_image_tag(member, :profileimage, fallback: "no_image.jpg", size: '60x60'), manager_member_path(member), data: {"turbolinks"=>false} %>
-         <%= member.name.truncate(25) %>
-        </td>
-        <td>
-         <% if member.is_deleted == true %><font color="gray">退会</font>
-         <% elsif member.is_deleted == false %><font color="green">有効</font>
-         <% else %>
-         <% end %>
-        </td>
-       </tr>
-      <% end %>
-      </td></td>
-     </tbody>
+      <thead>
+        <tr bgcolor=#66FFCC>
+          <th>会員No </th>
+          <th>登録者 </th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @members.each do |member| %>
+          <tr bgcolor=#EEEEEE>
+            <td><%= member.id %></td>
+            <td>
+              <%= link_to attachment_image_tag(member, :profileimage, fallback: "no_image.jpg", size: '60x60'), manager_member_path(member), data: {"turbolinks"=>false} %>
+              <%= member.name.truncate(25) %>
+            </td>
+            <td>
+              <% if member.is_deleted == true %><font color="gray">退会</font>
+              <% elsif member.is_deleted == false %><font color="green">有効</font>
+              <% else %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+        </td></td>
+      </tbody>
     </table>
+  </div>
 </div>

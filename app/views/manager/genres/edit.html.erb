@@ -1,9 +1,9 @@
 <% breadcrumb :managergenresedit  %>
 <%= breadcrumbs separator: " > " , class: :logo %>
 <div>
- <h2>ジャンル名編集</h2>
+  <h2>ジャンル名編集</h2>
   <%= form_with model:@genre,url: manager_genre_path, local:true do |f| %>
-   <%= f.text_field :name, :placeholder => "ジャンル名入力" %>
-   <%= f.submit '変更を保存', class: 'btn btn-success' %>
+    <%= f.text_field :name, :placeholder => "ジャンル名入力" %>
+    <%= f.submit '変更を保存', class: 'btn btn-success' %>
   <% end %>
 </div>
