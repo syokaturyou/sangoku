@@ -1,150 +1,152 @@
 <div class="row">
   <div class="col-2">
-   <%= render "shared/memberlayout" %>
+    <%= render "shared/memberlayout" %>
   </div>
-<div class="col-10" bgcolor=#33FF66>
- <div class="out" bgcolor=#33FF66>
-  <div class="in">
-   <div>
-    <h2>「<%= @member.name %>」さんの会員情報</h2>
-    <%= form_with url: public_member_path, local: true, method: :get do |f| %>
-     <%= f.select :range, options_for_select([["過去質問"],["過去回答"],["登録情報"]]) %>
-     <%= f.submit "を表示", class: "btn btn-outline-dark", data: {"turbolinks"=>false} %>
-    <% end %>
-   </div>
-   <% if @range == "過去質問" %>
-    <div class="col-lg-7">
-     <%= paginate @posts %>
-    </div>
-    <div class="oocontainer">
-     <div class="row">
-      <table class="table" frame="border">
-       <thead>
-        <tr bgcolor=#66FFCC>
-         <th>投稿No</th>
-         <th>質問タイトル</th>
-         <th>質問更新日時</th>
-         <th>回答数</th>
-         <th>ジャンルid/ジャンル名</th>
-         <th>PV数</th>
-         <th></th>
-        </tr>
-       </thead>
-       <tbody>
-        <% @posts.each do |post| %>
-         <tr bgcolor=#EEEEEE>
-          <td><%= post.id %></td>
-          <td><%= link_to post.posttitle, public_post_path(post) %></td>
-          <td><%= post.updated_at.to_s(:datetime_jp) %></td>
-          <td><%= post.answers.count %></td>
-          <td>[<%= post.genre.id %>]/<%= post.genre.name %></td>
-          <td><%= post.impressions_count %></td>
-         <% if member_signed_in? %>
-          <% if post.member.id == current_member.id %>
-           <td>
-            <%= link_to '編集する', edit_public_post_path(post), class: 'btn btn-success', data: {"turbolinks"=>false} %>
-            <%= link_to '削除する', public_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%>
-           </td>
-          <% else %>
-           <td><%= "" %></td>
+  <div class="col-10" bgcolor=#33FF66>
+    <div class="out" bgcolor=#33FF66>
+      <div class="in">
+        <div>
+          <h2>「<%= @member.name %>」さんの会員情報</h2>
+          <%= form_with url: public_member_path, local: true, method: :get do |f| %>
+            <%= f.select :range, options_for_select([["過去質問"],["過去回答"],["登録情報"]]) %>
+            <%= f.submit "を表示", class: "btn btn-outline-dark", data: {"turbolinks"=>false} %>
           <% end %>
-         <% else %>
-           <td><%= "" %></td>
-         <% end %>
-         </tr>
+        </div>
+        <% if @range == "過去質問" %>
+          <div class="col-lg-7">
+            <%= paginate @posts %>
+          </div>
+        <div class="oocontainer">
+          <div class="row">
+            <table class="table" frame="border">
+              <thead>
+              <tr bgcolor=#66FFCC>
+                <th>投稿No</th>
+                <th>質問タイトル</th>
+                <th>質問更新日時</th>
+                <th>回答数</th>
+                <th>ジャンルid/ジャンル名</th>
+                <th>PV数</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @posts.each do |post| %>
+                <tr bgcolor=#EEEEEE>
+                <td><%= post.id %></td>
+                <td><%= link_to post.posttitle, public_post_path(post) %></td>
+                <td><%= post.updated_at.to_s(:datetime_jp) %></td>
+                <td><%= post.answers.count %></td>
+                <td>[<%= post.genre.id %>]/<%= post.genre.name %></td>
+                <td><%= post.impressions_count %></td>
+                <% if member_signed_in? %>
+                <% if post.member.id == current_member.id %>
+                  <td>
+                  <%= link_to '編集する', edit_public_post_path(post), class: 'btn btn-success', data: {"turbolinks"=>false} %>
+                  <%= link_to '削除する', public_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%>
+                  </td>
+                <% else %>
+                  <td><%= "" %></td>
+                <% end %>
+                <% else %>
+                  <td><%= "" %></td>
+                <% end %>
+                </tr>
+              <% end %>
+                </td></td>
+              </tbody>
+            </table>
+          </div>
+        <% elsif @range == "過去回答" %>
+          <div class="col-lg-7">
+            <%= paginate @answers %>
+          </div>
+          <div class="oocontainer">
+            <div class="row">
+              <table class="table" frame="border">
+                <thead>
+                  <tr bgcolor=#66FFCC>
+                    <th>回答文</th>
+                    <th>感情スコア</th>
+                    <th>回答更新日時</th>
+                    <th>回答した質問id</th>
+                    <th>回答した質問</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @answers.each do |answer| %>
+                    <tr bgcolor=#EEEEEE>
+                      <% if answer.score >= -0.2 %>
+                        <td><%= link_to answer.answerbody.truncate(25), public_post_path(answer.post) %></td>
+                      <% else %>
+                        <td style="color:#CC6633">感情スコアが-0.3以下であるため表示できません</td>
+                      <% end %>
+                      <td><%= answer.score %> / 1.0</td>
+                      <td><%= answer.updated_at.to_s(:datetime_jp) %></td>
+                      <td><%= answer.post.id %></td>
+                      <td><%= link_to answer.post.posttitle, public_post_path(answer.post) %></td>
+                        <% if member_signed_in? %>
+                          <% if answer.member.id == current_member.id %>
+                            <td>
+                              <%= link_to '編集する', edit_public_answer_path(answer), class: 'btn btn-success', data: {"turbolinks"=>false} %>
+                              <%= link_to '削除する', public_answer_path(answer), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%>
+                            </td>
+                          <% else %>
+                            <td><%= "" %></td>
+                          <% end %>
+                        <% else %>
+                          <td><%= "" %></td>
+                        <% end %>
+                      </td></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        <% else %>
+          <div class='container'>
+            <div class='row'>
+              <div style="word-break: break-all;">
+                <table class="table table-hover table-inverse" frame="border">
+                <tbody>
+                  <tr>
+                  <td>登録名</td>
+                  <td><%= @member.name %></td>
+                  </tr>
+                  <tr>
+                  <td>会員id</td>
+                  <td><%= @member.id %></td>
+                  </tr>
+                  <tr>
+                  <td>プロフィール</td>
+                  <td width="300" height="150"><%= simple_format(@member.profile) %></td>
+                  </tr>
+                  <tr>
+                  <td>プロフィール画像</td>
+                  <td><%= attachment_image_tag @member, :profileimage, :fill, 90, 90, fallback: "no_image.jpg" %></td>
+                  </tr>
+                </tbody>
+                </table>
+                <% if @member.is_deleted.blank? %>
+                  <% if member_signed_in? %>
+                    <% if @member.id == current_member.id %>
+                      <% if current_member.name != 'guest' %>
+                        <h6><%= link_to '登録情報を編集する',edit_public_member_path(current_member), class: 'btn btn-success btn-lg', data: {"turbolinks"=>false} %></h6>
+                        <h6><%= link_to '退会する',public_unsubscribe_path, class: 'btn btn-danger btn-lg' %></h6>
+                      <% end %>
+                    <% else %>
+                      <h6><%= link_to '「' + @member.name + '」さんとのチャット', public_chat_path(@member.id), class: 'btn btn-primary btn-lg', data: {"turbolinks"=>false} %></h6>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
         <% end %>
-         </td></td>
-       </tbody>
-      </table>
+        </div>
+      </div>
     </div>
-   <% elsif @range == "過去回答" %>
-    <div class="col-lg-7">
-     <%= paginate @answers %>
-    </div>
-    <div class="oocontainer">
-     <div class="row">
-      <table class="table" frame="border">
-       <thead>
-        <tr bgcolor=#66FFCC>
-         <th>回答文</th>
-         <th>感情スコア</th>
-         <th>回答更新日時</th>
-         <th>回答した質問id</th>
-         <th>回答した質問</th>
-         <th></th>
-        </tr>
-       </thead>
-       <tbody>
-        <% @answers.each do |answer| %>
-         <tr bgcolor=#EEEEEE>
-         <% if answer.score >= -0.2 %>
-          <td><%= link_to answer.answerbody.truncate(25), public_post_path(answer.post) %></td>
-         <% else %>
-          <td style="color:#CC6633">感情スコアが-0.3以下であるため表示できません</td>
-         <% end %>
-          <td><%= answer.score %> / 1.0</td>
-          <td><%= answer.updated_at.to_s(:datetime_jp) %></td>
-          <td><%= answer.post.id %></td>
-          <td><%= link_to answer.post.posttitle, public_post_path(answer.post) %></td>
-          <% if member_signed_in? %>
-          <% if answer.member.id == current_member.id %>
-           <td>
-            <%= link_to '編集する', edit_public_answer_path(answer), class: 'btn btn-success', data: {"turbolinks"=>false} %>
-            <%= link_to '削除する', public_answer_path(answer), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？" }%>
-           </td>
-          <% else %>
-           <td><%= "" %></td>
-          <% end %>
-         <% else %>
-           <td><%= "" %></td>
-         <% end %>
-         </td></td>
-         </tr>
-        <% end %>
-       </tbody>
-     </table>
-    </div>
-   <% else %>
-    <div class='container'>
-     <div class='row'>
-      <div style="word-break: break-all;">
-       <table class="table table-hover table-inverse" frame="border">
-        <tbody>
-         <tr>
-          <td>登録名</td>
-          <td><%= @member.name %></td>
-         </tr>
-         <tr>
-          <td>会員id</td>
-          <td><%= @member.id %></td>
-         </tr>
-         <tr>
-          <td>プロフィール</td>
-          <td width="300" height="150"><%= simple_format(@member.profile) %></td>
-         </tr>
-         <tr>
-          <td>プロフィール画像</td>
-          <td><%= attachment_image_tag @member, :profileimage, :fill, 90, 90, fallback: "no_image.jpg" %></td>
-         </tr>
-        </tbody>
-       </table>
-        <% if @member.is_deleted.blank? %>
-         <% if member_signed_in? %>
-          <% if @member.id == current_member.id %>
-            <% if current_member.name != 'guest' %>
-             <h6><%= link_to '登録情報を編集する',edit_public_member_path(current_member), class: 'btn btn-success btn-lg', data: {"turbolinks"=>false} %></h6>
-             <h6><%= link_to '退会する',public_unsubscribe_path, class: 'btn btn-danger btn-lg' %></h6>
-            <% end %>
-          <% else %>
-           <h6><%= link_to '「' + @member.name + '」さんとのチャット', public_chat_path(@member.id), class: 'btn btn-primary btn-lg', data: {"turbolinks"=>false} %></h6>
-          <% end %>
-         <% end %>
-        <% end %>
-       </div>
-     </div>
-   </div>
-   <% end %>
-   </div>
   </div>
- </div>
 </div>

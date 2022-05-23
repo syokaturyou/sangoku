@@ -2,36 +2,36 @@
 <%= breadcrumbs separator: " > " , class: :logo %>
 <div class='container'>
   <div class="row">
-   <div class="col-lg-6">
+    <div class="col-lg-6">
       <h2>回答内容編集</h2>
-   </div>
+    </div>
     <table class="newtable">
       <tbody>
-       <%= form_with model: @answer, url: public_answer_path, local: true do |f| %>
-       <tr>
-        <td><%= f.label :回答本文更新 %></td>
-        <td>
-         <%= f.text_area :answerbody, autofocus: true, required: true, size: '60x10', :placeholder => "回答本文入力" %>
-         <p class="sentiment-score">感情分析スコア <%= @answer.score %> / 1.0</p>
-        </td>
-       </tr>
-       <tr>
-        <td><%= f.label :出典・参考url更新 %></td>
-        <td><%= f.text_area :answersyutten, autofocus: true, required: true, size: "50x3", :placeholder => "URL入力" %></td>
-       </tr>
-       <tr>
-        <td><%= f.label :参考画像 %></td>
-        <td><%= attachment_image_tag @answer, :answerimage, :fill, 90, 90, fallback: "no_image.jpg" %>
-          <label><%= check_box_tag :image_delete %>画像なし</label>
-          <label><%= f.attachment_field :answerimage %></label>
-        </td>
-       </tr>
-       <tr>
-        <td><%= link_to '質問に戻る', :back, class: 'btn btn-danger btn-lg' %></td>
-        <td><%= f.submit "回答を更新する", class: 'btn btn-success btn-lg' %></td>
-         <% end %>
-       </tr>
-     </tbody>
+        <%= form_with model: @answer, url: public_answer_path, local: true do |f| %>
+          <tr>
+            <td><%= f.label :回答本文更新 %></td>
+            <td>
+              <%= f.text_area :answerbody, autofocus: true, required: true, size: '60x10', :placeholder => "回答本文入力" %>
+              <p class="sentiment-score">感情分析スコア <%= @answer.score %> / 1.0</p>
+            </td>
+          </tr>
+          <tr>
+            <td><%= f.label :出典・参考url更新 %></td>
+            <td><%= f.text_area :answersyutten, autofocus: true, required: true, size: "50x3", :placeholder => "URL入力" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :参考画像 %></td>
+            <td><%= attachment_image_tag @answer, :answerimage, :fill, 90, 90, fallback: "no_image.jpg" %>
+              <label><%= check_box_tag :image_delete %>画像なし</label>
+              <label><%= f.attachment_field :answerimage %></label>
+            </td>
+          </tr>
+          <tr>
+            <td><%= link_to '質問に戻る', :back, class: 'btn btn-danger btn-lg' %></td>
+            <td><%= f.submit "回答を更新する", class: 'btn btn-success btn-lg' %></td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>

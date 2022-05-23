@@ -1,13 +1,13 @@
 <div class ="center">
- <div class ="bottom">
-  <h2>本当に退会しますか？</h2>
-  <p>
-    退会すると、質問投稿、回答、回答レビューを実施できなくなります<br>
-    退会する場合は、「退会する」をクリックしてください。
-  </p>
-  <p>
-    <%= link_to "退会しない", public_member_path(current_member), class: 'btn btn-primary btn-lg' %>
-    <%= link_to "退会する", public_withdrawal_path, method: :patch, class: 'btn btn-danger btn-lg', data: { confirm: "本当に退会しますか？" } %>
-  </p>
- </div>
+  <div class ="bottom">
+    <h2>本当に退会しますか？</h2>
+    <p>
+      退会すると、質問投稿、回答、回答レビューを実施できなくなります<br>
+      退会する場合は、「退会する」をクリックしてください。
+    </p>
+    <p>
+      <%= link_to "退会しない", public_member_path(current_member), class: 'btn btn-primary btn-lg' %>
+      <%= link_to "退会する", public_withdrawal_path, method: :patch, class: 'btn btn-danger btn-lg', data: { confirm: "本当に退会しますか？" } %>
+    </p>
+  </div>
 </div>

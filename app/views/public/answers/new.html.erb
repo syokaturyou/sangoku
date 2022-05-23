@@ -7,26 +7,26 @@
     </div>
     <table class="newtable">
       <tbody>
-      <%= form_with model: @newanswer, url: public_post_answers_path, local: true do |f| %>
-       <tr>
-        <td><%= f.label :回答本文入力 %></td>
-        <td><%= f.text_area :answerbody, autofocus: true, required: true, size: '80x10', :placeholder => "回答本文入力" %></td>
-       </tr>
-       <tr>
-        <td><%= f.label :出典・参考url入力 %></td>
-        <td><%= f.text_area :answersyutten, autofocus: true, required: true, size: "50x3", :placeholder => "URL入力" %></td>
-       </tr>
-        <%= f.hidden_field :post_id, :value => params[:post_id] %>
-       <tr>
-        <td><%= f.label :参考画像 %></td>
-        <td><%= f.attachment_field :answerimage %></td>
-       </tr>
-       <tr>
-        <td><%= link_to '質問に戻る', :back, class: 'btn btn-danger btn-lg' %></td>
-        <td><%= f.submit "回答を投稿する", class: 'btn btn-success btn-lg' %></td>
-         <% end %>
-       </tr>
+        <%= form_with model: @newanswer, url: public_post_answers_path, local: true do |f| %>
+          <tr>
+            <td><%= f.label :回答本文入力 %></td>
+            <td><%= f.text_area :answerbody, autofocus: true, required: true, size: '80x10', :placeholder => "回答本文入力" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :出典・参考url入力 %></td>
+            <td><%= f.text_area :answersyutten, autofocus: true, required: true, size: "50x3", :placeholder => "URL入力" %></td>
+          </tr>
+          <%= f.hidden_field :post_id, :value => params[:post_id] %>
+          <tr>
+            <td><%= f.label :参考画像 %></td>
+            <td><%= f.attachment_field :answerimage %></td>
+          </tr>
+          <tr>
+            <td><%= link_to '質問に戻る', :back, class: 'btn btn-danger btn-lg' %></td>
+            <td><%= f.submit "回答を投稿する", class: 'btn btn-success btn-lg' %></td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
-   </div>
   </div>
+</div>
