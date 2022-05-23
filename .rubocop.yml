@@ -58,3 +58,4 @@ Style/BlockComments:
 # 複数の戻り値に対する return に関しても警告を出さない
 RedundantReturn:
   AllowMultipleReturnValues: true
+  
