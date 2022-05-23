@@ -1,48 +1,48 @@
 <% breadcrumb :sightedit  %>
 <%= breadcrumbs separator: " > " , class: :logo %>
- <h2>おすすめ地域編集</h2>
- <div class='container'>
-   <div class="row">
+<h2>おすすめ地域編集</h2>
+<div class='container'>
+  <div class="row">
     <div class="col-7">
-     <div id='map'></div>
+      <div id='map'></div>
     </div>
     <div class="col-5">
-     <table class="newtable">
-       <tbody>
-        <%= form_with model: @sight, url: sight_path(@sight), local: true do |f| %>
-        <tr>
-         <td>現住所:<%= @sight.address %></td>
-         <td><input id="address" type="textbox" value="" placeholder="住所入力" required ><input type="button" id ="button1" value="住所画像取得" onclick="codeAddress()"></td>
-        </tr>
-        <tr>
-         <td><div id="kekka">検索住所</div></td>
-         <td><div id="display">(緯度, 経度)</div></td>
-        </tr>
-        <input type="hidden" name="sight[address]" id="hidden_address">
-        <tr>
-         <td><%= f.label :説明変更 %></td>
-         <td><%= f.text_area :profile, autofocus: true, size: "50", :placeholder => "説明入力" %></td>
-        </tr>
-        <tr>
-         <td>更新前画像</td>
-         <td>
-          <% results=Geocoder.search(@sight.address) %>
-           <% if results.present? %>
-            <% @latlng=results.first.coordinates %>
-            <%= image_tag "https://maps.googleapis.com/maps/api/streetview?size=300x200&heading=180&fov=120&location=#{@latlng[0]},#{@latlng[1]}&sensor=true&key=#{ENV['GOOGLE_API_KEY']}" %>
+      <table class="newtable">
+        <tbody>
+          <%= form_with model: @sight, url: sight_path(@sight), local: true do |f| %>
+          <tr>
+            <td>現住所:<%= @sight.address %></td>
+            <td><input id="address" type="textbox" value="" placeholder="住所入力" required ><input type="button" id ="button1" value="住所画像取得" onclick="codeAddress()"></td>
+          </tr>
+          <tr>
+            <td><div id="kekka">検索住所</div></td>
+            <td><div id="display">(緯度, 経度)</div></td>
+          </tr>
+          <input type="hidden" name="sight[address]" id="hidden_address">
+          <tr>
+            <td><%= f.label :説明変更 %></td>
+            <td><%= f.text_area :profile, autofocus: true, size: "50", :placeholder => "説明入力" %></td>
+          </tr>
+          <tr>
+            <td>更新前画像</td>
+            <td>
+            <% results=Geocoder.search(@sight.address) %>
+            <% if results.present? %>
+              <% @latlng=results.first.coordinates %>
+              <%= image_tag "https://maps.googleapis.com/maps/api/streetview?size=300x200&heading=180&fov=120&location=#{@latlng[0]},#{@latlng[1]}&sensor=true&key=#{ENV['GOOGLE_API_KEY']}" %>
+            <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td><%= link_to '戻る', :back, class: 'btn btn-danger btn-lg' %></td>
+            <td><%= f.submit "内容を更新する", data: {"turbolinks"=>false}, class: 'btn btn-success btn-lg' %></td>
+          </tr>
           <% end %>
-         </td>
-        </tr>
-        <tr>
-         <td><%= link_to '戻る', :back, class: 'btn btn-danger btn-lg' %></td>
-         <td><%= f.submit "内容を更新する", data: {"turbolinks"=>false}, class: 'btn btn-success btn-lg' %></td>
-        </tr>
-        <% end %>
-      </tbody>
-     </table>
+        </tbody>
+      </table>
     </div>
   </div>
- </div>
+</div>
  <style>#map {height: 600px;width: 600px;}</style>
  <script>
  let map
@@ -82,4 +82,3 @@
  }
  </script>
  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
-
