@@ -1,31 +1,30 @@
 <h2>SNSアカウント認証</h2>
-  <div class ="login">
-    <%= form_for(resource, as: resource_name, url: member_registration_path) do |f| %>
-     <%= render "members/shared/error_messages", resource: resource %>
-     <table class="logtable">
+<div class ="login">
+  <%= form_for(resource, as: resource_name, url: member_registration_path) do |f| %>
+    <%= render "members/shared/error_messages", resource: resource %>
+    <table class="logtable">
       <tr>
-       <td>登録名</td>
-       <td><%= f.text_field :name, maxlength: "60", class: 'form-control', :readonly => true %></td>
+        <td>登録名</td>
+        <td><%= f.text_field :name, maxlength: "60", class: 'form-control', :readonly => true %></td>
       </tr>
       <tr>
-       <td>メールアドレス</td>
-       <td><%= f.email_field :email, maxlength: "60", class: 'form-control', :readonly => true %></td>
+        <td>メールアドレス</td>
+        <td><%= f.email_field :email, maxlength: "60", class: 'form-control', :readonly => true %></td>
       </tr>
       <tr>
-       <td>パスワード（入力不要)</td>
-       <td><%= f.hidden_field :password, :value => 222222 %><%= f.hidden_field :password_confirmation, :value => 222222 %></td>
+        <td>パスワード（入力不要)</td>
+        <td><%= f.hidden_field :password, :value => 222222 %><%= f.hidden_field :password_confirmation, :value => 222222 %></td>
       </tr>
       <tr>
-       <td></td>
-       <td><%= f.submit "上記設定で利用する", class: 'btn btn-success btn-lg' %></td>
+        <td></td>
+        <td><%= f.submit "上記設定で利用する", class: 'btn btn-success btn-lg' %></td>
       </tr>
       <tr>
-       <td></td>
-       <td>※設定は後から更新可能です</td>
+        <td></td>
+        <td>※設定は後から更新可能です</td>
       </tr>
-     </table>
-    <% end %>
-   </div>
-  </div>
+    </table>
+  <% end %>
+</div>
 ※登録名またはメールアドレスが取得できない場合はSNS側の設定を見直す
   あるいは本サイト用アカウントを新規登録されるようお願い致します。
