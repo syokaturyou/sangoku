@@ -5,6 +5,6 @@
   <%= f.text_field :keyword, required: true, size: "40x20", :placeholder => "キーワード入力" %>
   <%= f.submit '楽天ブックス簡易検索', class: "btn btn-danger", data: {"turbolinks"=>false} %>
   <% if @books.present? %>
-   <%= render 'books/book' %>
+    <%= render 'books/book' %>
   <% end %>
 <% end %>

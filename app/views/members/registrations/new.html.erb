@@ -1,49 +1,48 @@
 <h2>新規会員登録</h2>
-  <div class ="login">
-    <%= form_for(resource, as: resource_name, url: member_registration_path) do |f| %>
-     <%= render "members/shared/error_messages", resource: resource %>
-     <table class="logtable">
+<div class ="login">
+  <%= form_for(resource, as: resource_name, url: member_registration_path) do |f| %>
+    <%= render "members/shared/error_messages", resource: resource %>
+    <table class="logtable">
       <tr>
-       <td><%= f.label :登録名 %></td>
-       <td><%= f.text_field :name, autofocus: true, required: true, maxlength: "60", class: 'form-control', size: "60", :placeholder => "登録名入力" %></td>
+        <td><%= f.label :登録名 %></td>
+        <td><%= f.text_field :name, autofocus: true, required: true, maxlength: "60", class: 'form-control', size: "60", :placeholder => "登録名入力" %></td>
       </tr>
       <tr>
-       <td>ログイン用<%= f.label :仮メールアドレス %></td>
-       <td><%= f.email_field :email, autofocus: true, required: true, autocomplete: "email", maxlength: "60", class: 'form-control', :placeholder => "メールアドレス入力" %></td>
+        <td>ログイン用<%= f.label :仮メールアドレス %></td>
+        <td><%= f.email_field :email, autofocus: true, required: true, autocomplete: "email", maxlength: "60", class: 'form-control', :placeholder => "メールアドレス入力" %></td>
       </tr>
       <tr>
-       <td><%= f.label :パスワード（６文字以上） %></td>
-       <td><%= f.password_field :password, required: true, autocomplete: "new-password", class: 'form-control', :placeholder => "パスワード入力" %></td>
+        <td><%= f.label :パスワード（６文字以上） %></td>
+        <td><%= f.password_field :password, required: true, autocomplete: "new-password", class: 'form-control', :placeholder => "パスワード入力" %></td>
       </tr>
       <tr>
-       <td><%= f.label :パスワード（確認用） %></td>
-       <td><%= f.password_field :password_confirmation, required: true, autocomplete: "new-password", class: 'form-control', :placeholder => "パスワード再入力" %></td>
+        <td><%= f.label :パスワード（確認用） %></td>
+        <td><%= f.password_field :password_confirmation, required: true, autocomplete: "new-password", class: 'form-control', :placeholder => "パスワード再入力" %></td>
       </tr>
       <tr>
-       <td></td>
-       <td><%= f.submit "新規登録する", class: 'btn btn-success btn-lg' %></td>
+        <td></td>
+        <td><%= f.submit "新規登録する", class: 'btn btn-success btn-lg' %></td>
       </tr>
       <tr>
-       <td>Googleアカウント使用なら入力不要</td>
-       <td><button><%= link_to "Googleログイン", member_google_oauth2_omniauth_authorize_path, method: :post , class: 'fab fa-google btn-lg' %></button></td>
+        <td>Googleアカウント使用なら入力不要</td>
+        <td><button><%= link_to "Googleログイン", member_google_oauth2_omniauth_authorize_path, method: :post , class: 'fab fa-google btn-lg' %></button></td>
       </tr>
       <tr>
-       <td>twwiterアカウント使用なら入力不要</td>
-       <td><button><%= link_to "twitterログイン", member_twitter_omniauth_authorize_path, method: :post, class:' fab fa-twitter btn-lg' %></button></td>
+        <td>twwiterアカウント使用なら入力不要</td>
+        <td><button><%= link_to "twitterログイン", member_twitter_omniauth_authorize_path, method: :post, class:' fab fa-twitter btn-lg' %></button></td>
       </tr>
       <tr>
-       <td>facebookアカウント使用なら入力不要</td>
-       <td><button><%= link_to "facebookログイン", member_facebook_omniauth_authorize_path, method: :post, class: 'fab fa-facebook-square btn-lg' %></button></td>
+        <td>facebookアカウント使用なら入力不要</td>
+        <td><button><%= link_to "facebookログイン", member_facebook_omniauth_authorize_path, method: :post, class: 'fab fa-facebook-square btn-lg' %></button></td>
       </tr>
       <tr>
-       <td>gitアカウント使用なら入力不要</td>
-       <td><button><%= link_to "githubログイン", member_github_omniauth_authorize_path, method: :post, class: 'fab fa-github btn-lg' %></button></td>
+        <td>gitアカウント使用なら入力不要</td>
+        <td><button><%= link_to "githubログイン", member_github_omniauth_authorize_path, method: :post, class: 'fab fa-github btn-lg' %></button></td>
       </tr>
       <tr>
-       <td>既に登録済みの方</td>
-       <td><%= link_to "ログイン画面へ", new_session_path(resource_name), class: 'btn btn-primary btn-lg' %></td>
+        <td>既に登録済みの方</td>
+        <td><%= link_to "ログイン画面へ", new_session_path(resource_name), class: 'btn btn-primary btn-lg' %></td>
       </tr>
-     </table>
-    <% end %>
-   </div>
-  </div>
+    </table>
+  <% end %>
+</div>

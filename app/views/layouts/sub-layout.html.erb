@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sangoku</title>
-   <%= csrf_meta_tags %>
-   <%= csp_meta_tag %>
-   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sangoku</title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-   <%= render 'layouts/header' %>
+    <%= render 'layouts/header' %>
     <main class="main">
-     <% if flash[:notice] %>
-      <div class="notice"><%= flash[:notice] %></div>
-     <% end %>
-     <%= yield %>
+      <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+      <% end %>
+      <%= yield %>
     </main>
-   <%= render 'layouts/footer' %>
- </body>
+    <%= render 'layouts/footer' %>
+  </body>
 </html>

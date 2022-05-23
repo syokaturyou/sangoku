@@ -2,30 +2,30 @@
 <div class='container'>
   <div class="row">
     <table class="table table-borderless">
-     <tbody>
-      <%= form_with model: @contract, url: contracts_path, local: true do |f| %>
-       <tr>
-        <td><%= f.label :name, 'お名前(必須)' %></td>
-        <td><%= f.text_field :name, autofocus: true, required: true, class: 'form-control', size: "60", :placeholder => "名前入力" %></td>
-       </tr>
-       <tr>
-        <td><%= f.label :email, '返信先メールアドレス' %></td>
-        <td><%= f.text_field :email, autofocus: true, class: 'form-control', :placeholder => "メールアドレス入力" %></td>
-       </tr>
-       <tr>
-        <td><%= f.label :phone_number, '電話番号' %></td>
-        <td><%= f.text_field :phone_number, autofocus: true, class: 'form-control', :placeholder => "電話番号" %></td>
-       </tr>
-       <tr>
-        <td><%= f.label :message, 'メッセージ(必須)' %></td>
-        <td><%= f.text_area :message, autofocus: true, required: true, class: 'form-control', size: '5x5', :placeholder => "メッセージ入力" %></td>
-       </tr>
-       <tr>
-        <td></td>
-        <td><%= f.submit '問い合わせ内容を送信する', class: 'btn btn-success btn-lg', data: { confirm: "本当に送信しますか？" } %><td>
-         <% end %>
-       </tr>
-     </tbody>
+      <tbody>
+        <%= form_with model: @contract, url: contracts_path, local: true do |f| %>
+          <tr>
+            <td><%= f.label :name, 'お名前(必須)' %></td>
+            <td><%= f.text_field :name, autofocus: true, required: true, class: 'form-control', size: "60", :placeholder => "名前入力" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :email, '返信先メールアドレス' %></td>
+            <td><%= f.text_field :email, autofocus: true, class: 'form-control', :placeholder => "メールアドレス入力" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :phone_number, '電話番号' %></td>
+            <td><%= f.text_field :phone_number, autofocus: true, class: 'form-control', :placeholder => "電話番号" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :message, 'メッセージ(必須)' %></td>
+            <td><%= f.text_area :message, autofocus: true, required: true, class: 'form-control', size: '5x5', :placeholder => "メッセージ入力" %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= f.submit '問い合わせ内容を送信する', class: 'btn btn-success btn-lg', data: { confirm: "本当に送信しますか？" } %><td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>

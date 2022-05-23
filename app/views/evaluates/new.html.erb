@@ -1,27 +1,27 @@
 <% breadcrumb :newevaluate  %>
 <%= breadcrumbs separator: " > " , class: :logo %>
 <h1>おすすめ地域評価投稿</h1>
- <div class="center">
+<div class="center">
   <div class="bottom">
-   <h5><b>5段階評価をしましょう！ 一度のみ評価可能です</b></h5><br>
+    <h5><b>5段階評価をしましょう！ 一度のみ評価可能です</b></h5><br>
     <%= form_with model: @newevaluate, url: sight_evaluates_path, local: true do |f| %>
-  <div id="star1">
-   <%= f.label :rate, "評価：" %>
-   <%= f.hidden_field :sight_id, :value => params[:sight_id] %>
-   <%= f.hidden_field :rate, :value => 0,  id: :evaluate_star %>
-   <%= f.hidden_field :review, :value => params[:rate] %>
-   <script>
-      $('#star1').raty({
-        size     : 36,
-        starOff:  '<%= asset_path('star-off.png') %>',
-        starOn : '<%= asset_path('star-on.png') %>',
-        starHalf: '<%= asset_path('star-half.png') %>',
-        scoreName: 'evaluate[rate]',
-        half: true,
-      });
-   </script>
+      <div id="star1">
+        <%= f.label :rate, "評価：" %>
+        <%= f.hidden_field :sight_id, :value => params[:sight_id] %>
+        <%= f.hidden_field :rate, :value => 0,  id: :evaluate_star %>
+        <%= f.hidden_field :review, :value => params[:rate] %>
+        <script>
+          $('#star1').raty({
+            size     : 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            scoreName: 'evaluate[rate]',
+            half: true,
+          });
+        </script>
+      </div>
+      <%= f.submit "評価する", class: 'btn btn-success btn-lg', data: { confirm: "この内容で評価しますか？" } %>
+    <% end %>
   </div>
-  <%= f.submit "評価する", class: 'btn btn-success btn-lg', data: { confirm: "この内容で評価しますか？" } %>
-  <% end %>
- </div>
 </div>

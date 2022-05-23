@@ -1,19 +1,19 @@
 <h2>管理者ログイン</h2>
- <div class ="login">
-   <%= form_for(resource, as: resource_name, url: admin_session_path) do |f| %>
+<div class ="login">
+  <%= form_for(resource, as: resource_name, url: admin_session_path) do |f| %>
     <table class="logtable">
-     <tr>
-      <td><%= f.label :メールアドレス %></td>
-      <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', size: "60", :placeholder => "メールアドレス入力" %></td>
-     </tr>
-     <tr>
-      <td><%= f.label :パスワード %></td>
-      <td><%= f.password_field :password, autocomplete: "current-password", class: 'form-control', :placeholder => "パスワード入力" %></th>
-     </tr>
-     <tr>
-      <td>管理者情報を入力</td>
-      <td><%= f.submit "ログインする", class: 'btn btn-primary btn-lg' %></td>
-     </tr>
+      <tr>
+        <td><%= f.label :メールアドレス %></td>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', size: "60", :placeholder => "メールアドレス入力" %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :パスワード %></td>
+        <td><%= f.password_field :password, autocomplete: "current-password", class: 'form-control', :placeholder => "パスワード入力" %></th>
+      </tr>
+      <tr>
+        <td>管理者情報を入力</td>
+        <td><%= f.submit "ログインする", class: 'btn btn-primary btn-lg' %></td>
+      </tr>
     </table>
-   <% end %>
+  <% end %>
  </div>
