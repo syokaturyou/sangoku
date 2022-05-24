@@ -1,6 +1,10 @@
 <% breadcrumb :booksearch  %>
 <%= breadcrumbs separator: " > " , class: :logo %>
 <h1>本検索</h1>
+<div class="row">
+  <div class="col-1">
+  </div>
+  <div class="col-11">
 <%= form_with url: book_search_path, method: :get, local: true do |f| %>
   <%= f.text_field :keyword, required: true, size: "40x20", :placeholder => "キーワード入力" %>
   <%= f.submit '楽天ブックス簡易検索', class: "btn btn-danger", data: {"turbolinks"=>false} %>
@@ -8,3 +12,5 @@
     <%= render 'books/book' %>
   <% end %>
 <% end %>
+ </div>
+</div>

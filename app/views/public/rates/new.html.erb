@@ -1,8 +1,10 @@
 <% breadcrumb :publicanswerrate  %>
 <%= breadcrumbs separator: " > " , class: :logo %>
 <h1>評価投稿</h1>
-<div class="center">
-  <div class="bottom">
+<div class="row">
+  <div class="col-2">
+  </div>
+  <div class="col-10">
     <h5><b>各回答に対して5段階評価をしましょう！ 一度のみ評価可能です</b></h5><br>
     <%= form_with model: @newrate, url: public_answer_rates_path, local: true do |f| %>
       <div id="star1">
