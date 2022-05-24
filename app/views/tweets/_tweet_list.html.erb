@@ -1,0 +1,11 @@
+<% if @tweets.present? %>
+  <h2>検索結果</h2>
+  <table>
+    <% @tweets.each_with_index do |tweet, i| %>
+    <th>ツイート<%= i %>:</th>
+      <tr>
+        <td><%= tweet.contents.truncate(200) %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

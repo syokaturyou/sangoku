@@ -146,3 +146,9 @@ crumb :booksearch do
   link '書籍検索', book_search_path
   parent :root
 end
+
+crumb :tweetsearch do
+  link 'ツイート検索', tweets_search_path
+  parent :root
+end
+

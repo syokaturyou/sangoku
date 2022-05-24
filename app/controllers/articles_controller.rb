@@ -5,14 +5,6 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all.order(updated_at: 'DESC').page(params[:page]).per(10)
-    client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV['TWITTER_API_KEY']
-      config.consumer_secret     = ENV['TWITTER_API_SECRET_KEY']
-      config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
-      config.access_token_secret = ENV['TWITTER_ACCESS_SECRET_TOKEN']
-    end
-    # 日本のトレンドを取得
-    @trends = client.trends(234_248_56).attrs[:trends].first(10)
   end
 
   def show
@@ -75,14 +67,5 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :body)
-  end
-
-  def twitter_client
-    @client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV['TWITTER_API_KEY']
-      config.consumer_secret     = ENV['TWITTER_API_SECRET_KEY']
-      config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
-      config.access_token_secret = ENV['TWITTER_ACCESS_SECRET_TOKEN']
-    end
   end
 end
