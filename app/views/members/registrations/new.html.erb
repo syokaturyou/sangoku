@@ -24,24 +24,12 @@
         <td><%= f.submit "新規登録する", class: 'btn btn-success btn-lg' %></td>
       </tr>
       <tr>
-        <td>Googleアカウント使用なら入力不要</td>
-        <td><button><%= link_to "Googleログイン", member_google_oauth2_omniauth_authorize_path, method: :post , class: 'fab fa-google btn-lg' %></button></td>
-      </tr>
-      <tr>
-        <td>twwiterアカウント使用なら入力不要</td>
-        <td><button><%= link_to "twitterログイン", member_twitter_omniauth_authorize_path, method: :post, class:' fab fa-twitter btn-lg' %></button></td>
-      </tr>
-      <tr>
-        <td>facebookアカウント使用なら入力不要</td>
-        <td><button><%= link_to "facebookログイン", member_facebook_omniauth_authorize_path, method: :post, class: 'fab fa-facebook-square btn-lg' %></button></td>
-      </tr>
-      <tr>
-        <td>gitアカウント使用なら入力不要</td>
-        <td><button><%= link_to "githubログイン", member_github_omniauth_authorize_path, method: :post, class: 'fab fa-github btn-lg' %></button></td>
-      </tr>
-      <tr>
-        <td>既に登録済みの方</td>
-        <td><%= link_to "ログイン画面へ", new_session_path(resource_name), class: 'btn btn-primary btn-lg' %></td>
+        <td>各snsアカウント認証だと入力不要</td>
+        <td><%= link_to image_tag("google.png", size: '60x50'), member_google_oauth2_omniauth_authorize_path, method: :post %>
+            <%= link_to image_tag("twitter.png", size: '60x50'), member_twitter_omniauth_authorize_path, method: :post %>
+            <%= link_to image_tag("facebook.png", size: '60x50'), member_facebook_omniauth_authorize_path, method: :post %>
+            <%= link_to image_tag("github.png", size: '60x50'), member_github_omniauth_authorize_path, method: :post %>
+        </td>
       </tr>
     </table>
   <% end %>
