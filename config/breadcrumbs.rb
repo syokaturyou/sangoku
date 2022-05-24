@@ -151,4 +151,3 @@ crumb :tweetsearch do
   link 'ツイート検索', tweets_search_path
   parent :root
 end
-
