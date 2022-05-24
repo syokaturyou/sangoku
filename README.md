@@ -28,7 +28,7 @@
 2.おすすめ地域探索・評価
 
 ## 動画(基本機能確認)
-<https://user-images.githubusercontent.com/78064150/169672109-a775960e-932c-4d20-9731-d267ebfedb0c.mp4>
+<https://user-images.githubusercontent.com/78064150/169952357-9587d04a-bfae-41ed-92db-d54ad68d6e05.mp4>
 
 ## 開発環境
 
@@ -44,7 +44,7 @@
 ・googleアカウント,twitterアカウント等、Omniauth連携によるSNS認証を用いたログイン  
 ・質問、回答に対する,CRUD処理機能  
 ・GoogleCLoudAPI使用(自然言語処理、画像認識、map取得)  
-・twitterAPIを用いたトレンド取得、投稿に対するbot作成  
+・twitterAPIを用いたツイート、トレンド取得、投稿に対するbot作成  
 ・rakutenAPIを用いた書籍検索  
 ・いいね機能、評価・レビュー機能    
 ・全体雑談、会員間チャット機能  
