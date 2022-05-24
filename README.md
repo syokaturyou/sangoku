@@ -62,4 +62,5 @@ AWS使用構成図
 ER図  
 ![3594-ER図 drawio](https://user-images.githubusercontent.com/78064150/169643157-1c43efd0-9907-4ed7-8188-1a5ad6983baa.png)  
 アプリケーション詳細設計  
-![3594-アプリケーション詳細設計 drawio](https://user-images.githubusercontent.com/78064150/169643139-4e864443-cd45-4fce-961a-782720ad6d15.png)
+![3594-アプリケーション詳細設計 drawio (1)](https://user-images.githubusercontent.com/78064150/169950696-898c3cb2-787d-45cc-bdbc-dfa8718c2d03.png)
+
