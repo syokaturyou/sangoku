@@ -512,7 +512,7 @@ DEPENDENCIES
   pry-doc
   pry-rails
   puma (~> 3.11)
-  rails (~> 5.2.5)
+  rails (~> 5.2.8)
   rails-erd
   rails-i18n
   rakuten_web_service
