@@ -49,6 +49,6 @@ module ApplicationHelper
   end
 
   def devise_mapping
-    @devise_mapping ||= Devise.mappings[:membr]
+    @devise_mapping ||= Devise.mappings[:member]
   end
 end
