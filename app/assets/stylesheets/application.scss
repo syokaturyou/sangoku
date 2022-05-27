@@ -524,6 +524,10 @@ img{
 .tweettable {
   border: 3px black solid;
 }
+.tweettable th {
+  background-color: #EEEEEE;
+  border-bottom: 2px gray solid;
+}
 
 @media only screen and (max-width: 500px) {
   .main {

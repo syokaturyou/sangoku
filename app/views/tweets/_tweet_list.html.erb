@@ -1,5 +1,5 @@
 <% if @tweets.present? %>
-  <h2>検索結果</h2>
+  <h2>"<%= params[:keyword] %>"の最新検索結果表示</h2>
   <table class="tweettable">
     <% @tweets.each_with_index do |tweet, i| %>
     <th>ツイート<%= i %>:</th>
