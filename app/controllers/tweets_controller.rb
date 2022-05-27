@@ -11,8 +11,8 @@ class TweetsController < ApplicationController
     since_id = nil
     # 検索ワードが存在していたらツイートを取得
     if params[:keyword].present?
-      # リツイートを除く、検索ワードにひっかかった最新数件のツイートを取得する
-      @tweets = client.search(params[:keyword], count: 12, result_type: 'recent', exclude: 'retweets', since_id: since_id)
+      # リツイートを除く、検索ワードにひっかかった最新10件のツイートを取得する
+      @tweets = client.search(params[:keyword], count: 10, result_type: 'recent', exclude: 'retweets', since_id: since_id)
     end
     respond_to do |format|
       format.html # show.html.erb
