@@ -31,44 +31,44 @@
           <% end %>
         </tbody>
       </table>
-      <style>#map {height: 600px;width: 600px;}</style>
+      <style>#map {height: 600px; width: 600px;}</style>
       <script>
-      let map
-      let geocoder
-      let marker
+        let map
+        let geocoder
+        let marker
 
-      function initMap(){
-        geocoder = new google.maps.Geocoder()
+        function initMap(){
+          geocoder = new google.maps.Geocoder()
 
-        mapInstance  = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 35.6803997, lng:139.7690174},
-          zoom: 10,
-        });
-        marker = new google.maps.Marker({
-          position:  {lat: 35.6803997, lng:139.7690174},
-          map: mapInstance
-        });
-      }
+          mapInstance  = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 35.6803997, lng:139.7690174},
+            zoom: 10,
+          });
+          marker = new google.maps.Marker({
+            position:  {lat: 35.6803997, lng:139.7690174},
+            map: mapInstance
+          });
+        }
 
-      function codeAddress(){
-        let inputAddress = document.getElementById('address').value;
+        function codeAddress(){
+          let inputAddress = document.getElementById('address').value;
 
-        geocoder.geocode( { 'address': inputAddress}, function(results, status) {
-          if (status == 'OK') {
-            mapInstance .setCenter(results[0].geometry.location);
-            marker = new google.maps.Marker({
-                map: mapInstance ,
-                position: results[0].geometry.location
-            });
-            display.textContent = "(緯度, 経度)：" + results[ 0 ].geometry.location
-            kekka.textContent = "検索住所：" + inputAddress
-            let hidden_address = document.getElementById('hidden_address');
-            hidden_address.setAttribute("value", inputAddress);
-            } else {
-            alert('該当する結果がありませんでした：' + status);
-          }
-        });
-      }
+          geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+            if (status == 'OK') {
+              mapInstance .setCenter(results[0].geometry.location);
+              marker = new google.maps.Marker({
+                  map: mapInstance ,
+                  position: results[0].geometry.location
+              });
+              display.textContent = "(緯度, 経度)：" + results[ 0 ].geometry.location
+              kekka.textContent = "検索住所：" + inputAddress
+              let hidden_address = document.getElementById('hidden_address');
+              hidden_address.setAttribute("value", inputAddress);
+              } else {
+              alert('該当する結果がありませんでした：' + status);
+            }
+          });
+        }
       </script>
       <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
     </div>
