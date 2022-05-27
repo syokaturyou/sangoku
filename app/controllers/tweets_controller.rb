@@ -13,7 +13,6 @@ class TweetsController < ApplicationController
     if params[:keyword].present?
       # リツイートを除く、検索ワードにひっかかった最新10件のツイートを取得する
       @tweets = client.search(params[:keyword], count: 10, result_type: 'recent', exclude: 'retweets', since_id: since_id)
-      # binding.pry
     end
     respond_to do |format|
       format.html # show.html.erb
