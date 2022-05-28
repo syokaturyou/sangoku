@@ -3,11 +3,9 @@
   <div class="row">
     <% @tweets.first(10).each_with_index do |tweet, i| %>
       <div class="col-md-6">
-        ツイート<%= i+1 %>
-        <span style="color: rgb(85, 85, 85);">
-          <iframe frameborder="0" allowtransparency="true" allowfullscreen="true" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;id=<%= tweet.id %>"></iframe>
-          <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></b>
-        </span>
+        ツイート<%= i+1 %></br>
+        <iframe frameborder="0" allowtransparency="true" allowfullscreen="true" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;id=<%= tweet.id %>"></iframe>
+        <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
       </div>
     <% end %>
   </div>
