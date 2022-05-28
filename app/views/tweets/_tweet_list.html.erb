@@ -4,14 +4,14 @@
     <% @tweets.first(10).each_with_index do |tweet, i| %>
       <div class="col-md-6">
         ツイート<%= i+1 %>
-          <span style="color: rgb(85, 85, 85);">
-            <span style="font-size: 16.1px;">
-              <div>
-                <iframe id="twitter-widget-1" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-1&amp;features=eyJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3NlbnNpdGl2ZV9tZWRpYV9pbnRlcnN0aXRpYWxfMTM5NjMiOnsiYnVja2V0IjoiaW50ZXJzdGl0aWFsIiwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9yZXN1bHRfbWlncmF0aW9uXzEzOTc5Ijp7ImJ1Y2tldCI6InR3ZWV0X3Jlc3VsdCIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=<%= tweet.id %>&amp;lang=ja&amp;origin=http%3A%2F%2Fanimesoku.com%2Farchives%2Fcat_234055.html&amp;sessionId=648d51e44b179e9b5aa2721a850dd4074fb2c77d&amp;siteScreenName=neiro_sokuhou&amp;theme=light&amp;widgetsVersion=c8fe9736dd6fb%3A1649830956492&amp;width=400px"></iframe>
-              </div>
-             <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></b>
-            </span>
+        <span style="color: rgb(85, 85, 85);">
+          <span style="font-size: 16.1px;">
+            <div>
+              <iframe id="twitter-widget-1" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-1&amp;features=eyJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3NlbnNpdGl2ZV9tZWRpYV9pbnRlcnN0aXRpYWxfMTM5NjMiOnsiYnVja2V0IjoiaW50ZXJzdGl0aWFsIiwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9yZXN1bHRfbWlncmF0aW9uXzEzOTc5Ijp7ImJ1Y2tldCI6InR3ZWV0X3Jlc3VsdCIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=<%= tweet.id %>&amp;lang=ja&amp;origin=http%3A%2F%2Fanimesoku.com%2Farchives%2Fcat_234055.html&amp;sessionId=648d51e44b179e9b5aa2721a850dd4074fb2c77d&amp;siteScreenName=neiro_sokuhou&amp;theme=light&amp;widgetsVersion=c8fe9736dd6fb%3A1649830956492&amp;width=400px"></iframe>
+            </div>
+            <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></b>
           </span>
+        </span>
       </div>
     <% end %>
   </div>
