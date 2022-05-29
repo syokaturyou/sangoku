@@ -53,7 +53,7 @@ module Public
       if @newpost.save
         flash[:notice] = '質問を投稿しました'
         # 新規投稿時にツイッターbotを動かす
-        @client.update("新規質問が投稿されました。\n\n #{@newpost.posttitle} \nwarerano3594.com/public/posts/#{@newpost.id}\n 回答をお待ちしております\r\n\n#我らの三国志 #三国志 ##{@newpost.genre.name} ")
+        @client.update("新規質問が投稿されました。\n\n #{@newpost.posttitle} \nwarerano3594.com/public/posts/#{@newpost.id}\n\n回答をお待ちしております\r\n\n#我らの三国志 #三国志 ##{@newpost.genre.name} ")
         redirect_to public_posts_path
       else
         redirect_to root_path
@@ -67,7 +67,7 @@ module Public
       @post.save
       @post.update(postimage: nil) if params[:image_delete].present? # 「画像なし」を選択した場合postimageをnilにする
       # 質問更新時にもツイッターbotを動かす
-      @client.update("質問が更新されました。\n\n#{@post.posttitle}\nwarerano3594.com/public/posts/#{@post.id}\n回答をお待ちしております\r\n\n#我らの三国志 #三国志 ##{@post.genre.name} ")
+      @client.update("質問が更新されました。\n\n#{@post.posttitle}\nwarerano3594.com/public/posts/#{@post.id}\n\n回答をお待ちしております\r\n\n#我らの三国志 #三国志 ##{@post.genre.name} ")
       flash[:notice] = '質問を更新しました'
       redirect_to public_posts_path
     end
