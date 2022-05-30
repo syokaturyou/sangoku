@@ -14,7 +14,7 @@
   </div>
   <div class="col-10">
     <%= form_tag('/tweets/search', method: :get) do %>
-      <%= text_field_tag :tweet, nil,  id: "tweet_search", name: "keyword", required: true, placeholder: "キーワードを打ち込んでください", style: "width: 400px;"%>
+      <%= text_field_tag :tweet, nil,  id: "tweet_search", name: "keyword", required: true, placeholder: "キーワードを打ち込んでください", class: 'form-control', style: "width: 400px;"%>
       <button title="ツイート検索" type="submit" id ="button1">検索</button>
     <% end %>
     <div>
