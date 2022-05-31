@@ -13,30 +13,30 @@
             <table class="newtable">
               <tbody>
                 <%= form_with model:@member, url: public_member_path(@member), local: true do |f| %>
-                <tr>
-                  <td><%= f.label :登録名 %></td>
-                  <td><%= f.text_field :name, autofocus: true, required: true, maxlength: "40", size: "40", :placeholder => "登録名入力" %></td>
-                </tr>
-                <tr>
-                  <td><%= f.label :登録メールアドレス %></td>
-                  <td><%= f.email_field :email, autofocus: true, autocomplete: "email", maxlength: "80", size: "80", :placeholder => "メールアドレス入力" %></td>
-                </tr>
-                <tr>
-                  <td><%= f.label :プロフィール %></td>
-                  <td><%= f.text_area :profile, autofocus: true, maxlength: "400", size: '50x5', :placeholder => "プロフィール入力" %></td>
-                </tr>
-                <tr>
-                  <td><%= f.label :プロフィール画像 %></td>
-                  <td><%= attachment_image_tag @member, :profileimage, :fill, 90, 90, fallback: "no_image.jpg" %>
-                    <label><%= check_box_tag :image_delete %>画像なし</label>
-                    <label><%= f.attachment_field :profileimage %></label>
-                  </td>
-                </tr>
-                <tr>
-                  <td><%= link_to 'マイページに戻る', :back, class: 'btn btn-danger btn-lg' %></td>
-                  <td><%= f.submit "編集内容を保存", class: 'btn btn-success btn-lg' %></td>
+                  <tr>
+                    <td><%= f.label :登録名 %></td>
+                    <td><%= f.text_field :name, autofocus: true, required: true, maxlength: "40", size: "40", :placeholder => "登録名入力" %></td>
+                  </tr>
+                  <tr>
+                    <td><%= f.label :登録メールアドレス %></td>
+                    <td><%= f.email_field :email, autofocus: true, autocomplete: "email", maxlength: "80", size: "80", :placeholder => "メールアドレス入力" %></td>
+                  </tr>
+                  <tr>
+                    <td><%= f.label :プロフィール %></td>
+                    <td><%= f.text_area :profile, autofocus: true, maxlength: "400", size: '50x5', :placeholder => "プロフィール入力" %></td>
+                  </tr>
+                  <tr>
+                    <td><%= f.label :プロフィール画像 %></td>
+                    <td><%= attachment_image_tag @member, :profileimage, :fill, 90, 90, fallback: "no_image.jpg" %>
+                      <label><%= check_box_tag :image_delete %>画像なし</label>
+                      <label><%= f.attachment_field :profileimage %></label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><%= link_to 'マイページに戻る', :back, class: 'btn btn-danger btn-lg' %></td>
+                    <td><%= f.submit "編集内容を保存", class: 'btn btn-success btn-lg' %></td>
+                  </tr>
                 <% end %>
-                </tr>
               <tbody>
             </table>
           </div>
