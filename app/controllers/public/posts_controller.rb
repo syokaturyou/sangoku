@@ -53,7 +53,7 @@ module Public
       if @newpost.save
         flash[:notice] = '質問を投稿しました'
         # 新規投稿時にツイッターbotを動かす
-        @client.update("新規質問が投稿されました。\n\n #{@newpost.posttitle} \nwarerano3594.com/public/posts/#{@newpost.id}\r\
+        @client.update("新規質問が投稿されました。\n\n#{@newpost.posttitle} \nwarerano3594.com/public/posts/#{@newpost.id}\r\
         \n\n回答をお待ちしております\r\n\n#我らの三国志 #三国志 ##{@newpost.genre.name} ")
         redirect_to public_posts_path
       else
