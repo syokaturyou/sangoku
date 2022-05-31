@@ -129,7 +129,7 @@
                     </tr>
                   </tbody>
                 </table>
-                <% if @member.sns_credentials.blank? %>
+                <% if current_member.sns_credentials.blank? %>
                   <% if @member.is_deleted.blank? %>
                     <% if member_signed_in? %>
                       <% if @member.id == current_member.id %>
