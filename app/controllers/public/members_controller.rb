@@ -9,6 +9,7 @@ module Public
       @range = params[:range] # 過去回答と過去質問選択時に場合分け
       @posts = @member.posts.order(updated_at: 'DESC').page(params[:page]).per(10)
       @answers = @member.answers.order(updated_at: 'DESC').page(params[:page]).per(10)
+      # sns_credential.member_id = @member.id
     end
 
     # ログインしたユーザーだけ見えるようにcurrent_memberとする
