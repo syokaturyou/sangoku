@@ -10,9 +10,10 @@ class SightsController < ApplicationController
 
   def edit
     @sight =  Sight.find(params[:id])
-    unless @sight.member == current_member
-        redirect_to  new_sight_path
-    end
+    # 作成したユーザーのみ編集可能
+    return if @sight.member == current_member
+
+    redirect_to new_sight_path
   end
 
   def show

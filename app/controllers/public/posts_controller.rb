@@ -41,10 +41,10 @@ module Public
 
     def edit
       @post = Post.find(params[:id])
-      # 現ユーザーのみ更新できるようにする
-      unless @post.member == current_member
-        redirect_to  new_public_post_path
-      end
+      # 作成したユーザーのみ編集可能
+      return if @post.member == current_member
+
+      redirect_to new_public_post_path
     end
 
     def new

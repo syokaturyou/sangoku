@@ -39,9 +39,10 @@ module Public
 
     def edit
       @answer = Answer.find(params[:id])
-      unless @answer.member == current_member
-        redirect_to  public_posts_path
-      end
+      # 作成したユーザーのみ編集可能
+      return if @answer.member == current_member
+
+      redirect_to public_posts_path
     end
 
     def update
