@@ -10,6 +10,9 @@ class SightsController < ApplicationController
 
   def edit
     @sight =  Sight.find(params[:id])
+    unless @sight.member == current_member
+        redirect_to  new_sight_path
+    end
   end
 
   def show
