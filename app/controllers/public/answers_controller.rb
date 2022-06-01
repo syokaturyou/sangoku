@@ -39,6 +39,9 @@ module Public
 
     def edit
       @answer = Answer.find(params[:id])
+      unless @answer.member == current_member
+        redirect_to  public_posts_path
+      end
     end
 
     def update
