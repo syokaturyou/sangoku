@@ -14,6 +14,7 @@ module Public
     # ログインしたユーザーだけ見えるようにcurrent_memberとする
     def edit
       @member = current_member
+      # 作成したユーザーのみ編集可能
     end
 
     def update
