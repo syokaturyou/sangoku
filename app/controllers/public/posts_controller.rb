@@ -2,7 +2,7 @@ module Public
   class PostsController < ApplicationController
     before_action :twitter_client, only: [:create, :update]
     def index
-      # デフォルトは更新日時の降順に並べるよ
+      # デフォルトは更新日時の降順に並べる
       @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
       @range = params[:range] # 並べ替え選択時のページネーションを場合分け
       case @range
