@@ -73,4 +73,7 @@ Rails.application.configure do
       enable_starttls_auto: true
   }
 
+  # rails6からDNSリバインディング攻撃からの保護のためホスト名を設定する必要あり
+  config.hosts << "4f175bf5c130408facdc7da2868a6a0c.vfs.cloud9.ap-northeast-1.amazonaws.com"
+
 end
