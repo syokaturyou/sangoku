@@ -1,4 +1,3 @@
-require 'action_dispatch'
 Rails.application.routes.draw do
 
   resources :zatudans, only: [:index, :create]
