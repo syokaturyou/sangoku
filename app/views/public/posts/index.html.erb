@@ -33,30 +33,30 @@
         </thead>
         <tbody>
           <% @posts.each do |post| %>
-          <tr bgcolor=#EEEEEE>
-            <td><%= post.id %></td>
-            <td><%= link_to post.posttitle.truncate(25), public_post_path(post) %></td>
-            <td>
-              <%= link_to attachment_image_tag( post.member, :profileimage, fallback: "no_image.jpg", size: '40x40'), public_member_path(post.member), data: {"turbolinks"=>false} %>
-              <%= post.member.name %>
-            </td>
-            <td><%= post.updated_at.to_s(:datetime_jp) %></td>
-            <td><%= post.answers.count %></td>
-            <td>[<%= post.genre.id %>]/<%= post.genre.name %></td>
-            <td><%= post.impressions_count %></td>
-            <% if member_signed_in? %>
-              <% if post.member.id == current_member.id %>
-                <td>
-                  <%= link_to '編集する', edit_public_post_path(post), class: 'btn btn-success', data: {"turbolinks"=>false} %>
-                  <%= link_to '削除する', public_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？", remote: true }%>
-                </td>
+            <tr bgcolor=#EEEEEE>
+              <td><%= post.id %></td>
+              <td><%= link_to post.posttitle.truncate(25), public_post_path(post) %></td>
+              <td>
+                <%= link_to attachment_image_tag( post.member, :profileimage, fallback: "no_image.jpg", size: '40x40'), public_member_path(post.member), data: {"turbolinks"=>false} %>
+                <%= post.member.name %>
+              </td>
+              <td><%= post.updated_at.to_s(:datetime_jp) %></td>
+              <td><%= post.answers.count %></td>
+              <td>[<%= post.genre.id %>]/<%= post.genre.name %></td>
+              <td><%= post.impressions_count %></td>
+              <% if member_signed_in? %>
+                <% if post.member.id == current_member.id %>
+                  <td>
+                    <%= link_to '編集する', edit_public_post_path(post), class: 'btn btn-success', data: {"turbolinks"=>false} %>
+                    <%= link_to '削除する', public_post_path(post), method: :delete, class: 'btn btn-danger', data: { confirm: "本当に削除しますか？", remote: true }%>
+                  </td>
+                <% else %>
+                  <td><%= "" %></td>
+                <% end %>
               <% else %>
                 <td><%= "" %></td>
               <% end %>
-            <% else %>
-              <td><%= "" %></td>
-            <% end %>
-          </tr>
+            </tr>
           <% end %>
         </tbody>
       </table>

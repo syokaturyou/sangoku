@@ -28,7 +28,7 @@
         <thead>
         <tbody>
           <% @posts.each do |post| %>
-              <tr bgcolor=#EEEEEE>
+            <tr bgcolor=#EEEEEE>
               <td><%= post.id %></td>
               <td><%= link_to post.posttitle.truncate(25), manager_post_path(post) %></td>
               <td>
