@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
       member.password = SecureRandom.urlsafe_base64
     end
     sign_in member
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました'
   end
 
   protected
