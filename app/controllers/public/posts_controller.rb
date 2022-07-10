@@ -43,7 +43,6 @@ module Public
       @post = Post.find(params[:id])
       # 作成したユーザーのみ編集可能
       return if @post.member == current_member
-
       redirect_to new_public_post_path
     end
 
