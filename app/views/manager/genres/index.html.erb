@@ -23,6 +23,7 @@
           </tr>
         </thead>
         <tbody>
+          <%= render "shared/error", obj: @genre %>
           <% @genres.each do |genre| %>
             <tr bgcolor=#EEEEEE>
               <th>[<%= genre.id %>]/<%= genre.name %></th>
