@@ -85,6 +85,26 @@ module Public
       redirect_to action: :index
     end
 
+    def download
+      @post = Post.find(params[:id])
+      # @answer = Answer.find_by(post_id: params[:id], member_id: current_member.id)
+      # @answers = Answer.find_by(post_id: params[:id])
+      # @answers = @post.answers.where(post_id: @post.id)
+      # @answers = @post.answers
+      # filename = 'example.pdf'
+      # path = Rails.root.join('files', filename)
+      # send_file(path, type: 'application/pdf', filename: filename)
+      # send_file '/path/test.pdf', filename: 'test.pdf'
+      send_data(@post.postbody, :filename => '質問本文.txt', :type => 'text/plain')
+      # logger.debug('おおおお')
+      # # logger.debug(@post.inspect)
+      # logger.debug(@answers.inspect)
+      # filename = '回答本文.txt'
+      # @answers.each do |answer|
+      #   send_data(answer.answerbody, :filename => filename, :type => 'text/plain')
+      # end
+    end
+
     private
 
     def post_params

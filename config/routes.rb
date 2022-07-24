@@ -48,6 +48,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show, :destroy, :create, :update, :edit, :new] do
       resources :answers, only: [:create, :new]
     end
+    get 'posts/:id/download' => 'posts#download', as: 'download'
     #answerの内、createとnewはpostに紐づける必要あり
     resources :answers, only: [:destroy, :update, :edit] do
      resources :rates, only: [:new, :create]
