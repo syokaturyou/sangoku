@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get 'search/result' => 'searchs#result'
   get 'book/search', to: 'books#search'
   get '/tweets/search' => 'tweets#search'
+  get  'download'  => 'hoge#download'
 
   namespace :manager do
     resources :members, only: [:index, :show, :edit, :update]
