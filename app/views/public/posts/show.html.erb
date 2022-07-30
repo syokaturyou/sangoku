@@ -1,6 +1,5 @@
 <% breadcrumb :publicpostshow  %>
 <%= breadcrumbs separator: " > " , class: :logo %>
-<%= button_to 'ファイルダウンロード', public_download_path, method: :get, class: 'btn btn-info' %>
 <div class="oocontainer">
   <div class="row">
     <div class="col-1">
@@ -16,7 +15,9 @@
             <% end %>
           <% end %>
         <% end %>
-        <%= link_to '質問一覧へ戻る', public_posts_path, class: 'btn btn-danger' %>
+        <p><%= link_to '質問一覧へ戻る', public_posts_path, class: 'btn btn-danger' %>
+           <%= button_to '内容ダウンロード', public_download_path, method: :get, class: 'btn btn-info' %>
+        </p>
       </div>
       <div class="dip">
         <table class="posttable">

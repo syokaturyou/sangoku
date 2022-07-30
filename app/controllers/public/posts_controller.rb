@@ -86,23 +86,18 @@ module Public
     end
 
     def download
+      # ダウンロードボタン押下時処理
       @post = Post.find(params[:id])
-      # @answer = Answer.find_by(post_id: params[:id], member_id: current_member.id)
-      # @answers = Answer.find_by(post_id: params[:id])
-      # @answers = @post.answers.where(post_id: @post.id)
-      # @answers = @post.answers
-      # filename = 'example.pdf'
-      # path = Rails.root.join('files', filename)
-      # send_file(path, type: 'application/pdf', filename: filename)
-      # send_file '/path/test.pdf', filename: 'test.pdf'
-      send_data(@post.postbody, :filename => '質問本文.txt', :type => 'text/plain')
-      # logger.debug('おおおお')
-      # # logger.debug(@post.inspect)
-      # logger.debug(@answers.inspect)
-      # filename = '回答本文.txt'
-      # @answers.each do |answer|
-      #   send_data(answer.answerbody, :filename => filename, :type => 'text/plain')
-      # end
+      @answers = @post.answers
+      # ファイル作成・ダウンロード処理 回答がなければ質問内容だけ出力させる
+      filedata = "質問タイトル: " + @post.posttitle + "\n質問者: " + @post.member.name + "\n出典・参考URL: " + @post.postsyutten + "\n質問本文: " + @post.postbody +  "\n"
+      if @answers.count > 0
+        @answers.each do |answer, i|
+          i = "\n回答者: " + answer.member.name + "\n出典・参考URL: " + answer.answersyutten + "\n回答本文: " + answer.answerbody + "\n"
+          filedata.concat(i)
+        end
+      end
+      send_data(filedata, :filename => '回答.txt', :type => 'text/plain')
     end
 
     private
