@@ -41,7 +41,6 @@ module Public
       @answer = Answer.find(params[:id])
       # 作成したユーザーのみ編集可能
       return if @answer.member == current_member
-
       redirect_to public_posts_path
     end
 
