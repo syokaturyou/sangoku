@@ -8,7 +8,9 @@
       <div class"posttitle">
         <h3>質問タイトル</h3>
         <h3><%= simple_format(@post.posttitle) %></h3>
-        <%= link_to '質問一覧へ戻る', manager_posts_path, class: 'btn btn-danger' %>
+        <p><%= link_to '質問一覧へ戻る', manager_posts_path, class: 'btn btn-danger' %>
+           <%= button_to '内容ダウンロード', manager_download_path, method: :get, class: 'btn btn-info' %>
+        </p>
       </div>
       <div class="dip">
         <table class="posttable">

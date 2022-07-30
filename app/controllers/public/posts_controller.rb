@@ -97,7 +97,7 @@ module Public
           filedata.concat(i)
         end
       end
-      send_data(filedata, :filename => '回答.txt', :type => 'text/plain')
+      send_data(filedata, :filename => "#{@post.posttitle}.txt", :type => 'text/plain')
     end
 
     private

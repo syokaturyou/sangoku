@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   namespace :manager do
     resources :members, only: [:index, :show, :edit, :update]
     resources :posts, only: [:index, :show, :destroy]
+    get 'posts/:id/download' => 'posts#download', as: 'download'
     resources :answers, only: [:destroy]
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
   end
