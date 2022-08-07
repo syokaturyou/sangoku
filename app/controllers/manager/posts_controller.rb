@@ -50,7 +50,9 @@ module Manager
           filedata.concat(i)
         end
       end
-      send_data(filedata, :filename => "#{@post.posttitle}.txt", :type => 'text/plain')
+      filename = "#{@post.posttitle}.txt"
+      filename = ERB::Util.url_encode(filename) if /MSIE/ =~ request.user_agent
+      send_data(filedata, :filename => filename, :type => 'text/plain')
     end
 
     def destroy

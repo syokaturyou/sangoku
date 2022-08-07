@@ -98,7 +98,7 @@ module Public
         end
       end
       filename = "#{@post.posttitle}.txt"
-      filename = ERB::Util.url_encode(filename)
+      filename = ERB::Util.url_encode(filename) if /MSIE/ =~ request.user_agent
       send_data(filedata, :filename => filename, :type => 'text/plain')
     end
 
