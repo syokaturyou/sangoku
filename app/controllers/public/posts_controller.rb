@@ -97,7 +97,9 @@ module Public
           filedata.concat(i)
         end
       end
-      send_data(filedata, :filename => "#{@post.posttitle}.txt", :type => 'text/plain')
+      filename = "#{@post.posttitle}.txt"
+      filename = ERB::Util.url_encode(filename)
+      send_data(filedata, :filename => filename, :type => 'text/plain')
     end
 
     private
