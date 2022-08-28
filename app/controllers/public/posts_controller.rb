@@ -2,7 +2,7 @@ module Public
   class PostsController < ApplicationController
     before_action :twitter_client, only: [:create, :update]
     def index
-      # デフォルトは更新日時の降順に並べるよ
+      # デフォルトは更新日時の降順に並べる
       @posts = Post.all.order(updated_at: 'DESC').page(params[:page]).per(10)
       @range = params[:range] # 並べ替え選択時のページネーションを場合分け
       case @range
@@ -70,7 +70,7 @@ module Public
       @post.score = Language.get_data(post_params[:postbody]) # 更新されれば感情スコアも更新されるよう実施
       @post.save
       @post.update(postimage: nil) if params[:image_delete].present? # 「画像なし」を選択した場合postimageをnilにする
-      # 質問更新時にもツイッターbotを動かす
+      # 質問更新時にもツイッターbotを発生させる
       @client.update("質問が更新されました。\n\n#{@post.posttitle}\nwarerano3594.com/public/posts/#{@post.id}\r\
       \n\n回答をお待ちしております\r\n\n#我らの三国志 #三国志 ##{@post.genre.name} ")
       flash[:notice] = '質問を更新しました'
