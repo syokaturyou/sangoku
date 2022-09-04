@@ -34,7 +34,7 @@ module Manager
 
     def show
       @post = Post.find(params[:id])
-      # impressionist(@post, nil) # show画面閲覧時にカウントさせる
+      # impressionist(@post, nil) # show画面閲覧時にカウント
       @answers = @post.answers.order(updated_at: 'DESC').page(params[:page]).per(2) # 回答一覧表示+ページネーション用
     end
 
