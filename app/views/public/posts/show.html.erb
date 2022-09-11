@@ -11,7 +11,7 @@
         <% if member_signed_in? %>
           <% if @post.member.id != current_member.id %>
             <% if @answer.blank? %>
-              <%= link_to ' 新規回答投稿する', new_public_post_answer_path(@post), class: 'btn btn-info', data: {"turbolinks"=>false} %>
+              <%= link_to '新規回答投稿する', new_public_post_answer_path(@post), class: 'btn btn-info', data: {"turbolinks"=>false} %>
             <% end %>
           <% end %>
         <% end %>
