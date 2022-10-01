@@ -33,6 +33,7 @@ module Public
 
     def show
       @post = Post.find(params[:id])
+      logger.info("#{@post.inspect}")
       # impressionist(@post, nil) # show画面閲覧時にカウントさせる
       # 現ログインユーザーが一回既に回答してたらそれ以上回答できなくする
       @answer = Answer.find_by(post_id: params[:id], member_id: current_member.id) if member_signed_in? # 非ログイン時にエラーとなるため
