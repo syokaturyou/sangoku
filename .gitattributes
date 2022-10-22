@@ -1,3 +1,5 @@
+# gitの言語表示割合を改善するため記載
 *sqlite-autoconf-3340000/* linguist-documentation
+*sqlite-autoconf-3340000/tea/* linguist-documentation
 *sqlite-autoconf-3340000/tea/win/* linguist-documentation
 *sqlite-autoconf-3340000/tea/generic/* linguist-documentation
