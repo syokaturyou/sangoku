@@ -1,7 +1,7 @@
 module Public
   class AnswersController < ApplicationController
-    before_action :authenticate_member!
-    before_action :twitter_client, only: [:create, :update]
+    # before_action :authenticate_member!
+    # before_action :twitter_client, only: [:create, :update]
     # 会員側では新規回答投稿、回答編集、回答削除が可能
     def new
       @newanswer = Answer.new
@@ -28,9 +28,9 @@ module Public
           end
         end
         flash[:notice] = '回答を投稿しました'
-        # 新規回答時にツイッターbotを動かす
-        @client.update("回答が入ってました。\n\n#{@newanswer.post.posttitle}\nwarerano3594.com/public/posts/#{@newanswer.post_id}\r\
-        \n\n#我らの三国志 #三国志 ##{@newanswer.post.genre.name} ")
+        # 新規回答時にツイッターbotを動かす 2023 2/7 中断
+        # @client.update("回答が入ってました。\n\n#{@newanswer.post.posttitle}\nwarerano3594.com/public/posts/#{@newanswer.post_id}\r\
+        # \n\n#我らの三国志 #三国志 ##{@newanswer.post.genre.name} ")
         redirect_to public_post_path(@newanswer.post_id)
       else
         redirect_to root_path
@@ -62,9 +62,9 @@ module Public
           end
         end
         flash[:notice] = '回答を更新しました'
-        # 回答更新時にもツイッターbotを動作させる
-        @client.update("回答が更新されました\n\n#{@answer.post.posttitle}\nwarerano3594.com/public/posts/#{@answer.post_id}\r\
-        \n\n#我らの三国志 #三国志 ##{@answer.post.genre.name}")
+        # 回答更新時にもツイッターbotを動作させる 2023/2/7 中断
+        # @client.update("回答が更新されました\n\n#{@answer.post.posttitle}\nwarerano3594.com/public/posts/#{@answer.post_id}\r\
+        # \n\n#我らの三国志 #三国志 ##{@answer.post.genre.name}")
         redirect_to public_post_path(@answer.post_id)
       else
         redirect_to root_path
@@ -77,13 +77,13 @@ module Public
       params.require(:answer).permit(:answerbody, :answersyutten, :answerimage, :post_id, :updated_at)
     end
 
-    def twitter_client
-      @client = Twitter::REST::Client.new do |config|
-        config.consumer_key        = ENV['TWITTER_API_KEY']
-        config.consumer_secret     = ENV['TWITTER_API_SECRET_KEY']
-        config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
-        config.access_token_secret = ENV['TWITTER_ACCESS_SECRET_TOKEN']
-      end
-    end
+    # def twitter_client
+    #   @client = Twitter::REST::Client.new do |config|
+    #     config.consumer_key        = ENV['TWITTER_API_KEY']
+    #     config.consumer_secret     = ENV['TWITTER_API_SECRET_KEY']
+    #     config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
+    #     config.access_token_secret = ENV['TWITTER_ACCESS_SECRET_TOKEN']
+    #   end
+    # end
   end
 end

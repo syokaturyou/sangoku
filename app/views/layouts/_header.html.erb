@@ -12,7 +12,7 @@
             <li><div class="header-nav__header-box"><%= link_to '会員一覧', public_members_path, class: 'fas fa-user nav-link fa-lg' %></div></li>
             <li><div class="header-nav__header-box"><%= link_to 'おすすめ地域一覧', sights_path, class: 'fas fa-solid fa-map nav-link fa-lg' %></div></li>
             <li><div class="header-nav__header-box"><%= link_to '書籍検索', book_search_path, class: 'fas fa-book nav-link fa-lg' %></div></li>
-            <li><div class="header-nav__header-box"><%= link_to 'ツイート検索', tweets_search_path, class: 'fab fa-twitter nav-link fa-lg' %></div></li>
+
             <li><div class="header-nav__header-box"><%= link_to 'ログアウト', destroy_member_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link fa-lg' %></div></li>
           </div>
         </ul>
@@ -40,7 +40,7 @@
             <li><div class="header-nav__header-box"><%= link_to '雑談部屋', zatudans_path, class: 'fas fa-comment-dots nav-link fa-lg' %></div></li>
             <li><div class="header-nav__header-box"><%= link_to '会員一覧', public_members_path, class: 'fas fa-user nav-link fa-lg' %></div></li>
             <li><div class="header-nav__header-box"><%= link_to '書籍検索', book_search_path, class: 'fas fa-book nav-link fa-lg' %></div></li>
-            <li><div class="header-nav__header-box"><%= link_to 'ツイート検索', tweets_search_path, class: 'fab fa-twitter nav-link fa-lg' %></div></li>
+
             <li><div class="header-nav__header-box"><%= link_to 'お問い合わせ', new_contract_path, class: 'fas fa-envelope-square nav-link fa-lg', data: {"turbolinks"=>false} %></div></li>
             <li><div class="header-nav__header-box"><%= link_to "新規登録", new_member_registration_path, class: 'fas fa-registered nav-link fa-lg' %></div></li>
             <li><div class="header-nav__header-box"><%= link_to 'ログイン', new_member_session_path, class: 'fas fa-sign-in-alt nav-link fa-lg' %></div></li>
@@ -65,7 +65,7 @@
         <a><%= link_to 'ゲストログイン', members_guest_sign_in_path, method: :post, class: 'btn btn-warning' %></a>
         <a>各sns認証でログイン⇒
            <%= link_to image_tag("google.png", size: '50x40'), member_google_oauth2_omniauth_authorize_path, method: :post %>
-           <%= link_to image_tag("twitter.png", size: '50x40'), member_twitter_omniauth_authorize_path, method: :post %>
+
            <%= link_to image_tag("facebook.png", size: '50x40'), member_facebook_omniauth_authorize_path, method: :post %>
            <%= link_to image_tag("github.png", size: '50x40'), member_github_omniauth_authorize_path, method: :post %>
         </a>
