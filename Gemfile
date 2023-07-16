@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
+ruby '2.7.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.6'
@@ -111,3 +111,4 @@ gem 'omniauth-google-oauth2' # google認証
 gem 'omniauth-twitter' # twitter認証
 gem 'omniauth-facebook' # facebook認証
 gem 'omniauth-github' # github認証
+# gem "openai" # chatgpt機能
